@@ -3,14 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>BAYDEMIR - JOTUN FINAL GARANTILI</title>
+<title>BAYDEMIR - JOTUN AMBALAJ KUCUK AYAR</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}body{font-family:Arial;background:#012060;padding:0}
 .wrap{max-width:1100px;margin:0 auto;background:#f2f4f7;min-height:100vh;padding:12px;padding-bottom:90px}
 @media(max-width:700px){.wrap{max-width:100%;padding:8px}}
-.header{background:#012060;color:white;padding:0 16px;height:68px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:200;margin:0 -12px 10px -12px}
-.logoBay{height:50px;background:white;padding:4px 14px;border-radius:8px;object-fit:contain}
-.logoJotun{height:42px;object-fit:contain;display:block;background:transparent!important;border:none}
+.header{background:#012060;color:white;padding:0 16px;height:62px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:200;margin:0 -12px 10px -12px}
+.logoBay{height:46px;background:white;padding:4px 12px;border-radius:8px;object-fit:contain}
+.logoJotun{height:38px;object-fit:contain;display:block;background:transparent!important;border:none}
 .card{background:white;border-radius:16px;padding:14px;margin-top:10px;box-shadow:0 2px 8px rgba(0,0,0,0.06);position:relative}
 .select-box{position:relative}.select-box input{width:100%;padding:12px;border:2px solid #012060;border-radius:10px;font-weight:800}
 .drop{position:absolute;top:52px;left:0;right:0;background:white;border-radius:12px;max-height:60vh;overflow:auto;z-index:300;display:none;box-shadow:0 12px 30px rgba(0,0,0,0.3);border:2px solid #012060}
@@ -25,7 +25,7 @@
 #ralDrop{position:absolute;top:104px;left:0;right:0;width:100%;background:white;border-radius:12px;max-height:60vh;overflow:auto;z-index:500;display:none;box-shadow:0 12px 30px rgba(0,0,0,0.35);border:2px solid #012060}
 .ambRow{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:8px;margin-top:8px}.amb{padding:10px;border:2px solid #e5e5e5;border-radius:10px;font-weight:800;text-align:center;cursor:pointer;background:white}.amb.active{background:#012060;color:white}
 .result{background:#111;color:white;border-radius:16px;padding:14px;margin-top:10px}.big{font-size:22px;font-weight:900}
-.settingsBtn{background:#ffcc00;border:none;width:48px;height:48px;min-width:48px;border-radius:12px;font-weight:900;color:#012060;font-size:22px}
+.settingsBtn{background:#ffcc00;border:none;width:32px;height:32px;min-width:32px;border-radius:8px;font-weight:900;color:#012060;font-size:15px;display:flex;align-items:center;justify-content:center;cursor:pointer}
 .settingsPanel{display:none;position:fixed;top:0;right:0;width:100%;max-width:420px;height:100%;background:white;z-index:999;padding:16px;overflow:auto}.overlay{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.6);z-index:998}
 .cokGrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:8px;margin-top:8px}.cokMini{background:white;border:2px solid #012060;border-radius:12px;padding:10px;display:flex;gap:10px;align-items:center;cursor:pointer}
 .cokSw{width:50px;height:50px;min-width:50px;border-radius:10px;border:2px solid #012060}.cokInfo{flex:1;overflow:hidden}.cokRal{font-weight:900;font-size:14px;color:#012060}.cokUrun{font-size:11px;color:#888;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
@@ -37,10 +37,9 @@
 <body>
 <div class="wrap noPrint">
 <div class="header">
-<div style="display:flex;align-items:center;gap:12px"><img id="firmaLogo" src="" class="logoBay" style="display:none" onerror="this.style.display='none'"><div id="firmaYazi" style="font-weight:900;font-size:16px;white-space:nowrap">BAYDEMİR YAPI MARKET - ELEMENT BOYA</div><div id="kurTxt" style="font-size:11px;color:#a8c0e0;margin-left:6px">TCMB: -</div></div>
-<div style="display:flex;align-items:center;gap:12px">
-<!-- GARANTİLİ LOGO: ÖNCE./jotun.png DENER, OLMAZSA GÖMÜLÜ SVG -->
-<img src="./jotun.png" class="logoJotun" id="hdrLogo" onerror="this.onerror=null; this.src='data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMTY4IDQ4IiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxyZWN0IHdpZHRoPSIxNjgiIGhlaWdodD0iNDgiIHJ4PSI2IiBmaWxsPSIjRkNDQzAwIi8+PHRleHQgeD0iMzgiIHk9IjMyIiBmb250LWZhbWlseT0iQXJpYWwgQmxhY2siIGZvbnQtd2VpZ2h0PSI5MDAiIGZvbnQtc2l6ZT0iMzAiIGZpbGw9IiMwMTIwNjAiPkpPVFVOPC90ZXh0Pjwvc3ZnPg=='">
+<div style="display:flex;align-items:center;gap:12px"><img id="firmaLogo" src="" class="logoBay" style="display:none" onerror="this.style.display='none'"><div id="firmaYazi" style="font-weight:900;font-size:15px;white-space:nowrap">BAYDEMİR YAPI MARKET - ELEMENT BOYA</div><div id="kurTxt" style="font-size:10px;color:#a8c0e0;margin-left:6px">TCMB: -</div></div>
+<div style="display:flex;align-items:center;gap:8px">
+<img src="./jotun.png" class="logoJotun" onerror="this.onerror=null; this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjM4IiB2aWV3Qm94PSIwIDAgMTAwIDM4IiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxyZWN0IHdpZHRoPSIxMDAiIGhlaWdodD0iMzgiIHJ4PSI2IiBmaWxsPSIjRkZDQzAwIi8+PHRleHQgeD0iNTAiIHk9IjI1IiBmb250LWZhbWlseT0iQXJpYWwgQmxhY2siIGZvbnQtd2VpZ2h0PSI5MDAiIGZvbnQtc2l6ZT0iMjAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiMwMTIwNjAiPkpPVFVOIDwvdGV4dD48L3N2Zz4='">
 <button class="settingsBtn" onclick="openSettings()">⚙️</button>
 </div>
 </div>
@@ -78,7 +77,7 @@
 <div class="result"><div id="hesapDetay" style="font-size:11px;color:#ccc"></div>
 <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:8px;background:#1e1e1e;border-radius:10px;padding:12px">
 <div><div style="font-size:10px;color:#888">SATIŞ LT TL</div><div id="satisLtTL" style="font-weight:900">-</div></div>
-<div><div style="font-size:10px;color:#888">KOVA TL KDV DAHİL</div><div id="satisKova" class="big">-</div><div id="satisKovaKdv" style="color:#ffcc00;font-size:13px;font-weight:800">-</div></div>
+<div><div style="font-size:10px;color:#888">AMBALAJ TL KDV DAHİL</div><div id="satisKova" class="big">-</div><div id="satisKovaKdv" style="color:#ffcc00;font-size:13px;font-weight:800">-</div></div>
 </div>
 <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px">
 <button onclick="kaydetHafiza()" style="background:#ffcc00;border:none;padding:14px;border-radius:10px;font-weight:900;color:#012060">💾 KAYDET</button>
@@ -101,7 +100,7 @@
 <div style="height:20px"></div>
 <div style="display:flex;justify-content:space-between;border-bottom:2px solid #012060;padding-bottom:10px;align-items:center">
 <div style="display:flex;gap:10px;align-items:center"><img id="printLogo" src="" style="height:50px;display:none;background:white;padding:4px;border-radius:6px;border:1px solid #ddd" onerror="this.style.display='none'"><div><div id="printFirma" style="font-weight:900;font-size:13px;color:#012060">BAYDEMİR</div><div id="printAdres" style="font-size:10px;color:#333">Adres</div><div id="printTelMail" style="font-size:10px;color:#555">Tel - Mail</div></div></div>
-<img src="./jotun.png" style="height:38px;background:transparent" id="printJotun" onerror="this.onerror=null; this.src='data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMTY4IDQ4IiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxyZWN0IHdpZHRoPSIxNjgiIGhlaWdodD0iNDgiIHJ4PSI2IiBmaWxsPSIjRkNDQzAwIi8+PHRleHQgeD0iMzgiIHk9IjMyIiBmb250LWZhbWlseT0iQXJpYWwgQmxhY2siIGZvbnQtd2VpZ2h0PSI5MDAiIGZvbnQtc2l6ZT0iMzAiIGZpbGw9IiMwMTIwNjAiPkpPVFVOPC90ZXh0Pjwvc3ZnPg=='">
+<img src="./jotun.png" style="height:38px;background:transparent" onerror="this.onerror=null; this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjM4IiB2aWV3Qm94PSIwIDAgMTAwIDM4IiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxyZWN0IHdpZHRoPSIxMDAiIGhlaWdodD0iMzgiIHJ4PSI2IiBmaWxsPSIjRkZDQzAwIi8+PHRleHQgeD0iNTAiIHk9IjI1IiBmb250LWZhbWlseT0iQXJpYWwgQmxhY2siIGZvbnQtd2VpZ2h0PSI5MDAiIGZvbnQtc2l6ZT0iMjAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiMwMTIwNjAiPkpPVFVOIDwvdGV4dD48L3N2Zz4='">
 </div>
 <div style="text-align:center;font-weight:900;font-size:16px;margin:20px 0;padding:12px;border:2px solid #012060">FİYAT TEKLİF FORMU</div>
 <div style="display:flex;justify-content:space-between;margin-top:10px;font-size:11px"><div><b>Müşteri:</b> <span id="printMusteri">-</span></div><div><b>Tarih:</b> <span id="printTarih">-</span></div></div>
