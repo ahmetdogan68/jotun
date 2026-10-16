@@ -5,6 +5,26 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>JOTUN - COK KULLANILAN KORUNDU</title>
 <style>
+
+  <script>
+// ÜRÜNLERİ DIŞ DOSYADAN ÇEK - STABİL SİSTEM
+let urunler = [];
+async function loadUrunler(){
+  try{
+    let res = await fetch('./products.json?v='+Date.now());
+    let data = await res.json();
+    // data format: [{ad,fiyat,lt}] -> [ad,fiyat,lt] çevir
+    urunler = data.map(o=>[o.ad, o.fiyat, o.lt]);
+    localStorage.setItem('jotun_urunler_v2', JSON.stringify(urunler));
+    console.log('products.json dan yüklendi', urunler.length);
+  }catch(e){
+    // internet yoksa veya dosya yoksa localStorage'dan al
+    urunler = JSON.parse(localStorage.getItem('jotun_urunler_v2')||'null') || defaultUrunler;
+    console.log('localden yüklendi', e);
+  }
+  renderUrunYonetim(); filterUrun();
+}
+</script>
 *{box-sizing:border-box}body{margin:0;font-family:Arial;background:#f2f4f7;padding:8px;padding-bottom:90px}
 .header{background:#0a2342;color:white;padding:10px 12px;border-radius:14px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:8px;z-index:200}
 .card{background:white;border-radius:14px;padding:12px;margin-top:10px}
