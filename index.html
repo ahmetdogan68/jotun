@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>BAYDEMIR - LOGO ESIT KUR DISLI ALTINDA</title>
+<title>BAYDEMIR - RAL 3TE1</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}body{font-family:Arial;background:#012060;padding:0}
 .wrap{max-width:1100px;margin:0 auto;background:#f2f4f7;min-height:100vh;padding:12px;padding-bottom:90px}
@@ -15,14 +15,16 @@
 .select-box{position:relative}.select-box input{width:100%;padding:12px;border:2px solid #012060;border-radius:10px;font-weight:800}
 .drop{position:absolute;top:52px;left:0;right:0;background:white;border-radius:12px;max-height:60vh;overflow:auto;z-index:300;display:none;box-shadow:0 12px 30px rgba(0,0,0,0.3);border:2px solid #012060}
 .item{padding:10px 12px;border-bottom:1px solid #f0f0f0;display:flex;justify-content:space-between;font-size:12px}
-.ralItem{padding:10px 12px;display:flex;gap:12px;align-items:center;border-bottom:1px solid #f5f5f5;cursor:pointer}.ralSw{width:44px;height:44px;border-radius:8px;border:1px solid #ddd}
+.ralItem{padding:8px 10px;display:flex;gap:10px;align-items:center;border-bottom:1px solid #f5f5f5;cursor:pointer}.ralSw{width:36px;height:36px;border-radius:6px;border:1px solid #ddd}
 .s{padding:10px;border:2px solid #e5e5e5;border-radius:10px;width:100%;font-weight:700;font-size:13px}
-.ralBoxKompakt{position:relative;display:flex;gap:12px;margin-top:8px;align-items:stretch}
-.swatchKompakt{width:160px;min-width:160px;height:92px;border-radius:14px;border:3px solid #012060;background:#fff}
-.bilgiKutu{flex:1;height:92px;border:3px solid #012060;border-radius:14px;background:white;display:flex;flex-direction:column;overflow:hidden}
-.bilgiUst{display:flex;flex:1;border-bottom:2px solid #012060}.bilgiUst input{border:none;border-radius:0;flex:1;text-align:center;font-size:16px;font-weight:900}.bilgiUst input:first-child{border-right:2px solid #012060}.bilgiUst input:last-child{background:#fffbe6;width:140px}
-.bilgiAlt{flex:1;display:flex}.bilgiAlt input{border:none;border-radius:0;text-align:left;padding-left:14px;font-size:14px;font-weight:700;background:#f0f4ff;width:100%}
-#ralDrop{position:absolute;top:104px;left:0;right:0;width:100%;background:white;border-radius:12px;max-height:60vh;overflow:auto;z-index:500;display:none;box-shadow:0 12px 30px rgba(0,0,0,0.35);border:2px solid #012060}
+.ralBoxKompakt{position:relative;display:flex;gap:8px;margin-top:8px;align-items:stretch}
+.swatchKompakt{width:100px;min-width:100px;height:62px;border-radius:10px;border:2px solid #012060;background:#fff}
+.bilgiKutu{flex:1;height:62px;border:2px solid #012060;border-radius:10px;background:white;display:flex;flex-direction:column;overflow:hidden}
+.bilgiUst{display:flex;flex:1;border-bottom:2px solid #012060}.bilgiUst input{border:none;border-radius:0;text-align:center;font-size:14px;font-weight:900;padding:6px}
+.bilgiUst input:first-child{flex:0 0 33%;width:33%;border-right:2px solid #012060}
+.bilgiUst input:last-child{flex:1;background:#fffbe6}
+.bilgiAlt{flex:1;display:flex}.bilgiAlt input{border:none;border-radius:0;text-align:left;padding-left:10px;font-size:13px;font-weight:700;background:#f0f4ff;width:100%}
+#ralDrop{position:absolute;top:70px;left:0;right:0;width:100%;background:white;border-radius:12px;max-height:50vh;overflow:auto;z-index:500;display:none;box-shadow:0 12px 30px rgba(0,0,0,0.35);border:2px solid #012060}
 .ambRow{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:8px;margin-top:8px}.amb{padding:10px;border:2px solid #e5e5e5;border-radius:10px;font-weight:800;text-align:center;cursor:pointer;background:white}.amb.active{background:#012060;color:white}
 .result{background:#111;color:white;border-radius:16px;padding:14px;margin-top:10px}.big{font-size:22px;font-weight:900}
 .settingsBtn{background:#ffcc00;border:none;width:22px;height:22px;min-width:22px;border-radius:6px;font-weight:900;color:#012060;font-size:11px;display:flex;align-items:center;justify-content:center;cursor:pointer}
@@ -39,12 +41,9 @@
 <body>
 <div class="wrap noPrint">
 <div class="header">
-<!-- SOL: FİRMA LOGO 50px TRANSPARAN -->
 <div style="display:flex;align-items:center;gap:10px"><img id="firmaLogo" src="" class="logoBay" style="display:none" onerror="this.style.display='none'"><div id="firmaYazi" style="font-weight:900;font-size:14px;white-space:nowrap">BAYDEMİR YAPI MARKET - ELEMENT BOYA</div></div>
-
-<!-- SAĞ: JOTUN 50px + DİŞLİ 22px + KUR ALTINDA -->
 <div style="display:flex;align-items:center;gap:10px">
-<img src="./jotun.png" class="logoJotun" onerror="this.onerror=null; this.src='data:image/svg+xml;base64,[STRIPPED]'">
+<img src="./jotun.png" class="logoJotun" onerror="this.onerror=null; this.src='data:image/svg+xml;base64,Sk9UVU4='">
 <div class="settingsCol">
 <button class="settingsBtn" onclick="openSettings()">⚙️</button>
 <div id="kurTxt" class="kurAlt">TCMB: -</div>
@@ -100,7 +99,6 @@
 <div id="teklifToplam" style="background:#012060;color:white;border-radius:10px;padding:10px;margin-top:8px;font-size:11px;display:none;text-align:right"></div>
 <button onclick="teklifYazdir()" style="width:100%;margin-top:10px;background:#012060;color:white;border:none;border-radius:10px;padding:14px;font-weight:900">🖨️ TEKLİF FORMU YAZDIR / PDF</button>
 </div>
-
 <div class="card" style="background:#fffbe6"><b style="font-size:13px">⭐ ÇOK KULLANILANLAR</b><div id="hafizaList" class="cokGrid"></div></div>
 </div>
 
@@ -108,16 +106,12 @@
 <div style="height:20px"></div>
 <div style="display:flex;justify-content:space-between;border-bottom:2px solid #012060;padding-bottom:10px;align-items:center">
 <div style="display:flex;gap:10px;align-items:center"><img id="printLogo" src="" style="height:50px;display:none;background:transparent;padding:0;border:none" onerror="this.style.display='none'"><div><div id="printFirma" style="font-weight:900;font-size:13px;color:#012060">BAYDEMİR</div><div id="printAdres" style="font-size:10px;color:#333"></div><div id="printTelMail" style="font-size:10px;color:#555"></div></div></div>
-<img src="./jotun.png" style="height:50px;background:transparent" onerror="this.onerror=null; this.src='data:image/svg+xml;base64,[STRIPPED]'">
+<img src="./jotun.png" style="height:50px;background:transparent">
 </div>
 <div style="text-align:center;font-weight:900;font-size:16px;margin:20px 0;padding:12px;border:2px solid #012060">FİYAT TEKLİF FORMU</div>
 <div style="display:flex;justify-content:space-between;margin-top:10px;font-size:11px"><div><b>Müşteri:</b> <span id="printMusteri">-</span></div><div><b>Tarih:</b> <span id="printTarih">-</span></div></div>
 <div id="printListe" style="margin-top:12px"></div>
 <div id="printToplam" style="margin-top:12px;padding:10px 0;font-size:11px;text-align:right;border-top:1px solid #ddd"></div>
-<div style="display:flex;justify-content:space-between;margin-top:60px">
-<div style="width:200px;text-align:center"><div style="border-top:1px solid #000;padding-top:6px;font-size:11px;font-weight:700">Müşteri Onay / İmza</div></div>
-<div style="width:240px;text-align:center"><div style="border-top:1px solid #000;padding-top:6px;font-size:11px;font-weight:700">Kaşe / İmza<br><span id="printFirmaImza" style="font-size:12px;font-weight:900"></span></div><div style="margin-top:20px;font-size:9px;color:#666">Bu teklif 7 gün geçerlidir</div></div>
-</div>
 </div>
 
 <script>
@@ -134,7 +128,7 @@ async function fetchTCMB(){let info=document.getElementById('kurInfo');info.inne
 function openUrun(){document.getElementById('urunDrop').style.display='block';filterUrun()}function filterUrun(){let q=document.getElementById('urunInput').value.toUpperCase().trim();let list=urunler.map((r,i)=>({r,i})).filter(o=>!q||q.length<2||o.r[0].toUpperCase().includes(q)).slice(0,80);document.getElementById('urunDrop').innerHTML=list.map(o=>`<div class="item" onclick="selectUrun(${o.i})"><span style="font-size:11px">${o.r[0]}</span><b>$${o.r[1]}</b></div>`).join('')}
 function selectUrun(i){secUrunIdx=i;let u=urunler[i];document.getElementById('urunInput').value=u[0];document.getElementById('urunDrop').style.display='none';secLT=u[2];secAmbIdx=ambalajlar.findIndex(a=>a.lt===secLT);if(secAmbIdx===-1)secAmbIdx=2;secLT=ambalajlar[secAmbIdx].lt;document.getElementById('urunDetay').style.display='block';document.getElementById('urunDetay').innerHTML=`✓ ${u[0]} • $${u[1]}/LT`;renderAmb();calc()}
 function renderAmb(){document.getElementById('ambList').innerHTML=ambalajlar.map((a,i)=>`<div class="amb ${i===secAmbIdx?'active':''}" onclick="secAmbIdx=${i};secLT=${a.lt};renderAmb();calc()">${a.ad}</div>`).join('')}
-function openRal(){document.getElementById('ralDrop').style.display='block';filterRal()}function filterRal(){let q=document.getElementById('ralInput').value.toUpperCase().trim();let list=ralList.filter(r=>!q||r.kod.includes(q)||r.isim.toUpperCase().includes(q)).slice(0,120);document.getElementById('ralDrop').innerHTML=list.map(r=>`<div class="ralItem" onclick="selectRal('${r.kod}')"><div class="ralSw" style="background:${r.hex}"></div><div style="flex:1;line-height:1.1"><div style="font-weight:900;font-size:14px">RAL ${r.kod}</div><div style="font-size:11px;color:#666">${r.isim}</div></div></div>`).join('')}
+function openRal(){document.getElementById('ralDrop').style.display='block';filterRal()}function filterRal(){let q=document.getElementById('ralInput').value.toUpperCase().trim();let list=ralList.filter(r=>!q||r.kod.includes(q)||r.isim.toUpperCase().includes(q)).slice(0,120);document.getElementById('ralDrop').innerHTML=list.map(r=>`<div class="ralItem" onclick="selectRal('${r.kod}')"><div class="ralSw" style="background:${r.hex}"></div><div style="flex:1;line-height:1.1"><div style="font-weight:900;font-size:13px">RAL ${r.kod}</div><div style="font-size:10px;color:#666">${r.isim}</div></div></div>`).join('')}
 function selectRal(k){let r=ralList.find(x=>x.kod===k);if(!r)return;document.getElementById('ralInput').value=r.kod;document.getElementById('ralDrop').style.display='none';secRalHex=r.hex;secRalName=r.isim;document.getElementById('swatch').style.background=r.hex;calc()}
 function calc(){if(secUrunIdx===null)return;let pigStr=document.getElementById('pigment').value.trim();let pigToplam=pigStr?parsePara(pigStr):0;let u=urunler[secUrunIdx];let kovaLT=secLT;let pigLt=kovaLT?(pigToplam/kovaLT):0;let maliyetLt=u[1]+pigLt;let kar=ayarlar.kar||30;let satisDolarLt=maliyetLt*(1+kar/100);let kur=ayarlar.dolar?parsePara(ayarlar.dolar):tcmbKur;let satisTlLt=satisDolarLt*kur;let kovaTl=satisTlLt*kovaLT;let kdv=ayarlar.kdv||20;let kovaKdv=kovaTl*(1+kdv/100);sonHesap={urun:u[0],ral:document.getElementById('ralInput').value,hex:secRalHex,isim:secRalName,lt:kovaLT,pigment:pigToplam,maliyetLt,satisTlLt,kovaTl,kovaKdv,form:document.getElementById('ralForm').value};document.getElementById('satisLtTL').innerText=formatPara(satisTlLt);document.getElementById('satisKova').innerText=formatPara(kovaTl);document.getElementById('satisKovaKdv').innerText=`KDV DAHİL: ${formatPara(kovaKdv)}`;document.getElementById('hesapDetay').innerHTML=`<div style="display:flex;gap:8px;align-items:center"><div style="width:18px;height:18px;background:${secRalHex};border-radius:6px;border:1px solid #444"></div><b>RAL ${sonHesap.ral||'-'} ${secRalName}</b> • $${pigToplam} • ${sonHesap.form||''}</div>`;document.getElementById('kurTxt').innerText=`${kur.toFixed(4)}`;}
 function kaydetHafiza(){if(!sonHesap)return alert('Ürün ve RAL seç');let key=`${sonHesap.urun}__${sonHesap.ral}__${sonHesap.lt}__${Date.now()}`;db[key]={...sonHesap,ts:Date.now(),pigmentDisplay:document.getElementById('pigment').value,urunTam:sonHesap.urun};localStorage.setItem('urun_ral_lt_hafiza',JSON.stringify(db));renderHafiza()}
