@@ -3,14 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>BAYDEMIR - RAL 3TE1</title>
+<title>BAYDEMIR - RAL ESIT + DROP 3TE1</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}body{font-family:Arial;background:#012060;padding:0}
 .wrap{max-width:1100px;margin:0 auto;background:#f2f4f7;min-height:100vh;padding:12px;padding-bottom:90px}
 @media(max-width:700px){.wrap{max-width:100%;padding:8px}}
 .header{background:#012060;color:white;padding:0 12px;height:68px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:200;margin:0 -12px 10px -12px}
-.logoBay{height:50px;background:transparent!important;padding:0;border-radius:0;object-fit:contain;border:none}
-.logoJotun{height:50px;object-fit:contain;display:block;background:transparent!important;border:none}
+.logoBay{height:50px;object-fit:contain;border:none;background:transparent}
+.logoJotun{height:50px;object-fit:contain;background:transparent;border:none}
 .card{background:white;border-radius:16px;padding:14px;margin-top:10px;box-shadow:0 2px 8px rgba(0,0,0,0.06);position:relative}
 .select-box{position:relative}.select-box input{width:100%;padding:12px;border:2px solid #012060;border-radius:10px;font-weight:800}
 .drop{position:absolute;top:52px;left:0;right:0;background:white;border-radius:12px;max-height:60vh;overflow:auto;z-index:300;display:none;box-shadow:0 12px 30px rgba(0,0,0,0.3);border:2px solid #012060}
@@ -20,11 +20,13 @@
 .ralBoxKompakt{position:relative;display:flex;gap:8px;margin-top:8px;align-items:stretch}
 .swatchKompakt{width:100px;min-width:100px;height:62px;border-radius:10px;border:2px solid #012060;background:#fff}
 .bilgiKutu{flex:1;height:62px;border:2px solid #012060;border-radius:10px;background:white;display:flex;flex-direction:column;overflow:hidden}
-.bilgiUst{display:flex;flex:1;border-bottom:2px solid #012060}.bilgiUst input{border:none;border-radius:0;text-align:center;font-size:14px;font-weight:900;padding:6px}
-.bilgiUst input:first-child{flex:0 0 33%;width:33%;border-right:2px solid #012060}
-.bilgiUst input:last-child{flex:1;background:#fffbe6}
+.bilgiUst{display:flex;flex:1;border-bottom:2px solid #012060}.bilgiUst input{border:none;border-radius:0;text-align:center;font-size:14px;font-weight:900;padding:6px;flex:1;width:50%}
+.bilgiUst input:first-child{flex:1;width:50%;border-right:2px solid #012060;background:white}
+.bilgiUst input:last-child{flex:1;width:50%;background:#fffbe6}
 .bilgiAlt{flex:1;display:flex}.bilgiAlt input{border:none;border-radius:0;text-align:left;padding-left:10px;font-size:13px;font-weight:700;background:#f0f4ff;width:100%}
-#ralDrop{position:absolute;top:70px;left:0;right:0;width:100%;background:white;border-radius:12px;max-height:50vh;overflow:auto;z-index:500;display:none;box-shadow:0 12px 30px rgba(0,0,0,0.35);border:2px solid #012060}
+/* DROP ARTIK 3'TE 1 */
+#ralDrop{position:absolute;top:70px;left:0;width:33.33%;background:white;border-radius:12px;max-height:50vh;overflow:auto;z-index:500;display:none;box-shadow:0 12px 30px rgba(0,0,0,0.35);border:2px solid #012060}
+@media(max-width:700px){#ralDrop{width:50%}}
 .ambRow{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:8px;margin-top:8px}.amb{padding:10px;border:2px solid #e5e5e5;border-radius:10px;font-weight:800;text-align:center;cursor:pointer;background:white}.amb.active{background:#012060;color:white}
 .result{background:#111;color:white;border-radius:16px;padding:14px;margin-top:10px}.big{font-size:22px;font-weight:900}
 .settingsBtn{background:#ffcc00;border:none;width:22px;height:22px;min-width:22px;border-radius:6px;font-weight:900;color:#012060;font-size:11px;display:flex;align-items:center;justify-content:center;cursor:pointer}
@@ -41,9 +43,9 @@
 <body>
 <div class="wrap noPrint">
 <div class="header">
-<div style="display:flex;align-items:center;gap:10px"><img id="firmaLogo" src="" class="logoBay" style="display:none" onerror="this.style.display='none'"><div id="firmaYazi" style="font-weight:900;font-size:14px;white-space:nowrap">BAYDEMİR YAPI MARKET - ELEMENT BOYA</div></div>
+<div style="display:flex;align-items:center;gap:10px"><img id="firmaLogo" src="" class="logoBay" style="display:none"><div id="firmaYazi" style="font-weight:900;font-size:14px;white-space:nowrap">BAYDEMİR YAPI MARKET - ELEMENT BOYA</div></div>
 <div style="display:flex;align-items:center;gap:10px">
-<img src="./jotun.png" class="logoJotun" onerror="this.onerror=null; this.src='data:image/svg+xml;base64,Sk9UVU4='">
+<img src="./jotun.png" class="logoJotun" onerror="this.style.display='none'">
 <div class="settingsCol">
 <button class="settingsBtn" onclick="openSettings()">⚙️</button>
 <div id="kurTxt" class="kurAlt">TCMB: -</div>
@@ -105,7 +107,7 @@
 <div id="printArea" style="display:none;background:white;padding:20px;color:#111">
 <div style="height:20px"></div>
 <div style="display:flex;justify-content:space-between;border-bottom:2px solid #012060;padding-bottom:10px;align-items:center">
-<div style="display:flex;gap:10px;align-items:center"><img id="printLogo" src="" style="height:50px;display:none;background:transparent;padding:0;border:none" onerror="this.style.display='none'"><div><div id="printFirma" style="font-weight:900;font-size:13px;color:#012060">BAYDEMİR</div><div id="printAdres" style="font-size:10px;color:#333"></div><div id="printTelMail" style="font-size:10px;color:#555"></div></div></div>
+<div style="display:flex;gap:10px;align-items:center"><img id="printLogo" src="" style="height:50px;display:none"><div><div id="printFirma" style="font-weight:900;font-size:13px;color:#012060">BAYDEMİR</div><div id="printAdres" style="font-size:10px;color:#333"></div><div id="printTelMail" style="font-size:10px;color:#555"></div></div></div>
 <img src="./jotun.png" style="height:50px;background:transparent">
 </div>
 <div style="text-align:center;font-weight:900;font-size:16px;margin:20px 0;padding:12px;border:2px solid #012060">FİYAT TEKLİF FORMU</div>
@@ -139,7 +141,7 @@ function teklifYazdir(){if(teklifSepet.length===0){alert('Sepet boş');return;}l
 function yukleCok(k){let o=db[k];if(!o)return;let idx=urunler.findIndex(u=>u[0]===o.urunTam||u[0]===o.urun);if(idx!==-1)selectUrun(idx);document.getElementById('ralInput').value=o.ral||'';secRalHex=o.hex||'#fff';secRalName=o.isim||'';document.getElementById('swatch').style.background=secRalHex;document.getElementById('pigment').value=o.pigmentDisplay||o.pigment||'';document.getElementById('ralForm').value=o.form||'';secLT=o.lt||18;secAmbIdx=ambalajlar.findIndex(a=>a.lt===secLT);if(secAmbIdx===-1)secAmbIdx=2;renderAmb();calc();}
 function renderHafiza(){let keys=Object.keys(db).filter(k=>k.includes('__')).sort((a,b)=>(db[b].ts||0)-(db[a].ts||0));let seen={};let uniq=[];for(let k of keys){let s=`${db[k].ral}__${db[k].urunTam||db[k].urun}`;if(!seen[s]){seen[s]=true;uniq.push(k)}}if(uniq.length===0){document.getElementById('hafizaList').innerHTML='<div style="font-size:11px;color:#999;padding:10px">Henüz yok</div>';return}document.getElementById('hafizaList').innerHTML=uniq.slice(0,30).map(k=>{let o=db[k];let hex=o.hex||'#fff';return `<div class="cokMini" onclick="yukleCok('${k.replace(/'/g,"\\'")}')"><div class="cokSw" style="background:${hex}"></div><div class="cokInfo"><div class="cokRal">${o.urunTam||o.urun}</div><div class="cokUrun">RAL ${o.ral} - ${o.isim||''}</div></div><div>›</div></div>`}).join('')}
 document.getElementById('setKar').value=ayarlar.kar;document.getElementById('setKdv').value=ayarlar.kdv;document.getElementById('setDolar').value=ayarlar.dolar;renderAmb();loadAll();
-document.addEventListener('click',e=>{if(!e.target.closest('.ralBoxKompakt') &&!e.target.closest('#ralDrop')){document.getElementById('ralDrop').style.display='none';}if(!e.target.closest('.select-box')){let u=document.getElementById('urunDrop');if(u)u.style.display='none';}})
+document.addEventListener('click',e=>{if(!e.target.closest('.ralBoxKompakt')){document.getElementById('ralDrop').style.display='none';}if(!e.target.closest('.select-box')){let u=document.getElementById('urunDrop');if(u)u.style.display='none';}})
 </script>
 </body>
 </html>
