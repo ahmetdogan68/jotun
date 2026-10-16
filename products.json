@@ -1,0 +1,20 @@
+[
+  {"ad": "PILOT QD PRIMER GREY (20 LT)", "fiyat": 4.5, "lt": 20},
+  {"ad": "PILOT QD PRIMER RED (20 LT)", "fiyat": 4.5, "lt": 20},
+  {"ad": "PILOT QD PRIMER WHITE", "fiyat": 4.5, "lt": 18},
+  {"ad": "SPEEDY ENAMEL BASE 1", "fiyat": 10, "lt": 18},
+  {"ad": "SPEEDY ENAMEL BASE 2", "fiyat": 10, "lt": 18},
+  {"ad": "SPEEDY ENAMEL BASE 3", "fiyat": 10, "lt": 18},
+  {"ad": "PILOT II BASE 1 (4.50 LT)", "fiyat": 6, "lt": 4.5},
+  {"ad": "PILOT II BASE 1 (18.00 LT)", "fiyat": 6, "lt": 18},
+  {"ad": "PILOT QD TOPCOAT BASE 1 (18 LT)", "fiyat": 5.5, "lt": 18},
+  {"ad": "CONSEAL TU BASE 1 (18 LT)", "fiyat": 5, "lt": 18},
+  {"ad": "CONSEAL TU BASE 1 (4.5 LT)", "fiyat": 5, "lt": 4.5},
+  {"ad": "CONSEAL TU BASE 2 (18 LT)", "fiyat": 5, "lt": 18},
+  {"ad": "CONSEAL TU BASE 3 (18 LT)", "fiyat": 5, "lt": 18},
+  {"ad": "HARDTOP XP BASE 1 COMP.A (16.40 LT)", "fiyat": 5, "lt": 16.4},
+  {"ad": "HARDTOP AX BASE 1 A (3.6 LT)", "fiyat": 5, "lt": 3.6},
+  {"ad": "PENGUARD EXP CF BASE 1 A (14,4LT)", "fiyat": 5, "lt": 14.4},
+  {"ad": "JOTAFLOOR PU TC BS1 A (15LT)", "fiyat": 10, "lt": 15},
+  {"ad": "JOTAFLOOR PU TC COMP B (3LT)", "fiyat": 10, "lt": 3}
+]
