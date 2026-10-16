@@ -147,6 +147,52 @@ document.getElementById('setKar').value=ayarlar.kar;document.getElementById('set
 renderAmb();loadAll();calc();fetchTCMB();
 document.addEventListener('click',e=>{if(!e.target.closest('.select-box')){document.getElementById('urunDrop').style.display='none';document.getElementById('ralDrop').style.display='none'}})
 </script>
+
+  <style>
+/* SADECE ÇOK KULLANILANLAR KISMI DEĞİŞTİ - DAHA GÖSTERİŞLİ */
+.cokGrid{display:grid;grid-template-columns:1fr;gap:8px;margin-top:8px}
+.cokMini{background:white;border:2px solid #0a2342;border-radius:14px;padding:10px 12px;display:flex;gap:12px;align-items:center;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,0.08)}
+.cokSw{width:56px;height:56px;min-width:56px;border-radius:12px;border:2px solid #0a2342;box-shadow:0 3px 8px rgba(0,0,0,0.2)}
+.cokInfo{flex:1;overflow:hidden}
+.cokRal{font-weight:900;font-size:14px;color:#0a2342}
+.cokIsim{font-size:12px;color:#444;font-weight:700}
+.cokUrun{font-size:10px;color:#888;margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%}
+</style>
+
+<script>
+function renderHafiza(){
+  let keys=Object.keys(db).filter(k=>k.includes('__')).sort((a,b)=>(db[b].ts||0)-(db[a].ts||0));
+  let seen={};let uniq=[];
+  for(let k of keys){
+    let o=db[k];
+    let s=`${o.ral}__${o.urunTam}`;
+    if(!seen[s]){seen[s]=true;uniq.push(k)}
+  }
+  document.getElementById('cokSayi').innerText=uniq.length;
+  if(uniq.length===0){
+    document.getElementById('hafizaList').innerHTML='<div style="font-size:11px;color:#999;padding:10px">Henüz kayıt yok - yukarıdan RAL seçip KAYDET de</div>';
+    return
+  }
+  document.getElementById('hafizaList').innerHTML=uniq.slice(0,50).map(k=>{
+    let o=db[k];
+    let hex=o.hex||'#fff';
+    let urunKisa=(o.urunTam||'').replace('(18 LT)','').replace('(20 LT)','').substring(0,32);
+    return `
+    <div class="cokMini" onclick="yukleCok('${k.replace(/'/g,"\\'")}')">
+      <div class="cokSw" style="background:${hex}"></div>
+      <div class="cokInfo">
+        <div class="cokRal">RAL ${o.ral} - ${o.isim||''}</div>
+        <div class="cokIsim" style="display:flex;gap:6px;align-items:center">
+          <span style="display:inline-block;width:14px;height:14px;background:${hex};border-radius:4px;border:1px solid #999;vertical-align:middle"></span>
+          ${o.isim||'Renk'}
+        </div>
+        <div class="cokUrun">🧴 ${urunKisa} • ${o.lt||18}LT ${o.pigmentDisplay?`• Pigment $${o.pigmentDisplay}`:''}</div>
+      </div>
+      <div style="font-size:18px;color:#0a2342">›</div>
+    </div>`
+  }).join('');
+}
+</script>
 </div>
 </body>
 </html>
