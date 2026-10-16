@@ -39,7 +39,7 @@
 <div class="header">
 <div style="display:flex;align-items:center;gap:12px"><img id="firmaLogo" src="" class="logoBay" style="display:none"><div id="firmaYazi" style="font-weight:900;font-size:17px;white-space:nowrap">BAYDEMİR YAPI MARKET - ELEMENT BOYA</div><div id="kurTxt" style="font-size:11px;color:#a8c0e0;margin-left:6px">TCMB: -</div></div>
 <div style="display:flex;align-items:center;gap:12px">
-<img id="headerJotun" src="https://www.jotun.com/globalassets-b2b/jotun-logo.svg" class="logoJotun" onerror="this.src='https://www.jotun.com/globalassets/jotun-logo.svg'">
+<img src="https://www.jotun.com/globalassets-b2b/jotun-logo.svg" class="logoJotun" onerror="this.src='https://www.jotun.com/globalassets/jotun-logo.svg'">
 <button class="settingsBtn" onclick="openSettings()">⚙️</button>
 </div>
 </div>
@@ -66,7 +66,7 @@
 
 <div class="card"><div style="font-size:11px;font-weight:900;color:#012060">1 • ÜRÜN</div><div class="select-box" style="margin-top:6px"><input id="urunInput" placeholder="CONSEAL, PILOT..." onfocus="openUrun()" oninput="openUrun()"><div class="drop" id="urunDrop"></div></div><div id="urunDetay" style="font-size:11px;margin-top:6px;display:none"></div></div>
 
-<div class="card"><div style="font-size:11px;font-weight:900;color:#012060">2 • BÜYÜK RENK - GENİŞ</div>
+<div class="card"><div style="font-size:11px;font-weight:900;color:#012060">2 • RENK </div>
 <div class="ralBoxKompakt">
 <div class="swatchKompakt" id="swatch"></div>
 <div class="bilgiKutu"><div class="bilgiUst"><input id="ralInput" placeholder="RAL KODU" onfocus="openRal()" oninput="openRal()"><input id="pigment" placeholder="$ PIGMENT"></div><div class="bilgiAlt"><input id="ralForm" placeholder="FORMÜL - GENİŞ ALAN"></div></div>
@@ -100,9 +100,9 @@
 <div style="height:20px"></div>
 <div style="display:flex;justify-content:space-between;border-bottom:2px solid #012060;padding-bottom:10px;align-items:center">
 <div style="display:flex;gap:10px;align-items:center"><img id="printLogo" src="" style="height:50px;display:none;background:white;padding:4px;border-radius:6px;border:1px solid #ddd"><div><div id="printFirma" style="font-weight:900;font-size:13px;color:#012060">BAYDEMİR</div><div id="printAdres" style="font-size:10px;color:#333">Adres</div><div id="printTelMail" style="font-size:10px;color:#555">Tel - Mail</div></div></div>
-<img id="printJotun" src="https://www.jotun.com/globalassets-b2b/jotun-logo.svg" style="height:42px;background:transparent" onerror="this.src='https://www.jotun.com/globalassets/jotun-logo.svg'">
+<img src="https://www.jotun.com/globalassets-b2b/jotun-logo.svg" style="height:42px;background:transparent" onerror="this.src='https://www.jotun.com/globalassets/jotun-logo.svg'">
 </div>
-<div style="text-align:center;font-weight:900;font-size:16px;margin:20px 0;padding:12px;border:2px solid #012060;letter-spacing:1px">FİYAT TEKLİF FORMU</div>
+<div style="text-align:center;font-weight:900;font-size:16px;margin:20px 0;padding:12px;border:2px solid #012060">FİYAT TEKLİF FORMU</div>
 <div style="display:flex;justify-content:space-between;margin-top:10px;font-size:11px"><div><b>Müşteri:</b> <span id="printMusteri">-</span></div><div><b>Tarih:</b> <span id="printTarih">-</span></div></div>
 <div id="printListe" style="margin-top:12px"></div>
 <div id="printToplam" style="margin-top:12px;padding:10px 0;font-size:11px;text-align:right;border-top:1px solid #ddd"></div>
@@ -138,7 +138,8 @@ document.getElementById('printFirma').innerText=ayarlar.firmaAdi||'BAYDEMİR';do
 document.getElementById('printFirmaImza').innerText=ayarlar.firmaAdi||'BAYDEMİR';
 if(ayarlar.firmaLogo){document.getElementById('printLogo').src=ayarlar.firmaLogo;document.getElementById('printLogo').style.display='block';}else{document.getElementById('printLogo').style.display='none';}
 let html=`<table style="width:100%;border-collapse:collapse;font-size:11px"><tr style="background:#f5f5f5;color:#111;border-bottom:2px solid #012060"><th style="padding:6px;text-align:left">#</th><th style="padding:6px;text-align:left">ÜRÜN / RENK</th><th style="padding:6px">ADET</th><th style="padding:6px;text-align:right">BİRİM</th><th style="padding:6px;text-align:right">TOPLAM</th></tr>`;let toplam=0,genel=0;teklifSepet.forEach((t,i)=>{toplam+=t.kovaTl*t.adet;genel+=t.kovaKdv*t.adet;html+=`<tr style="border-bottom:1px solid #ddd"><td style="padding:8px">${i+1}</td><td style="padding:8px"><div style="font-weight:900;font-size:12px">${t.urun}</div><div style="font-size:11px;color:#333;margin-top:2px">RAL ${t.ral} - ${t.isim}</div><div style="font-size:10px;color:#666">${t.form?`Formül: ${t.form} • `:''}${t.lt}LT</div></td><td style="padding:8px;text-align:center">${t.adet}</td><td style="padding:8px;text-align:right">${formatPara(t.kovaKdv)}</td><td style="padding:8px;text-align:right;font-weight:700">${formatPara(t.kovaKdv*t.adet)}</td></tr>`});html+=`</table>`;document.getElementById('printListe').innerHTML=html;
-let kdvTutar=genel-toplam;document.getElementById('printToplam').innerHTML=`<div style="text-align:right">TOPLAM (KDV Hariç): ${formatPara(toplam)}</div><div style="text-align:right;margin-top:2px">KDV (%${ayarlar.kdv||20}): ${formatPara(kdvTutar)}</div><div style="text-align:right;margin-top:6px;padding-top:6px;border-top:1px solid #999;font-weight:900;font-size:12px">GENEL TOPLAM (KDV DAHİL): ${formatPara(genel)}</div>`;
+let kdvTutar=genel-toplam;
+document.getElementById('printToplam').innerHTML=`<div style="text-align:right">TOPLAM: ${formatPara(toplam)}</div><div style="text-align:right;margin-top:2px">KDV (%${ayarlar.kdv||20}): ${formatPara(kdvTutar)}</div><div style="text-align:right;margin-top:6px;padding-top:6px;border-top:1px solid #999;font-weight:900;font-size:12px">GENEL TOPLAM: ${formatPara(genel)}</div>`;
 document.getElementById('printArea').style.display='block';window.print();setTimeout(()=>{document.getElementById('printArea').style.display='none'},500);}
 function yukleCok(k){let o=db[k];if(!o)return;let idx=urunler.findIndex(u=>u[0]===o.urunTam||u[0]===o.urun);if(idx!==-1)selectUrun(idx);document.getElementById('ralInput').value=o.ral||'';secRalHex=o.hex||'#fff';secRalName=o.isim||'';document.getElementById('swatch').style.background=secRalHex;document.getElementById('pigment').value=o.pigmentDisplay||o.pigment||'';document.getElementById('ralForm').value=o.form||'';secLT=o.lt||18;secAmbIdx=ambalajlar.findIndex(a=>a.lt===secLT);if(secAmbIdx===-1)secAmbIdx=2;renderAmb();calc();}
 function renderHafiza(){let keys=Object.keys(db).filter(k=>k.includes('__')).sort((a,b)=>(db[b].ts||0)-(db[a].ts||0));let seen={};let uniq=[];for(let k of keys){let s=`${db[k].ral}__${db[k].urunTam||db[k].urun}`;if(!seen[s]){seen[s]=true;uniq.push(k)}}if(uniq.length===0){document.getElementById('hafizaList').innerHTML='<div style="font-size:11px;color:#999;padding:10px">Henüz yok</div>';return}document.getElementById('hafizaList').innerHTML=uniq.slice(0,30).map(k=>{let o=db[k];let hex=o.hex||'#fff';return `<div class="cokMini" onclick="yukleCok('${k.replace(/'/g,"\\'")}')"><div class="cokSw" style="background:${hex}"></div><div class="cokInfo"><div class="cokRal">${o.urunTam||o.urun}</div><div class="cokUrun">RAL ${o.ral} - ${o.isim||''}</div></div><div>›</div></div>`}).join('')}
