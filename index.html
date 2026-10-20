@@ -347,8 +347,9 @@ renderAmb(true);calc();
 }
 function renderAmb(isAuto=false){document.getElementById('ambList').innerHTML=ambalajlar.map((a,i)=>{let cls="amb";if(i===secAmbIdx)cls+=" active";if(isAuto&&i===sonAutoAmb)cls+=" auto-change";return `<div class="${cls}" onclick="secAmbIdx=${i};secLT=${a.lt};sonAutoAmb=-1;renderAmb();calc()">${a.ad}</div>`}).join('');if(isAuto){setTimeout(()=>{sonAutoAmb=-1;renderAmb(false);},1200);}}
 
-// ===================== 27. RAL SECIM =====================
+// ===================== 27. RAL SECIM - RAL6011 SECINCE OTOMATIK PIGMENT - NERDE BU - BURASI =====================
 function openRal(){document.getElementById('ralDrop').style.display='block';filterRal()}
+
 function filterRal(){
   if(!ralList||ralList.length===0){ralList=YEDEK_RAL;}
   let q=document.getElementById('ralInput').value.toUpperCase().trim();
@@ -360,14 +361,52 @@ function filterRal(){
       sw.style.background=exact.hex;sw.innerText='RAL '+exact.kod;
       sw.style.color=(exact.hex.toUpperCase()==="#FFFFFF")?"#012060":"#fff";
       calc();
+      // 4 HANELI RAL YAZINCA OTOMATIK PIGMENT - 6011 YAZINCA
+      if(q.length===4 && /^\d{4}$/.test(q)){
+        document.getElementById('ralDrop').style.display='none';
+        setTimeout(()=>{
+          let pigInput=document.getElementById('pigment');
+          if(pigInput){pigInput.focus();pigInput.scrollIntoView({behavior:'smooth',block:'center'});}
+        },200);
+      }
     }
   }
   let list=ralList.filter(r=>!q||r.kod.includes(q)||r.isim.toUpperCase().includes(q)).slice(0,120);
   document.getElementById('ralDrop').innerHTML=list.map(r=>`<div class="ralItem" onclick="selectRal('${r.kod}')"><div class="ralSw" style="background:${r.hex}"></div><div style="flex:1"><div style="font-weight:900;font-size:13px">RAL ${r.kod}</div><div style="font-size:10px">${r.isim}</div></div></div>`).join('');
   document.getElementById('ralDrop').style.display='block';
 }
-function selectRal(k){let r=(ralList||YEDEK_RAL).find(x=>x.kod===k);if(!r)return;tempRalKod=r.kod;secRalHex=r.hex;secRalName=r.isim;let sw=document.getElementById('swatch');sw.style.background=r.hex;sw.innerText='RAL '+r.kod;sw.style.color=(r.hex.toUpperCase()==="#FFFFFF")?"#012060":"#fff";document.getElementById('ralInput').value=r.kod;document.getElementById('ralDrop').style.display='none';calc();}
+
+function selectRal(k){
+  let r=(ralList||YEDEK_RAL).find(x=>x.kod===k);
+  if(!r) return;
+  tempRalKod=r.kod;secRalHex=r.hex;secRalName=r.isim;
+  let sw=document.getElementById('swatch');
+  sw.style.background=r.hex;sw.innerText='RAL '+r.kod;
+  sw.style.color=(r.hex.toUpperCase()==="#FFFFFF")?"#012060":"#fff";
+  document.getElementById('ralInput').value=r.kod;
+  document.getElementById('ralDrop').style.display='none';
+  calc();
+  // RAL6011 SECINCE OTOMATIK PIGMENT KISMINA GIT - BURASI YENI
+  setTimeout(()=>{
+    let pigInput=document.getElementById('pigment');
+    if(pigInput){
+      pigInput.focus();
+      pigInput.select();
+      pigInput.scrollIntoView({behavior:'smooth',block:'center'});
+      let pigBox=document.getElementById('pigBox');
+      if(pigBox){
+        pigBox.style.transition='all 0.3s';
+        pigBox.style.transform='scale(1.05)';
+        pigBox.style.boxShadow='0 0 10px #ffcc00';
+        pigBox.style.background='#fffbe6';
+        setTimeout(()=>{pigBox.style.transform='scale(1)';pigBox.style.boxShadow='none';},600);
+      }
+    }
+  },150);
+}
+
 function onPigmentChange(){let box=document.getElementById('pigBox');let val=document.getElementById('pigment').value.trim();if(val){box.classList.add('active');}else{box.classList.remove('active');}calc();}
+// ===================== BITTI - RAL SECIM - NERDE BU - BURASI =====================
 
 // ===================== 28. HESAP - SET ICIN AYNI FIYAT - COMP B HESAP YOK =====================
 function calc(){
