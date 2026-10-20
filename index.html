@@ -220,36 +220,66 @@ renderAmb(true);calc();
 }
 function renderAmb(isAuto=false){document.getElementById('ambList').innerHTML=ambalajlar.map((a,i)=>{let cls="amb";if(i===secAmbIdx)cls+=" active";if(isAuto&&i===sonAutoAmb)cls+=" auto-change";return `<div class="${cls}" onclick="secAmbIdx=${i};secLT=${a.lt};sonAutoAmb=-1;renderAmb();calc()">${a.ad}</div>`}).join('');if(isAuto){setTimeout(()=>{sonAutoAmb=-1;renderAmb(false);},1200);}}
 
-// ===================== 27. JS - RAL SECIM =====================
 function openRal(){document.getElementById('ralDrop').style.display='block';filterRal()}
-function filterRal(){let q=document.getElementById('ralInput').value.toUpperCase().trim();let list=ralList.filter(r=>!q||r.kod.includes(q)||r.isim.toUpperCase().includes(q)).slice(0,120);document.getElementById('ralDrop').innerHTML=list.map(r=>`<div class="ralItem" onclick="selectRal('${r.kod}')"><div class="ralSw" style="background:${r.hex}"></div><div style="flex:1"><div style="font-weight:900;font-size:13px">RAL ${r.kod}</div><div style="font-size:10px">${r.isim}</div></div></div>`).join('')}
+function filterRal(){
+  let q=document.getElementById('ralInput').value.toUpperCase().trim();
+  let list=ralList.filter(r=>!q||r.kod.includes(q)||r.isim.toUpperCase().includes(q)).slice(0,120);
+  document.getElementById('ralDrop').innerHTML=list.map(r=>`<div class="ralItem" onclick="selectRal('${r.kod}')"><div class="ralSw" style="background:${r.hex}"></div><div style="flex:1"><div style="font-weight:900;font-size:13px">RAL ${r.kod}</div><div style="font-size:10px">${r.isim}</div></div></div>`).join('');
+  // Elle yazılan kodu da otomatik tanı
+  let exact=ralList.find(x=>x.kod===q);
+  if(exact){secRalHex=exact.hex;secRalName=exact.isim;document.getElementById('swatch').style.background=exact.hex;}
+}
 function selectRal(k){let r=ralList.find(x=>x.kod===k);if(!r)return;document.getElementById('ralInput').value=r.kod;document.getElementById('ralDrop').style.display='none';secRalHex=r.hex;secRalName=r.isim;document.getElementById('swatch').style.background=r.hex;calc()}
-function onPigmentChange(){let box=document.getElementById('pigBox');let val=document.getElementById('pigment').value.trim();if(val){box.classList.add('active');}else{box.classList.remove('active');}calc();}
-
-// ===================== 28. JS - DOGRU HESAP FORMULU - B'LI URUN ICIN =====================
-// FORMUL: (Fiyat x UrunLT + Pigment) / KovaLT
-// 13.5LT urun 18LT kovada: (5 x 13.5 + 20.10) / 18
+function onPigmentChange(){
+  let box=document.getElementById('pigBox');
+  let val=document.getElementById('pigment').value.trim();
+  if(val){box.classList.add('active');}else{box.classList.remove('active');}
+  setTimeout(calc,50); // 50ms sonra mutlaka hesapla
+}
 function calc(){
-if(secUrunIdx===null)return;
-let pigToplam=parsePara(document.getElementById('pigment').value)||0;
+try{
+if(secUrunIdx===null) return;
+let pigStr=document.getElementById('pigment').value||"0";
+pigStr=pigStr.replace(',','.').replace(/[^0-9.]/g,'');
+let pigToplam=parseFloat(pigStr)||0;
+
 let u=urunler[secUrunIdx];
-let urunFiyat=u[1];let urunLT=secUrunLT;let kovaLT=secLT;
+if(!u) return;
+let urunFiyat=parseFloat(u[1])||0;
+let urunLT=parseFloat(secUrunLT)||18;
+let kovaLT=parseFloat(secLT)||18;
+if(kovaLT<=0) kovaLT=18;
+
 let toplamDolarKova=(urunFiyat*urunLT)+pigToplam;
-let maliyetDolarLT=kovaLT?(toplamDolarKova/kovaLT):0;
-let kar=parseFloat(document.getElementById('setKar').value)||ayarlar.kar||30;
+let maliyetDolarLT=toplamDolarKova/kovaLT;
+
+let karEl=document.getElementById('setKar');
+let kar=karEl?parseFloat(karEl.value)||30:30;
 let satisDolarLT=maliyetDolarLT*(1+kar/100);
-let kur=parsePara(document.getElementById('setDolar').value)||tcmbKur;
+
+let kurEl=document.getElementById('setDolar');
+let kurStr=kurEl?kurEl.value:"49,58";
+kurStr=kurStr.replace(',','.').replace(/[^0-9.]/g,'');
+let kur=parseFloat(kurStr)||tcmbKur||49.58;
+
 let satisTlLT=satisDolarLT*kur;
 let kovaTl=satisTlLT*kovaLT;
-let kdv=parseFloat(document.getElementById('setKdv').value)||20;
+let kdvEl=document.getElementById('setKdv');
+let kdv=kdvEl?parseFloat(kdvEl.value)||20:20;
 let kovaKdv=kovaTl*(1+kdv/100);
-sonHesap={urun:u[0],ral:document.getElementById('ralInput').value,hex:secRalHex,isim:secRalName,lt:kovaLT,pigment:pigToplam,maliyetLt:maliyetDolarLT,satisTlLt,kovaTl,kovaKdv,form:document.getElementById('ralForm').value,urunLT:urunLT,toplamDolarKova:toplamDolarKova};
-document.getElementById('satisLtTL').innerText=formatPara(satisTlLT);
-document.getElementById('satisKova').innerText=formatPara(kovaTl);
-document.getElementById('satisKovaKdv').innerText=`KDV DAHİL: ${formatPara(kovaKdv)}`;
-document.getElementById('formulDetay').innerHTML=`($${urunFiyat} x ${urunLT}LT + $${pigToplam}) / ${kovaLT}LT = $${maliyetDolarLT.toFixed(3)}<br>$${maliyetDolarLT.toFixed(3)} x %${kar} x ${kur.toFixed(2)}₺`;
-document.getElementById('hesapDetay').innerHTML=`RAL ${secRalName} • Pigment $${pigToplam} ✓ ${kovaLT}LT'ye bölündü`;
-document.getElementById('kurTxt').innerText=`${kur.toFixed(2)}`;
+
+sonHesap={urun:u[0],ral:document.getElementById('ralInput').value||'7021',hex:secRalHex,isim:secRalName,lt:kovaLT,pigment:pigToplam,satisTlLt,kovaTl,kovaKdv,form:document.getElementById('ralForm').value,urunLT:urunLT};
+
+let el1=document.getElementById('satisLtTL'); if(el1) el1.innerText=formatPara(satisTlLT);
+let el2=document.getElementById('satisKova'); if(el2) el2.innerText=formatPara(kovaTl);
+let el3=document.getElementById('satisKovaKdv'); if(el3) el3.innerText=`KDV DAHİL: ${formatPara(kovaKdv)}`;
+let el4=document.getElementById('formulDetay'); if(el4) el4.innerHTML=`($${urunFiyat} x ${urunLT}LT + $${pigToplam}) / ${kovaLT}LT = $${maliyetDolarLT.toFixed(3)}<br>$${maliyetDolarLT.toFixed(3)} x %${kar} x ${kur.toFixed(2)}₺`;
+let el5=document.getElementById('hesapDetay'); if(el5) el5.innerHTML=`<div style="display:flex;gap:8px;align-items:center"><div style="width:18px;height:18px;background:${secRalHex};border-radius:4px;border:1px solid #444"></div><b>RAL ${sonHesap.ral} ${secRalName}</b> • Pigment $${pigToplam} ✓</div>`;
+let el6=document.getElementById('kurTxt'); if(el6) el6.innerText=kur.toFixed(2);
+}catch(e){
+console.log("CALC HATA:",e);
+let el=document.getElementById('satisLtTL'); if(el) el.innerText="HATA: "+e.message;
+}
 }
 
 // ===================== 29. JS - KAYDET VE COK KULLANILANLAR =====================
