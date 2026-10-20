@@ -94,16 +94,67 @@
 <button onclick="saveSettings();closeSettings()" style="width:100%;padding:14px;background:#012060;color:white;border:none;border-radius:10px;font-weight:900;margin-top:16px">✅ KAYDET KAPAT</button>
 </div>
 
-<div class="yeniUrunModal" id="yeniUrunModal" onclick="if(event.target===this)closeYeniUrun()">
-<div class="yeniUrunBox">
-<h3 style="color:#012060">➕ YENİ ÜRÜN - DİREKT LİSTEYE</h3>
-<div class="firmaInput"><label>ÜRÜN ADI (LT ile)</label><input id="yeniAd" class="s" placeholder="ÜRÜN ADI (18 LT)"></div>
-<div class="firmaInput"><label>LT</label><input id="yeniLt" class="s" type="number" step="0.1" placeholder="18"></div>
-<div class="firmaInput"><label>KATEGORİ</label><select id="yeniKat" class="s"><option>Poliüretan Sonkat</option><option>Epoxy Sonkat</option><option>Çinko Astar</option><option>Alkid Astar</option><option>Alkid Sonkat</option><option>Tiner</option><option>Shopprimer Astar</option><option>Tank Astarı</option><option>Steelmaster</option></select></div>
-<div class="firmaInput"><label>FİYAT $</label><input id="yeniFiyat" class="s" type="number" step="0.1" placeholder="5.7"></div>
-<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px"><button onclick="closeYeniUrun()" style="padding:12px;border-radius:10px;border:2px solid #ccc;background:white;font-weight:900">İPTAL</button><button onclick="saveYeniUrun()" style="padding:12px;border-radius:10px;border:none;background:#0a7a2f;color:white;font-weight:900">✅ KAYDET</button></div>
+<!-- SİL - BUNA GEREK YOK -->
+<!-- <button onclick="indirGuncelJson()">📥 GÜNCEL products.json İNDİR</button> -->
+
+<!-- YENİ - DİREK BURANIN İÇİNE ETKİ EDEN - FİYAT GİRME TABLOSU -->
+<div id="fiyatPanel" style="background:#fff;border:2px solid #012060;border-radius:10px;padding:10px;margin:10px 0">
+  <div style="display:flex;justify-content:space-between;align-items:center">
+    <b style="color:#012060;font-size:13px">✏️ DİREK BURADAN FİYAT GİR - Fiyatı 0 olanlar</b>
+    <button onclick="document.getElementById('fiyatTablo').style.display=document.getElementById('fiyatTablo').style.display=='none'?'block':'none'" style="background:#012060;color:#fff;border:none;border-radius:5px;padding:3px 8px;font-size:10px">AÇ/KAPAT</button>
+  </div>
+  <div id="fiyatTablo" style="display:none;margin-top:8px;max-height:300px;overflow-y:auto">
+    <div style="display:grid;grid-template-columns:2fr 0.5fr 0.5fr auto;gap:4px;font-size:10px;font-weight:900;background:#ffcc00;padding:4px;border-radius:4px">
+      <span>ÜRÜN ADI</span><span>LT</span><span>FİYAT TL/LT</span><span></span>
+    </div>
+    <div id="fiyatSatirlari"></div>
+    <button onclick="exportFiyatJson()" style="margin-top:8px;background:#012060;color:#ffcc00;border:none;border-radius:6px;padding:6px 12px;font-weight:900;width:100%">💾 GÜNCEL products.json'u İNDİR - GitHub'a yükle</button>
+  </div>
 </div>
-</div>
+
+<script>
+function renderFiyatDuzenle(){
+  let html="";
+  // Sadece fiyati 0 olanlari goster - senin resimdeki gibi
+  urunler.forEach((u,i)=>{
+    let o=u[5]||u;
+    let fiyat=o.fiyat||0;
+    if(fiyat==0){
+      html+=`<div style="display:grid;grid-template-columns:2fr 0.5fr 0.5fr auto;gap:4px;padding:3px 0;border-bottom:1px solid #eee;align-items:center">
+        <span style="font-size:10px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis" title="${o.ad}">${o.ad}</span>
+        <span style="font-size:10px">${o.lt}</span>
+        <input id="f_${i}" type="number" step="0.01" value="${fiyat}" placeholder="0" style="border:1px solid #012060;border-radius:4px;padding:2px;font-size:10px;width:100%">
+        <button onclick="kaydetTekFiyat(${i})" style="background:#00c853;color:#fff;border:none;border-radius:4px;padding:2px 6px;font-size:9px">KAYDET</button>
+      </div>`;
+    }
+  });
+  if(!html) html="<div style='font-size:11px;color:green;padding:10px'>✅ Tüm fiyatlar girilmiş</div>";
+  document.getElementById('fiyatSatirlari').innerHTML=html;
+}
+function kaydetTekFiyat(i){
+  let fiyat=parseFloat(document.getElementById('f_'+i).value)||0;
+  let u=urunler[i];
+  if(u && u[5]) u[5].fiyat=fiyat;
+  u[1]=fiyat; // ana dizi
+  // localStorage'a kaydet - direkt buraya etki
+  let custom=JSON.parse(localStorage.getItem('fiyat_duzeltme')||'{}');
+  custom[u[0]]=fiyat;
+  localStorage.setItem('fiyat_duzeltme', JSON.stringify(custom));
+  alert(u[0]+" -> "+fiyat+" TL/LT kaydedildi - sayfada hemen hesaplar");
+  calc(); renderTeklif();
+}
+function exportFiyatJson(){
+  // Tum listeyi guncel fiyatlarla indir - GitHub'a yuklemek icin
+  let yeniListe = urunler.map(u=>{
+    let o=u[5]||{ad:u[0],fiyat:u[1],lt:u[2],kategori:u[3]};
+    return {ad:o.ad, fiyat:u[1]||o.fiyat||0, lt:o.lt||0, kategori:o.kategori||""};
+  });
+  let blob=new Blob([JSON.stringify(yeniListe,null,2)],{type:"application/json"});
+  let a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download="products.json";a.click();
+}
+// loadAll bittikten sonra cagir
+setTimeout(()=>{if(typeof urunler!=='undefined') renderFiyatDuzenle();},1000);
+</script>
 
 <div class="card"><div style="display:flex;justify-content:space-between;align-items:center"><div style="font-size:11px;font-weight:900;color:#012060">1 • ÜRÜN - <span id="canliSay">0</span> adet - <span id="kaynak" style="color:#0a7a2f;font-size:10px"></span> - <span style="background:#0a7a2f;color:white;padding:2px 6px;border-radius:4px;font-size:9px">SETLER OTOMATİK</span></div><button onclick="loadAll()" style="background:#eef3ff;border:1px solid #012060;border-radius:6px;padding:4px 8px;font-size:10px;font-weight:900">🔄 YENİLE</button></div><div class="select-box" style="margin-top:6px"><input id="urunInput" placeholder="FUTURA, OPTIPRO, PILOT..." onfocus="openUrun()" oninput="openUrun()"><button class="addBtnMain" onclick="openYeniUrun()">+ YENİ ÜRÜN</button><div class="drop" id="urunDrop"></div></div><div id="urunDetay" style="font-size:11px;margin-top:6px;display:none"></div><div id="setInfo" class="setInfo"></div></div>
 
