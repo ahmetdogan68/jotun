@@ -19,11 +19,29 @@ body{font-family:Arial;background:#012060}
 /* ===================== 3. KART YAPISI - ORTAK ===================== */
 .card{background:white;border-radius:16px;padding:14px;margin-top:12px;box-shadow:0 2px 8px rgba(0,0,0,0.06);position:relative;overflow:visible}
 
+/* URUN KARTI EN ÜSTTE KALSIN - DROPDOWN İÇİN */
+.card:nth-of-type(1){z-index:600}
+.card:nth-of-type(2){z-index:100}
+
 /* ===================== 4. URUN SECIM - DROPDOWN FIX BURADA ===================== */
-.select-box{position:relative;z-index:400;overflow:visible}
+.select-box{position:relative;z-index:700;overflow:visible}
 .select-box input{width:100%;padding:12px;border:2px solid #012060;border-radius:10px;font-weight:800}
-.drop{position:absolute;top:48px;left:0;right:0;background:white;border-radius:12px;max-height:60vh;overflow:auto;z-index:10000;display:none;box-shadow:0 12px 30px rgba(0,0,0,0.4);border:2px solid #012060}
-.item{padding:10px 12px;border-bottom:1px solid #f0f0f0;display:flex;justify-content:space-between;font-size:12px;cursor:pointer}
+.drop{
+  position:absolute;
+  top:calc(100% + 6px); /* input'un hemen altına */
+  left:0;
+  right:0;
+  background:white;
+  border-radius:12px;
+  max-height:65vh;
+  overflow:auto;
+  z-index:9999;
+  display:none;
+  box-shadow:0 15px 40px rgba(0,0,0,0.4);
+  border:2px solid #012060;
+}
+.item{padding:12px 12px;border-bottom:1px solid #f0f0f0;display:flex;justify-content:space-between;font-size:12px;cursor:pointer;background:white}
+.item:hover{background:#eef3ff}
 
 /* ===================== 5. RENK - RAL KODU VE PIGMENT ===================== */
 .ralBoxKompakt{position:relative;display:flex;gap:8px;margin-top:8px;align-items:stretch}
