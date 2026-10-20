@@ -214,8 +214,8 @@ if(exact){secRalHex=exact.hex;secRalName=exact.isim;document.getElementById('swa
 function selectRal(k){let r=ralList.find(x=>x.kod===k);if(!r)return;document.getElementById('ralInput').value=r.kod;document.getElementById('ralDrop').style.display='none';secRalHex=r.hex;secRalName=r.isim;document.getElementById('swatch').style.background=r.hex;calc()}
 function onPigmentChange(){let box=document.getElementById('pigBox');let val=document.getElementById('pigment').value.trim();if(val){box.classList.add('active');}else{box.classList.remove('active');}setTimeout(calc,50);}
 
-// ===================== 28. HESAP - B'LI URUN ICIN DOGRU FORMUL - ASLA HATA VERMEZ =====================
-// FORMUL: (Fiyat x UrunLT + Pigment) / KovaLT -> Sonra Kar ve Dolar
+
+// ===================== 28. HESAP - HATA DUZELTILDI =====================
 function calc(){
 try{
 if(secUrunIdx===null) return;
@@ -226,24 +226,45 @@ let urunFiyat=parseFloat(u[1])||0;
 let urunLT=parseFloat(secUrunLT)||18;
 let kovaLT=parseFloat(secLT)||18;
 if(kovaLT<=0) kovaLT=18;
+
 let toplamDolarKova=(urunFiyat*urunLT)+pigToplam;
 let maliyetDolarLT=toplamDolarKova/kovaLT;
 let kar=parseFloat(document.getElementById('setKar')?.value)||ayarlar.kar||30;
 let satisDolarLT=maliyetDolarLT*(1+kar/100);
 let kurStr=(document.getElementById('setDolar')?.value||"49,58").toString().replace(',','.').replace(/[^0-9.]/g,'');
 let kur=parseFloat(kurStr)||tcmbKur||49.58;
+
 let satisTlLT=satisDolarLT*kur;
 let kovaTl=satisTlLT*kovaLT;
 let kdv=parseFloat(document.getElementById('setKdv')?.value)||20;
 let kovaKdv=kovaTl*(1+kdv/100);
-sonHesap={urun:u[0],ral:document.getElementById('ralInput').value||'',hex:secRalHex,isim:secRalName,lt:kovaLT,pigment:pigToplam,satisTlLt:satisTlLT,kovaTl,kovaKdv,form:document.getElementById('ralForm').value,urunLT:urunLT};
-document.getElementById('satisLtTL').innerText=formatPara(satisTlLT);
-document.getElementById('satisKova').innerText=formatPara(kovaTl);
-document.getElementById('satisKovaKdv').innerText=`KDV DAHİL: ${formatPara(kovaKdv)}`;
-document.getElementById('formulDetay').innerHTML=`($${urunFiyat} x ${urunLT}LT + $${pigToplam}) / ${kovaLT}LT = $${maliyetDolarLT.toFixed(3)}/LT<br>$${maliyetDolarLT.toFixed(3)} x %${kar} x ${kur.toFixed(2)}₺`;
-document.getElementById('hesapDetay').innerHTML=`<div style="display:flex;gap:8px;align-items:center"><div style="width:18px;height:18px;background:${secRalHex};border-radius:4px;border:1px solid #444"></div><b>RAL ${sonHesap.ral||''} ${secRalName}</b> • Pigment $${pigToplam} ✓ • ${kovaLT}LT</div>`;
+
+sonHesap={
+  urun:u[0],
+  ral:document.getElementById('ralInput').value||'7021',
+  hex:secRalHex,
+  isim:secRalName,
+  lt:kovaLT,
+  pigment:pigToplam,
+  satisTlLt:satisTlLT,
+  kovaTl:kovaTl,
+  kovaKdv:kovaKdv,
+  form:document.getElementById('ralForm').value,
+  urunLT:urunLT
+};
+
+// --- EKRANA YAZ ---
+document.getElementById('satisLtTL').innerText=formatPara(sonHesap.satisTlLt);
+document.getElementById('satisKova').innerText=formatPara(sonHesap.kovaTl);
+document.getElementById('satisKovaKdv').innerText=`KDV DAHİL: ${formatPara(sonHesap.kovaKdv)}`;
+document.getElementById('formulDetay').innerHTML=`($${urunFiyat} x ${urunLT}LT + $${pigToplam}) / ${kovaLT}LT = $${maliyetDolarLT.toFixed(3)}<br>$${maliyetDolarLT.toFixed(3)} x %${kar} x ${kur.toFixed(2)}₺`;
+document.getElementById('hesapDetay').innerHTML=`<div style="display:flex;gap:8px;align-items:center"><div style="width:18px;height:18px;background:${secRalHex};border-radius:4px;border:1px solid #444"></div><b>RAL ${sonHesap.ral} ${secRalName}</b> • Pigment $${pigToplam} ✓</div>`;
 document.getElementById('kurTxt').innerText=kur.toFixed(2);
-}catch(e){console.log("CALC HATA",e);}
+
+}catch(e){
+console.log("CALC HATA",e);
+document.getElementById('satisLtTL').innerText="HATA: "+e.message;
+}
 }
 
 // ===================== 29. KAYDET VE COK KULLANILAN =====================
