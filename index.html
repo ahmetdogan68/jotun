@@ -283,6 +283,43 @@ loadAll();
 document.addEventListener('click',e=>{
 if(!e.target.closest('.ralBoxKompakt')){document.getElementById('ralDrop').style.display='none';}
 if(!e.target.closest('.select-box')){let u=document.getElementById('urunDrop');if(u)u.style.display='none';}
+
+  // ===================== YENI - URUN EKLE / KAYDET =====================
+let customUrunler = JSON.parse(localStorage.getItem('custom_urunler')||'[]');
+
+function urunEkle(){
+  let ad = prompt("Ürün adı (LT ile): ÖRN: YENI URUN (18 LT)");
+  if(!ad) return;
+  let lt = parseFloat(ad.match(/([\\d.,]+)\\s*LT/i)?.[1]?.replace(',','.')||18);
+  let kat = prompt("Özellik/Kategori:","Poliüretan Sonkat");
+  let fiyat = parseFloat(prompt("Fiyat $:","5")?.replace(',','.'));
+  customUrunler.push({ad, fiyat, lt, kategori: kat});
+  localStorage.setItem('custom_urunler', JSON.stringify(customUrunler));
+  loadAll(); alert("Kaydedildi! ✅");
+}
+
+function fiyatGuncelle(ad){
+  let yeni = prompt(`${ad} için yeni fiyat $:`);
+  if(!yeni) return;
+  // Önce custom'da var mı bak
+  let idx = customUrunler.findIndex(x=>x.ad===ad);
+  if(idx>-1){ customUrunler[idx].fiyat = parseFloat(yeni.replace(',','.')); }
+  else { 
+    // products.json'dakini custom'a taşı ve fiyatı değiştir
+    let orj = urunler.find(x=>x[0]===ad);
+    customUrunler.push({ad: orj[0], fiyat: parseFloat(yeni.replace(',','.')), lt: orj[2], kategori: orj[3]||""});
+  }
+  localStorage.setItem('custom_urunler', JSON.stringify(customUrunler));
+  loadAll();
+}
+
+// products.json + custom birleştir
+async function loadAll(){
+  let base = await fetch('./products.json').then(r=>r.json());
+  urunler = [...base, ...customUrunler].map(o=>[o.ad,o.fiyat,o.lt,o.kategori||""]);
+  urunler.sort((a,b)=>a[0].localeCompare(b[0],'tr'));
+  filterUrun();
+}
 });
 </script>
 </body>
