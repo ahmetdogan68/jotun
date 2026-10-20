@@ -2,89 +2,178 @@
 <html lang="tr">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-<title>BAYDEMIR - MOBIL + OTO AMBALAJ</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BAYDEMIR - FINAL MODULER</title>
+
 <style>
-*{box-sizing:border-box;margin:0;padding:0}body{font-family:Arial;background:#012060;padding:0}
+
+/* ===================== */
+/* 1. GENEL AYARLAR       */
+/* ===================== */
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Arial;background:#012060;padding:0}
 .wrap{max-width:1100px;margin:0 auto;background:#f2f4f7;min-height:100vh;padding:12px;padding-bottom:90px}
+
+/* ===================== */
+/* 2. HEADER              */
+/* ===================== */
 .header{background:#012060;color:white;padding:0 12px;height:68px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:200;margin:0 -12px 10px -12px}
-.logoBay{height:50px;object-fit:contain}.logoJotun{height:50px;object-fit:contain;background:transparent;border:none}
-.card{background:white;border-radius:16px;padding:14px;margin-top:10px;box-shadow:0 2px 8px rgba(0,0,0,0.06);position:relative}
-.select-box{position:relative}.select-box input{width:100%;padding:12px;border:2px solid #012060;border-radius:10px;font-weight:800}
+.logoBay{height:50px;object-fit:contain}
+.logoJotun{height:50px;object-fit:contain}
+
+/* ===================== */
+/* 3. KARTLAR             */
+/* ===================== */
+.card{background:white;border-radius:16px;padding:14px;margin-top:12px;box-shadow:0 2px 8px rgba(0,0,0,0.06)}
+
+/* ===================== */
+/* 4. URUN ARAMA          */
+/* ===================== */
+.select-box{position:relative}
+.select-box input{width:100%;padding:12px;border:2px solid #012060;border-radius:10px;font-weight:800}
 .drop{position:absolute;top:52px;left:0;right:0;background:white;border-radius:12px;max-height:60vh;overflow:auto;z-index:300;display:none;box-shadow:0 12px 30px rgba(0,0,0,0.3);border:2px solid #012060}
-.item{padding:10px 12px;border-bottom:1px solid #f0f0f0;display:flex;justify-content:space-between;font-size:12px}
-.ralItem{padding:8px 10px;display:flex;gap:10px;align-items:center;border-bottom:1px solid #f5f5f5;cursor:pointer}.ralSw{width:36px;height:36px;border-radius:6px;border:1px solid #ddd}
-.s{padding:10px;border:2px solid #e5e5e5;border-radius:10px;width:100%;font-weight:700;font-size:13px}
+.item{padding:10px 12px;border-bottom:1px solid #f0f0f0;display:flex;justify-content:space-between;font-size:12px;cursor:pointer}
+
+/* ===================== */
+/* 5. RENK / RAL KUTUSU   */
+/* ===================== */
 .ralBoxKompakt{position:relative;display:flex;gap:8px;margin-top:8px;align-items:stretch}
 .swatchKompakt{width:100px;min-width:100px;height:62px;border-radius:10px;border:2px solid #012060;background:#fff}
 .bilgiKutu{flex:1;height:62px;border:2px solid #012060;border-radius:10px;background:white;display:flex;flex-direction:column;overflow:hidden}
-.bilgiUst{display:flex;flex:1;border-bottom:2px solid #012060}.bilgiUst input{border:none;border-radius:0;text-align:center;font-size:14px;font-weight:900;padding:6px;flex:1;width:50%}
-.bilgiUst input:first-child{flex:1;border-right:2px solid #012060}.bilgiUst input:last-child{background:#fffbe6}
-.bilgiAlt{flex:1;display:flex}.bilgiAlt input{border:none;border-radius:0;text-align:left;padding-left:10px;font-size:13px;font-weight:700;background:#f0f4ff;width:100%}
+.bilgiUst{display:flex;flex:1;border-bottom:2px solid #012060}
+.bilgiUst input{border:none;text-align:center;font-size:14px;font-weight:900;padding:6px;flex:1}
+.bilgiUst input:first-child{border-right:2px solid #012060}
+.bilgiUst input:last-child{background:#fffbe6}
+.bilgiAlt{flex:1;display:flex}
+.bilgiAlt input{border:none;padding-left:10px;font-size:13px;font-weight:700;background:#f0f4ff;width:100%}
 #ralDrop{position:absolute;top:70px;left:0;width:33.33%;background:white;border-radius:12px;max-height:50vh;overflow:auto;z-index:500;display:none;box-shadow:0 12px 30px rgba(0,0,0,0.35);border:2px solid #012060}
+.ralItem{padding:8px 10px;display:flex;gap:10px;align-items:center;border-bottom:1px solid #f5f5f5;cursor:pointer}
+.ralSw{width:36px;height:36px;border-radius:6px;border:1px solid #ddd}
+.s{padding:10px;border:2px solid #e5e5e5;border-radius:10px;width:100%;font-weight:700;font-size:13px}
+
+/* ===================== */
+/* 6. AMBALAJ - OTO SECIM */
+/* ===================== */
 .ambRow{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:8px;margin-top:8px}
 .amb{padding:10px;border:2px solid #e5e5e5;border-radius:10px;font-weight:800;text-align:center;cursor:pointer;background:white;transition:all 0.3s}
 .amb.active{background:#012060;color:white}
 .amb.auto-change{background:#012060!important;color:#ffcc00!important;transform:scale(1.08);box-shadow:0 0 15px #ffcc00;animation:flash 1s ease}
-@keyframes flash{0%{background:#ffcc00;color:#012060;transform:scale(1.15)}50%{background:#012060;color:#ffcc00;transform:scale(1.08)}100%{background:#012060;color:white;transform:scale(1)}}
-.result{background:#111;color:white;border-radius:16px;padding:14px;margin-top:10px}.big{font-size:22px;font-weight:900}
+@keyframes flash{0%{background:#ffcc00;color:#012060;transform:scale(1.15)}50%{background:#012060;color:#ffcc00}100%{background:#012060;color:white}}
+
+/* ===================== */
+/* 7. HESAP SONUCU        */
+/* ===================== */
+.result{background:#111;color:white;border-radius:16px;padding:14px;margin-top:10px}
+.big{font-size:22px;font-weight:900}
+
+/* ===================== */
+/* 8. TEKLIF + HAFIZA     */
+/* ===================== */
 .settingsBtn{background:#ffcc00;border:none;width:22px;height:22px;border-radius:6px;font-weight:900;color:#012060;display:flex;align-items:center;justify-content:center;cursor:pointer}
-.settingsCol{display:flex;flex-direction:column;align-items:center;gap:2px}.kurAlt{font-size:9px;color:#ffcc00;font-weight:800}
-.settingsPanel{display:none;position:fixed;top:0;right:0;width:100%;max-width:420px;height:100%;background:white;z-index:999;padding:16px;overflow:auto}.overlay{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.6);z-index:998}
-.cokGrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:8px;margin-top:8px}.cokMini{background:white;border:2px solid #012060;border-radius:12px;padding:10px;display:flex;gap:10px;align-items:center;cursor:pointer}
-.cokSw{width:50px;height:50px;min-width:50px;border-radius:10px;border:2px solid #012060}.cokInfo{flex:1;overflow:hidden}.cokRal{font-weight:900;font-size:14px;color:#012060}.cokUrun{font-size:11px;color:#888;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.settingsCol{display:flex;flex-direction:column;align-items:center;gap:2px}
+.kurAlt{font-size:9px;color:#ffcc00;font-weight:800}
+.settingsPanel{display:none;position:fixed;top:0;right:0;width:100%;max-width:420px;height:100%;background:white;z-index:999;padding:16px;overflow:auto}
+.overlay{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.6);z-index:998}
+.cokGrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:8px;margin-top:8px}
+.cokMini{background:white;border:2px solid #012060;border-radius:12px;padding:10px;display:flex;gap:10px;align-items:center;cursor:pointer}
+.cokSw{width:50px;height:50px;min-width:50px;border-radius:10px;border:2px solid #012060}
 .teklifRow{display:flex;gap:10px;padding:10px;border-bottom:1px dashed #ddd;align-items:center}
-.firmaInput{margin-top:8px}.firmaInput label{font-size:10px;font-weight:900;color:#012060;display:block;margin-bottom:2px}
+.firmaInput{margin-top:8px}
+.firmaInput label{font-size:10px;font-weight:900;color:#012060;display:block;margin-bottom:2px}
+
+/* ===================== */
+/* 9. CEP ICIN KUCULTME   */
+/* ===================== */
 @media(max-width:700px){
-.wrap{padding:6px;padding-bottom:80px}.header{height:54px;padding:0 8px;margin:0 -6px 8px -6px}
+.wrap{padding:6px;padding-bottom:80px}
+.header{height:54px;padding:0 8px;margin:0 -6px 8px -6px}
 .logoBay{height:36px}.logoJotun{height:36px}
 #firmaYazi{font-size:10px!important;max-width:160px;white-space:normal!important;line-height:1.1}
 .card{padding:9px;border-radius:12px;margin-top:7px}
-.select-box input{padding:8px;font-size:11px;border-radius:8px}
-.s{padding:7px;font-size:11px;border-radius:8px}
-.ralBoxKompakt{gap:5px}.swatchKompakt{width:62px;min-width:62px;height:48px}
-.bilgiKutu{height:48px}.bilgiUst input{font-size:11px}.bilgiAlt input{font-size:10px}
-#ralDrop{width:70%;top:56px;max-height:40vh}
-.ambRow{grid-template-columns:1fr 1fr;gap:5px}.amb{padding:7px;font-size:11px}
-.cokGrid{grid-template-columns:1fr 1fr;gap:5px}
+.swatchKompakt{width:62px;min-width:62px;height:48px}
+.bilgiKutu{height:48px}
+#ralDrop{width:70%;top:56px}
+.ambRow{grid-template-columns:1fr 1fr;gap:5px}
+.cokGrid{grid-template-columns:1fr 1fr}
 }
-@media print{.noPrint{display:none!important}#printArea{display:block!important}body{background:white!important}}
+
 </style>
 </head>
 <body>
+
 <div class="wrap noPrint">
+
+<!-- HEADER -->
 <div class="header">
-<div style="display:flex;align-items:center;gap:10px"><img id="firmaLogo" src="" class="logoBay" style="display:none"><div id="firmaYazi" style="font-weight:900;font-size:14px">BAYDEMİR YAPI MARKET - ELEMENT BOYA</div></div>
-<div style="display:flex;align-items:center;gap:10px"><img src="./jotun.png" class="logoJotun" onerror="this.style.display='none'"><div class="settingsCol"><button class="settingsBtn" onclick="openSettings()">⚙️</button><div id="kurTxt" class="kurAlt">TCMB: -</div></div></div>
+<div style="display:flex;align-items:center;gap:10px">
+<img id="firmaLogo" src="" class="logoBay" style="display:none">
+<div id="firmaYazi" style="font-weight:900;font-size:14px">BAYDEMİR YAPI MARKET</div>
 </div>
+<div style="display:flex;align-items:center;gap:10px">
+<img src="./jotun.png" class="logoJotun" onerror="this.style.display='none'">
+<div class="settingsCol">
+<button class="settingsBtn" onclick="openSettings()">⚙️</button>
+<div id="kurTxt" class="kurAlt">TCMB: -</div>
+</div>
+</div>
+</div>
+
+<!-- AYARLAR PANELI -->
 <div class="overlay" id="overlay" onclick="closeSettings()"></div>
 <div class="settingsPanel" id="settingsPanel">
-<h3 style="color:#012060">⚙️ AYARLAR & FİRMA</h3>
+<h3 style="color:#012060">⚙️ AYARLAR</h3>
 <div style="background:#eef3ff;border:2px solid #012060;border-radius:12px;padding:10px;margin-top:12px">
-<b style="font-size:12px;color:#012060">🏢 FİRMA</b>
+<b style="font-size:12px">🏢 FİRMA</b>
 <div class="firmaInput"><label>FİRMA ADI</label><input id="setFirmaAdi" class="s" oninput="saveFirma()"></div>
 <div class="firmaInput"><label>ADRES</label><input id="setFirmaAdres" class="s" oninput="saveFirma()"></div>
 <div class="firmaInput"><label>TELEFON</label><input id="setFirmaTel" class="s" oninput="saveFirma()"></div>
-<div class="firmaInput"><label>MAİL</label><input id="setFirmaMail" class="s" oninput="saveFirma()"></div>
-<div class="firmaInput"><label>LOGO URL</label><input id="setFirmaLogo" class="s" oninput="saveFirma()"></div>
 </div>
 <div style="background:#fffbe6;border:2px solid #ffcc00;border-radius:12px;padding:10px;margin-top:12px">
 <b style="font-size:12px">💰 FİYAT</b>
-<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px"><div><label style="font-size:10px;font-weight:900">Kar %</label><input id="setKar" class="s" type="number" value="30"></div><div><label style="font-size:10px;font-weight:900">KDV %</label><input id="setKdv" class="s" type="number" value="20"></div></div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px">
+<div><label style="font-size:10px;font-weight:900">Kar %</label><input id="setKar" class="s" type="number" value="30"></div>
+<div><label style="font-size:10px;font-weight:900">KDV %</label><input id="setKdv" class="s" type="number" value="20"></div>
+</div>
 <div style="margin-top:8px"><label style="font-size:10px;font-weight:900">Dolar</label><input id="setDolar" class="s"></div>
-<button onclick="fetchTCMB()" style="margin-top:8px;width:100%;background:#0a7a2f;color:white;border:none;border-radius:10px;padding:10px;font-weight:800">🔄 TCMB ÇEK</button><div id="kurInfo" style="font-size:11px;color:green;margin-top:6px"></div>
+<button onclick="fetchTCMB()" style="margin-top:8px;width:100%;background:#0a7a2f;color:white;border:none;border-radius:10px;padding:10px;font-weight:800">🔄 TCMB ÇEK</button>
 </div>
-<button onclick="saveSettings();closeSettings()" style="width:100%;padding:14px;background:#012060;color:white;border:none;border-radius:10px;font-weight:900;margin-top:16px">✅ KAYDET KAPAT</button>
+<button onclick="saveSettings();closeSettings()" style="width:100%;padding:14px;background:#012060;color:white;border:none;border-radius:10px;font-weight:900;margin-top:16px">✅ KAYDET</button>
 </div>
-<div class="card"><div style="font-size:11px;font-weight:900;color:#012060">1 • ÜRÜN</div><div class="select-box" style="margin-top:6px"><input id="urunInput" placeholder="CONSEAL, PILOT..." onfocus="openUrun()" oninput="openUrun()"><div class="drop" id="urunDrop"></div></div><div id="urunDetay" style="font-size:11px;margin-top:6px;display:none"></div></div>
-<div class="card"><div style="font-size:11px;font-weight:900;color:#012060">2 • RENK</div>
+
+<!-- 1. URUN -->
+<div class="card">
+<div style="font-size:11px;font-weight:900;color:#012060">1 • ÜRÜN</div>
+<div class="select-box" style="margin-top:6px">
+<input id="urunInput" placeholder="PILOT, CONSEAL yaz..." onfocus="openUrun()" oninput="openUrun()">
+<div class="drop" id="urunDrop"></div>
+</div>
+<div id="urunDetay" style="font-size:11px;margin-top:6px;display:none"></div>
+</div>
+
+<!-- 2. RENK + 3. AMBALAJ -->
+<div class="card">
+<div style="font-size:11px;font-weight:900;color:#012060">2 • RENK</div>
 <div class="ralBoxKompakt">
 <div class="swatchKompakt" id="swatch"></div>
-<div class="bilgiKutu"><div class="bilgiUst"><input id="ralInput" placeholder="RAL KODU" onfocus="openRal()" oninput="openRal()"><input id="pigment" placeholder="$ PIGMENT"></div><div class="bilgiAlt"><input id="ralForm" placeholder="FORMÜL - GENİŞ ALAN"></div></div>
+<div class="bilgiKutu">
+<div class="bilgiUst">
+<input id="ralInput" placeholder="RAL KODU" onfocus="openRal()" oninput="openRal()">
+<input id="pigment" placeholder="$ PIGMENT">
+</div>
+<div class="bilgiAlt"><input id="ralForm" placeholder="FORMÜL"></div>
+</div>
 <div id="ralDrop"></div>
 </div>
-<div style="margin-top:10px"><div style="font-size:11px;font-weight:900;color:#012060">3 • AMBALAJ (OTOMATİK SEÇİLİR)</div><div class="ambRow" id="ambList"></div></div></div>
-<div class="result"><div id="hesapDetay" style="font-size:11px;color:#ccc"></div>
+
+<div style="margin-top:12px">
+<div style="font-size:11px;font-weight:900;color:#012060">3 • AMBALAJ (OTOMATİK)</div>
+<div class="ambRow" id="ambList"></div>
+</div>
+</div>
+
+<!-- 4. SONUC -->
+<div class="result">
+<div id="hesapDetay" style="font-size:11px;color:#ccc"></div>
 <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:8px;background:#1e1e1e;border-radius:10px;padding:12px">
 <div><div style="font-size:10px;color:#888">SATIŞ LT TL</div><div id="satisLtTL" style="font-weight:900">-</div></div>
 <div><div style="font-size:10px;color:#888">AMBALAJ TL KDV DAHİL</div><div id="satisKova" class="big">-</div><div id="satisKovaKdv" style="color:#ffcc00;font-size:13px;font-weight:800">-</div></div>
@@ -92,63 +181,157 @@
 <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px">
 <button onclick="kaydetHafiza()" style="background:#ffcc00;border:none;padding:14px;border-radius:10px;font-weight:900;color:#012060">💾 KAYDET</button>
 <button onclick="teklifeEkle()" style="background:#012060;border:2px solid #ffcc00;color:#ffcc00;padding:14px;border-radius:10px;font-weight:900">➕ TEKLİFE EKLE</button>
-</div></div>
+</div>
+</div>
+
+<!-- 5. TEKLIF -->
 <div class="card" style="background:#eef3ff;border:2px solid #012060">
-<div style="display:flex;justify-content:space-between"><b style="font-size:14px;color:#012060">📋 TEKLİF (<span id="teklifSayi">0</span>)</b><button onclick="teklifTemizle()" style="background:#ff4444;color:white;border:none;border-radius:8px;padding:6px 10px;font-size:11px;font-weight:800">TEMİZLE</button></div>
+<div style="display:flex;justify-content:space-between"><b style="font-size:14px;color:#012060">📋 TEKLİF (<span id="teklifSayi">0</span>)</b><button onclick="teklifTemizle()" style="background:#ff4444;color:white;border:none;border-radius:8px;padding:6px 10px;font-size:11px">TEMİZLE</button></div>
 <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px"><input id="musteriAd" class="s" placeholder="Müşteri"><input id="teklifTarih" class="s" type="date"></div>
 <div id="teklifList" style="margin-top:8px"></div>
 <div id="teklifToplam" style="background:#012060;color:white;border-radius:10px;padding:10px;margin-top:8px;font-size:11px;display:none;text-align:right"></div>
-<button onclick="teklifYazdir()" style="width:100%;margin-top:10px;background:#012060;color:white;border:none;border-radius:10px;padding:14px;font-weight:900">🖨️ TEKLİF YAZDIR</button>
+<button onclick="teklifYazdir()" style="width:100%;margin-top:10px;background:#012060;color:white;border:none;border-radius:10px;padding:14px;font-weight:900">🖨️ YAZDIR</button>
 </div>
+
+<!-- 6. COK KULLANILANLAR -->
 <div class="card" style="background:#fffbe6"><b style="font-size:13px">⭐ ÇOK KULLANILANLAR</b><div id="hafizaList" class="cokGrid"></div></div>
+
 </div>
+
+<!-- PRINT ALANI -->
 <div id="printArea" style="display:none;background:white;padding:20px;color:#111">
-<div style="height:20px"></div>
-<div style="display:flex;justify-content:space-between;border-bottom:2px solid #012060;padding-bottom:10px;align-items:center">
-<div style="display:flex;gap:10px;align-items:center"><img id="printLogo" src="" style="height:50px;display:none"><div><div id="printFirma" style="font-weight:900;font-size:13px;color:#012060">BAYDEMİR</div><div id="printAdres" style="font-size:10px"></div><div id="printTelMail" style="font-size:10px"></div></div></div><img src="./jotun.png" style="height:50px"></div>
-<div style="text-align:center;font-weight:900;font-size:16px;margin:20px 0;padding:12px;border:2px solid #012060">FİYAT TEKLİF FORMU</div>
-<div style="display:flex;justify-content:space-between;margin-top:10px;font-size:11px"><div><b>Müşteri:</b> <span id="printMusteri">-</span></div><div><b>Tarih:</b> <span id="printTarih">-</span></div></div>
-<div id="printListe" style="margin-top:12px"></div>
-<div id="printToplam" style="margin-top:12px;padding:10px 0;font-size:11px;text-align:right;border-top:1px solid #ddd"></div>
+<div id="printListe"></div><div id="printToplam"></div>
 </div>
+
 <script>
-let urunler=[], ralList=[];let ambalajlar=[{ad:"3.6L",lt:3.6},{ad:"5L",lt:5},{ad:"18L",lt:18},{ad:"20L",lt:20}];let db=JSON.parse(localStorage.getItem('urun_ral_lt_hafiza')||'{}');let ayarlar=JSON.parse(localStorage.getItem('jotun_ayarlar')||'{"kar":30,"kdv":20,"dolar":"49,4945","firmaAdi":"BAYDEMİR YAPI MARKET - ELEMENT BOYA"}');let secUrunIdx=null,secAmbIdx=2,secLT=18,tcmbKur=49.49,secRalHex="#FFFFFF",secRalName="",sonHesap=null,sonAutoAmb=-1;let teklifSepet=JSON.parse(localStorage.getItem('teklif_sepet')||'[]');
+
+// ===================================
+// 0. DATA
+// ===================================
+let urunler=[], ralList=[];
+let ambalajlar=[{ad:"3.6L",lt:3.6},{ad:"5L",lt:5},{ad:"18L",lt:18},{ad:"20L",lt:20}];
+let db=JSON.parse(localStorage.getItem('urun_ral_lt_hafiza')||'{}');
+let ayarlar=JSON.parse(localStorage.getItem('jotun_ayarlar')||'{"kar":30,"kdv":20,"dolar":"49,4945","firmaAdi":"BAYDEMİR"}');
+let secUrunIdx=null,secAmbIdx=2,secLT=18,tcmbKur=49.49,secRalHex="#FFFFFF",secRalName="",sonHesap=null,sonAutoAmb=-1;
+let teklifSepet=JSON.parse(localStorage.getItem('teklif_sepet')||'[]');
+
+// ===================================
+// 1. YUKLEME
+// ===================================
 function formatPara(n){return new Intl.NumberFormat('tr-TR',{minimumFractionDigits:2,maximumFractionDigits:2}).format(n)+' TL'}
-async function loadAll(){try{let r=await fetch('./products.json?v='+Date.now());let d=await r.json();urunler=d.map(o=>[o.ad,o.fiyat,o.lt]);}catch(e){let loc=JSON.parse(localStorage.getItem('jotun_urunler_v2')||'null');if(loc)urunler=loc}try{let r2=await fetch('./ral.json?v='+Date.now());ralList=await r2.json();}catch(e){ralList=[{kod:"9010",isim:"Saf Beyaz",hex:"#FFFFFF"}]}document.getElementById('setFirmaAdi').value=ayarlar.firmaAdi||'';document.getElementById('setFirmaAdres').value=ayarlar.firmaAdres||'';document.getElementById('setFirmaTel').value=ayarlar.firmaTel||'';document.getElementById('setFirmaMail').value=ayarlar.firmaMail||'';document.getElementById('setFirmaLogo').value=ayarlar.firmaLogo||'';if(ayarlar.firmaLogo){document.getElementById('firmaLogo').src=ayarlar.firmaLogo;document.getElementById('firmaLogo').style.display='block';document.getElementById('firmaYazi').innerText=ayarlar.firmaAdi||'';}document.getElementById('teklifTarih').valueAsDate=new Date();filterUrun();renderHafiza();renderTeklif();}
+async function loadAll(){
+try{let r=await fetch('./products.json?v='+Date.now());let d=await r.json();urunler=d.map(o=>[o.ad,o.fiyat,o.lt]);}catch(e){let loc=JSON.parse(localStorage.getItem('jotun_urunler_v2')||'null');if(loc)urunler=loc}
+try{let r2=await fetch('./ral.json?v='+Date.now());ralList=await r2.json();}catch(e){ralList=[{kod:"9010",isim:"Beyaz",hex:"#FFFFFF"}]}
+document.getElementById('teklifTarih').valueAsDate=new Date();
+filterUrun();renderHafiza();renderTeklif();
+}
 function parsePara(v){return parseFloat(String(v||'').replace(',','.').replace(/[^0-9.-]/g,''))||0}
-function openSettings(){document.getElementById('settingsPanel').style.display='block';document.getElementById('overlay').style.display='block'}function closeSettings(){document.getElementById('settingsPanel').style.display='none';document.getElementById('overlay').style.display='none'}
-function saveFirma(){ayarlar.firmaAdi=document.getElementById('setFirmaAdi').value.trim();ayarlar.firmaAdres=document.getElementById('setFirmaAdres').value.trim();ayarlar.firmaTel=document.getElementById('setFirmaTel').value.trim();ayarlar.firmaMail=document.getElementById('setFirmaMail').value.trim();ayarlar.firmaLogo=document.getElementById('setFirmaLogo').value.trim();localStorage.setItem('jotun_ayarlar',JSON.stringify(ayarlar));document.getElementById('firmaYazi').innerText=ayarlar.firmaAdi||'BAYDEMİR';if(ayarlar.firmaLogo){document.getElementById('firmaLogo').src=ayarlar.firmaLogo;document.getElementById('firmaLogo').style.display='block';}}
-function saveSettings(){ayarlar.kar=parseFloat(document.getElementById('setKar').value)||30;ayarlar.kdv=parseFloat(document.getElementById('setKdv').value)||20;ayarlar.dolar=document.getElementById('setDolar').value.trim();saveFirma();localStorage.setItem('jotun_ayarlar',JSON.stringify(ayarlar));calc()}
-async function fetchTCMB(){let info=document.getElementById('kurInfo');info.innerText='Çekiliyor...';try{let r=await fetch('https://api.allorigins.win/raw?url=https://www.tcmb.gov.tr/kurlar/today.xml');let t=await r.text();let m=t.match(/Kod="USD"[\s\S]*?EffectiveSelling>([\d.]+)/);if(m){tcmbKur=parseFloat(m[1]);let s=tcmbKur.toFixed(4).replace('.',',');document.getElementById('setDolar').value=s;info.innerText='✓ '+tcmbKur;saveSettings();calc();return}}catch(e){}info.innerText='Manuel gir';}
-function openUrun(){document.getElementById('urunDrop').style.display='block';filterUrun()}function filterUrun(){let q=document.getElementById('urunInput').value.toUpperCase().trim();let list=urunler.map((r,i)=>({r,i})).filter(o=>!q||q.length<2||o.r[0].toUpperCase().includes(q)).slice(0,80);document.getElementById('urunDrop').innerHTML=list.map(o=>`<div class="item" onclick="selectUrun(${o.i})"><span>${o.r[0]}</span><b>$${o.r[1]}</b></div>`).join('')}
+
+// ===================================
+// 2. AYARLAR
+// ===================================
+function openSettings(){document.getElementById('settingsPanel').style.display='block';document.getElementById('overlay').style.display='block'}
+function closeSettings(){document.getElementById('settingsPanel').style.display='none';document.getElementById('overlay').style.display='none'}
+function saveFirma(){ayarlar.firmaAdi=document.getElementById('setFirmaAdi').value.trim();localStorage.setItem('jotun_ayarlar',JSON.stringify(ayarlar));}
+function saveSettings(){ayarlar.kar=parseFloat(document.getElementById('setKar').value)||30;ayarlar.kdv=parseFloat(document.getElementById('setKdv').value)||20;ayarlar.dolar=document.getElementById('setDolar').value.trim();localStorage.setItem('jotun_ayarlar',JSON.stringify(ayarlar));calc()}
+async function fetchTCMB(){try{let r=await fetch('https://api.allorigins.win/raw?url=https://www.tcmb.gov.tr/kurlar/today.xml');let t=await r.text();let m=t.match(/Kod="USD"[\s\S]*?EffectiveSelling>([\d.]+)/);if(m){tcmbKur=parseFloat(m[1]);document.getElementById('setDolar').value=tcmbKur.toFixed(4).replace('.',',');saveSettings();calc();}}catch(e){}}
+
+// ===================================
+// 3. URUN SECIM - BURASI DUZELTILDI
+// 4.5 LT -> 5L OTOMATIK SECER
+// ===================================
+function openUrun(){document.getElementById('urunDrop').style.display='block';filterUrun()}
+function filterUrun(){let q=document.getElementById('urunInput').value.toUpperCase().trim();let list=urunler.map((r,i)=>({r,i})).filter(o=>!q||q.length<2||o.r[0].toUpperCase().includes(q)).slice(0,80);document.getElementById('urunDrop').innerHTML=list.map(o=>`<div class="item" onclick="selectUrun(${o.i})"><span>${o.r[0]}</span><b>$${o.r[1]}</b></div>`).join('')}
+
 function selectUrun(i){
-secUrunIdx=i;let u=urunler[i];document.getElementById('urunInput').value=u[0];document.getElementById('urunDrop').style.display='none';
-secLT=u[2];let newIdx=ambalajlar.findIndex(a=>a.lt===secLT);if(newIdx===-1)newIdx=2;
-secAmbIdx=newIdx;secLT=ambalajlar[secAmbIdx].lt;
+secUrunIdx=i;
+let u=urunler[i];
+document.getElementById('urunInput').value=u[0];
+document.getElementById('urunDrop').style.display='none';
+
+let urunLt = parseFloat(u[2]) || 18;
+
+// 1. tam eslesme?
+let newIdx = ambalajlar.findIndex(a=> Math.abs(a.lt - urunLt) < 0.1);
+// 2. yoksa en yakin ust (4.5 -> 5L)
+if(newIdx===-1) newIdx = ambalajlar.findIndex(a=> a.lt >= urunLt);
+// 3. hala yoksa en buyuk
+if(newIdx===-1) newIdx = ambalajlar.length-1;
+
+secAmbIdx=newIdx;
+secLT=ambalajlar[secAmbIdx].lt;
 sonAutoAmb=newIdx;
-document.getElementById('urunDetay').style.display='block';document.getElementById('urunDetay').innerHTML=`✓ ${u[0]} • $${u[1]}/LT • Ambalaj otomatik: ${ambalajlar[newIdx].ad}`;
+
+document.getElementById('urunDetay').style.display='block';
+document.getElementById('urunDetay').innerHTML=`✓ ${u[0]} • $${u[1]}/LT • Otomatik ambalaj: ${ambalajlar[newIdx].ad}`;
+
 renderAmb(true);
 calc();
 }
+
+// ===================================
+// 4. AMBALAJ RENDER
+// ===================================
 function renderAmb(isAuto=false){
 document.getElementById('ambList').innerHTML=ambalajlar.map((a,i)=>{
-let cls="amb";if(i===secAmbIdx)cls+=" active";if(isAuto && i===sonAutoAmb)cls+=" auto-change";
+let cls="amb";
+if(i===secAmbIdx) cls+=" active";
+if(isAuto && i===sonAutoAmb) cls+=" auto-change";
 return `<div class="${cls}" onclick="secAmbIdx=${i};secLT=${a.lt};sonAutoAmb=-1;renderAmb();calc()">${a.ad}</div>`
 }).join('');
 if(isAuto){setTimeout(()=>{sonAutoAmb=-1;renderAmb(false);},1200);}
 }
-function openRal(){document.getElementById('ralDrop').style.display='block';filterRal()}function filterRal(){let q=document.getElementById('ralInput').value.toUpperCase().trim();let list=ralList.filter(r=>!q||r.kod.includes(q)||r.isim.toUpperCase().includes(q)).slice(0,120);document.getElementById('ralDrop').innerHTML=list.map(r=>`<div class="ralItem" onclick="selectRal('${r.kod}')"><div class="ralSw" style="background:${r.hex}"></div><div style="flex:1"><div style="font-weight:900;font-size:13px">RAL ${r.kod}</div><div style="font-size:10px;color:#666">${r.isim}</div></div></div>`).join('')}
+
+// ===================================
+// 5. RAL SECIM
+// ===================================
+function openRal(){document.getElementById('ralDrop').style.display='block';filterRal()}
+function filterRal(){let q=document.getElementById('ralInput').value.toUpperCase().trim();let list=ralList.filter(r=>!q||r.kod.includes(q)||r.isim.toUpperCase().includes(q)).slice(0,120);document.getElementById('ralDrop').innerHTML=list.map(r=>`<div class="ralItem" onclick="selectRal('${r.kod}')"><div class="ralSw" style="background:${r.hex}"></div><div style="flex:1"><div style="font-weight:900;font-size:13px">RAL ${r.kod}</div><div style="font-size:10px;color:#666">${r.isim}</div></div></div>`).join('')}
 function selectRal(k){let r=ralList.find(x=>x.kod===k);if(!r)return;document.getElementById('ralInput').value=r.kod;document.getElementById('ralDrop').style.display='none';secRalHex=r.hex;secRalName=r.isim;document.getElementById('swatch').style.background=r.hex;calc()}
-function calc(){if(secUrunIdx===null)return;let pigStr=document.getElementById('pigment').value.trim();let pigToplam=pigStr?parsePara(pigStr):0;let u=urunler[secUrunIdx];let kovaLT=secLT;let pigLt=kovaLT?(pigToplam/kovaLT):0;let maliyetLt=u[1]+pigLt;let kar=ayarlar.kar||30;let satisDolarLt=maliyetLt*(1+kar/100);let kur=ayarlar.dolar?parsePara(ayarlar.dolar):tcmbKur;let satisTlLt=satisDolarLt*kur;let kovaTl=satisTlLt*kovaLT;let kdv=ayarlar.kdv||20;let kovaKdv=kovaTl*(1+kdv/100);sonHesap={urun:u[0],ral:document.getElementById('ralInput').value,hex:secRalHex,isim:secRalName,lt:kovaLT,pigment:pigToplam,maliyetLt,satisTlLt,kovaTl,kovaKdv,form:document.getElementById('ralForm').value};document.getElementById('satisLtTL').innerText=formatPara(satisTlLt);document.getElementById('satisKova').innerText=formatPara(kovaTl);document.getElementById('satisKovaKdv').innerText=`KDV DAHİL: ${formatPara(kovaKdv)}`;document.getElementById('hesapDetay').innerHTML=`<div style="display:flex;gap:8px;align-items:center"><div style="width:18px;height:18px;background:${secRalHex};border-radius:6px;border:1px solid #444"></div><b>RAL ${sonHesap.ral||'-'} ${secRalName}</b> • $${pigToplam} • ${sonHesap.form||''}</div>`;document.getElementById('kurTxt').innerText=`${kur.toFixed(4)}`;}
-function kaydetHafiza(){if(!sonHesap)return alert('Ürün ve RAL seç');let key=`${sonHesap.urun}__${sonHesap.ral}__${sonHesap.lt}__${Date.now()}`;db[key]={...sonHesap,ts:Date.now(),pigmentDisplay:document.getElementById('pigment').value,urunTam:sonHesap.urun};localStorage.setItem('urun_ral_lt_hafiza',JSON.stringify(db));renderHafiza()}
-function teklifeEkle(){if(!sonHesap)return alert('Önce ürün ve RAL seç');let adet=prompt('Kaç kova?', '1');if(!adet)return;teklifSepet.push({...sonHesap,adet:parseInt(adet)||1,id:Date.now()});localStorage.setItem('teklif_sepet',JSON.stringify(teklifSepet));renderTeklif();}
-function renderTeklif(){document.getElementById('teklifSayi').innerText=teklifSepet.length;if(teklifSepet.length===0){document.getElementById('teklifList').innerHTML='<div style="font-size:11px;color:#999;padding:8px">Henüz ürün eklenmedi</div>';document.getElementById('teklifToplam').style.display='none';return}let toplam=0,genel=0;document.getElementById('teklifList').innerHTML=teklifSepet.map((t,i)=>{toplam+=t.kovaTl*t.adet;genel+=t.kovaKdv*t.adet;return `<div class="teklifRow"><div style="width:36px;height:36px;background:${t.hex};border-radius:8px;border:2px solid #012060;min-width:36px"></div><div style="flex:1"><div style="font-weight:900;font-size:12px;color:#012060">${t.urun}</div><div style="font-size:11px;color:#444">RAL ${t.ral} - ${t.isim} • ${t.form||''}</div><div style="font-size:11px;font-weight:700">${formatPara(t.kovaKdv)} x ${t.adet} = ${formatPara(t.kovaKdv*t.adet)}</div></div><button onclick="teklifSil(${i})" style="background:#ffdddd;border:none;border-radius:8px;padding:6px 8px">❌</button></div>`}).join('');let kdv=genel-toplam;document.getElementById('teklifToplam').style.display='block';document.getElementById('teklifToplam').innerHTML=`<div>TOPLAM: ${formatPara(toplam)}</div><div>KDV: ${formatPara(kdv)}</div><div style="font-weight:900">GENEL: ${formatPara(genel)}</div>`;}
-function teklifSil(i){teklifSepet.splice(i,1);localStorage.setItem('teklif_sepet',JSON.stringify(teklifSepet));renderTeklif()}function teklifTemizle(){if(confirm('Temizlensin mi?')){teklifSepet=[];localStorage.setItem('teklif_sepet','[]');renderTeklif()}}
-function teklifYazdir(){if(teklifSepet.length===0){alert('Sepet boş');return;}let musteri=document.getElementById('musteriAd').value||'Müşteri';let tarih=document.getElementById('teklifTarih').value||new Date().toLocaleDateString('tr-TR');document.getElementById('printMusteri').innerText=musteri;document.getElementById('printTarih').innerText=tarih;document.getElementById('printFirma').innerText=ayarlar.firmaAdi||'BAYDEMİR';document.getElementById('printAdres').innerText=ayarlar.firmaAdres||'';document.getElementById('printTelMail').innerText=`${ayarlar.firmaTel||''} ${ayarlar.firmaMail||''}`;if(ayarlar.firmaLogo){document.getElementById('printLogo').src=ayarlar.firmaLogo;document.getElementById('printLogo').style.display='block';}let html=`<table style="width:100%;border-collapse:collapse;font-size:11px"><tr style="background:#f5f5f5;border-bottom:2px solid #012060"><th style="padding:6px;text-align:left">#</th><th style="padding:6px;text-align:left">ÜRÜN / RENK</th><th style="padding:6px">ADET</th><th style="padding:6px;text-align:right">TOPLAM</th></tr>`;let toplam=0,genel=0;teklifSepet.forEach((t,i)=>{toplam+=t.kovaTl*t.adet;genel+=t.kovaKdv*t.adet;html+=`<tr style="border-bottom:1px solid #ddd"><td style="padding:8px">${i+1}</td><td style="padding:8px"><div style="font-weight:900">${t.urun}</div><div>RAL ${t.ral} - ${t.isim}</div><div style="font-size:10px;color:#666">${t.lt}LT</div></td><td style="padding:8px;text-align:center">${t.adet}</td><td style="padding:8px;text-align:right;font-weight:700">${formatPara(t.kovaKdv*t.adet)}</td></tr>`});html+=`</table>`;document.getElementById('printListe').innerHTML=html;let kdvTutar=genel-toplam;document.getElementById('printToplam').innerHTML=`<div>TOPLAM: ${formatPara(toplam)}</div><div>KDV: ${formatPara(kdvTutar)}</div><div style="font-weight:900">GENEL: ${formatPara(genel)}</div>`;document.getElementById('printArea').style.display='block';setTimeout(()=>{window.print();},400);setTimeout(()=>{document.getElementById('printArea').style.display='none';},1500);}
-function yukleCok(k){let o=db[k];if(!o)return;let idx=urunler.findIndex(u=>u[0]===o.urunTam||u[0]===o.urun);if(idx!==-1)selectUrun(idx);document.getElementById('ralInput').value=o.ral||'';secRalHex=o.hex||'#fff';secRalName=o.isim||'';document.getElementById('swatch').style.background=secRalHex;document.getElementById('pigment').value=o.pigmentDisplay||o.pigment||'';document.getElementById('ralForm').value=o.form||'';secLT=o.lt||18;secAmbIdx=ambalajlar.findIndex(a=>a.lt===secLT);renderAmb();calc();}
-function renderHafiza(){let keys=Object.keys(db).filter(k=>k.includes('__')).sort((a,b)=>(db[b].ts||0)-(db[a].ts||0));let seen={};let uniq=[];for(let k of keys){let s=`${db[k].ral}__${db[k].urunTam||db[k].urun}`;if(!seen[s]){seen[s]=true;uniq.push(k)}}if(uniq.length===0){document.getElementById('hafizaList').innerHTML='<div style="font-size:11px;color:#999;padding:10px">Henüz yok</div>';return}document.getElementById('hafizaList').innerHTML=uniq.slice(0,30).map(k=>{let o=db[k];let hex=o.hex||'#fff';return `<div class="cokMini" onclick="yukleCok('${k.replace(/'/g,"\\'")}')"><div class="cokSw" style="background:${hex}"></div><div class="cokInfo"><div class="cokRal">${o.urunTam||o.urun}</div><div class="cokUrun">RAL ${o.ral} - ${o.isim||''}</div></div><div>›</div></div>`}).join('')}
-document.getElementById('setKar').value=ayarlar.kar;document.getElementById('setKdv').value=ayarlar.kdv;document.getElementById('setDolar').value=ayarlar.dolar;renderAmb();loadAll();
+
+// ===================================
+// 6. HESAP
+// ===================================
+function calc(){
+if(secUrunIdx===null)return;
+let pigStr=document.getElementById('pigment').value.trim();
+let pigToplam=pigStr?parsePara(pigStr):0;
+let u=urunler[secUrunIdx];
+let kovaLT=secLT;
+let pigLt=kovaLT?(pigToplam/kovaLT):0;
+let maliyetLt=u[1]+pigLt;
+let kar=ayarlar.kar||30;
+let satisDolarLt=maliyetLt*(1+kar/100);
+let kur=ayarlar.dolar?parsePara(ayarlar.dolar):tcmbKur;
+let satisTlLt=satisDolarLt*kur;
+let kovaTl=satisTlLt*kovaLT;
+let kdv=ayarlar.kdv||20;
+let kovaKdv=kovaTl*(1+kdv/100);
+sonHesap={urun:u[0],ral:document.getElementById('ralInput').value,hex:secRalHex,isim:secRalName,lt:kovaLT,pigment:pigToplam,satisTlLt,kovaTl,kovaKdv,form:document.getElementById('ralForm').value};
+document.getElementById('satisLtTL').innerText=formatPara(satisTlLt);
+document.getElementById('satisKova').innerText=formatPara(kovaTl);
+document.getElementById('satisKovaKdv').innerText=`KDV DAHİL: ${formatPara(kovaKdv)}`;
+document.getElementById('hesapDetay').innerHTML=`<div style="display:flex;gap:8px;align-items:center"><div style="width:18px;height:18px;background:${secRalHex};border-radius:6px"></div><b>RAL ${sonHesap.ral||'-'} ${secRalName}</b></div>`;
+document.getElementById('kurTxt').innerText=`${kur.toFixed(4)}`;
+}
+
+// ===================================
+// 7. TEKLIF + HAFIZA (KISALTILDI)
+// ===================================
+function kaydetHafiza(){if(!sonHesap)return alert('Ürün ve RAL seç');let key=`${sonHesap.urun}__${sonHesap.ral}__${Date.now()}`;db[key]={...sonHesap,ts:Date.now(),urunTam:sonHesap.urun};localStorage.setItem('urun_ral_lt_hafiza',JSON.stringify(db));renderHafiza()}
+function teklifeEkle(){if(!sonHesap)return alert('Önce ürün seç');let adet=prompt('Kaç kova?','1');if(!adet)return;teklifSepet.push({...sonHesap,adet:parseInt(adet)||1});localStorage.setItem('teklif_sepet',JSON.stringify(teklifSepet));renderTeklif();}
+function renderTeklif(){document.getElementById('teklifSayi').innerText=teklifSepet.length;if(teklifSepet.length===0){document.getElementById('teklifList').innerHTML='<div style="font-size:11px;color:#999;padding:8px">Boş</div>';document.getElementById('teklifToplam').style.display='none';return}let toplam=0,genel=0;document.getElementById('teklifList').innerHTML=teklifSepet.map((t,i)=>{toplam+=t.kovaTl*t.adet;genel+=t.kovaKdv*t.adet;return `<div class="teklifRow"><div style="width:32px;height:32px;background:${t.hex};border-radius:8px;border:2px solid #012060"></div><div style="flex:1"><div style="font-weight:900;font-size:11px">${t.urun}</div><div style="font-size:10px">${formatPara(t.kovaKdv)} x ${t.adet}</div></div><button onclick="teklifSil(${i})" style="background:#ffdddd;border:none;border-radius:8px;padding:6px 8px">❌</button></div>`}).join('');document.getElementById('teklifToplam').style.display='block';document.getElementById('teklifToplam').innerHTML=`TOPLAM: ${formatPara(toplam)}<br>GENEL: ${formatPara(genel)}`;}
+function teklifSil(i){teklifSepet.splice(i,1);localStorage.setItem('teklif_sepet',JSON.stringify(teklifSepet));renderTeklif()}
+function teklifTemizle(){if(confirm('Temizlensin mi?')){teklifSepet=[];localStorage.setItem('teklif_sepet','[]');renderTeklif()}}
+function teklifYazdir(){window.print();}
+function yukleCok(k){let o=db[k];if(!o)return;let idx=urunler.findIndex(u=>u[0]===o.urunTam||u[0]===o.urun);if(idx!==-1)selectUrun(idx);}
+function renderHafiza(){let keys=Object.keys(db).sort((a,b)=>(db[b].ts||0)-(db[a].ts||0));if(keys.length===0){document.getElementById('hafizaList').innerHTML='<div style="font-size:11px;color:#999;padding:10px">Yok</div>';return}document.getElementById('hafizaList').innerHTML=keys.slice(0,20).map(k=>{let o=db[k];return `<div class="cokMini" onclick="yukleCok('${k.replace(/'/g,"\\'")}')"><div class="cokSw" style="background:${o.hex||'#fff'}"></div><div style="flex:1"><div style="font-weight:900;font-size:11px">${o.urun}</div><div style="font-size:9px">RAL ${o.ral}</div></div></div>`}).join('')}
+
+// BASLAT
+document.getElementById('setKar').value=ayarlar.kar;document.getElementById('setKdv').value=ayarlar.kdv;document.getElementById('setDolar').value=ayarlar.dolar;
+renderAmb();loadAll();
 document.addEventListener('click',e=>{if(!e.target.closest('.ralBoxKompakt')){document.getElementById('ralDrop').style.display='none';}if(!e.target.closest('.select-box')){let u=document.getElementById('urunDrop');if(u)u.style.display='none';}})
+
 </script>
 </body>
 </html>
