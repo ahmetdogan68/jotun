@@ -11,30 +11,7 @@
     "lt": 16.2,
     "kategori": "Poliüretan Sonkat"
   },
-  {
-    "ral_no": "7016",
-    "ral_isim": "Antrasit Gri",
-    "base_no": "3",
-    "product": "FUTURA CLASSIC BASE 3 COMP.A(4.05 LT)",
-    "formul": "AX Black 3.10 - BX Blue 2.05 - CX Red 0.30",
-    "colorant_cost": "5.09",
-    "maliyet": "5.09",
-    "can_size": "5L",
-    "lt": 4.05,
-    "kategori": "Poliüretan Sonkat"
-  },
-  {
-    "ral_no": "7016",
-    "ral_isim": "Antrasit Gri",
-    "base_no": "3",
-    "product": "CONSEAL TU BASE 3 (18 LT)",
-    "formul": "AX Black 14.00 - BX Blue 7.50",
-    "colorant_cost": "18.50",
-    "maliyet": "18.50",
-    "can_size": "18L",
-    "lt": 18,
-    "kategori": "Poliüretan Sonkat"
-  },
+
   {
     "ral_no": "7016",
     "ral_isim": "Antrasit Gri",
