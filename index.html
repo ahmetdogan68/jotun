@@ -196,77 +196,109 @@ const IS_AYARLAR={
 // ===================== IS: RAL - AYRI MODUL ======================
 // BURAYI ARIYORSAN RAL ISLEMI BURADA
 // =================================================================
-const IS_RAL={
-
-  reset(){
-    document.getElementById('ralInput').value='';
-    document.getElementById('pigment').value='';
-    document.getElementById('ralForm').value='';
-    G.tempRalKod=""; G.seciliRalKayitlari=[]; G.secUrunIdx=null;
-    document.getElementById('urunInput').value='';
-    document.getElementById('urunDetay').style.display='none';
-  },
+// =================================================================
+// ===================== IS: URUN - YENI MANTIK ====================
+// 7016 YAZINCA TUM URUNLER GELIR, FORMULLU USTTE FORMULUYLE DURUR
+// =================================================================
+const IS_URUN={
 
   open(){
-    document.getElementById('ralDrop').style.display='block';
+    document.getElementById('urunDrop').style.display='block';
     this.filter();
   },
 
   filter(){
-    if(!G.ralList||G.ralList.length===0) G.ralList=G.YEDEK_RAL;
-    let q=document.getElementById('ralInput').value.toUpperCase().trim();
-    if(q.length===4 && /^\d{4}$/.test(q)){let ex=G.ralList.find(r=>r.kod===q);if(ex){this.select(q);return;}}
-    let list=G.ralList.filter(r=>!q||r.kod.includes(q)||r.isim.toUpperCase().includes(q)).slice(0,80);
-    document.getElementById('ralDrop').innerHTML=list.map(r=>`<div class="ralItem" onclick="IS_RAL.select('${r.kod}')"><div class="ralSw" style="background:${r.hex}"></div><div><b>RAL ${r.kod}</b><br><small>${r.isim}</small></div></div>`).join('');
-    document.getElementById('ralDrop').style.display='block';
-  },
+    let q=document.getElementById('urunInput').value.toUpperCase().trim();
+    let drop=document.getElementById('urunDrop');
+    let html=[];
 
-  select(k){
-    let r=G.ralList.find(x=>x.kod===k); if(!r)return;
-    G.tempRalKod=r.kod; G.secRalHex=r.hex;
-    document.getElementById('ralInput').value=r.kod;
-    document.getElementById('swatch').style.background=r.hex;
-    document.getElementById('swatch').innerText='RAL '+r.kod;
-    document.getElementById('ralDrop').style.display='none';
-    this.secildi(k);
-    setTimeout(()=>{document.getElementById('urunInput').focus();IS_URUN.open();},150);
-  },
+    // --- UST KISIM: FORMULLU URUNLER (VARSA) ---
+    // Formullu varsa her zaman en ustte, yaninda formuluyle
+    if(G.seciliRalKayitlari && G.seciliRalKayitlari.length>0){
+      html.push(`<div style="background:#0a7a2f;color:white;padding:8px 10px;font-weight:900;font-size:11px;position:sticky;top:0">✅ RAL ${G.tempRalKod} FORMÜLLÜ ÜRÜNLER - ${G.seciliRalKayitlari.length} ADET ÜSTTE</div>`);
 
-  // --- RAL SECILDIKTEN SONRA KAYITLI FORMUL BUL ---
-  secildi(k){
-    G.tempRalKod=k;
-    G.seciliRalKayitlari=G.jotunKayitlar.filter(x=>x.ral_no==k);
+      G.seciliRalKayitlari.forEach(k=>{
+        // Bu formullu kayit icin uygun urunleri bul (BASE'e gore)
+        // Ama 7016'da bile tum urunler listede kalacak, sadece ustte formullu gosteriyoruz
+        let uygun = G.urunler.filter(u=>{
+          let m=u[0].match(/BASE\s*([1-3])/i);
+          return m && m[1]==k.base_no;
+        });
+        if(uygun.length===0) uygun = [G.urunler[0]]; // fallback
 
-    // 7016 KILIDI - SADECE BASE 3
-    if(k==="7016"){
-      G.seciliRalKayitlari = G.seciliRalKayitlari.filter(x=>x.base_no==="3");
+        uygun.slice(0,1).forEach(u=>{ // her formullu icin 1 satir
+          let i=G.urunler.indexOf(u);
+          let kIdx=G.jotunKayitlar.indexOf(k);
+          html.push(`
+            <div class="item jcmKayitli" onclick="IS_URUN.selectKayitli(${i},${kIdx})">
+              <div style="flex:1">
+                <b>${u[0]}</b><br>
+                <span style="background:#012060;color:white;padding:2px 6px;border-radius:4px;font-size:10px">BASE ${k.base_no}</span>
+                <span style="background:#ff9900;color:#012060;padding:2px 6px;border-radius:4px;font-size:10px;margin-left:4px">${k.can_size||'20L'}</span>
+                <span style="background:#0a7a2f;color:white;padding:2px 6px;border-radius:4px;font-size:10px;margin-left:4px">$${k.colorant_cost||0}</span>
+                <div style="margin-top:4px;background:white;border:1px dashed #ff9900;padding:5px 8px;border-radius:6px;font-size:11px;font-weight:700">
+                  FORMÜL: ${k.formul||''}
+                </div>
+              </div>
+              <div style="background:#0a7a2f;color:white;padding:10px 12px;border-radius:8px;font-weight:900;font-size:11px;margin-left:8px">SEÇ</div>
+            </div>
+          `);
+        });
+      });
+
+      html.push(`<div style="background:#012060;color:white;padding:6px 10px;font-weight:900;font-size:10px">--- DİĞER TÜM ÜRÜNLER (KOMPLE LİSTE) ---</div>`);
     }
 
-    document.getElementById('jcmDurum').innerText = G.seciliRalKayitlari.length>0 ? `KAYITLI ${G.seciliRalKayitlari.length} BASE ${G.seciliRalKayitlari.map(x=>x.base_no).join(',')} USTTE` : 'KAYIT YOK';
-    IS_URUN.filter();
+    // --- ALT KISIM: TUM URUNLER KOMPLE ---
+    // 7016'da bile komple liste, filtre yok
+    let list = G.urunler.map((r,idx)=>({r:r, idx:idx}))
+              .filter(o=>!q || o.r[0].toUpperCase().includes(q))
+              .slice(0,100); // 100 adet komple
+
+    html.push(...list.map(o=>`
+      <div class="item" onclick="IS_URUN.select(${o.idx})">
+        <div style="flex:1">
+          <b>${o.r[0]}</b><br>
+          <small>${o.r[2]}LT - $${o.r[1]} - Kova $${(o.r[1]*o.r[2]).toFixed(2)}</small>
+        </div>
+        <div style="font-size:12px;color:#888">›</div>
+      </div>
+    `));
+
+    drop.innerHTML=html.join('');
+    drop.style.display='block';
   },
 
-  async loadAll(){
-    let base=G.YEDEK_URUN;
-    try{let r=await fetch('./products.json?v='+Date.now()); if(r.ok){let j=await r.json(); if(j.length>0) base=j;}}catch(e){}
-    base.sort((a,b)=>a.ad.localeCompare(b.ad,'tr'));
-    G.urunler=base.map(o=>[o.ad,o.fiyat||0,o.lt||0]);
-    document.getElementById('canliSay').innerText=G.urunler.length;
-    document.getElementById('urunSay').innerText=G.urunler.length+" ürün";
-
-    try{let r=await fetch('https://ahmetdogan68.github.io/ral/ral.json'); if(r.ok) G.ralList=await r.json();}catch(e){}
-    if(!G.ralList||G.ralList.length==0) G.ralList=G.YEDEK_RAL;
-
-    // FORMUL KAYNAGI - ONCE YEREL
-    try{
-      let res=await fetch('./jotun_kayitlar.json?v='+Date.now());
-      if(res.ok){let gh=await res.json(); G.jotunKayitlar=gh; document.getElementById('jcmKayitInfo').innerText=G.jotunKayitlar.length+' KAYIT ✓';}
-    }catch(e){
-      try{let res2=await fetch('https://ahmetdogan68.github.io/ral/jotun_kayitlar.json?v='+Date.now()); if(res2.ok){let gh=await res2.json(); G.jotunKayitlar=gh;}}catch(e2){}
+  selectKayitli(urunIdx,kayitIdx){
+    let k=G.jotunKayitlar[kayitIdx]; let u=G.urunler[urunIdx];
+    G.secUrunIdx=urunIdx; G.secUrunLT=parseFloat(u[2])||18;
+    document.getElementById('urunInput').value=u[0];
+    document.getElementById('urunDrop').style.display='none';
+    document.getElementById('pigment').value=k.colorant_cost||k.maliyet||'';
+    document.getElementById('ralForm').value=k.formul||'';
+    if(k.can_size){
+      let can=k.can_size.toUpperCase(); let idx=-1;
+      if(can.includes('20L')) idx=G.ambalajlar.findIndex(a=>a.ad.includes('20L'));
+      else if(can.includes('18L')) idx=G.ambalajlar.findIndex(a=>a.ad.includes('18L'));
+      else if(can.includes('5L')) idx=G.ambalajlar.findIndex(a=>a.ad.includes('5L'));
+      else if(can.includes('4.05')) idx=G.ambalajlar.findIndex(a=>a.ad.includes('18L')); // 4LT -> 18L secili kalsin
+      if(idx!==-1){G.secAmbIdx=idx; G.secLT=G.ambalajlar[idx].lt;}
     }
+    document.getElementById('urunDetay').style.display='block';
+    document.getElementById('urunDetay').innerHTML=`✅ FORMÜLLÜ: <b>${u[0]}</b> | BASE ${k.base_no} | ${k.can_size} | $${k.colorant_cost}`;
+    IS_AMBALAJ.render(); IS_HESAP.calc();
+  },
 
-    IS_AMBALAJ.render();
-    IS_AYARLAR.fetchDolar();
+  select(i){
+    G.secUrunIdx=i; let u=G.urunler[i];
+    document.getElementById('urunInput').value=u[0];
+    document.getElementById('urunDrop').style.display='none';
+    G.secUrunLT=parseFloat(u[2])||18;
+    let idx=G.ambalajlar.findIndex(a=>a.lt>=G.secUrunLT-0.2); if(idx===-1) idx=2;
+    G.secAmbIdx=idx; G.secLT=G.ambalajlar[idx].lt;
+    document.getElementById('urunDetay').style.display='block';
+    document.getElementById('urunDetay').innerHTML='✓ '+u[0];
+    IS_AMBALAJ.render(); IS_HESAP.calc();
   }
 };
 
