@@ -3,7 +3,7 @@
     "ral_no": "7016",
     "ral_isim": "Antrasit Gri",
     "base_no": "3",
-    "product": "FUTURA CLASSIC BASE 3 COMP A (16.20 LT)",
+    "product": "FUTURA CLASSIC BASE 3 COMP.A (16.20 LT)",
     "formul": "AX Black 12.50 - BX Blue 8.30 - CX Red 1.20 - Jotun Formula",
     "colorant_cost": "20.37",
     "maliyet": "20.37",
@@ -11,7 +11,6 @@
     "lt": 16.2,
     "kategori": "Poliüretan Sonkat"
   },
-
   {
     "ral_no": "7016",
     "ral_isim": "Antrasit Gri",
@@ -27,7 +26,7 @@
   {
     "ral_no": "7016",
     "ral_isim": "Antrasit Gri",
-    "base_no": "3",
+    "base_no": "0",
     "product": "HARDTOP XP RAL 7016 17,12L",
     "formul": "HAZIR RAL - PIGMENT YOK",
     "colorant_cost": "0",
