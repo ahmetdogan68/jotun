@@ -1,4 +1,16 @@
 [
+  {
+  "ral_no": "7016",
+  "ral_isim": "ANTHRACITE GREY",
+  "base_no": "3",
+  "product": "CONSEAL TU BASE 3 (18 LT)",
+  "formul": "BL006.4 RX000.7 SB054.1 WT057.5 - Jotun Formula",
+  "colorant_cost": "1",
+  "maliyet": "1",
+  "can_size": "18L",
+  "lt": 18,
+  "kategori": "Poliüretan Sonkat"
+},
 {
   "ral_no": "9010",
   "ral_isim": "REINWEISS",
