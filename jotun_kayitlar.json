@@ -4,13 +4,14 @@
   "ral_isim": "PERLWEISS",
   "base_no": "1",
   "product": "OPTIPRO UNIVERSAL TOPCOAT BASE 1 (18 LT)",
-  "formul": "WB012.5 YX012.1 PX000.3 Exterior Historical formula Details Back - Jotun Formula",
+  "formul": "WB012.5 YX012.1 PX000.3 - Jotun Formula",
   "colorant_cost": "171.64",
   "maliyet": "171.64",
   "can_size": "18L",
-  "lt": 20
+  "lt": 18
 },
-{
+
+  {
   "ral_no": "9002",
   "ral_isim": "GREY WHITE",
   "base_no": "1",
@@ -19,7 +20,7 @@
   "colorant_cost": "106.52",
   "maliyet": "106.52",
   "can_size": "18L",
-  "lt": 20,
+  "lt": 18,
   "kategori": "Poliüretan Sonkat"
 },
   {
@@ -55,7 +56,7 @@
   "colorant_cost": "481.52",
   "maliyet": "481.52",
   "can_size": "18L",
-  "lt": 20,
+  "lt": 18,
   "kategori": "Poliüretan Sonkat"
 }
 ]
