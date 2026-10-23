@@ -1,5 +1,16 @@
 [
-
+{
+  "ral_no": "9010",
+  "ral_isim": "REINWEISS",
+  "base_no": "1",
+  "product": "CONSEAL TU BASE 1 (18 LT)",
+  "formul": "WB001.9 YX001.1 - Jotun Formula",
+  "colorant_cost": "19.96",
+  "maliyet": "19.96",
+  "can_size": "18L",
+  "lt": 18,
+  "kategori": "Poliüretan Sonkat"
+},
 {
   "ral_no": "1023",
   "ral_isim": "VERKEHRSGELB",
