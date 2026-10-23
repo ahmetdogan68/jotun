@@ -3,6 +3,17 @@
   "ral_no": "1013",
   "ral_isim": "PERLWEISS",
   "base_no": "1",
+  "product": "PILOT QD TOPCOAT BASE 1 (18 LT)",
+  "formul": "WB010.15 RW000.9 YX008.6 - Jotun Formula",
+  "colorant_cost": "141.79",
+  "maliyet": "141.79",
+  "can_size": "18L",
+  "lt": 18
+},
+  {
+  "ral_no": "1013",
+  "ral_isim": "PERLWEISS",
+  "base_no": "1",
   "product": "OPTIPRO UNIVERSAL TOPCOAT BASE 1 (18 LT)",
   "formul": "WB012.5 YX012.1 PX000.3 - Jotun Formula",
   "colorant_cost": "171.64",
