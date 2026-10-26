@@ -1,5 +1,16 @@
 [
   {
+  "ral_no": "9010",
+  "ral_isim": "REINWEISS",
+  "base_no": "1",
+  "product": "FUTURA CLASSIC BASE 1 (18 LT)",
+  "formul": "WB001.9 YX001.1 - Jotun Formula",
+  "colorant_cost": "19.96",
+  "maliyet": "19.96",
+  "can_size": "18L",
+  "lt": 18
+},
+  {
   "ral_no": "7038",
   "ral_isim": "AGATE GREY",
   "base_no": "2",
