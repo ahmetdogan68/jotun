@@ -1,5 +1,16 @@
 [
   {
+  "ral_no": "7038",
+  "ral_isim": "AGATE GREY",
+  "base_no": "2",
+  "product": "OPTIPRO UNIVERSAL TOPCOAT BASE 2 (18 LT)",
+  "formul": "Jotun Formula",
+  "colorant_cost": "111.27",
+  "maliyet": "111.27",
+  "can_size": "18L",
+  "lt": 18
+},
+  {
   "ral_no": "7016",
   "ral_isim": "ANTHRACITE GREY",
   "base_no": "1",
