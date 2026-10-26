@@ -1,5 +1,16 @@
 [
   {
+  "ral_no": "7016",
+  "ral_isim": "ANTHRACITE GREY",
+  "base_no": "1",
+  "product": "OPTIPRO UNIVERSAL TOPCOAT BASE 1 (18 LT)",
+  "formul": "BL006.4 RX000.7 SB054.1 WT057.5 Ext - Jotun Formula",
+  "colorant_cost": "1038.84",
+  "maliyet": "1038.84",
+  "can_size": "18L",
+  "lt": 18
+},
+  {
   "ral_no": "1013",
   "ral_isim": "PERLWEISS",
   "base_no": "1",
