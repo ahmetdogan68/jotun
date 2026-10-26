@@ -3,6 +3,17 @@
   "ral_no": "7038",
   "ral_isim": "AGATE GREY",
   "base_no": "2",
+  "product": "CONSEAL TU BASE 2 (18 LT)",
+  "formul": "GR001.3 SB006 YX005.2 - Jotun Formula",
+  "colorant_cost": "111.27",
+  "maliyet": "111.27",
+  "can_size": "18L",
+  "lt": 18
+},
+  {
+  "ral_no": "7038",
+  "ral_isim": "AGATE GREY",
+  "base_no": "2",
   "product": "OPTIPRO UNIVERSAL TOPCOAT BASE 2 (18 LT)",
   "formul": "Jotun Formula",
   "colorant_cost": "111.27",
