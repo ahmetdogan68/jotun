@@ -1,5 +1,16 @@
 [
   {
+  "ral_no": "1018",
+  "ral_isim": "ZINC YELLOW",
+  "base_no": "2",
+  "product": "PILOT QD TOPCOAT BASE 2 (18 LT)",
+  "formul": "AP006 GR000.4 YS229.4 - Jotun Formula",
+  "colorant_cost": "5596.24",
+  "maliyet": "5596.24",
+  "can_size": "18L",
+  "lt": 18
+},
+  {
   "ral_no": "9010",
   "ral_isim": "REINWEISS",
   "base_no": "1",
