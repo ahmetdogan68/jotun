@@ -111,17 +111,17 @@ let h=`<!DOCTYPE html><html lang='tr'><head><meta charset='UTF-8'><title>Teklif 
 <div class='topR'><img src='${jLogo}' onerror="this.style.display='none'"><div class='topRDate'>Tarih: ${tarih}</div></div>
 </div>
 
-<div class='titleCenter'><b>FIYAT TEKLIF FORMU</b></div>
+<div class='titleCenter'><b>FİYAT TEKLİF FORMU</b></div>
 
 <div class='musteriBox'><b>Musteri: ${must}</b><br>Tel: ${mustTel}<br>Adres: ${mustAdres}</div>
 
-<table><thead><tr><th>RENK</th><th>URUN / RAL</th><th>MIKTAR</th><th>BIRIM FIYAT</th><th>TOPLAM</th></tr></thead><tbody>${rows}</tbody></table>
+<table><thead><tr><th>RENK</th><th>ÜRÜN / RAL</th><th>MİKTAR</th><th>BİRİM FIYAT</th><th>TOPLAM</th></tr></thead><tbody>${rows}</tbody></table>
 
 <div class='totals'><div class='box'><div class='row'><span>Ara Toplam (KDV Haric)</span><span>${fmt(haric)}</span></div><div class='row'><span>KDV (%${kdvO})</span><span>${fmt(fark)}</span></div><div class='row total'><span>GENEL TOPLAM KDV DAHIL</span><span>${fmt(dahil)}</span></div></div></div>
 
-<div class='noteFull'><b>NOT:</b> Renk tonlari ekran ve baski nedeniyle farklilik gosterebilir. Kesin renk icin RAL kartelasi ile kontrol ediniz. Fiyatlar ${tarih} tarihli kur ve maliyetlere gore hesaplanmistir. Teklif ${tarih} tarihinden itibaren 3 gun gecerlidir. Onay sonrasi uretim baslar.</div>
+<div class='noteFull'><b>NOT:</b> Renk tonları ekran ve baskı nedeniyle farklılık gosterebilir. Kesin renk icin RAL kartelasi ile kontrol ediniz. Fiyatlar ${tarih} tarihli kur ve maliyetlere gore hesaplanmıştır. Teklif ${tarih} tarihinden itibaren 3 gun gecerlidir. Onay sonrasi uretim baslar.</div>
 
-<div class='contactFull'><b>ILETISIM & BANKA BILGILERI:</b><br>${firma} | ${fAdres}<br>Tel/WhatsApp: ${fTel} | Mail: ${fMail} | Web: ${fWeb}<br>${fBanka?'<br><b>Banka / IBAN:</b> '+fBanka:''}</div>
+<div class='contactFull'><b>ILETISIM & BANKA BİLGİLERİ:</b><br>${firma} | ${fAdres}<br>Tel/WhatsApp: ${fTel} | Mail: ${fMail} | Web: ${fWeb}<br>${fBanka?'<br><b>Banka / İBAN:</b> '+fBanka:''}</div>
 
 <div class='signRow'>
 <div class='signBox'><b>Teklifi Veren</b><br>${veren}<br><br><br><br>Kaşe / İmza<br><small>${firma}</small></div>
