@@ -1,14 +1,12 @@
-<!DOCTYPE html><html lang='tr'><head><meta charset='UTF-8'><meta name='viewport' content='width=device-width,initial-scale=1,maximum-scale=1'><title>JOTUN - HEADER DARK FIX</title><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet"><script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<!DOCTYPE html><html lang='tr'><head><meta charset='UTF-8'><meta name='viewport' content='width=device-width,initial-scale=1,maximum-scale=1'><title>JOTUN - BASE3 AMBALAJ FIX</title><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet"><script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <style>
 :root{--jotun-blue:#012060;--jotun-yellow:#FFCC00;--bg:#E9ECF0;--card:#FFF;--card-border:#D6DAE2;--text:#0B1E3A;--text2:#5A6A85;--input-border:#012060;--placeholder:#8A9AB5}
 .theme-dark{--bg:#070F1F;--card:#12213F;--card-border:#1F335E;--text:#E6EEF8;--text2:#8CA0C0;--input-border:#2A4A7A;--placeholder:#6B7FA3}
 *{box-sizing:border-box;margin:0;padding:0;min-width:0}
 body{font-family:Inter,Arial;background:var(--bg);color:var(--text);overflow-x:hidden}
 .w{max-width:1080px;margin:0 auto;background:var(--bg);min-height:100vh;padding:86px 10px 90px 10px;overflow-x:hidden}
-/* HEADER - TAM BOYDAN BOYA SABIT, GENIS */
 .h{background:var(--jotun-blue);color:#fff;padding:0 18px;height:74px;display:flex;justify-content:space-between;align-items:center;position:fixed;top:0;left:0;right:0;width:100%;z-index:1000;border-bottom:4px solid var(--jotun-yellow);box-shadow:0 2px 12px rgba(0,0,0,.25)}
 .h-left{display:flex;align-items:center;gap:14px;flex:1;min-width:0;overflow:hidden}.h-right{display:flex;align-items:center;gap:14px;flex-shrink:0}
-/* LOGO - SARI KENAR YOK, SEFFAF */
 .logo-clean{height:36px;max-width:160px;object-fit:contain;background:transparent !important;border:none !important;box-shadow:none !important;outline:none !important;padding:0 !important;border-radius:0 !important;display:block}
 #fLogo{height:36px;max-width:170px;background:transparent !important;border:none !important;box-shadow:none !important;padding:0 !important;border-radius:0 !important}
 #jLogo{height:36px;max-width:110px;background:transparent !important;border:none !important;box-shadow:none !important;padding:0 !important;border-radius:0 !important}
@@ -27,7 +25,7 @@ body{font-family:Inter,Arial;background:var(--bg);color:var(--text);overflow-x:h
 .ri{padding:10px 12px;display:flex;gap:10px;align-items:center;border-bottom:1px solid var(--card-border);cursor:pointer;font-size:13px;min-height:48px;color:var(--text)}.rs{width:32px;height:32px;border-radius:4px;border:1px solid #ddd}
 .s{padding:10px 12px;border:1.5px solid var(--card-border);border-radius:4px;width:100%;font-weight:600;font-size:13px;font-family:Inter;background:var(--card);color:var(--text);min-width:0}
 .s::placeholder{color:var(--placeholder)}
-.ambRow{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:8px;margin-top:8px}.amb{border:2px solid var(--card-border);border-radius:4px;font-weight:800;text-align:center;cursor:pointer;background:var(--card);height:48px;display:flex;align-items:center;justify-content:center;font-size:14px;color:var(--text)}.amb.on{background:var(--jotun-blue);color:#fff;border-color:var(--jotun-blue)}.theme-dark .amb.on{background:var(--jotun-yellow);color:var(--jotun-blue);border-color:var(--jotun-yellow)}
+.ambRow{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:8px;margin-top:8px}.amb{border:2px solid var(--card-border);border-radius:4px;font-weight:800;text-align:center;cursor:pointer;background:var(--card);height:48px;display:flex;align-items:center;justify-content:center;font-size:14px;color:var(--text);transition:.15s}.amb.on{background:var(--jotun-blue);color:#fff;border-color:var(--jotun-blue);transform:scale(1.02)}.theme-dark .amb.on{background:var(--jotun-yellow);color:var(--jotun-blue);border-color:var(--jotun-yellow)}
 .setBtn{background:var(--jotun-yellow);border:none;width:32px;height:32px;border-radius:50%;font-weight:900;color:var(--jotun-blue);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:16px}.kur{font-size:9px;color:var(--jotun-yellow);font-weight:800;background:#000;padding:3px 8px;border-radius:12px;border:1px solid var(--jotun-yellow);text-align:center;min-width:58px}
 .setP{display:none;position:fixed;top:0;right:0;width:100%;max-width:480px;height:100%;background:var(--card);z-index:99999;padding:16px;overflow:auto;border-left:3px solid var(--jotun-blue)}.over{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,15,40,.55);z-index:99998}
 .btnS{background:var(--jotun-yellow);color:var(--jotun-blue);border:none;border-radius:4px;padding:0 10px;font-weight:900;cursor:pointer;min-width:56px;height:78px;font-size:20px}
@@ -47,7 +45,6 @@ body{font-family:Inter,Arial;background:var(--bg);color:var(--text);overflow-x:h
 .themeSelect{display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;margin-top:6px}.themeOpt{border:2px solid var(--card-border);border-radius:4px;padding:8px;text-align:center;cursor:pointer;font-size:11px;font-weight:800;background:var(--card);color:var(--text)}.themeOpt.on{border-color:var(--jotun-blue);background:var(--jotun-blue);color:#fff}.theme-dark .themeOpt.on{border-color:var(--jotun-yellow);background:var(--jotun-yellow);color:var(--jotun-blue)}
 .jotunSearch{width:100%;height:48px;border:1.5px solid var(--card-border);border-radius:4px;padding:0 14px;font-size:14px;font-weight:500;background:var(--card);color:var(--text);font-family:Inter;min-width:0}
 .jotunSearch::placeholder{color:var(--placeholder)}
-/* DARK MODE FIXES - TUM YAZILAR ACIK */
 .theme-dark input{color:var(--text) !important;background:var(--card) !important;border-color:var(--card-border) !important}
 .theme-dark .sw{color:var(--text) !important;background:var(--card) !important;border-color:var(--jotun-yellow) !important}
 .theme-dark .bil{background:var(--card) !important;border-color:var(--input-border) !important}
@@ -228,20 +225,21 @@ function placeDrop(inputEl, dropEl){let r=inputEl.getBoundingClientRect();dropEl
 function enableUrun(){let i=document.getElementById('urunInput');i.removeAttribute('readonly');i.focus();openUrun()}function enableRal(){let i=document.getElementById('ralInput');i.removeAttribute('readonly');i.focus();openRal()}
 function openUrun(){let inp=document.getElementById('urunInput');let d=document.getElementById('urunDrop');placeDrop(inp,d);d.style.display='block';filterUrun()}
 function openRal(){let rb=document.querySelector('.rb');let d=document.getElementById('ralDrop');placeDrop(rb,d);d.style.display='block';filterRal()}
+
 function filterUrun(){
   let q=document.getElementById('urunInput').value.toUpperCase().trim();
   let d=document.getElementById('urunDrop');
   let h=[];
   if(tempRal && kayitlar.length>0){
     let f=kayitlar.filter(x=>String(x.ral_no).trim()===String(tempRal).trim());
+    // DUPLICATE'leri kaldır ama ürün adı farklı ise tut (BASE3 18LT vs 4.5LT ayrı kalsın)
     let m=new Map();
-    f.forEach(x=>{let k=(x.base_no||'')+'_'+(x.product||'').trim()+'_'+(x.ral_no||'');if(!m.has(k))m.set(k,x)});
+    f.forEach(x=>{let k=(x.product||'').trim().toUpperCase()+'_'+String(x.ral_no).trim();if(!m.has(k))m.set(k,x)});
     secKayit=Array.from(m.values());
     secKayit.forEach((k,i)=>{
       let exactPrice=findExactPrice(k.product);
-      let ff='';
-      if(exactPrice!==null){ ff=`$${exactPrice}`; }
-      else{
+      let ff= exactPrice!==null ? `$${exactPrice}` : '';
+      if(!ff){
         let bn=k.base_no||baseNo(k.product);
         let au=null;
         if(bn) au=urunler.find(u=>baseNo(u[0])===String(bn)&&u[1]>0);
@@ -255,33 +253,50 @@ function filterUrun(){
   h.push(...list.map(o=>`<div class='it' onclick='selectUrun(${o.i})'><span style='flex:1'>${o.r[0]}</span><b>$${o.r[1]}</b></div>`));
   d.innerHTML=h.join('');placeDrop(document.getElementById('urunInput'), d);d.style.display='block';
 }
+
+// --- TAM DUZELTME: SECTIGIN NE ISE O, LT OTOMATIK ---
 function selectKayit(i){
   let k=secKayit[i];if(!k)return;
+  let kLT=parseLT(k.product); // örn 4.5
+  // Ambalajı otomatik o LT'ye al
+  if(kLT>0){
+    secLT=kLT;
+    let idxAmb=amb.findIndex(a=>Math.abs(a.lt - kLT)<0.15);
+    if(idxAmb!==-1) secAmb=idxAmb;
+  }
+  // Ürün: TAM AD ile bul, BASE numarasına bakma
   let idxExact=urunler.findIndex(u=>u[0].trim().toUpperCase()===(k.product||'').trim().toUpperCase());
-  if(idxExact!==-1){ selectUrun(idxExact); }
-  else{
-    let kLT=parseLT(k.product);
-    let candidates=urunler.filter(u=>norm(u[0])===norm(k.product));
-    let best=candidates.find(u=>Math.abs(parseLT(u[0])-kLT)<0.1);
-    if(best){ let idx=urunler.findIndex(u=>u[0]===best[0]); if(idx!==-1){ selectUrun(idx); } }
-    else{
-      let bn=k.base_no||baseNo(k.product);
-      let au=null;let f=0;
-      if(bn){au=urunler.find(u=>baseNo(u[0])===String(bn)&&u[1]>0);if(au)f=au[1]}
-      if(!au){let a=fam(k.product);au=urunler.find(u=>fam(u[0])===a&&u[1]>0);if(au)f=au[1]}
-      let price=findExactPrice(k.product);
-      if(price!==null) f=price;
-      urunler.push([k.product,f]);
-      selectUrun(urunler.length-1);
+  if(idxExact!==-1){
+    selectUrun(idxExact,true); // true = ambalajı koru
+  }else{
+    // Yoksa direkt bu ürün adıyla ekle, fiyatı products.json'dan bul
+    let price=findExactPrice(k.product);
+    if(price===null){
+      // products.json'da yoksa LT'ye göre en yakın BASE'i bul ama fiyatını koruma - sıfırdan ekle
+      price=0;
     }
+    urunler.push([k.product,price]);
+    selectUrun(urunler.length-1,true);
   }
   document.getElementById('pigment').value=k.colorant_cost||'';document.getElementById('ralForm').value=k.formul||'';calc();
 }
-function selectUrun(i){
-  secUrun=i; let u=urunler[i]; let inp=document.getElementById('urunInput'); inp.value=u[0]; inp.setAttribute('readonly','true'); document.getElementById('urunDrop').style.display='none'; document.getElementById('urunDetay').style.display='block';
+
+function selectUrun(i, keepAmb=false){
+  secUrun=i; let u=urunler[i];
+  // Eğer ürünün kendi LT'si varsa ve keepAmb değilse ambalajı ona göre ayarla
+  // Ama kayıttan geldiyse keepAmb=true olduğu için 4.5 korunacak
+  if(!keepAmb){
+    let pLT=parseLT(u[0]);
+    if(pLT>0){
+      secLT=pLT;
+      let idxAmb=amb.findIndex(a=>Math.abs(a.lt - pLT)<0.15);
+      if(idxAmb!==-1) secAmb=idxAmb;
+    }
+  }
+  let inp=document.getElementById('urunInput'); inp.value=u[0]; inp.setAttribute('readonly','true'); document.getElementById('urunDrop').style.display='none'; document.getElementById('urunDetay').style.display='block';
   let pair=findCompPair(u[0]); secCompPair=pair; let setLT=getSetLT(u[0]); let myLT=parseLT(u[0])||setLT;
   document.getElementById('urunDetay').innerHTML=`✓ ${u[0]} • $${u[1]} ${pair?`<span style="background:#ffcc00;color:#012060;padding:1px 4px;border-radius:3px;font-size:9px">+ ${pair.ad} (${pair.lt}LT) $${pair.fiyat}</span>`:''}`;
-  if(pair){ document.getElementById('compBox').style.display='block'; document.getElementById('compBox').innerHTML=`<b>SET ${setLT}LT:</b> ${myLT}LT + ${pair.lt}LT = ${myLT+pair.lt}LT`; document.getElementById('ambInfo').innerText=`${setLT}LT SET`; }else{ document.getElementById('compBox').style.display='none'; document.getElementById('ambInfo').innerText=`${setLT}LT`; }
+  if(pair){ document.getElementById('compBox').style.display='block'; document.getElementById('compBox').innerHTML=`<b>SET ${setLT}LT:</b> ${myLT}LT + ${pair.lt}LT = ${myLT+pair.lt}LT • Fiyat: $${u[1]} + $${pair.fiyat}`; document.getElementById('ambInfo').innerText=`${setLT}LT SET`; }else{ document.getElementById('compBox').style.display='none'; document.getElementById('ambInfo').innerText=`${secLT}LT`; }
   renderAmb();calc();inp.blur()
 }
 function renderAmb(){ document.getElementById('ambList').innerHTML=amb.map((a,i)=>{let c='amb';if(i===secAmb) c+=' on';return `<div class='${c}' onclick='secAmb=${i};secLT=${a.lt};renderAmb();calc();'>${a.ad}</div>`}).join('');}
