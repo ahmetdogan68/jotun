@@ -1,5 +1,15 @@
 [
-   {
+{
+  "ral_no": "9016",
+  "ral_isim": "TRAFFIC WHITE",
+  "base_no": "1",
+  "product": "CONSEAL TU BASE 1 (5 LT)",
+  "formul": "WB001.7 - Jotun Formula",
+  "colorant_cost": "2.59",
+  "maliyet": "2.59",
+  "can_size": "5L",
+  "lt": 5
+},   {
   "ral_no": "1021",
   "ral_isim": "COLZA YELLOW",
   "base_no": "5",
