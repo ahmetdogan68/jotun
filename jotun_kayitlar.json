@@ -130,17 +130,7 @@
   "can_size": "18L",
   "lt": 18
 },
-  {
-  "ral_no": "9010",
-  "ral_isim": "REINWEISS",
-  "base_no": "1",
-  "product": "FUTURA CLASSIC BASE 1 (18 LT)",
-  "formul": "WB001.9 YX001.1 - Jotun Formula",
-  "colorant_cost": "19.96",
-  "maliyet": "19.96",
-  "can_size": "18L",
-  "lt": 18
-},
+ 
   {
   "ral_no": "7038",
   "ral_isim": "AGATE GREY",
@@ -152,28 +142,8 @@
   "can_size": "18L",
   "lt": 18
 },
-  {
-  "ral_no": "7038",
-  "ral_isim": "AGATE GREY",
-  "base_no": "2",
-  "product": "OPTIPRO UNIVERSAL TOPCOAT BASE 2 (18 LT)",
-  "formul": "Jotun Formula",
-  "colorant_cost": "111.27",
-  "maliyet": "111.27",
-  "can_size": "18L",
-  "lt": 18
-},
-  {
-  "ral_no": "7016",
-  "ral_isim": "ANTHRACITE GREY",
-  "base_no": "1",
-  "product": "OPTIPRO UNIVERSAL TOPCOAT BASE 1 (18 LT)",
-  "formul": "BL006.4 RX000.7 SB054.1 WT057.5 Ext - Jotun Formula",
-  "colorant_cost": "1038.84",
-  "maliyet": "1038.84",
-  "can_size": "18L",
-  "lt": 18
-},
+ 
+
   {
   "ral_no": "1013",
   "ral_isim": "PERLWEISS",
@@ -185,31 +155,8 @@
   "can_size": "18L",
   "lt": 18
 },
-  {
-  "ral_no": "1013",
-  "ral_isim": "PERLWEISS",
-  "base_no": "1",
-  "product": "OPTIPRO UNIVERSAL TOPCOAT BASE 1 (18 LT)",
-  "formul": "WB012.5 YX012.1 PX000.3 - Jotun Formula",
-  "colorant_cost": "171.64",
-  "maliyet": "171.64",
-  "can_size": "18L",
-  "lt": 18
-},
-
-  {
-  "ral_no": "9002",
-  "ral_isim": "GREY WHITE",
-  "base_no": "1",
-  "product": "JOTAMASTIC 90 GF BASE 1 (18 LT)",
-  "formul": "WB010.8 YB000.7 YX002.4 - Jotun Formula",
-  "colorant_cost": "106.52",
-  "maliyet": "106.52",
-  "can_size": "18L",
-  "lt": 18,
-  "kategori": "Poliüretan Sonkat"
-},
-
+  
+ 
 {
   "ral_no": "9010",
   "ral_isim": "REINWEISS",
