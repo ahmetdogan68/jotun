@@ -1,5 +1,27 @@
 [
   {
+  "ral_no": "7016",
+  "ral_isim": "ANTHRACITE GREY",
+  "base_no": "3",
+  "product": "CONSEAL TU BASE 3 (18 LT)",
+  "formul": "BL006.4 RX000.7 SB054.1 WT057.5 - Jotun Formula",
+  "colorant_cost": "1038.84",
+  "maliyet": "1038.84",
+  "can_size": "18L",
+  "lt": 18
+},
+{
+  "ral_no": "7016",
+  "ral_isim": "ANTHRACITE GREY",
+  "base_no": "3",
+  "product": "CONSEAL TU BASE 3 (4.5 LT)",
+  "formul": "BL006.4 RX000.7 SB054.1 WT057.5 - Jotun Formula",
+  "colorant_cost": "259.71",
+  "maliyet": "259.71",
+  "can_size": "4.5L",
+  "lt": 4.5
+},
+  {
   "ral_no": "5015",
   "ral_isim": "SKY BLUE",
   "base_no": "3",
