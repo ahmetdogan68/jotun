@@ -1,5 +1,27 @@
 [
 {
+  "ral_no": "9010",
+  "ral_isim": "PURE WHITE",
+  "base_no": "1",
+  "product": "FUTURA CLASSIC BASE 1 (18 LT)",
+  "formul": "WB001.9 YX001.1 - Jotun Formula",
+  "colorant_cost": "19.96",
+  "maliyet": "19.96",
+  "can_size": "18L",
+  "lt": 18
+},
+{
+  "ral_no": "9010",
+  "ral_isim": "PURE WHITE",
+  "base_no": "1",
+  "product": "FUTURA CLASSIC BASE 1 (4.5 LT)",
+  "formul": "WB001.9 YX001.1 - Jotun Formula",
+  "colorant_cost": "4.99",
+  "maliyet": "4.99",
+  "can_size": "4.5L",
+  "lt": 4.5
+},
+  {
   "ral_no": "9016",
   "ral_isim": "TRAFFIC WHITE",
   "base_no": "1",
