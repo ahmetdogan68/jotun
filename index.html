@@ -1,253 +1,129 @@
-<!DOCTYPE html><html lang='tr'><head><meta charset='UTF-8'><meta name='viewport' content='width=device-width,initial-scale=1,maximum-scale=1'><title>JOTUN KURUMSAL - TEKLIF</title><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet"><script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<!DOCTYPE html><html lang='tr'><head><meta charset='UTF-8'><meta name='viewport' content='width=device-width,initial-scale=1,maximum-scale=1'><title>JOTUN - KISI WHATSAPP FIX</title><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet"><script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <style>
-:root{
-  --jotun-blue:#012060;
-  --jotun-blue-dark:#001845;
-  --jotun-yellow:#FFCC00;
-  --jotun-yellow-dark:#E6B800;
-  --bg:#E9ECF0;
-  --card:#FFFFFF;
-  --card-border:#D6DAE2;
-  --text:#0B1E3A;
-  --text2:#5A6A85;
-  --input-border:#012060;
-}
-.theme-dark{
-  --bg:#070F1F;
-  --card:#12213F;
-  --card-border:#1F335E;
-  --text:#E6EEF8;
-  --text2:#8CA0C0;
-  --input-border:#FFCC00;
-}
-*{box-sizing:border-box;margin:0;padding:0}
-body{font-family:'Inter','Helvetica Neue',Helvetica,Arial,sans-serif;background:var(--bg);color:var(--text);letter-spacing:-0.01em;-webkit-font-smoothing:antialiased}
-.w{max-width:1024px;margin:0 auto;background:var(--bg);min-height:100vh;padding:0 10px 90px 10px}
-
-/* HEADER - JOTUN KURUMSAL GIBI */
-.h{
-  background:var(--jotun-blue);
-  color:#fff;
-  padding:0 16px;
-  height:56px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  position:sticky;
-  top:0;
-  z-index:500;
-  margin:0 -10px 12px -10px;
-  border-bottom:3px solid var(--jotun-yellow);
-}
-.h-left{display:flex;align-items:center;gap:12px;flex:1;min-width:0}
-.h-right{display:flex;align-items:center;gap:10px;flex-shrink:0}
-.logo-clean{height:32px;max-width:110px;object-fit:contain;background:#FFCC00;padding:2px 6px;border-radius:3px}
-.h-title{font-weight:900;font-size:18px;letter-spacing:0.04em;text-transform:uppercase;color:#fff;white-space:nowrap}
-.h-home{width:32px;height:32px;background:var(--jotun-yellow);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--jotun-blue);font-weight:900;font-size:16px;cursor:pointer}
-.c{background:var(--card);border-radius:4px;padding:14px;margin-top:10px;border:1px solid var(--card-border);box-shadow:0 1px 2px rgba(0,0,0,.06)}
+:root{--jotun-blue:#012060;--jotun-yellow:#FFCC00;--bg:#E9ECF0;--card:#FFF;--card-border:#D6DAE2;--text:#0B1E3A;--text2:#5A6A85;--input-border:#012060}
+.theme-dark{--bg:#070F1F;--card:#12213F;--card-border:#1F335E;--text:#E6EEF8;--text2:#8CA0C0;--input-border:#FFCC00}
+*{box-sizing:border-box;margin:0;padding:0;min-width:0}
+body{font-family:Inter,Arial;background:var(--bg);color:var(--text);overflow-x:hidden}
+.w{max-width:1080px;margin:0 auto;background:var(--bg);min-height:100vh;padding:0 10px 90px 10px;overflow-x:hidden}
+.h{background:var(--jotun-blue);color:#fff;padding:0 16px;height:62px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:500;margin:0 -10px 12px -10px;width:calc(100% + 20px);border-bottom:4px solid var(--jotun-yellow)}
+.h-left{display:flex;align-items:center;gap:12px;flex:1;min-width:0}.h-right{display:flex;align-items:center;gap:12px;flex-shrink:0}
+.logo-clean{height:34px;max-width:140px;object-fit:contain;background:transparent !important}
+#jLogo{height:34px;background:transparent !important}
+.h-title{font-weight:900;font-size:18px;color:#fff;white-space:nowrap}.h-sub{font-size:14px;opacity:.9}
+.c{background:var(--card);border-radius:4px;padding:14px;margin-top:10px;border:1px solid var(--card-border);overflow:hidden}
 .c-head{font-size:11px;font-weight:800;color:var(--jotun-blue);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:8px;display:flex;justify-content:space-between;align-items:center}
 .theme-dark .c-head{color:var(--jotun-yellow)}
-.sb{display:flex;gap:8px;align-items:center}.sb input{flex:1;padding:0 16px;border:2px solid var(--input-border);border-radius:4px;font-weight:700;height:78px;font-size:17px;font-family:Inter;background:var(--card);color:var(--text)}
-.sb input::placeholder{color:var(--text2)}
+.sb{display:flex;gap:8px;align-items:center}.sb input{flex:1;padding:0 16px;border:2px solid var(--input-border);border-radius:4px;font-weight:700;height:78px;font-size:17px;font-family:Inter;background:var(--card);color:var(--text);min-width:0}
 .drop{position:fixed;background:var(--card);border-radius:4px;max-height:420px;overflow:auto;z-index:999999;display:none;box-shadow:0 12px 30px rgba(0,0,0,.25);border:2px solid var(--jotun-blue);min-width:340px;max-width:520px}
 .it{padding:12px 14px;border-bottom:1px solid var(--card-border);display:flex;justify-content:space-between;font-size:13px;cursor:pointer;min-height:48px;align-items:center;color:var(--text)}
-.it:hover{background:#F2F5FA}
-.theme-dark .it:hover{background:#1A2E55}
 #ralDrop{position:fixed;background:var(--card);border-radius:4px;max-height:420px;overflow:auto;z-index:999999;display:none;box-shadow:0 15px 40px rgba(0,0,0,.35);border:2px solid var(--jotun-blue);min-width:340px;max-width:460px}
-.ri{padding:10px 12px;display:flex;gap:10px;align-items:center;border-bottom:1px solid var(--card-border);cursor:pointer;font-size:13px;min-height:48px;color:var(--text)}
-.ri:hover{background:#F2F5FA}
-.theme-dark .ri:hover{background:#1A2E55}
-.rs{width:32px;height:32px;border-radius:4px;border:1px solid #ddd}
-.s{padding:10px 12px;border:1.5px solid var(--card-border);border-radius:4px;width:100%;font-weight:600;font-size:13px;font-family:Inter;background:var(--card);color:var(--text)}
-.ambRow{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-top:8px}
-.amb{border:2px solid var(--card-border);border-radius:4px;font-weight:800;text-align:center;cursor:pointer;background:var(--card);height:48px;display:flex;align-items:center;justify-content:center;font-size:14px;color:var(--text);transition:all .15s}
-.amb.on{background:var(--jotun-blue);color:#fff;border-color:var(--jotun-blue)}
-.theme-dark .amb.on{background:var(--jotun-yellow);color:var(--jotun-blue);border-color:var(--jotun-yellow)}
-.setBtn{background:var(--jotun-yellow);border:none;width:28px;height:28px;border-radius:50%;font-weight:900;color:var(--jotun-blue);cursor:pointer;display:flex;align-items:center;justify-content:center}
-.kur{font-size:9px;color:var(--jotun-yellow);font-weight:800;background:#000;padding:3px 7px;border-radius:12px;border:1px solid var(--jotun-yellow);line-height:1.1;text-align:center}
-.setP{display:none;position:fixed;top:0;right:0;width:100%;max-width:480px;height:100%;background:var(--card);z-index:99999;padding:16px;overflow:auto;border-left:3px solid var(--jotun-blue)}
-.over{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,15,40,.55);z-index:99998;backdrop-filter:blur(2px)}
-.btnS{background:var(--jotun-yellow);color:var(--jotun-blue);border:none;border-radius:4px;padding:0 10px;font-weight:900;cursor:pointer;min-width:56px;height:78px;font-size:20px;transition:all .15s}
-.btnS:hover{background:var(--jotun-yellow-dark)}
-.kurumsalLabel{font-size:9px;font-weight:800;color:var(--jotun-blue);margin-top:10px;display:block;letter-spacing:0.06em;text-transform:uppercase}
-.theme-dark .kurumsalLabel{color:var(--jotun-yellow)}
-.c-ambalaj{padding:10px 14px !important}
-.res{background:var(--jotun-blue);color:#fff;border-radius:4px;padding:14px;margin-top:10px}
-.theme-dark .res{background:#0F2547;border:1px solid var(--card-border)}
-.resGrid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;background:rgba(0,0,0,.18);border-radius:4px;padding:14px}
-.resLabel{font-size:9px;color:#8AA0C5;font-weight:800;letter-spacing:0.08em;text-transform:uppercase}
-.resVal{font-weight:800;font-size:22px;line-height:1.2;margin-top:4px}
-.resValBig{font-weight:900;font-size:26px;line-height:1.2;margin-top:4px;color:#fff}
-.resValKdv{color:var(--jotun-yellow);font-size:14px;font-weight:800;margin-top:2px}
-.hesapDetay{background:var(--card);border:1.5px dashed var(--jotun-yellow);border-radius:4px;padding:10px 12px;margin-top:10px;font-size:11px;color:var(--text);line-height:1.5;font-weight:600}
-.actionBtns{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}
-.actionBtns button{padding:14px;border-radius:4px;font-weight:800;font-size:13px;cursor:pointer;letter-spacing:0.02em;text-transform:uppercase;border:none}
-.teklifCard{background:var(--card);border-radius:4px;padding:14px;margin-top:10px;border:1px solid var(--card-border)}
-.teklifInputs{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}
-.teklifInputs input{padding:12px 12px;border:1.5px solid var(--card-border);border-radius:4px;font-weight:600;font-size:13px;background:var(--card);color:var(--text);font-family:Inter}
-.teklifList{margin-top:12px}
-.teklifItem{display:flex;gap:10px;padding:10px;border:1px solid var(--card-border);border-radius:4px;margin-bottom:6px;background:var(--card);align-items:center}
-.teklifItemTitle{font-weight:700;font-size:12px;color:var(--text)}
-.teklifItemSub{font-size:11px;font-weight:600;color:var(--text2)}
-.teklifToplam{background:var(--jotun-blue);color:#fff;border-radius:4px;padding:12px;margin-top:10px;font-size:15px;font-weight:800;letter-spacing:0.02em}
-.theme-dark .teklifToplam{background:#0F2547;border:1px solid var(--jotun-yellow)}
-.teklifBtns{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-top:12px}
-.teklifBtns button{padding:12px;border-radius:4px;font-weight:800;font-size:11px;border:none;cursor:pointer;letter-spacing:0.04em;text-transform:uppercase}
-.sikGrid{display:grid;grid-template-columns:repeat(8,1fr);gap:6px;margin-top:10px;max-height:none}
-.sikCard{background:var(--card);border-radius:4px;overflow:hidden;border:1px solid var(--card-border);cursor:pointer;position:relative;aspect-ratio:1/1;display:flex;flex-direction:column;box-shadow:0 1px 2px rgba(0,0,0,.08);transition:transform .12s}
-.sikCard:hover{transform:translateY(-1px);box-shadow:0 4px 8px rgba(0,0,0,.12)}
-.sikTop{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:2px;gap:2px}
-.sikSwatch{width:16px;height:16px;border-radius:3px;border:1px solid rgba(255,255,255,.8);box-shadow:0 1px 2px rgba(0,0,0,.2)}
-.sikRal{font-weight:900;font-size:10px;line-height:1;letter-spacing:0.02em}
-.sikBody{background:#0B1E3A;color:#fff;padding:2px;font-size:6.5px;font-weight:800;line-height:1;text-align:center;min-height:14px;display:flex;align-items:center;justify-content:center;white-space:nowrap;overflow:hidden;letter-spacing:0.02em}
-.theme-dark .sikBody{background:#000}
-.sikDel{position:absolute;top:0;right:0;background:#E53935;color:#fff;border:none;border-radius:0 0 0 4px;padding:0 3px;font-size:7px;font-weight:900;z-index:2;line-height:10px;cursor:pointer}
-.compBox{background:var(--jotun-blue);border:1.5px solid var(--jotun-yellow);border-radius:4px;padding:8px 10px;margin-top:8px;color:#fff;font-size:11px;display:none;font-weight:600}
+.ri{padding:10px 12px;display:flex;gap:10px;align-items:center;border-bottom:1px solid var(--card-border);cursor:pointer;font-size:13px;min-height:48px;color:var(--text)}.rs{width:32px;height:32px;border-radius:4px;border:1px solid #ddd}
+.s{padding:10px 12px;border:1.5px solid var(--card-border);border-radius:4px;width:100%;font-weight:600;font-size:13px;font-family:Inter;background:var(--card);color:var(--text);min-width:0}
+.ambRow{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:8px;margin-top:8px}.amb{border:2px solid var(--card-border);border-radius:4px;font-weight:800;text-align:center;cursor:pointer;background:var(--card);height:48px;display:flex;align-items:center;justify-content:center;font-size:14px;color:var(--text)}.amb.on{background:var(--jotun-blue);color:#fff;border-color:var(--jotun-blue)}.theme-dark .amb.on{background:var(--jotun-yellow);color:var(--jotun-blue)}
+.setBtn{background:var(--jotun-yellow);border:none;width:28px;height:28px;border-radius:50%;font-weight:900;color:var(--jotun-blue);cursor:pointer;display:flex;align-items:center;justify-content:center}.kur{font-size:9px;color:var(--jotun-yellow);font-weight:800;background:#000;padding:3px 7px;border-radius:12px;border:1px solid var(--jotun-yellow);text-align:center}
+.setP{display:none;position:fixed;top:0;right:0;width:100%;max-width:480px;height:100%;background:var(--card);z-index:99999;padding:16px;overflow:auto;border-left:3px solid var(--jotun-blue)}.over{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,15,40,.55);z-index:99998}
+.btnS{background:var(--jotun-yellow);color:var(--jotun-blue);border:none;border-radius:4px;padding:0 10px;font-weight:900;cursor:pointer;min-width:56px;height:78px;font-size:20px}
+.kurumsalLabel{font-size:9px;font-weight:800;color:var(--jotun-blue);margin-top:10px;display:block;letter-spacing:0.06em;text-transform:uppercase}.theme-dark .kurumsalLabel{color:var(--jotun-yellow)}
+.res{background:var(--jotun-blue);color:#fff;border-radius:4px;padding:14px;margin-top:10px}.theme-dark .res{background:#0F2547;border:1px solid var(--card-border)}.resGrid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;background:rgba(0,0,0,.18);border-radius:4px;padding:14px}.resLabel{font-size:9px;color:#8AA0C5;font-weight:800;letter-spacing:0.08em;text-transform:uppercase}.resVal{font-weight:800;font-size:22px;margin-top:4px}.resValBig{font-weight:900;font-size:26px;margin-top:4px;color:#fff}.resValKdv{color:var(--jotun-yellow);font-size:14px;font-weight:800;margin-top:2px}
+.hesapDetay{background:var(--card);border:1.5px dashed var(--jotun-yellow);border-radius:4px;padding:10px 12px;margin-top:10px;font-size:11px;color:var(--text);line-height:1.5;font-weight:600;overflow-wrap:break-word}
+.actionBtns{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}.actionBtns button{padding:14px;border-radius:4px;font-weight:800;font-size:13px;cursor:pointer;text-transform:uppercase;border:none}
+.teklifCard{background:var(--card);border-radius:4px;padding:14px;margin-top:10px;border:1px solid var(--card-border);overflow:hidden}
+.teklifInputs{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}.teklifInputs input{padding:12px 12px;border:1.5px solid var(--card-border);border-radius:4px;font-weight:600;font-size:14px;background:var(--card);color:var(--text);font-family:Inter;width:100%;min-width:0}
+.teklifList{margin-top:12px}.teklifItem{display:flex;gap:10px;padding:10px;border:1px solid var(--card-border);border-radius:4px;margin-bottom:6px;background:var(--card);align-items:center;overflow:hidden}.teklifItemTitle{font-weight:700;font-size:12px;color:var(--text);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.teklifItemSub{font-size:11px;font-weight:600;color:var(--text2)}.teklifToplam{background:var(--jotun-blue);color:#fff;border-radius:4px;padding:12px;margin-top:10px;font-size:15px;font-weight:800}
+.teklifBtns{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-top:12px}.teklifBtns button{padding:14px 6px;border-radius:6px;font-weight:900;font-size:12px;border:none;cursor:pointer;text-transform:uppercase;min-width:0;line-height:1.2}
+.sikGrid{display:grid;grid-template-columns:repeat(8,1fr);gap:6px;margin-top:10px}.sikCard{background:var(--card);border-radius:4px;overflow:hidden;border:1px solid var(--card-border);cursor:pointer;position:relative;aspect-ratio:1/1;display:flex;flex-direction:column}.sikTop{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:2px;gap:2px}.sikSwatch{width:16px;height:16px;border-radius:3px;border:1px solid rgba(255,255,255,.8)}.sikRal{font-weight:900;font-size:10px}.sikBody{background:#0B1E3A;color:#fff;padding:2px;font-size:6.5px;font-weight:800;line-height:1;text-align:center;min-height:14px;display:flex;align-items:center;justify-content:center;white-space:nowrap;overflow:hidden}.sikDel{position:absolute;top:0;right:0;background:#E53935;color:#fff;border:none;border-radius:0 0 0 4px;padding:0 3px;font-size:7px;font-weight:900;z-index:2;line-height:10px;cursor:pointer}
+.compBox{background:var(--jotun-blue);border:1.5px solid var(--jotun-yellow);border-radius:4px;padding:8px 10px;margin-top:8px;color:#fff;font-size:11px;display:none;font-weight:600;overflow-wrap:break-word}
 .kasePreview{width:100%;max-height:100px;object-fit:contain;border:1px dashed var(--card-border);border-radius:4px;margin-top:6px;display:none;background:#fff}
-.themeSelect{display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;margin-top:6px}
-.themeOpt{border:2px solid var(--card-border);border-radius:4px;padding:8px;text-align:center;cursor:pointer;font-size:11px;font-weight:800;background:var(--card);color:var(--text)}
-.themeOpt.on{border-color:var(--jotun-blue);background:var(--jotun-blue);color:#fff}
-.theme-dark .themeOpt.on{border-color:var(--jotun-yellow);background:var(--jotun-yellow);color:var(--jotun-blue)}
-/* JOTUN tarzı arama kutusu */
-.jotunSearch{width:100%;height:48px;border:1.5px solid var(--card-border);border-radius:4px;padding:0 14px;font-size:14px;font-weight:500;background:var(--card);color:var(--text);font-family:Inter}
-.jotunSearch:focus{outline:none;border-color:var(--jotun-blue);box-shadow:0 0 0 3px rgba(1,32,96,.12)}
-@media(max-width:650px){
-  .w{padding:0 6px 70px 6px}
-  .h{height:50px;padding:0 10px;margin:0 -6px 8px -6px}
-  .logo-clean{height:26px !important;max-width:80px}
-  .h-title{font-size:13px}
-  #headerFirmaAdi{font-size:9px !important;max-width:110px}
-  .setBtn{width:24px;height:24px;font-size:12px}
-  .kur{font-size:7px;padding:2px 5px}
-  .c{padding:10px;margin-top:8px}
-  .sb input{height:52px !important;font-size:14px !important;padding:0 12px}
-  .btnS{height:52px !important;min-width:44px !important;font-size:18px !important}
-  .sw{width:64px !important;height:52px !important;border-radius:4px !important}
-  .bil{height:52px !important;border-radius:4px !important}
-  .bil input{font-size:14px !important}
-  .amb{height:40px !important;font-size:12px !important}
-  .sikGrid{grid-template-columns:repeat(4,1fr);gap:4px}
-  .teklifBtns{grid-template-columns:1fr 1fr;gap:6px}
-  .teklifBtns button:last-child{grid-column:1 / -1}
+.themeSelect{display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;margin-top:6px}.themeOpt{border:2px solid var(--card-border);border-radius:4px;padding:8px;text-align:center;cursor:pointer;font-size:11px;font-weight:800;background:var(--card);color:var(--text)}.themeOpt.on{border-color:var(--jotun-blue);background:var(--jotun-blue);color:#fff}.theme-dark .themeOpt.on{border-color:var(--jotun-yellow);background:var(--jotun-yellow);color:var(--jotun-blue)}
+.jotunSearch{width:100%;height:48px;border:1.5px solid var(--card-border);border-radius:4px;padding:0 14px;font-size:14px;font-weight:500;background:var(--card);color:var(--text);font-family:Inter;min-width:0}
+@media(max-width:700px){
+.w{padding:0 6px 80px 6px}.h{height:56px;padding:0 10px;margin:0 -6px 8px -6px;width:calc(100% + 12px)}.logo-clean{height:24px !important;max-width:100px}#jLogo{height:24px !important}.h-title{font-size:13px}.h-sub{font-size:11px}#headerFirmaAdi{font-size:8px !important;max-width:90px}
+.c{padding:10px;margin-top:8px;border-radius:6px}.sb input{height:54px !important;font-size:14px !important}.btnS{height:54px !important;min-width:44px !important}.sw{width:60px !important;height:54px !important}.bil{height:54px !important}
+.amb{height:42px !important;font-size:12px !important}.ambRow{grid-template-columns:1fr 1fr 1fr 1fr;gap:6px}.resGrid{padding:10px;gap:6px}.resVal{font-size:16px}.resValBig{font-size:18px}
+.teklifCard{padding:10px}.teklifInputs{grid-template-columns:1fr !important;gap:8px}.teklifInputs input{font-size:15px !important;min-height:46px}.teklifRow2{display:grid !important;grid-template-columns:1fr 1fr !important;gap:8px !important;width:100% !important}.teklifRow2 input{min-width:0 !important;width:100% !important}
+.teklifBtns{grid-template-columns:1fr 1fr 1fr !important;gap:6px !important}
+.teklifBtns button{padding:12px 4px !important;font-size:10px !important;display:flex !important;flex-direction:column;align-items:center;justify-content:center;min-height:56px}
+.sikGrid{grid-template-columns:repeat(4,1fr);gap:4px}
 }
+@media(max-width:380px){.teklifRow2{grid-template-columns:1fr !important}.ambRow{grid-template-columns:1fr 1fr}.teklifBtns{grid-template-columns:1fr !important}.teklifBtns button{flex-direction:row !important;min-height:44px !important}}
 </style></head><body><div class='w'>
-<!-- HEADER JOTUN KURUMSAL -->
-<div class='h'>
-  <div class='h-left'>
-    <img id='fLogo' src='' class='logo-clean' style='display:none'>
-    <div id='headerFirmaAdi' style='font-weight:800;font-size:11px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:#FFCC00'></div>
-    <div class='h-title' id='headerMainTitle'>JOTUN</div>
-    <div style='font-weight:400;font-size:14px;letter-spacing:0.02em;opacity:.9'>| HESAPLAMA</div>
-  </div>
-  <div class='h-right'>
-    <img id='jLogo' src='./jotun.png' class='logo-clean' style='display:block' onerror="this.src=&quot;https://www.jotun.com/globalassets/jotun-logo.svg&quot;">
-    <div style='display:flex;flex-direction:column;align-items:center;gap:2px'>
-      <div class='h-home' onclick='openSet()'>⚙</div>
-      <div id='kurTxt' class='kur'>-</div>
-    </div>
-  </div>
-</div>
-
+<div class='h'><div class='h-left'><img id='fLogo' src='' class='logo-clean' style='display:none'><div id='headerFirmaAdi' style='font-weight:800;font-size:11px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:#FFCC00'></div><div class='h-title'>JOTUN</div><div class='h-sub'>| HESAPLAMA</div></div><div class='h-right'><img id='jLogo' src='./jotun.png' class='logo-clean' style='display:block' onerror="this.src='https://www.jotun.com/globalassets/jotun-logo.svg'"><div style='display:flex;flex-direction:column;align-items:center;gap:2px'><div class='setBtn' onclick='openSet()'>⚙</div><div id='kurTxt' class='kur'>-</div></div></div></div>
 <div class='over' id='over' onclick='closeSet()'></div><div class='setP' id='setP'>
-<h3 style='font-weight:900;letter-spacing:0.02em'>AYARLAR</h3>
-
-<!-- TEMA SECIMI - JOTUN KURUMSAL -->
-<div style='border:1.5px solid var(--jotun-yellow);border-radius:4px;padding:10px;margin-top:12px;background:rgba(255,204,0,.08)'>
-  <span class='kurumsalLabel' style='margin-top:0'>TEMA - AÇIK / KOYU</span>
-  <div class='themeSelect'>
-    <div class='themeOpt' id='themeLight' onclick='setTheme("light")'>☀️ AÇIK</div>
-    <div class='themeOpt' id='themeDark' onclick='setTheme("dark")'>🌙 KOYU</div>
-    <div class='themeOpt' id='themeAuto' onclick='setTheme("auto")'>🔄 OTO</div>
-  </div>
-  <div style='font-size:9px;color:var(--text2);margin-top:6px'>JOTUN kurumsal renklerine uyumlu. Koyu mod gece için ideal.</div>
-</div>
-
-<div><span class='kurumsalLabel'>FIRMA ÜNVANI</span><input id='setFirma' class='s' placeholder='Örn: BAYDEMIR BOYA'></div>
-<div><span class='kurumsalLabel'>FIRMA LOGO (URL veya Dosya)</span><input id='setFL' class='s' placeholder='https://.../logo.png'><input type='file' id='fLogoFile' accept='image/*' class='s' style='margin-top:6px'><img id='fLogoPreview' class='kasePreview'><div style='font-size:9px;color:var(--text2);margin-top:4px'>URL yaz veya dosya seç. Dosya seçersen telefon hafızasında saklanır (base64), internet olmadan da çalışır.</div></div>
+<h3 style='font-weight:900'>AYARLAR</h3>
+<div style='border:1.5px solid var(--jotun-yellow);border-radius:4px;padding:10px;margin-top:12px;background:rgba(255,204,0,.08)'><span class='kurumsalLabel' style='margin-top:0'>TEMA</span><div class='themeSelect'><div class='themeOpt' id='themeLight' onclick='setTheme("light")'>☀️ AÇIK</div><div class='themeOpt' id='themeDark' onclick='setTheme("dark")'>🌙 KOYU</div><div class='themeOpt' id='themeAuto' onclick='setTheme("auto")'>🔄 OTO</div></div></div>
+<div><span class='kurumsalLabel'>FIRMA ÜNVANI</span><input id='setFirma' class='s'></div>
+<div><span class='kurumsalLabel'>FIRMA LOGO</span><input id='setFL' class='s'><input type='file' id='fLogoFile' accept='image/*' class='s' style='margin-top:6px'><img id='fLogoPreview' class='kasePreview'></div>
 <div style='border:1px solid var(--jotun-yellow);border-radius:4px;padding:8px;margin-top:10px'><span class='kurumsalLabel' style='margin-top:0'>KAŞE / İMZA</span><input id='setKase' class='s'><input type='file' id='kaseFile' accept='image/*' class='s' style='margin-top:6px'><img id='kasePreview' class='kasePreview'><button onclick='clearKase()' style='margin-top:6px;background:#E53935;color:#fff;border:none;border-radius:4px;padding:6px 10px;font-size:10px;font-weight:800'>SİL</button></div>
 <div><span class='kurumsalLabel'>ADRES</span><input id='setAdres' class='s'></div><div style='display:grid;grid-template-columns:1fr 1fr;gap:6px'><div><span class='kurumsalLabel'>MAIL</span><input id='setMail' class='s'></div><div><span class='kurumsalLabel'>WEB</span><input id='setWeb' class='s'></div></div><div><span class='kurumsalLabel'>TEL</span><input id='setTel' class='s'></div><div><span class='kurumsalLabel'>IBAN</span><input id='setBanka' class='s'></div><div><span class='kurumsalLabel'>VEREN</span><input id='setVeren' class='s'></div><div style='display:grid;grid-template-columns:1fr 1fr;gap:6px'><div><span class='kurumsalLabel'>KAR %</span><input id='setKar' class='s' type='number'></div><div><span class='kurumsalLabel'>KDV %</span><input id='setKdv' class='s' type='number'></div></div>
-<div style='background:var(--card);border:1.5px solid #0a7a2f;border-radius:4px;padding:10px;margin-top:10px'>
-  <span class='kurumsalLabel' style='margin-top:0'>DOLAR KURU</span><input id='setDolar' class='s'><div id='kurTarihTxt' style='font-size:10px;color:#0a7a2f;font-weight:700;margin-top:4px'></div><button onclick='fetchDolar()' style='margin-top:8px;width:100%;background:#0a7a2f;color:#fff;border:none;border-radius:4px;padding:10px;font-weight:800'>💵 DOLAR ÇEK</button>
-</div>
-<button onclick='saveSet();closeSet()' style='width:100%;padding:12px;background:var(--jotun-blue);color:#fff;border:none;border-radius:4px;font-weight:800;margin-top:14px;letter-spacing:0.04em'>KAYDET KAPAT</button>
-<div style='margin-top:12px;font-size:9px;color:var(--text2);line-height:1.4'>JOTUN kurumsal tasarımına uyumlu. Font: Inter (JOTUN'un kullandığına yakın). Renkler: #012060 lacivert, #FFCC00 sarı. <a href="https://www.jotun.com/tr-TR/products-and-services/products?epslanguage=tr-TR&sortOrder=Alphabetical" target="_blank" style='color:var(--jotun-blue);font-weight:800'>jotun.com</a></div>
+<div style='border:1.5px solid #0a7a2f;border-radius:4px;padding:10px;margin-top:10px;background:rgba(0,200,83,.06)'><span class='kurumsalLabel' style='margin-top:0'>REHBER - VCF İÇE AKTAR (iPhone için)</span><input type='file' id='vcfFile' accept='.vcf' class='s' style='margin-top:6px'><div id='vcfInfo' style='font-size:10px;color:#0a7a2f;font-weight:700;margin-top:4px'></div></div>
+<div style='background:var(--card);border:1.5px solid #0a7a2f;border-radius:4px;padding:10px;margin-top:10px'><span class='kurumsalLabel' style='margin-top:0'>DOLAR KURU</span><input id='setDolar' class='s'><div id='kurTarihTxt' style='font-size:10px;color:#0a7a2f;font-weight:700;margin-top:4px'></div><button onclick='fetchDolar()' style='margin-top:8px;width:100%;background:#0a7a2f;color:#fff;border:none;border-radius:4px;padding:10px;font-weight:800'>💵 DOLAR ÇEK</button></div>
+<button onclick='saveSet();closeSet()' style='width:100%;padding:12px;background:var(--jotun-blue);color:#fff;border:none;border-radius:4px;font-weight:800;margin-top:14px'>KAYDET KAPAT</button>
 </div>
 
-<!-- 1 - RAL -->
 <div class='c'><div class='c-head'>1 — RAL KARTELASI — <span id='ralSay'>-</span></div><div class='rb' style='display:flex;gap:8px;margin-top:8px;align-items:center'><div class='sw' id='swatch' style='width:90px;height:78px;border-radius:4px;border:2px solid var(--jotun-blue);background:#fff;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:900;flex-shrink:0;color:var(--text)'>BOS</div><div class='bil' style='flex:1;height:78px;border:2px solid var(--input-border);border-radius:4px;background:var(--card);display:flex;flex-direction:column;overflow:hidden'><div class='bilU' style='display:flex;flex:1;border-bottom:2px solid var(--card-border)'><div style='flex:1;display:flex;align-items:center;justify-content:center;border-right:2px solid var(--card-border)'><input id='ralInput' placeholder='RAL 5015' readonly onclick='enableRal()' oninput='filterRal()' style='border:none;width:100%;text-align:center;font-weight:800;font-size:18px;background:transparent;color:var(--text);font-family:Inter'></div><div style='flex:1;display:flex;align-items:center;justify-content:center;background:rgba(255,204,0,.18)'><input id='pigment' placeholder='0,00' style='border:none;background:transparent;width:100%;text-align:center;font-weight:800;font-size:16px;color:var(--text);font-family:Inter' oninput='calc()'><span style='font-size:11px;font-weight:800;padding-right:6px;color:var(--text)'>TL</span></div></div><div class='bilA' style='flex:1;display:flex'><input id='ralForm' placeholder='FORMÜL / NOT' style='border:none;width:100%;padding-left:12px;font-size:13px;font-weight:600;background:transparent;color:var(--text2);font-family:Inter'></div></div><button class='btnS' onclick='enableRal()'>🔍</button></div></div>
-
-<!-- 2 - URUN -->
-<div class='c'><div class='c-head'>2 — ÜRÜN SEÇİMİ — <span id='canliSay'>0</span> ÜRÜN • <span id='kayitSay'>0</span> KAYIT <small id='cloudInfo' style='background:var(--jotun-yellow);color:var(--jotun-blue);padding:2px 6px;border-radius:10px;font-size:9px'></small></div><div class='sb' style='margin-top:8px'><input id='urunInput' class='jotunSearch' placeholder='Ürün ara - Örn: FUTURA CLASSIC' readonly onclick='enableUrun()' oninput='filterUrun()'><button class='btnS' onclick='enableUrun()'>🔍</button></div><div id='urunDetay' style='font-size:11px;margin-top:8px;display:none;font-weight:700;background:rgba(1,32,96,.06);padding:6px 10px;border-radius:4px'></div><div id='compBox' class='compBox'></div></div>
-
-<!-- 3 - AMBALAJ -->
-<div class='c c-ambalaj'><div class='c-head'>3 — AMBALAJ <small id='ambInfo' style='text-transform:none;letter-spacing:0'></small></div><div class='ambRow' id='ambList'></div></div>
-
-<!-- HESAP -->
+<div class='c'><div class='c-head'>2 — ÜRÜN SEÇİMİ — <span id='canliSay'>0</span> ÜRÜN • <span id='kayitSay'>0</span> KAYIT <small id='cloudInfo' style='background:var(--jotun-yellow);color:var(--jotun-blue);padding:2px 6px;border-radius:10px;font-size:9px'></small></div><div class='sb' style='margin-top:8px'><input id='urunInput' class='jotunSearch' placeholder='Ürün ara - Örn: FUTURA CLASSIC' readonly onclick='enableUrun()' oninput='filterUrun()'><button class='btnS' onclick='enableUrun()'>🔍</button></div><div id='urunDetay' style='font-size:11px;margin-top:8px;display:none;font-weight:700;background:rgba(1,32,96,.06);padding:6px 10px;border-radius:4px;word-break:break-word'></div><div id='compBox' class='compBox'></div></div>
+<div class='c c-ambalaj'><div class='c-head'>3 — AMBALAJ <small id='ambInfo'></small></div><div class='ambRow' id='ambList'></div></div>
 <div class='res'><div class='resGrid'><div><div class='resLabel'>LT MALİYET</div><div id='maliyet' class='resVal'>-</div></div><div><div class='resLabel'>LT SATIŞ</div><div id='ltSatis' class='resVal' style='color:var(--jotun-yellow)'>-</div></div><div><div class='resLabel' id='kovaLabel'>KOVA</div><div id='kova' class='resValBig'>-</div><div id='kovaKdv' class='resValKdv'>-</div></div></div><div id='hesapDetay' class='hesapDetay' style='display:none'></div><div class='actionBtns'><button onclick='teklifeEkle()' style='background:var(--card);border:2px solid var(--jotun-yellow);color:var(--jotun-blue)'>EKLE ✓</button><button onclick='kaydet()' style='background:#00C853;color:#fff;border:none'>☁️ SIK'A KAYDET</button></div></div>
 
-<!-- TEKLIF -->
 <div class='teklifCard'>
-<div style='display:flex;justify-content:space-between;align-items:center'><b style='font-size:12px;letter-spacing:0.06em;text-transform:uppercase'>TEKLİF LİSTESİ (<span id='teklifSayi'>0</span>)</b><div style='display:flex;gap:6px'><button onclick='pickContact()' style='background:#0a7a2f;color:#fff;border:none;border-radius:4px;padding:6px 12px;font-size:11px;font-weight:800'>📇 KİŞİLER</button><button onclick='temizle()' style='background:#E53935;color:#fff;border:none;border-radius:4px;padding:6px 10px;font-size:10px;font-weight:800'>TEMİZLE</button></div></div>
+<div style='display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:6px'><b style='font-size:12px;letter-spacing:0.06em;text-transform:uppercase'>TEKLİF (<span id='teklifSayi'>0</span>)</b><div style='display:flex;gap:6px'><button onclick='pickContact()' style='background:#0a7a2f;color:#fff;border:none;border-radius:6px;padding:8px 12px;font-size:11px;font-weight:800;white-space:nowrap'>📇 KİŞİLER</button><button onclick='temizle()' style='background:#E53935;color:#fff;border:none;border-radius:6px;padding:8px 10px;font-size:10px;font-weight:800'>TEMİZLE</button></div></div>
+
 <div class='teklifInputs'>
-<input id='musteriAd' placeholder='Müşteri Adı' list='musteriList'>
-<input id='musteriTel' placeholder='Müşteri Tel' list='telList'>
-<input id='musteriAdres' placeholder='Müşteri Adres'>
-<input id='tarih' type='date'>
+  <input id='musteriAd' placeholder='Müşteri Adı' list='musteriList' autocomplete='off'>
+  <input id='musteriAdres' placeholder='Müşteri Adres' autocomplete='off'>
+  <div class='teklifRow2' style='display:contents'>
+    <input id='musteriTel' placeholder='Müşteri Tel - 05xx' list='telList' inputmode='tel' autocomplete='off'>
+    <input id='tarih' type='date'>
+  </div>
 </div>
 <datalist id='musteriList'></datalist><datalist id='telList'></datalist>
-<div id='contactInfo' style='font-size:10px;color:#0a7a2f;font-weight:700;margin-top:6px;display:none'></div>
+<div id='contactInfo' style='font-size:11px;color:#0a7a2f;font-weight:800;margin-top:8px;display:none;word-break:break-word;background:rgba(0,200,83,.1);padding:6px 8px;border-radius:4px;border:1px solid #0a7a2f'></div>
 <div id='teklifList' class='teklifList'></div><div id='teklifToplam' class='teklifToplam' style='display:none'></div>
-<div class='teklifBtns'>
-<button onclick='yazdir()' style='background:var(--jotun-blue);color:#fff'>🖨️ YAZDIR</button>
-<button onclick='waTextGonder()' style='background:#128C7E;color:#fff'>💬 Yazı</button>
-<button onclick='waPdfGonder()' style='background:#25D366;color:#fff'>📄 PDF Gönder</button>
-</div>
-<div style='font-size:9px;color:var(--text2);margin-top:8px;line-height:1.4'>📄 PDF Gönder: Android Chrome'da direkt PDF dosyası olarak WhatsApp'a atar. PC'de PDF indirip elle eklemen gerekir. <br>📇 Kişiler: Android Chrome https üzerinden açılırsa rehberden çekebilir.</div>
-</div>
 
-<!-- SIK -->
-<div class='c' style='padding:10px'><div style='display:flex;justify-content:space-between;align-items:center'><b style='font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:var(--jotun-blue)'>⭐ SIK KULLANILANLAR — <span id='sikSay'>0</span></b><button onclick='bulutYenile()' style='background:#00C853;color:#fff;border:none;border-radius:4px;padding:4px 10px;font-size:9px;font-weight:800'>🔄 YENİLE</button></div>
-<div id='sikBox' class='sikGrid'></div></div>
-
+<!-- WHATSAPP BUTONLARI - HER ZAMAN GORUNUR -->
+<div class='teklifBtns' id='teklifBtns' style='display:grid !important'>
+<button onclick='yazdir()' style='background:#012060;color:#fff'>🖨️<br>YAZDIR</button>
+<button onclick='waTextGonder()' style='background:#128C7E;color:#fff'>💬<br>YAZI</button>
+<button onclick='waPdfGonder()' style='background:#25D366;color:#fff'>📄<br>PDF</button>
+</div>
+<div style='font-size:9px;color:var(--text2);margin-top:8px;line-height:1.4'>WhatsApp: Rehberden gelen numarayı direkt kullanır. Tel boşsa ad ile arar.</div>
 </div>
 
+<div class='c' style='padding:10px'><div style='display:flex;justify-content:space-between;align-items:center'><b style='font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:var(--jotun-blue)'>⭐ SIK KULLANILANLAR — <span id='sikSay'>0</span></b><button onclick='bulutYenile()' style='background:#00C853;color:#fff;border:none;border-radius:4px;padding:4px 10px;font-size:9px;font-weight:800'>🔄</button></div><div id='sikBox' class='sikGrid'></div></div>
+</div>
 <div id='ralDrop'></div><div class='drop' id='urunDrop'></div>
-
 <script>
 const BULUT_URL = 'https://crudcrud.com/api/772420af1ef84f3f8653d9e074bcdde8';
 const BULUT_RES = 'jotun_sik';
-let urunler=[],ralList=[],kayitlar=[],secKayit=[],amb=[{ad:'3.6L',lt:3.6},{ad:'4.5L',lt:4.5},{ad:'18L',lt:18}];
+let urunler=[],ralList=[],kayitlar=[],secKayit=[],amb=[{ad:'3.6L',lt:3.6},{ad:'4.5L',lt:4.5},{ad:'18L',lt:18},{ad:'20L',lt:20}];
 let ayar=JSON.parse(localStorage.getItem('jotun_ayarlar')||'{"kar":25,"kdv":20,"dolar":"49,7891","dolarTarih":"","firmaAdi":"","firmaLogo":"","firmaAdres":"","firmaMail":"","firmaWeb":"","telefon":"","firmaBanka":"","teklifVeren":"","kaseLogo":"","tema":"light"}');
-let secUrun=null,secAmb=2,secLT=18,secHex='#FFF',son=null,tempRal='',secName='',sepet=JSON.parse(localStorage.getItem('teklif_sepet')||'[]');let sonHesap={};let secCompPair=null;
-let bulutCache=[];
-function applyTheme(){
-  let tema=ayar.tema||'light';
-  if(tema==='auto'){
-    let dark=window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-    document.body.classList.toggle('theme-dark',dark);
-  }else{
-    document.body.classList.toggle('theme-dark',tema==='dark');
-  }
-  document.querySelectorAll('.themeOpt').forEach(el=>el.classList.remove('on'));
-  let id=tema==='light'?'themeLight':tema==='dark'?'themeDark':'themeAuto';
-  let el=document.getElementById(id); if(el) el.classList.add('on');
-}
-function setTheme(t){
-  ayar.tema=t;
-  localStorage.setItem('jotun_ayarlar',JSON.stringify(ayar));
-  applyTheme();
-}
+let secUrun=null,secAmb=2,secLT=18,secHex='#FFF',son=null,tempRal='',secName='',sepet=JSON.parse(localStorage.getItem('teklif_sepet')||'[]');let sonHesap={};let secCompPair=null;let bulutCache=[];
+let lastContactTel=''; // rehberden son gelen tel
+
+function parseLT(ad){if(!ad) return 0;let m=ad.match(/\(\s*([\d.,]+)\s*LT\s*\)/i);if(m){let v=parseFloat(m[1].replace(',','.'));return isNaN(v)?0:v;}let m2=ad.match(/([\d.,]+)\s*LT/i);if(m2){let v=parseFloat(m2[1].replace(',','.'));return isNaN(v)?0:v;}return 0;}
+function applyTheme(){let tema=ayar.tema||'light';if(tema==='auto'){let dark=window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;document.body.classList.toggle('theme-dark',dark);}else{document.body.classList.toggle('theme-dark',tema==='dark');}document.querySelectorAll('.themeOpt').forEach(el=>el.classList.remove('on'));let id=tema==='light'?'themeLight':tema==='dark'?'themeDark':'themeAuto';let el=document.getElementById(id); if(el) el.classList.add('on');}
+function setTheme(t){ ayar.tema=t; localStorage.setItem('jotun_ayarlar',JSON.stringify(ayar)); applyTheme(); }
 function fmt(n){return new Intl.NumberFormat('tr-TR',{minimumFractionDigits:2,maximumFractionDigits:2}).format(n)+' TL'}
 function baseNo(a){let m=(a||'').toUpperCase().match(/BASE\s*(\d+)/);return m?m[1]:null}
 function fam(a){let u=(a||'').toUpperCase().replace(/\s*\(.*?LT.*?\)/gi,'').trim();let mm=u.match(/(.+?BASE\s*\d+)/);if(mm)return mm[1].replace(/COMP.*/, '').trim();return u.substring(0,30)}
 function isCompA(s){return /COMP\.?\s*A/i.test(s||'')}
 function isCompB(s){return /COMP\.?\s*B/i.test(s||'')}
 function isComp(s){return isCompA(s)||isCompB(s)}
-function is20LT(ad){return /\(20\s*LT\)/i.test(ad||'') || /20\s*LT/i.test(ad||'');}
+function is20LT(ad){return /\(20\s*LT\)/i.test(ad||'') || ad.toUpperCase().includes('20 LT');}
 function getSetLT(ad){return is20LT(ad) ? 20 : 18;}
-function trueLT(ad){let up=(ad||'').toUpperCase();let setLT=getSetLT(ad);if(isCompB(ad)){return setLT===20 ? 2.0 : 1.8;}if(isCompA(ad) || !isComp(ad)){if(up.includes('FUTURA CLASSIC')){return setLT===20 ? 18.0 : 16.2;}return setLT;}return setLT;}
 function norm(s){let u=(s||'').toUpperCase();u=u.replace(/\(.*?LT.*?\)/gi,'');u=u.replace(/BASE\s*\d+/gi,'');u=u.replace(/COMP\.?\s*[AB]/gi,'');u=u.replace(/[^A-Z0-9 ]/g,' ');u=u.replace(/\s+/g,' ').trim();return u;}
-function findCompPair(name){let up=name.toUpperCase().trim();let n=norm(name);if(!n) return null;let setLT=getSetLT(name);let all=urunler.map((u,i)=>({ad:u[0],lt:trueLT(u[0]),i,setLT:getSetLT(u[0])}));let sameFamily=all.filter(o=>{if(o.ad.toUpperCase().trim()===up) return false;let nn=norm(o.ad);return nn===n || nn.includes(n.split(' ').slice(0,2).join(' '));});let wantB=isCompA(name);let wantA=isCompB(name);let isBase=!isComp(name);let cands=sameFamily;if(wantB) cands=cands.filter(o=>isCompB(o.ad));else if(wantA) cands=cands.filter(o=>isCompA(o.ad));else if(isBase) cands=cands.filter(o=>isCompB(o.ad));if(cands.length===0) return null;cands.forEach(o=>{o.score=0;if(o.setLT!==setLT) o.score+=100;if(norm(o.ad)===n) o.score-=1;});cands.sort((a,b)=>a.score-b.score);return cands[0];}
+function findCompPair(name){
+  let up=name.toUpperCase().trim();let n=norm(name);if(!n) return null;let myLT=parseLT(name);let setLT=getSetLT(name);
+  let all=urunler.map((u,i)=>({ad:u[0],fiyat:u[1],parsed:parseLT(u[0]),i,setLT:getSetLT(u[0])}));
+  let sameFamily=all.filter(o=>{if(o.ad.toUpperCase().trim()===up) return false;let nn=norm(o.ad);return nn===n || (n.length>4 && nn.includes(n.split(' ').slice(0,2).join(' ')));});
+  let wantB=isCompA(name);let wantA=isCompB(name);let isBase=!isComp(name);let cands=sameFamily;
+  if(wantB) cands=cands.filter(o=>isCompB(o.ad));else if(wantA) cands=cands.filter(o=>isCompA(o.ad));else if(isBase) cands=cands.filter(o=>isCompB(o.ad));
+  if(cands.length===0) return null;
+  cands.forEach(o=>{o.score=0;if(o.setLT!==setLT) o.score+=100;if(myLT>0 && o.parsed>0){let toplam=myLT+o.parsed;let fark=Math.abs(toplam-setLT);o.score+=fark*10;if(setLT===18){if(o.parsed>=1.8 && o.parsed<=2.2) o.score-=5;if(o.parsed<=0.6) o.score+=8;}if(setLT===20){if(o.parsed>=1.8 && o.parsed<=2.5) o.score-=5;}if(setLT===18 && myLT<5){if(o.parsed>=0.4 && o.parsed<=0.6) o.score-=5;}}if(norm(o.ad)===n) o.score-=1;});
+  cands.sort((a,b)=>a.score-b.score);let best=cands[0];if(!best) return null;
+  return {ad:best.ad, lt:best.parsed||trueLTFromSet(best.ad), fiyat:best.fiyat, i:best.i, parsed:best.parsed, setLT:best.setLT};
+}
+function trueLTFromSet(ad){let p=parseLT(ad);if(p>0) return p;let setLT=getSetLT(ad);if(isCompB(ad)) return 2.0;if(isCompA(ad) || !isComp(ad)){let up=(ad||'').toUpperCase();if(up.includes('FUTURA CLASSIC')){ return setLT===20?18.0:16.2; }return setLT;}return setLT;}
 function getRalHex(kod){if(!kod) return '#777';let r=ralList.find(x=>String(x.kod).trim()===String(kod).trim());return r?r.hex:'#777';}
 function getContrast(hex){try{let c=hex.replace('#','');if(c.length===3) c=c.split('').map(x=>x+x).join('');let r=parseInt(c.substr(0,2),16), g=parseInt(c.substr(2,2),16), b=parseInt(c.substr(4,2),16);let l=(0.299*r+0.587*g+0.114*b)/255;return l>0.6?'#111':'#fff';}catch(e){return '#fff'}}
 async function tryFetch(urls){for(let u of urls){try{let r=await fetch(u,{cache:'no-store'});if(r.ok){let t=await r.text();t=t.replace(/"fiyat"\s*:\s*(\d+),(\d+)/g,'"fiyat": $1.$2');let j=JSON.parse(t);if(j&&j.length>0)return {data:j};}}catch(e){}}return null}
@@ -255,7 +131,7 @@ async function bulutGet(){try{let r=await fetch(BULUT_URL+'/'+BULUT_RES,{cache:'
 async function bulutPost(obj){try{let r=await fetch(BULUT_URL+'/'+BULUT_RES,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(obj)});return r.ok;}catch(e){return false}}
 async function bulutDelete(id){try{let r=await fetch(BULUT_URL+'/'+BULUT_RES+'/'+id,{method:'DELETE'});return r.ok;}catch(e){return false}}
 async function bulutYenile(){let data=await bulutGet();localStorage.setItem('jotun_kayitlar_extra',JSON.stringify(data.map(o=>{let { _id, ...rest }=o; return rest})));await loadAll();}
-async function loadAll(){let pr=await tryFetch(['./products.json?v='+Date.now()]);if(pr&&pr.data){let bl=pr.data.map(o=>({ad:(o.ad||'').trim(),fiyat:parseFloat(o.fiyat)||0}));bl.sort((a,b)=>a.ad.toUpperCase().localeCompare(b.ad.toUpperCase(),'tr'));urunler=bl.map(o=>[o.ad,o.fiyat]);}let rr=await tryFetch(['./ral.json?v='+Date.now()]);if(rr&&rr.data) ralList=rr.data;let jr=await tryFetch(['./jotun_kayitlar.json?v='+Date.now()]);if(jr&&jr.data){kayitlar=jr.data;}let cloudData=await bulutGet();let localData=JSON.parse(localStorage.getItem('jotun_kayitlar_extra')||'[]');let merged=cloudData.length>0?cloudData.map(o=>{let { _id, ...rest }=o; return {...rest, _id:o._id}}):localData;let map=new Map();merged.forEach(x=>{let k=x.ral_no+'_'+x.product; if(!map.has(k)) map.set(k,x)});merged=Array.from(map.values());if(merged.length>0){kayitlar=kayitlar.concat(merged); localStorage.setItem('jotun_kayitlar_extra',JSON.stringify(merged.map(o=>{let { _id, ...rest }=o; return rest})));}document.getElementById('canliSay').innerText=urunler.length;document.getElementById('ralSay').innerText=ralList.length||'-';document.getElementById('kayitSay').innerText=kayitlar.length;
+async function loadAll(){let pr=await tryFetch(['./products.json?v='+Date.now()]);if(pr&&pr.data){let bl=pr.data.map(o=>({ad:(o.ad||'').trim(),fiyat:parseFloat(o.fiyat)||0,parsed:parseLT(o.ad||'') }));bl.sort((a,b)=>a.ad.toUpperCase().localeCompare(b.ad.toUpperCase(),'tr'));urunler=bl.map(o=>[o.ad,o.fiyat]);}let rr=await tryFetch(['./ral.json?v='+Date.now()]);if(rr&&rr.data) ralList=rr.data;let jr=await tryFetch(['./jotun_kayitlar.json?v='+Date.now()]);if(jr&&jr.data){kayitlar=jr.data;}let cloudData=await bulutGet();let localData=JSON.parse(localStorage.getItem('jotun_kayitlar_extra')||'[]');let merged=cloudData.length>0?cloudData.map(o=>{let { _id, ...rest }=o; return {...rest, _id:o._id}}):localData;let map=new Map();merged.forEach(x=>{let k=x.ral_no+'_'+x.product; if(!map.has(k)) map.set(k,x)});merged=Array.from(map.values());if(merged.length>0){kayitlar=kayitlar.concat(merged); localStorage.setItem('jotun_kayitlar_extra',JSON.stringify(merged.map(o=>{let { _id, ...rest }=o; return rest})));}document.getElementById('canliSay').innerText=urunler.length;document.getElementById('ralSay').innerText=ralList.length||'-';document.getElementById('kayitSay').innerText=kayitlar.length;
 document.getElementById('setFirma').value=ayar.firmaAdi||'';document.getElementById('setFL').value=ayar.firmaLogo||'';document.getElementById('setKase').value=ayar.kaseLogo||'';document.getElementById('setAdres').value=ayar.firmaAdres||'';document.getElementById('setMail').value=ayar.firmaMail||'';document.getElementById('setWeb').value=ayar.firmaWeb||'';document.getElementById('setTel').value=ayar.telefon||'';document.getElementById('setBanka').value=ayar.firmaBanka||'';document.getElementById('setVeren').value=ayar.teklifVeren||'';
 if(ayar.firmaLogo){document.getElementById('fLogo').src=ayar.firmaLogo;document.getElementById('fLogo').style.display='block';document.getElementById('fLogoPreview').src=ayar.firmaLogo;document.getElementById('fLogoPreview').style.display='block';}else{document.getElementById('fLogo').style.display='none';}
 let headerEl=document.getElementById('headerFirmaAdi');
@@ -272,46 +148,101 @@ async function fetchDolar(){let btn=document.querySelector('button[onclick="fetc
 function clearKase(){document.getElementById('setKase').value='';document.getElementById('kasePreview').style.display='none';document.getElementById('kaseFile').value='';ayar.kaseLogo='';localStorage.setItem('jotun_ayarlar',JSON.stringify(ayar));}
 document.getElementById('fLogoFile')?.addEventListener('change',function(e){let file=e.target.files[0];if(!file)return;let reader=new FileReader();reader.onload=function(ev){let data=ev.target.result;document.getElementById('setFL').value=data;document.getElementById('fLogoPreview').src=data;document.getElementById('fLogoPreview').style.display='block';ayar.firmaLogo=data;localStorage.setItem('jotun_ayarlar',JSON.stringify(ayar));setTimeout(()=>{location.reload();},600);};reader.readAsDataURL(file);});
 document.getElementById('kaseFile')?.addEventListener('change',function(e){let file=e.target.files[0];if(!file)return;let reader=new FileReader();reader.onload=function(ev){let data=ev.target.result;document.getElementById('setKase').value=data;document.getElementById('kasePreview').src=data;document.getElementById('kasePreview').style.display='block';ayar.kaseLogo=data;localStorage.setItem('jotun_ayarlar',JSON.stringify(ayar));setTimeout(()=>{location.reload();},600);};reader.readAsDataURL(file);});
+// VCF IMPORT
+document.getElementById('vcfFile')?.addEventListener('change',function(e){
+  let file=e.target.files[0]; if(!file) return;
+  let reader=new FileReader();
+  reader.onload=function(ev){
+    let text=ev.target.result;
+    let contacts=[]; let cur={}; let lines=text.split(/\r?\n/);
+    for(let line of lines){
+      if(line.startsWith('BEGIN:VCARD')){cur={};}
+      else if(line.startsWith('FN:')){cur.ad=line.substring(3).trim();}
+      else if(line.startsWith('TEL')){let m=line.match(/:(.+)/); if(m) cur.tel=m[1].trim();}
+      else if(line.startsWith('ADR')){let m=line.match(/:(.+)/); if(m) cur.adres=m[1].replace(/;/g,' ').trim();}
+      else if(line.startsWith('END:VCARD')){ if(cur.ad||cur.tel) contacts.push({...cur}); cur={};}
+    }
+    if(contacts.length===0){ document.getElementById('vcfInfo').innerText='❌ Kişi bulunamadı'; return; }
+    let list=JSON.parse(localStorage.getItem('jotun_musteriler')||'[]');
+    let added=0;
+    contacts.forEach(c=>{
+      if(!c.ad && !c.tel) return;
+      let exists=list.find(m=>m.tel===c.tel && c.tel);
+      if(!exists){ list.unshift({ad:c.ad||c.tel, tel:c.tel||'', adres:c.adres||'', date:Date.now()}); added++; }
+    });
+    if(list.length>500) list=list.slice(0,500);
+    localStorage.setItem('jotun_musteriler',JSON.stringify(list));
+    document.getElementById('vcfInfo').innerText=`✅ ${added} kişi eklendi, toplam ${list.length}`;
+    renderMusteriDatalist();
+  };
+  reader.readAsText(file);
+});
 
 async function pickContact(){
   let infoEl=document.getElementById('contactInfo');
+  infoEl.style.display='block'; infoEl.innerText='📇 Rehber açılıyor...';
   if('contacts' in navigator && 'ContactsManager' in window){
     try{
       const props=['name','tel','address'];
       const contacts=await navigator.contacts.select(props,{multiple:false});
       if(contacts.length>0){
         let c=contacts[0];
-        if(c.name && c.name[0]) document.getElementById('musteriAd').value=c.name[0];
-        if(c.tel && c.tel[0]) document.getElementById('musteriTel').value=c.tel[0];
-        if(c.address && c.address[0]) document.getElementById('musteriAdres').value=(c.address[0].city||'')+' '+(c.address[0].street||'');
+        let ad=c.name && c.name[0] ? c.name[0] : '';
+        let tel=c.tel && c.tel[0] ? c.tel[0] : '';
+        let adres=c.address && c.address[0] ? ((c.address[0].city||'')+' '+(c.address[0].street||'')).trim() : '';
+        if(ad) document.getElementById('musteriAd').value=ad;
+        if(tel){ document.getElementById('musteriTel').value=tel; lastContactTel=tel; }
+        if(adres) document.getElementById('musteriAdres').value=adres;
         saveMusteriToLocal();
-        infoEl.style.display='block';infoEl.innerText='✅ Rehberden alındı: '+(c.name?c.name[0]:'');setTimeout(()=>infoEl.style.display='none',3000);return;
+        infoEl.innerText=`✅ Rehberden alındı: ${ad} - ${tel}`;
+        infoEl.style.display='block';
+        setTimeout(()=>{ infoEl.style.display='none'; },4000);
+        // Tel inputa focus ver ki kullanıcı görsün
+        document.getElementById('musteriTel').focus();
+        return;
       }
-    }catch(e){console.log(e);}
+    }catch(e){ console.log('contacts error',e); infoEl.innerText='❌ İptal edildi veya izin verilmedi: '+e.message; }
   }
+  // Fallback: yerel kayıtlı müşteriler
   let musteriler=JSON.parse(localStorage.getItem('jotun_musteriler')||'[]');
   if(musteriler.length>0){
-    let list=musteriler.map((m,i)=>`${i+1}. ${m.ad} - ${m.tel}`).join('\n');
-    let sec=prompt('Kayıtlı müşteriler:\n'+list+'\n\nNumara gir');
-    if(sec){let idx=parseInt(sec)-1;if(musteriler[idx]){document.getElementById('musteriAd').value=musteriler[idx].ad;document.getElementById('musteriTel').value=musteriler[idx].tel;document.getElementById('musteriAdres').value=musteriler[idx].adres||'';}}
+    let list=musteriler.slice(0,20).map((m,i)=>`${i+1}. ${m.ad} - ${m.tel}`).join('\n');
+    let sec=prompt('Kayıtlı müşteriler (son 20):\n'+list+'\n\nNumara gir (1-20):');
+    if(sec){let idx=parseInt(sec)-1;if(musteriler[idx]){document.getElementById('musteriAd').value=musteriler[idx].ad;document.getElementById('musteriTel').value=musteriler[idx].tel;document.getElementById('musteriAdres').value=musteriler[idx].adres||''; lastContactTel=musteriler[idx].tel; saveMusteriToLocal(); infoEl.innerText=`✅ Seçildi: ${musteriler[idx].ad} - ${musteriler[idx].tel}`;}}
   }else{
-    infoEl.style.display='block';infoEl.innerHTML='ℹ️ Android Chrome https üzerinden aç ve kişilere izin ver. Şimdilik elle gir, otomatik kaydedilecek.';setTimeout(()=>infoEl.style.display='none',4000);
+    infoEl.innerHTML='ℹ️ Rehber API desteklenmiyor. Android Chrome https ile aç ve VCF yükle.';
   }
+}
+function getEffectiveTel(){
+  // 1. Inputtaki tel
+  let tel=document.getElementById('musteriTel').value.trim();
+  if(tel && tel.length>=7) return tel;
+  // 2. Son rehberden gelen
+  if(lastContactTel && lastContactTel.length>=7) return lastContactTel;
+  // 3. Ad ile ara
+  let ad=document.getElementById('musteriAd').value.trim().toLowerCase();
+  if(ad){
+    let list=JSON.parse(localStorage.getItem('jotun_musteriler')||'[]');
+    let f=list.find(m=>m.ad.toLowerCase()===ad || m.ad.toLowerCase().includes(ad));
+    if(f && f.tel) return f.tel;
+  }
+  return '';
 }
 function saveMusteriToLocal(){
   let ad=document.getElementById('musteriAd').value.trim();
   let tel=document.getElementById('musteriTel').value.trim();
   let adres=document.getElementById('musteriAdres').value.trim();
   if(!ad && !tel) return;
+  if(tel) lastContactTel=tel;
   let list=JSON.parse(localStorage.getItem('jotun_musteriler')||'[]');
   let idx=list.findIndex(m=>m.tel===tel && tel!=='');
-  if(idx!==-1){ list[idx]={ad,tel,adres,date:Date.now()}; }
+  if(idx!==-1){ list[idx]={ad:ad||list[idx].ad,tel,adres:adres||list[idx].adres,date:Date.now()}; }
   else{
     let idx2=list.findIndex(m=>m.ad.toLowerCase()===ad.toLowerCase() && ad!=='');
-    if(idx2!==-1) list[idx2]={ad,tel,adres,date:Date.now()};
-    else list.unshift({ad,tel,adres,date:Date.now()});
+    if(idx2!==-1) list[idx2]={ad,tel:tel||list[idx2].tel,adres:adres||list[idx2].adres,date:Date.now()};
+    else list.unshift({ad:ad||tel,tel,adres,date:Date.now()});
   }
-  if(list.length>100) list=list.slice(0,100);
+  if(list.length>200) list=list.slice(0,200);
   localStorage.setItem('jotun_musteriler',JSON.stringify(list));
   renderMusteriDatalist();
 }
@@ -320,7 +251,8 @@ function renderMusteriDatalist(){
   document.getElementById('musteriList').innerHTML=list.map(m=>`<option value="${m.ad}">`).join('');
   document.getElementById('telList').innerHTML=list.map(m=>`<option value="${m.tel}">`).join('');
 }
-document.getElementById('musteriAd')?.addEventListener('change',function(){let ad=this.value.trim().toLowerCase();let list=JSON.parse(localStorage.getItem('jotun_musteriler')||'[]');let f=list.find(m=>m.ad.toLowerCase()===ad);if(f){document.getElementById('musteriTel').value=f.tel;document.getElementById('musteriAdres').value=f.adres||'';}});
+document.getElementById('musteriAd')?.addEventListener('change',function(){let ad=this.value.trim().toLowerCase();let list=JSON.parse(localStorage.getItem('jotun_musteriler')||'[]');let f=list.find(m=>m.ad.toLowerCase()===ad);if(f){document.getElementById('musteriTel').value=f.tel;document.getElementById('musteriAdres').value=f.adres||''; lastContactTel=f.tel;}});
+document.getElementById('musteriTel')?.addEventListener('input',function(){ if(this.value.trim().length>=7) lastContactTel=this.value.trim(); });
 document.getElementById('musteriTel')?.addEventListener('blur',saveMusteriToLocal);
 document.getElementById('musteriAd')?.addEventListener('blur',saveMusteriToLocal);
 
@@ -330,109 +262,139 @@ function openUrun(){let inp=document.getElementById('urunInput');let d=document.
 function openRal(){let rb=document.querySelector('.rb');let d=document.getElementById('ralDrop');placeDrop(rb,d);d.style.display='block';filterRal()}
 function filterUrun(){let q=document.getElementById('urunInput').value.toUpperCase().trim();let d=document.getElementById('urunDrop');let h=[];if(tempRal && kayitlar.length>0){let f=kayitlar.filter(x=>String(x.ral_no).trim()===String(tempRal).trim());let m=new Map();f.forEach(x=>{let k=(x.base_no||'')+'_'+(x.product||'').trim()+'_'+(x.ral_no||'');if(!m.has(k))m.set(k,x)});secKayit=Array.from(m.values());secKayit.forEach((k,i)=>{let bn=k.base_no||baseNo(k.product);let au=null;if(bn)au=urunler.find(u=>baseNo(u[0])===String(bn)&&u[1]>0);if(!au){let a=fam(k.product);au=urunler.find(u=>fam(u[0])===a&&u[1]>0)}let ff=au?`$${au[1]}`:'';h.push(`<div class='it it-k' onclick='selectKayit(${i})'><div style='flex:1'><b>${k.product}</b> <small>${ff} - RAL ${k.ral_no}</small></div><div style='background:#0a7a2f;color:#fff;padding:3px 6px;border-radius:4px;font-size:8px'>SEC</div></div>`);});}let list=urunler.map((r,i)=>({r,i})).filter(o=>!q||o.r[0].toUpperCase().includes(q)).slice(0,200);h.push(...list.map(o=>`<div class='it' onclick='selectUrun(${o.i})'><span style='flex:1'>${o.r[0]}</span><b>$${o.r[1]}</b></div>`));d.innerHTML=h.join('');placeDrop(document.getElementById('urunInput'), d);d.style.display='block';}
 function selectKayit(i){let k=secKayit[i];if(!k)return;let bn=k.base_no||baseNo(k.product);let au=null;let f=0;if(bn){au=urunler.find(u=>baseNo(u[0])===String(bn)&&u[1]>0);if(au)f=au[1]}if(!au){let a=fam(k.product);au=urunler.find(u=>fam(u[0])===a&&u[1]>0);if(au)f=au[1]}let idx=urunler.findIndex(u=>u[0].trim().toUpperCase()===(k.product||'').trim().toUpperCase());if(idx!==-1)selectUrun(idx);else{urunler.push([k.product,f]);selectUrun(urunler.length-1)}document.getElementById('pigment').value=k.colorant_cost||'';document.getElementById('ralForm').value=k.formul||'';calc();}
-function selectUrun(i){secUrun=i;let u=urunler[i];let inp=document.getElementById('urunInput');inp.value=u[0];inp.setAttribute('readonly','true');document.getElementById('urunDrop').style.display='none';document.getElementById('urunDetay').style.display='block';let pair=findCompPair(u[0]);secCompPair=pair;let setLT=getSetLT(u[0]);if(pair){document.getElementById('urunDetay').innerHTML=`✓ ${u[0]} • $${u[1]} <span style="background:#FFCC00;color:#012060;padding:1px 6px;border-radius:3px;font-size:9px;font-weight:900">+ ${pair.ad}</span>`;document.getElementById('compBox').style.display='block';document.getElementById('compBox').innerHTML=`<b>SET ${setLT}LT:</b> ${trueLT(u[0])}LT + ${pair.lt}LT`;document.getElementById('ambInfo').innerText=`${setLT}LT`;}else{document.getElementById('urunDetay').innerText=`✓ ${u[0]} • $${u[1]}`;document.getElementById('compBox').style.display='none';document.getElementById('ambInfo').innerText=`${setLT}LT`;}renderAmb();calc();inp.blur()}
-function renderAmb(){document.getElementById('ambList').innerHTML=amb.map((a,i)=>{let c='amb';if(i===secAmb) c+=' on';return `<div class='${c}' onclick='secAmb=${i};secLT=${a.lt};renderAmb();calc()'>${a.ad}</div>`}).join('');}
+function selectUrun(i){
+  secUrun=i; let u=urunler[i]; let inp=document.getElementById('urunInput'); inp.value=u[0]; inp.setAttribute('readonly','true'); document.getElementById('urunDrop').style.display='none'; document.getElementById('urunDetay').style.display='block';
+  let pair=findCompPair(u[0]); secCompPair=pair; let setLT=getSetLT(u[0]); let myLT=parseLT(u[0])||setLT;
+  let ambLT=secLT; let famName=norm(u[0]); let varyantlar=urunler.map((x,idx)=>({ad:x[0],fiyat:x[1],parsed:parseLT(x[0]),idx})).filter(o=>norm(o.ad)===famName && o.parsed>0);
+  if(varyantlar.length>1){
+    let ambMatch=varyantlar.find(v=>Math.abs(v.parsed-ambLT)<0.1);
+    if(ambMatch && ambMatch.fiyat!==u[1]){ document.getElementById('urunDetay').innerHTML=`✓ ${u[0]} • $${u[1]} → ${ambLT}LT için $${ambMatch.fiyat}`; secUrun=ambMatch.idx; u=urunler[secUrun]; }
+    else{ document.getElementById('urunDetay').innerHTML=`✓ ${u[0]} • $${u[1]} ${pair?`<span style="background:#ffcc00;color:#012060;padding:1px 4px;border-radius:3px;font-size:9px">+ ${pair.ad} (${pair.lt}LT)</span>`:''}`; }
+  }else{ document.getElementById('urunDetay').innerHTML=`✓ ${u[0]} • $${u[1]} ${pair?`<span style="background:#ffcc00;color:#012060;padding:1px 4px;border-radius:3px;font-size:9px">+ ${pair.ad} (${pair.lt}LT)</span>`:''}`; }
+  if(pair){ document.getElementById('compBox').style.display='block'; document.getElementById('compBox').innerHTML=`<b>SET ${setLT}LT:</b> ${myLT}LT + ${pair.lt}LT = ${myLT+pair.lt}LT`; document.getElementById('ambInfo').innerText=`${setLT}LT SET`; }else{ document.getElementById('compBox').style.display='none'; document.getElementById('ambInfo').innerText=`${setLT}LT`; }
+  renderAmb();calc();inp.blur()
+}
+function renderAmb(){ document.getElementById('ambList').innerHTML=amb.map((a,i)=>{let c='amb';if(i===secAmb) c+=' on';return `<div class='${c}' onclick='secAmb=${i};secLT=${a.lt};renderAmb();calc();selectUrun(secUrun)'>${a.ad}</div>`}).join('');}
 function filterRal(){let q=document.getElementById('ralInput').value.toUpperCase().trim();let list=ralList.filter(r=>!q||r.kod.includes(q)||r.isim.toUpperCase().includes(q)).slice(0,60);let d=document.getElementById('ralDrop');d.innerHTML=list.map(r=>`<div class='ri' onclick='selectRal("${r.kod}")'><div class='rs' style='background:${r.hex}'></div><div><b>${r.kod}</b> ${r.isim}</div></div>`).join('');placeDrop(document.querySelector('.rb'), d);d.style.display='block';}
 function selectRal(k){let r=ralList.find(x=>x.kod===k);if(!r)return;tempRal=r.kod;secHex=r.hex;secName=r.isim;let sw=document.getElementById('swatch');sw.style.background=r.hex;sw.innerText='RAL '+r.kod;sw.style.color=getContrast(r.hex);let inp=document.getElementById('ralInput');inp.value=r.kod;inp.setAttribute('readonly','true');inp.blur();document.getElementById('ralDrop').style.display='none';filterUrun();openUrun();calc();}
-function calc(){if(secUrun===null) return;let u=urunler[secUrun];let fiyatD=parseFloat(u[1])||0;let kLT=parseFloat(secLT)||18;let kur=parseFloat((document.getElementById('setDolar').value||'49,7891').replace(',','.'))||49.7891;let kar=parseFloat(document.getElementById('setKar').value)||25;let kdv=parseFloat(document.getElementById('setKdv').value)||20;let pigTL=parseFloat((document.getElementById('pigment').value||'0').toString().replace(',','.'))||0;let pigLT=pigTL/18;let urunLT=fiyatD*kur;let toplamLT=urunLT+pigLT;let ltSatis=toplamLT*(1+kar/100);let setLT=getSetLT(u[0]);let aLT=trueLT(u[0]);let bLT=secCompPair ? secCompPair.lt : 0;let isCompMode = secCompPair ? true : false;let toplamSetLT = isCompMode ? setLT : kLT;let kovaS, kovaK;if(isCompMode){kovaS = ltSatis * toplamSetLT;kovaK = kovaS * (1+kdv/100);}else{kovaS = ltSatis * kLT;kovaK = kovaS * (1+kdv/100);}if(!secCompPair) secCompPair=findCompPair(u[0]);son={urun:u[0],ral:tempRal,hex:secHex,isim:secName,lt:kLT,gercekLT:aLT,toplamSetLT:toplamSetLT,setLT:setLT,isCompMode:isCompMode,compBLT:bLT,kovaTl:kovaS,kovaKdv:kovaK,ltSatis:ltSatis,form:document.getElementById('ralForm').value, pair: secCompPair ? {...secCompPair, lt: secCompPair.lt, setLT:setLT} : null};sonHesap={kur:kur,kar:kar,kdv:kdv,pigment:pigTL,urunDolar:fiyatD,urunTL:urunLT,toplamLT:toplamLT,ltSatis:ltSatis,toplamSetLT:toplamSetLT,setLT:setLT};document.getElementById('maliyet').innerText=fmt(toplamLT);document.getElementById('ltSatis').innerText=fmt(ltSatis);if(isCompMode){document.getElementById('kovaLabel').innerText=`SET (${toplamSetLT}LT)`;document.getElementById('kova').innerText=fmt(kovaS);document.getElementById('kovaKdv').innerText=fmt(kovaK);}else{document.getElementById('kovaLabel').innerText=`KOVA (${kLT}LT)`;document.getElementById('kova').innerText=fmt(kovaS);document.getElementById('kovaKdv').innerText=fmt(kovaK);}let detayBox=document.getElementById('hesapDetay');detayBox.style.display='block';let compDetay='';if(son.pair){let aKova=ltSatis*aLT*(1+kdv/100);let bKova=ltSatis*bLT*(1+kdv/100);compDetay=`<br>SET ${setLT}LT: A ${aLT}LT=${fmt(aKova)} | B ${bLT}LT=${fmt(bKova)} = ${fmt(aKova+bKova)}`;}detayBox.innerHTML=`${u[0]} $${fiyatD} × ${kur.toFixed(1)} = ${fmt(urunLT)} | ${fmt(ltSatis)} ×${toplamSetLT}LT=${fmt(kovaS)}${compDetay}`;}
-function teklifeEkle(){if(!son) return alert('Once sec');saveMusteriToLocal();let adetStr=prompt('Kaç adet?','1');if(!adetStr)return;let adet=parseInt(adetStr)||1;let kdv=parseFloat(document.getElementById('setKdv').value)||20;let ltSatis=son.ltSatis;let setLT=son.setLT||18;if(!son.pair){sepet.push({...son,adet:adet,hesap:{...sonHesap}});}else{let aLT=trueLT(son.urun);let bLT=son.pair.lt;let aKovaTl=ltSatis*aLT;let aKovaKdv=aKovaTl*(1+kdv/100);let bKovaTl=ltSatis*bLT;let bKovaKdv=bKovaTl*(1+kdv/100);sepet.push({urun:son.urun, ral:son.ral, hex:son.hex, isim:son.isim, lt: aLT, ltSatis: ltSatis, kovaTl: aKovaTl, kovaKdv: aKovaKdv, form: son.form, adet:adet, hesap:{...sonHesap}, isCompA:true, setLT:setLT});sepet.push({urun:son.pair.ad, ral:son.ral, hex:son.hex, isim:son.isim+' - B', lt: bLT, ltSatis: ltSatis, kovaTl: bKovaTl, kovaKdv: bKovaKdv, form:'EŞ', adet:adet, hesap:{...sonHesap}, isCompB:true, setLT:setLT});}localStorage.setItem('teklif_sepet',JSON.stringify(sepet));renderTeklif();}
-function renderTeklif(){document.getElementById('teklifSayi').innerText=sepet.length;if(sepet.length===0){document.getElementById('teklifList').innerHTML='<div style="font-size:11px;color:var(--text2);padding:8px">Henüz ürün eklenmedi</div>';document.getElementById('teklifToplam').style.display='none';return}let g=0;document.getElementById('teklifList').innerHTML=sepet.map((t,i)=>{let k=t.kovaKdv||0;g+=k*t.adet;return `<div class='teklifItem'><div style='width:18px;height:18px;background:${t.hex||'#fff'};border-radius:3px;border:1px solid #999;flex-shrink:0'></div><div style='flex:1'><div class='teklifItemTitle'>${t.urun.substring(0,28)} - ${t.ral}</div><div class='teklifItemSub'>${t.adet}×${t.lt}LT = <b>${fmt(k*t.adet)}</b></div></div><button onclick='sil(${i})' style='background:#E53935;color:#fff;border:none;border-radius:4px;padding:4px 8px;font-size:10px;font-weight:800'>X</button></div>`}).join('');document.getElementById('teklifToplam').style.display='block';document.getElementById('teklifToplam').innerText=`TOPLAM: ${fmt(g)}`}
+function calc(){
+  if(secUrun===null) return; let u=urunler[secUrun]; let fiyatD=parseFloat(u[1])||0; let kLT=parseFloat(secLT)||18; let kur=parseFloat((document.getElementById('setDolar').value||'49,7891').replace(',','.'))||49.7891; let kar=parseFloat(document.getElementById('setKar').value)||25; let kdv=parseFloat(document.getElementById('setKdv').value)||20; let pigTL=parseFloat((document.getElementById('pigment').value||'0').toString().replace(',','.'))||0;
+  let urunLT=fiyatD*kur; let toplamLT=urunLT+pigTL/18; let ltSatis=toplamLT*(1+kar/100); let setLT=getSetLT(u[0]); let aLT=parseLT(u[0])||trueLTFromSet(u[0]); let bLT=secCompPair ? secCompPair.lt : 0; let isCompMode = secCompPair ? true : false; let toplamSetLT = isCompMode ? setLT : kLT; let kovaS=ltSatis*toplamSetLT; let kovaK=kovaS*(1+kdv/100);
+  if(!secCompPair) secCompPair=findCompPair(u[0]);
+  son={urun:u[0],ral:tempRal,hex:secHex,isim:secName,lt:kLT,gercekLT:aLT,toplamSetLT:toplamSetLT,setLT:setLT,isCompMode:isCompMode,compBLT:bLT,kovaTl:kovaS,kovaKdv:kovaK,ltSatis:ltSatis,form:document.getElementById('ralForm').value, pair: secCompPair ? {...secCompPair, lt: secCompPair.lt, setLT:setLT} : null};
+  sonHesap={kur:kur,kar:kar,kdv:kdv,pigment:pigTL,urunDolar:fiyatD,urunTL:urunLT,toplamLT:toplamLT,ltSatis:ltSatis,toplamSetLT:toplamSetLT,setLT:setLT};
+  document.getElementById('maliyet').innerText=fmt(toplamLT); document.getElementById('ltSatis').innerText=fmt(ltSatis); document.getElementById('kovaLabel').innerText=isCompMode?`SET (${toplamSetLT}LT)`:`KOVA (${kLT}LT)`; document.getElementById('kova').innerText=fmt(kovaS); document.getElementById('kovaKdv').innerText=fmt(kovaK);
+  let detayBox=document.getElementById('hesapDetay');detayBox.style.display='block'; let compDetay=son.pair?`<br><b>SET ${setLT}LT:</b> A ${aLT}LT=${fmt(ltSatis*aLT*(1+kdv/100))} | B ${bLT}LT=${fmt(ltSatis*bLT*(1+kdv/100))}`:''; let famName=norm(u[0]); let varyantlar=urunler.filter(x=>norm(x[0])===famName).map(x=>`${parseLT(x[0])}LT=$${x[1]}`).join(' | '); let varyantInfo=varyantlar?`<br><small>Varyantlar: ${varyantlar}</small>`:'';
+  detayBox.innerHTML=`${u[0]} $${fiyatD} × ${kur.toFixed(2)} = ${fmt(urunLT)} | ${fmt(ltSatis)} ×${toplamSetLT}LT=${fmt(kovaS)}${compDetay}${varyantInfo}`;
+}
+function teklifeEkle(){if(!son) return alert('Once sec');saveMusteriToLocal();let adetStr=prompt('Kaç adet?','1');if(!adetStr)return;let adet=parseInt(adetStr)||1;let kdv=parseFloat(document.getElementById('setKdv').value)||20;let ltSatis=son.ltSatis;let setLT=son.setLT||18;if(!son.pair){sepet.push({...son,adet:adet,hesap:{...sonHesap}});}else{let aLT=parseLT(son.urun)||trueLTFromSet(son.urun);let bLT=son.pair.lt;let aKovaTl=ltSatis*aLT;let aKovaKdv=aKovaTl*(1+kdv/100);let bKovaTl=ltSatis*bLT;let bKovaKdv=bKovaTl*(1+kdv/100);sepet.push({urun:son.urun, ral:son.ral, hex:son.hex, isim:son.isim, lt: aLT, ltSatis: ltSatis, kovaTl: aKovaTl, kovaKdv: aKovaKdv, form: son.form, adet:adet, hesap:{...sonHesap}, isCompA:true, setLT:setLT});sepet.push({urun:son.pair.ad, ral:son.ral, hex:son.hex, isim:son.isim+' - B', lt: bLT, ltSatis: ltSatis, kovaTl: bKovaTl, kovaKdv: bKovaKdv, form:'EŞ', adet:adet, hesap:{...sonHesap}, isCompB:true, setLT:setLT});}localStorage.setItem('teklif_sepet',JSON.stringify(sepet));renderTeklif();}
+function renderTeklif(){document.getElementById('teklifSayi').innerText=sepet.length;if(sepet.length===0){document.getElementById('teklifList').innerHTML='<div style="font-size:11px;color:var(--text2);padding:8px">Henüz ürün eklenmedi</div>';document.getElementById('teklifToplam').style.display='none';return}let g=0;document.getElementById('teklifList').innerHTML=sepet.map((t,i)=>{let k=t.kovaKdv||0;g+=k*t.adet;return `<div class='teklifItem'><div style='width:18px;height:18px;background:${t.hex||'#fff'};border-radius:3px;border:1px solid #999;flex-shrink:0'></div><div style='flex:1;min-width:0'><div class='teklifItemTitle'>${t.urun.substring(0,30)} - ${t.ral}</div><div class='teklifItemSub'>${t.adet}×${t.lt}LT = <b>${fmt(k*t.adet)}</b></div></div><button onclick='sil(${i})' style='background:#E53935;color:#fff;border:none;border-radius:4px;padding:4px 8px;font-size:10px;font-weight:800;flex-shrink:0'>X</button></div>`}).join('');document.getElementById('teklifToplam').style.display='block';document.getElementById('teklifToplam').innerText=`TOPLAM: ${fmt(g)}`}
 function sil(i){sepet.splice(i,1);localStorage.setItem('teklif_sepet',JSON.stringify(sepet));renderTeklif()}
 function temizle(){if(confirm('Temizle?')){sepet=[];localStorage.setItem('teklif_sepet','[]');renderTeklif()}}
-function waTextGonder(){let mustTel=document.getElementById('musteriTel').value||'';let must=document.getElementById('musteriAd').value||'Müşteri';if(!mustTel){alert('Tel gir');return}saveMusteriToLocal();let clean=mustTel.replace(/\D/g,'');if(clean.startsWith('0'))clean='90'+clean.substring(1);let toplam=document.getElementById('teklifToplam').innerText||'';let detay=sepet.map(t=>`• ${t.urun} RAL ${t.ral} - ${t.adet} Adet × ${fmt(t.kovaKdv*t.adet)}`).join('\n');let mesaj=`Merhaba ${must},\n\n${ayar.firmaAdi||''} - Teklif:\n${detay}\n\n${toplam}`;window.open(`https://api.whatsapp.com/send?phone=${clean}&text=${encodeURIComponent(mesaj)}`,'_blank');}
+
+// === DUZELTILMIS WHATSAPP - KISILERDEN GELEN NUMARAYI KULLANIR ===
+function waTextGonder(){
+  saveMusteriToLocal();
+  let must=document.getElementById('musteriAd').value||'Müşteri';
+  let tel=getEffectiveTel(); // rehber, input, ad arama
+  if(!tel || tel.length<7){
+    alert('Önce 📇 KİŞİLER den müşteri seç veya tel yaz. Tel boş olamaz.');
+    document.getElementById('musteriTel').focus();
+    return;
+  }
+  let clean=tel.replace(/\D/g,''); if(clean.startsWith('0'))clean='90'+clean.substring(1); if(clean.length===10) clean='90'+clean;
+  let toplam=document.getElementById('teklifToplam').innerText||''; 
+  let detay=sepet.map(t=>`• ${t.urun.substring(0,28)} RAL ${t.ral} - ${t.adet} Adet = ${fmt(t.kovaKdv*t.adet)}`).join('\n');
+  let mesaj=`Merhaba ${must},\n\n${ayar.firmaAdi||''} - Teklif:\n${detay}\n\n${toplam}\n\nTarih: ${document.getElementById('tarih').value||new Date().toLocaleDateString('tr-TR')}`;
+  window.open(`https://api.whatsapp.com/send?phone=${clean}&text=${encodeURIComponent(mesaj)}`,'_blank');
+}
 async function waPdfGonder(){
   if(sepet.length===0){alert('Sepet boş');return}
   saveMusteriToLocal();
   let must=document.getElementById('musteriAd').value||'Müşteri';
-  let mustTel=document.getElementById('musteriTel').value||'';
-  let firma=ayar.firmaAdi||'';
-  let fAdres=ayar.firmaAdres||'';
-  let fBanka=ayar.firmaBanka||'';
-  let veren=ayar.teklifVeren||'';
-  let tarih=document.getElementById('tarih').value?new Date(document.getElementById('tarih').value).toLocaleDateString('tr-TR'):new Date().toLocaleDateString('tr-TR');
-  let kdvO=parseFloat(document.getElementById('setKdv').value)||20;
-  let haric=0,dahil=0;sepet.forEach(t=>{dahil+=t.kovaKdv*t.adet;haric+=t.kovaTl*t.adet});
-  const { jsPDF } = window.jspdf;
-  let doc=new jsPDF({orientation:'portrait',unit:'mm',format:'a4'});
-  let y=10;
-  doc.setFontSize(12);doc.setFont('helvetica','bold');doc.text(firma||'TEKLIF',10,y); y+=5;
-  doc.setFontSize(8);doc.setFont('helvetica','normal');doc.text(fAdres,10,y); y+=4;
-  doc.text(`Tarih: ${tarih} | Musteri: ${must} | Tel: ${mustTel}`,10,y); y+=6;
-  doc.setFontSize(10);doc.setFont('helvetica','bold');doc.text('FIYAT TEKLIF FORMU',105,y,{align:'center'}); y+=6;
-  doc.setFontSize(8);doc.setFillColor(1,32,96);doc.setTextColor(255,255,255);
-  doc.rect(10,y,190,7,'F');doc.text('URUN',12,y+5);doc.text('RAL',80,y+5);doc.text('ADET',105,y+5);doc.text('BIRIM',125,y+5);doc.text('TOPLAM',160,y+5);
-  y+=7;doc.setTextColor(0,0,0);doc.setFont('helvetica','normal');
-  sepet.forEach(t=>{
-    if(y>270){doc.addPage();y=10;}
-    doc.text(t.urun.substring(0,35),12,y);doc.text(String(t.ral),80,y);doc.text(`${t.adet}x${t.lt}LT`,105,y);doc.text(fmt(t.ltSatis||0),125,y);doc.text(fmt(t.kovaKdv*t.adet),160,y);y+=5;
-  });
-  y+=3;doc.setFont('helvetica','bold');doc.text(`Ara Toplam: ${fmt(haric)}`,130,y);y+=5;doc.text(`KDV %${kdvO}: ${fmt(dahil-haric)}`,130,y);y+=5;doc.text(`GENEL TOPLAM: ${fmt(dahil)}`,130,y);y+=8;
-  doc.setFont('helvetica','normal');doc.setFontSize(7);doc.text(`BANKA: ${fBanka}`,10,y);y+=5;doc.text(`Veren: ${veren} | Onay: ${must}`,10,y);
-  let fileName=`Teklif-${must}-${tarih}.pdf`;
-  let pdfBlob=doc.output('blob');
+  let tel=getEffectiveTel();
+  if(!tel || tel.length<7){
+    alert('Önce 📇 KİŞİLER den müşteri seç veya tel yaz.');
+    document.getElementById('musteriTel').focus();
+    return;
+  }
+  let firma=ayar.firmaAdi||''; let fAdres=ayar.firmaAdres||''; let fBanka=ayar.firmaBanka||''; let veren=ayar.teklifVeren||''; let tarih=document.getElementById('tarih').value?new Date(document.getElementById('tarih').value).toLocaleDateString('tr-TR'):new Date().toLocaleDateString('tr-TR');
+  let kdvO=parseFloat(document.getElementById('setKdv').value)||20; let haric=0,dahil=0; sepet.forEach(t=>{dahil+=t.kovaKdv*t.adet;haric+=t.kovaTl*t.adet});
+  const { jsPDF } = window.jspdf; let doc=new jsPDF({orientation:'portrait',unit:'mm',format:'a4'}); let y=10;
+  doc.setFontSize(12);doc.setFont('helvetica','bold');doc.text(firma||'TEKLIF',10,y); y+=5; doc.setFontSize(8);doc.setFont('helvetica','normal');doc.text(fAdres,10,y); y+=4; doc.text(`Tarih: ${tarih} | Musteri: ${must} | Tel: ${tel}`,10,y); y+=6;
+  doc.setFontSize(10);doc.setFont('helvetica','bold');doc.text('FIYAT TEKLIF FORMU',105,y,{align:'center'}); y+=6; doc.setFontSize(8);doc.setFillColor(1,32,96);doc.setTextColor(255,255,255); doc.rect(10,y,190,7,'F');doc.text('URUN',12,y+5);doc.text('RAL',80,y+5);doc.text('ADET',105,y+5);doc.text('BIRIM',125,y+5);doc.text('TOPLAM',160,y+5); y+=7;doc.setTextColor(0,0,0);doc.setFont('helvetica','normal');
+  sepet.forEach(t=>{ if(y>270){doc.addPage();y=10;} doc.text(t.urun.substring(0,35),12,y);doc.text(String(t.ral),80,y);doc.text(`${t.adet}x${t.lt}LT`,105,y);doc.text(fmt(t.ltSatis||0),125,y);doc.text(fmt(t.kovaKdv*t.adet),160,y);y+=5; });
+  y+=3;doc.setFont('helvetica','bold');doc.text(`Ara Toplam: ${fmt(haric)}`,130,y);y+=5;doc.text(`KDV %${kdvO}: ${fmt(dahil-haric)}`,130,y);y+=5;doc.text(`GENEL TOPLAM: ${fmt(dahil)}`,130,y);y+=8; doc.setFont('helvetica','normal');doc.setFontSize(7);doc.text(`BANKA: ${fBanka}`,10,y);y+=5;doc.text(`Veren: ${veren} | Onay: ${must}`,10,y);
+  let fileName=`Teklif-${must}-${tarih}.pdf`; let pdfBlob=doc.output('blob');
+  let clean=tel.replace(/\D/g,''); if(clean.startsWith('0'))clean='90'+clean.substring(1); if(clean.length===10) clean='90'+clean;
+  // WhatsApp + Share API
   if(navigator.canShare && navigator.canShare({files:[new File([pdfBlob],fileName,{type:'application/pdf'})]})){
-    try{let file=new File([pdfBlob],fileName,{type:'application/pdf'});await navigator.share({title:`Teklif - ${must}`,text:`${firma} - Toplam: ${fmt(dahil)}`,files:[file]});return;}catch(e){console.log('share cancelled',e);return;}
+    try{ let file=new File([pdfBlob],fileName,{type:'application/pdf'}); await navigator.share({title:`Teklif - ${must}`,text:`${firma} - Toplam: ${fmt(dahil)}`,files:[file]}); return; }catch(e){ console.log('share iptal',e); return; }
   }
   doc.save(fileName);
-  let clean=mustTel.replace(/\D/g,'');if(clean.startsWith('0'))clean='90'+clean.substring(1);
-  let detay=sepet.map(t=>`• ${t.urun} RAL ${t.ral} ${t.adet} Adet = ${fmt(t.kovaKdv*t.adet)}`).join('\n');
-  let mesaj=`Merhaba ${must},\n\n${firma} Teklif PDF indirildi.\n${detay}\n\nTOPLAM: ${fmt(dahil)}\n\nPDF dosyayi ekten gonderiyorum.`;
-  setTimeout(()=>{if(clean) window.open(`https://api.whatsapp.com/send?phone=${clean}&text=${encodeURIComponent(mesaj)}`,'_blank');alert('PDF indirildi. WhatsApp Web açıksa dosyayı el ile ekleyip gönder.');},500);
+  let detay=sepet.map(t=>`• ${t.urun.substring(0,28)} RAL ${t.ral} ${t.adet} Adet = ${fmt(t.kovaKdv*t.adet)}`).join('\n');
+  let mesaj=`Merhaba ${must},\n\n${firma} Teklif PDF indirildi.\n${detay}\n\nTOPLAM: ${fmt(dahil)}\n\nPDF'i ekten gönderiyorum.`;
+  setTimeout(()=>{ window.open(`https://api.whatsapp.com/send?phone=${clean}&text=${encodeURIComponent(mesaj)}`,'_blank'); },600);
 }
+
 function renderSikKullanilan(arr){
   let extra=arr||JSON.parse(localStorage.getItem('jotun_kayitlar_extra')||'[]');
-  if(!arr){extra=JSON.parse(localStorage.getItem('jotun_kayitlar_extra')||'[]');}
-  let box=document.getElementById('sikBox');
-  let sayEl=document.getElementById('sikSay');
+  let box=document.getElementById('sikBox'); let sayEl=document.getElementById('sikSay');
   if(sayEl) sayEl.innerText=extra.length;
   if(extra.length===0){box.innerHTML='<div style="font-size:9px;color:var(--text2);padding:8px">Henüz kayıt yok</div>';return;}
-  let maxShow=160;
-  let list=extra.slice(0,maxShow);
-  let html=list.map((k,i)=>{
-    let hex=getRalHex(k.ral_no);
-    let txtColor=getContrast(hex);
-    return `<div class='sikCard' onclick='selectSik(${i})'><button class='sikDel' onclick='event.stopPropagation();delSik(${i})'>X</button><div class='sikTop' style='background:${hex};color:${txtColor}'><div class='sikSwatch' style='background:${hex}'></div><div class='sikRal' style='color:${txtColor}'>${k.ral_no}</div></div><div class='sikBody' title='${k.product||''}'>${(k.product||'').split('(')[0].substring(0,10)}</div></div>`;
-  }).join('');
+  let list=extra.slice(0,160);
+  let html=list.map((k,i)=>{ let hex=getRalHex(k.ral_no); let txtColor=getContrast(hex); return `<div class='sikCard' onclick='selectSik(${i})'><button class='sikDel' onclick='event.stopPropagation();delSik(${i})'>X</button><div class='sikTop' style='background:${hex};color:${txtColor}'><div class='sikSwatch' style='background:${hex}'></div><div class='sikRal' style='color:${txtColor}'>${k.ral_no}</div></div><div class='sikBody' title='${k.product||''}'>${(k.product||'').split('(')[0].substring(0,10)}</div></div>`; }).join('');
   box.innerHTML=html;
 }
 function selectSik(i){let extra=bulutCache.length>0?bulutCache:JSON.parse(localStorage.getItem('jotun_kayitlar_extra')||'[]');let k=extra[i];if(!k)return;tempRal=k.ral_no;document.getElementById('ralInput').value=k.ral_no;let r=ralList.find(x=>x.kod===k.ral_no);if(r){secHex=r.hex;secName=r.isim;document.getElementById('swatch').style.background=r.hex;document.getElementById('swatch').innerText='RAL '+r.kod;document.getElementById('swatch').style.color=getContrast(r.hex);}let idx=urunler.findIndex(u=>u[0].trim().toUpperCase()===(k.product||'').trim().toUpperCase());if(idx!==-1)selectUrun(idx);else{urunler.push([k.product,0]);selectUrun(urunler.length-1)}document.getElementById('pigment').value=k.colorant_cost||'';document.getElementById('ralForm').value=k.formul||'';calc();window.scrollTo(0,0);}
 async function delSik(i){if(!confirm('Sil?'))return;let data=bulutCache[i];if(data && data._id){await bulutDelete(data._id);}await bulutYenile();}
 async function kaydet(){if(!son)return alert('Once sec');let k={ral_no:son.ral||tempRal,ral_isim:son.isim,product:son.urun,base_no:baseNo(son.urun)||'1',lt:son.lt,can_size:son.lt+'L',colorant_cost:document.getElementById('pigment').value||'0',formul:document.getElementById('ralForm').value||'',maliyet:document.getElementById('pigment').value||'0'};let existing=bulutCache.find(x=>String(x.ral_no)===String(k.ral_no)&&x.product===k.product);if(existing && existing._id){ await bulutDelete(existing._id); }let ok=await bulutPost(k);if(ok){await bulutYenile();}else{let extra=JSON.parse(localStorage.getItem('jotun_kayitlar_extra')||'[]');extra=extra.filter(x=>!(String(x.ral_no)===String(k.ral_no)&&x.product===k.product));extra.push(k);localStorage.setItem('jotun_kayitlar_extra',JSON.stringify(extra));renderSikKullanilan(extra);}}
 function yazdir(){
-  if(sepet.length===0){alert('Bos');return}
-  saveMusteriToLocal();
-  let must=document.getElementById('musteriAd').value||'Müşteri';
-  let mustTel=document.getElementById('musteriTel').value||'';
-  let mustAdres=document.getElementById('musteriAdres').value||'-';
-  let firma=ayar.firmaAdi||'';
-  let logo=ayar.firmaLogo||'';
-  let jLogo='./jotun.png';
-  let kase=ayar.kaseLogo||'';
-  let fAdres=ayar.firmaAdres||'';
-  let fMail=ayar.firmaMail||'';
-  let fWeb=ayar.firmaWeb||'';
-  let fBanka=ayar.firmaBanka||'';
-  let fTel=ayar.telefon||'';
-  let veren=ayar.teklifVeren||'';
-  let tarih=document.getElementById('tarih').value?new Date(document.getElementById('tarih').value).toLocaleDateString('tr-TR'):new Date().toLocaleDateString('tr-TR');
-  let kdvO=parseFloat(document.getElementById('setKdv').value)||20;
-  let haric=0,dahil=0;sepet.forEach(t=>{dahil+=t.kovaKdv*t.adet;haric+=t.kovaTl*t.adet});
-  let fark=dahil-haric;
+  if(sepet.length===0){alert('Bos');return} saveMusteriToLocal();
+  let must=document.getElementById('musteriAd').value||'Müşteri'; let mustTel=getEffectiveTel()||document.getElementById('musteriTel').value||''; let mustAdres=document.getElementById('musteriAdres').value||'-'; let firma=ayar.firmaAdi||''; let logo=ayar.firmaLogo||''; let jLogo='./jotun.png'; let kase=ayar.kaseLogo||''; let fAdres=ayar.firmaAdres||''; let fMail=ayar.firmaMail||''; let fWeb=ayar.firmaWeb||''; let fBanka=ayar.firmaBanka||''; let fTel=ayar.telefon||''; let veren=ayar.teklifVeren||''; let tarih=document.getElementById('tarih').value?new Date(document.getElementById('tarih').value).toLocaleDateString('tr-TR'):new Date().toLocaleDateString('tr-TR');
+  let kdvO=parseFloat(document.getElementById('setKdv').value)||20; let haric=0,dahil=0;sepet.forEach(t=>{dahil+=t.kovaKdv*t.adet;haric+=t.kovaTl*t.adet}); let fark=dahil-haric;
   let rows=sepet.map(t=>`<tr><td style='text-align:center'><div style='width:22px;height:22px;background:${t.hex};border:1px solid #000;border-radius:3px;margin:0 auto'></div><div style='font-size:7px;font-weight:900'>RAL ${t.ral}</div></td><td><div style='font-weight:800;font-size:11px'>${t.urun}</div><div style='font-size:9px;color:#333'>${t.isim||''} - ${t.form||''}</div></td><td style='text-align:center'>${t.adet}×${t.lt}LT</td><td style='text-align:right;font-weight:900'>${fmt(t.ltSatis||0)}</td><td style='text-align:right;font-weight:900'>${fmt(t.kovaKdv*t.adet)}</td></tr>`).join('');
   let kaseHtml=kase?`<div style='text-align:center;margin-top:6px'><img src='${kase}' style='max-width:130px;max-height:90px;object-fit:contain'></div>`:'';
-  let clean=mustTel.replace(/\D/g,'');if(clean.startsWith('0'))clean='90'+clean.substring(1);
-  let waDetay=sepet.map(t=>`• ${t.urun} RAL ${t.ral} ${t.adet} Adet = ${fmt(t.kovaKdv*t.adet)}`).join('%0A');
-  let waMsg=`Merhaba ${must},%0A%0A${firma} Teklif:%0A${waDetay}%0A%0ATOPLAM: ${fmt(dahil)}%0ATarih: ${tarih}`;
-  let waUrl=`https://api.whatsapp.com/send?phone=${clean}&text=${waMsg}`;
-  let h=`<!DOCTYPE html><html lang='tr'><head><meta charset='UTF-8'><title>Teklif - ${must}</title><style>
-@page{size:A4 portrait;margin:8mm}*{box-sizing:border-box}body{font-family:Inter,Arial;margin:0;padding:0;color:#111;font-size:10px}.page{width:210mm;margin:0 auto;background:#fff;padding:8mm}.top{display:flex;justify-content:space-between}.topL{width:60%}.topL img{height:28px}.topLInfo{font-size:8px;line-height:1.3;margin-top:3px}.topR{width:35%;text-align:right}.topR img{height:24px}.titleCenter{text-align:center;margin:8px 0 6px 0;border-top:2px solid #012060;border-bottom:2px solid #012060;padding:4px 0}.musteriBox{border:1px solid #012060;border-radius:5px;padding:6px 10px;font-size:10px}table{width:100%;border-collapse:collapse;margin-top:8px}th{background:#012060;color:#fff;padding:5px 4px;font-size:9px}td{padding:5px 4px;border-bottom:1px solid #ddd;font-size:9px}.totals{margin-top:8px;display:flex;justify-content:flex-end}.box{width:300px;border:1px solid #012060;border-radius:5px;overflow:hidden}.row{display:flex;justify-content:space-between;padding:4px 8px;border-bottom:1px solid #eee}.row.total{background:#012060;color:#fff;font-weight:900}.noteFull{margin-top:8px;border:1px solid #012060;border-radius:5px;padding:6px 10px;font-size:9px;line-height:1.3;background:#f8f9ff}.contactFull{margin-top:6px;border:1px solid #ffcc00;border-radius:5px;padding:6px 10px;font-size:8px;line-height:1.3;background:#fffbe6}.signRow{margin-top:10px;display:grid;grid-template-columns:1fr 1fr;gap:16px}.signBox{border-top:1.5px solid #000;padding-top:4px;text-align:center;font-size:9px;min-height:100px}.no-print{display:flex;gap:6px;justify-content:center;margin-top:12px;flex-wrap:wrap}.no-print button{padding:10px 16px;border:none;border-radius:6px;font-weight:900;cursor:pointer;font-size:11px}
+  let sepetJson=encodeURIComponent(JSON.stringify(sepet));
+  let h=`<!DOCTYPE html><html lang='tr'><head><meta charset='UTF-8'><title>Teklif - ${must}</title><script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"><\/script><style>
+@page{size:A4 portrait;margin:8mm}*{box-sizing:border-box}body{font-family:Inter,Arial;margin:0;padding:0;color:#111;font-size:10px}.page{width:210mm;margin:0 auto;background:#fff;padding:8mm}.top{display:flex;justify-content:space-between}.topL{width:60%}.topL img{height:28px;background:transparent !important}.topR{width:35%;text-align:right}.topR img{height:24px;background:transparent !important}.titleCenter{text-align:center;margin:8px 0 6px 0;border-top:2px solid #012060;border-bottom:2px solid #012060;padding:4px 0}.musteriBox{border:1px solid #012060;border-radius:5px;padding:6px 10px;font-size:10px}table{width:100%;border-collapse:collapse;margin-top:8px}th{background:#012060;color:#fff;padding:5px 4px;font-size:9px}td{padding:5px 4px;border-bottom:1px solid #ddd;font-size:9px}.totals{margin-top:8px;display:flex;justify-content:flex-end}.box{width:300px;border:1px solid #012060;border-radius:5px;overflow:hidden}.row{display:flex;justify-content:space-between;padding:4px 8px;border-bottom:1px solid #eee}.row.total{background:#012060;color:#fff;font-weight:900}.signRow{margin-top:10px;display:grid;grid-template-columns:1fr 1fr;gap:16px}.signBox{border-top:1.5px solid #000;padding-top:4px;text-align:center;font-size:9px;min-height:100px}.no-print{display:flex;gap:8px;justify-content:center;margin-top:12px;flex-wrap:wrap}.no-print button{padding:12px 18px;border:none;border-radius:6px;font-weight:900;cursor:pointer;font-size:12px}
 @media print{.no-print{display:none !important}}
-</style></head><body><div class='page'><div class='top'><div class='topL'>${logo?`<img src='${logo}' onerror="this.style.display='none'">`:''}<div class='topLInfo'><b>${firma}</b><br>${fAdres}<br>${fMail} | ${fWeb}<br>Tel: ${fTel}</div></div><div class='topR'><img src='${jLogo}' onerror="this.style.display='none'"><div style='font-size:9px;font-weight:900;margin-top:3px'>Tarih: ${tarih}</div></div></div><div class='titleCenter'><b>FİYAT TEKLİF FORMU</b></div><div class='musteriBox'><b>Musteri: ${must}</b> Tel: ${mustTel} Adres: ${mustAdres}</div><table><thead><tr><th>RENK</th><th>ÜRÜN</th><th>MİKTAR</th><th>BİRİM</th><th>TOPLAM</th></tr></thead><tbody>${rows}</tbody></table><div class='totals'><div class='box'><div class='row'><span>Ara Toplam</span><span>${fmt(haric)}</span></div><div class='row'><span>KDV (%${kdvO})</span><span>${fmt(fark)}</span></div><div class='row total'><span>GENEL TOPLAM</span><span>${fmt(dahil)}</span></div></div></div><div class='noteFull'><b>NOT:</b> Fiyatlar ${tarih} tarihli kurlara goredir.</div><div class='contactFull'><b>BANKA:</b> ${fBanka}</div><div class='signRow'><div class='signBox'><b>Veren</b><br>${veren}${kaseHtml}<br>Kaşe / İmza</div><div class='signBox'><b>Onay</b><br>${must}<br><br><br>Kaşe / İmza</div></div>
+</style></head><body><div class='page'><div class='top'><div class='topL'>${logo?`<img src='${logo}' onerror="this.style.display='none'">`:''}<div class='topLInfo'><b>${firma}</b><br>${fAdres}<br>${fMail} | ${fWeb}<br>Tel: ${fTel}</div></div><div class='topR'><img src='${jLogo}' onerror="this.style.display='none'"><div style='font-size:9px;font-weight:900;margin-top:3px'>Tarih: ${tarih}</div></div></div><div class='titleCenter'><b>FİYAT TEKLİF FORMU</b></div><div class='musteriBox'><b>Musteri: ${must}</b> Tel: ${mustTel} Adres: ${mustAdres}</div><table><thead><tr><th>RENK</th><th>ÜRÜN</th><th>MİKTAR</th><th>BİRİM</th><th>TOPLAM</th></tr></thead><tbody>${rows}</tbody></table><div class='totals'><div class='box'><div class='row'><span>Ara Toplam</span><span>${fmt(haric)}</span></div><div class='row'><span>KDV (%${kdvO})</span><span>${fmt(fark)}</span></div><div class='row total'><span>GENEL TOPLAM</span><span>${fmt(dahil)}</span></div></div></div><div class='signRow'><div class='signBox'><b>Veren</b><br>${veren}${kaseHtml}<br>Kaşe / İmza</div><div class='signBox'><b>Onay</b><br>${must}<br><br><br>Kaşe / İmza</div></div>
 <div class='no-print'>
-  <button onclick='window.print()' style='background:#012060;color:#fff'>🖨️ YAZDIR / PDF KAYDET</button>
-  <button onclick="window.open('${waUrl}','_blank')" style='background:#25D366;color:#fff'>💬 WhatsApp Yazı</button>
+  <button onclick='window.print()' style='background:#012060;color:#fff'>🖨️ YAZDIR / PDF</button>
+  <button id='waPdfBtn2' style='background:#25D366;color:#fff'>📄 WhatsApp PDF</button>
+  <button id='waYaziBtn2' style='background:#128C7E;color:#fff'>💬 WhatsApp Yazı</button>
   <button onclick='window.close()' style='background:#eee;color:#333;border:1px solid #ccc'>KAPAT</button>
 </div>
+</div>
+<script>
+let sepet=JSON.parse(decodeURIComponent('${sepetJson}'));
+let must='${must}'; let mustTel='${mustTel}'; let firma='${firma}'; let fAdres='${fAdres}'; let fBanka='${fBanka}'; let veren='${veren}'; let tarih='${tarih}'; let dahil=${dahil}; let haric=${haric};
+function fmtN(n){return new Intl.NumberFormat('tr-TR',{minimumFractionDigits:2,maximumFractionDigits:2}).format(n)+' TL'}
+document.getElementById('waYaziBtn2').addEventListener('click', function(){
+  let detay=sepet.map(t=> '• '+t.urun.substring(0,28)+' RAL '+t.ral+' '+t.adet+' Adet = '+fmtN(t.kovaKdv*t.adet)).join('\\n');
+  let mesaj='Merhaba '+must+',\\n\\n'+firma+' - Teklif:\\n'+detay+'\\n\\nTOPLAM: '+fmtN(dahil);
+  let clean=mustTel.replace(/\\D/g,''); if(clean.startsWith('0')) clean='90'+clean.substring(1); if(clean.length==10) clean='90'+clean;
+  window.open('https://api.whatsapp.com/send?phone='+clean+'&text='+encodeURIComponent(mesaj),'_blank');
+});
+document.getElementById('waPdfBtn2').addEventListener('click', async function(){
+  const { jsPDF } = window.jspdf;
+  let doc=new jsPDF({orientation:'portrait',unit:'mm',format:'a4'}); let y=10;
+  doc.setFontSize(12);doc.setFont('helvetica','bold');doc.text(firma||'TEKLIF',10,y); y+=5; doc.setFontSize(8);doc.setFont('helvetica','normal');doc.text(fAdres,10,y); y+=4; doc.text('Tarih: '+tarih+' | Musteri: '+must+' | Tel: '+mustTel,10,y); y+=6;
+  doc.setFontSize(10);doc.setFont('helvetica','bold');doc.text('FIYAT TEKLIF FORMU',105,y,{align:'center'}); y+=6; doc.setFontSize(8);doc.setFillColor(1,32,96);doc.setTextColor(255,255,255); doc.rect(10,y,190,7,'F');doc.text('URUN',12,y+5);doc.text('RAL',80,y+5);doc.text('ADET',105,y+5);doc.text('BIRIM',125,y+5);doc.text('TOPLAM',160,y+5); y+=7;doc.setTextColor(0,0,0);doc.setFont('helvetica','normal');
+  sepet.forEach(t=>{ if(y>270){doc.addPage();y=10;} doc.text(t.urun.substring(0,35),12,y);doc.text(String(t.ral),80,y);doc.text(t.adet+'x'+t.lt+'LT',105,y);doc.text(fmtN(t.ltSatis||0),125,y);doc.text(fmtN(t.kovaKdv*t.adet),160,y);y+=5; });
+  y+=3;doc.setFont('helvetica','bold');doc.text('GENEL TOPLAM: '+fmtN(dahil),130,y);
+  let fileName='Teklif-'+must+'-'+tarih+'.pdf'; let pdfBlob=doc.output('blob');
+  if(navigator.canShare && navigator.canShare({files:[new File([pdfBlob],fileName,{type:'application/pdf'})]})){
+    try{ let file=new File([pdfBlob],fileName,{type:'application/pdf'}); await navigator.share({title:'Teklif - '+must,text:firma+' - Toplam: '+fmtN(dahil),files:[file]}); return; }catch(e){ return; }
+  }
+  doc.save(fileName);
+  let clean=mustTel.replace(/\\D/g,''); if(clean.startsWith('0')) clean='90'+clean.substring(1); if(clean.length==10) clean='90'+clean;
+  let detay=sepet.map(t=> '• '+t.urun.substring(0,28)+' RAL '+t.ral+' '+t.adet+' Adet = '+fmtN(t.kovaKdv*t.adet)).join('\\n');
+  let mesaj='Merhaba '+must+',\\n\\n'+firma+' Teklif PDF indirildi.\\n'+detay+'\\n\\nTOPLAM: '+fmtN(dahil);
+  setTimeout(()=>{ window.open('https://api.whatsapp.com/send?phone='+clean+'&text='+encodeURIComponent(mesaj),'_blank'); },600);
+});
+<\/script>
 </div></body></html>`;
   let w=window.open('','_blank');w.document.write(h);w.document.close();
 }
