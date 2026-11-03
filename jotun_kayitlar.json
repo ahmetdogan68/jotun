@@ -1,4 +1,26 @@
 [
+  {
+  "ral_no": "5015",
+  "ral_isim": "SKY BLUE",
+  "base_no": "3",
+  "product": "CONSEAL TU BASE 3 (18 LT)",
+  "formul": "WB019 BL070.3 VL008 WT119.7 - Jotun Formula",
+  "colorant_cost": "2134.63",
+  "maliyet": "2134.63",
+  "can_size": "18L",
+  "lt": 18
+},
+{
+  "ral_no": "5015",
+  "ral_isim": "SKY BLUE",
+  "base_no": "3",
+  "product": "CONSEAL TU BASE 3 (4.5 LT)",
+  "formul": "WB019 BL070.3 VL008 WT119.7 - Jotun Formula",
+  "colorant_cost": "533.66",
+  "maliyet": "533.66",
+  "can_size": "4.5L",
+  "lt": 4.5
+},
 {
   "ral_no": "9010",
   "ral_isim": "PURE WHITE",
