@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang='tr'><head><meta charset='UTF-8'><meta name='viewport' content='width=device-width,initial-scale=1,maximum-scale=1'><title>JOTUN - KISILER</title><style>*{box-sizing:border-box;margin:0;padding:0}body{font-family:Arial;background:#012060}.w{max-width:980px;margin:0 auto;background:#f2f4f7;min-height:100vh;padding:8px;padding-bottom:80px}.h{background:#012060;color:#fff;padding:0 10px;height:62px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:500;margin:0 -8px 8px -8px}.logo-clean{height:40px;max-width:120px;object-fit:contain}.c{background:#fff;border-radius:10px;padding:10px;margin-top:8px;border:2px solid #012060}
+<!DOCTYPE html><html lang='tr'><head><meta charset='UTF-8'><meta name='viewport' content='width=device-width,initial-scale=1,maximum-scale=1'><title>JOTUN - WHATSAPP PDF</title><script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<style>*{box-sizing:border-box;margin:0;padding:0}body{font-family:Arial;background:#012060}.w{max-width:980px;margin:0 auto;background:#f2f4f7;min-height:100vh;padding:8px;padding-bottom:80px}.h{background:#012060;color:#fff;padding:0 10px;height:62px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:500;margin:0 -8px 8px -8px}.logo-clean{height:40px;max-width:120px;object-fit:contain}.c{background:#fff;border-radius:10px;padding:10px;margin-top:8px;border:2px solid #012060}
 .sb{display:flex;gap:8px;align-items:center}.sb input{flex:1;padding:0 14px;border:2.5px solid #012060;border-radius:12px;font-weight:800;height:78px;font-size:18px}
 .drop{position:fixed;background:#fff;border-radius:12px;max-height:420px;overflow:auto;z-index:999999;display:none;box-shadow:0 12px 30px rgba(0,0,0,.45);border:2.5px solid #012060;min-width:340px;max-width:520px}.it{padding:12px 14px;border-bottom:1px solid #eee;display:flex;justify-content:space-between;font-size:13px;cursor:pointer;min-height:48px;align-items:center}
 #ralDrop{position:fixed;background:#fff;border-radius:12px;max-height:420px;overflow:auto;z-index:999999;display:none;box-shadow:0 15px 40px rgba(0,0,0,.5);border:2.5px solid #012060;min-width:340px;max-width:460px}.ri{padding:10px 12px;display:flex;gap:8px;align-items:center;border-bottom:1px solid #f5f5f5;cursor:pointer;font-size:13px;min-height:44px}.rs{width:28px;height:28px;border-radius:6px;border:1px solid #ddd}.s{padding:8px;border:2px solid #e5e5e5;border-radius:8px;width:100%;font-weight:700;font-size:13px}.ambRow{display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;margin-top:6px}.amb{border:3px solid #e5e5e5;border-radius:10px;font-weight:900;text-align:center;cursor:pointer;background:#fff;height:52px;display:flex;align-items:center;justify-content:center;font-size:15px}.amb.on{background:#012060;color:#fff;border-color:#ffcc00}.setBtn{background:#ffcc00;border:none;width:24px;height:24px;border-radius:5px;font-weight:900;color:#012060;cursor:pointer}.kur{font-size:10px;color:#ffcc00;font-weight:900;background:#000;padding:3px 6px;border-radius:5px;border:1px solid #ffcc00;line-height:1.1;text-align:center}.setP{display:none;position:fixed;top:0;right:0;width:100%;max-width:460px;height:100%;background:#fff;z-index:99999;padding:12px;overflow:auto}.over{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.5);z-index:99998}.btnS{background:#012060;color:#fff;border:none;border-radius:12px;padding:0 10px;font-weight:900;cursor:pointer;min-width:52px;height:78px;font-size:20px}.kurumsalLabel{font-size:9px;font-weight:900;color:#012060;margin-top:8px;display:block}
@@ -20,8 +21,8 @@
 .teklifItemTitle{font-weight:900;font-size:13px}
 .teklifItemSub{font-size:12px;font-weight:700;color:#333}
 .teklifToplam{background:#012060;color:#fff;border-radius:10px;padding:12px;margin-top:8px;font-size:16px;font-weight:900}
-.teklifBtns{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px}
-.teklifBtns button{padding:14px;border-radius:10px;font-weight:900;font-size:14px;border:none;cursor:pointer}
+.teklifBtns{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-top:10px}
+.teklifBtns button{padding:14px;border-radius:10px;font-weight:900;font-size:13px;border:none;cursor:pointer}
 .sikGrid{display:grid;grid-template-columns:repeat(8,1fr);gap:4px;margin-top:8px;max-height:none}
 .sikCard{background:#fff;border-radius:5px;overflow:hidden;border:1.2px solid #012060;cursor:pointer;position:relative;aspect-ratio:1/1;display:flex;flex-direction:column;box-shadow:0 1px 2px rgba(0,0,0,.15)}
 .sikTop{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:1px;gap:0}
@@ -62,16 +63,13 @@
   .teklifCard{padding:6px;margin-top:4px;border-radius:8px}
   .teklifInputs{gap:4px;margin-top:4px}
   .teklifInputs input{padding:8px;font-size:12px;border-radius:6px}
-  .teklifBtns{gap:6px;margin-top:6px}
-  .teklifBtns button{padding:10px;font-size:12px;border-radius:8px}
-  .teklifItem{padding:6px;margin-bottom:3px;border-radius:6px}
-  .teklifItemTitle{font-size:11px}
-  .teklifItemSub{font-size:10px}
-  .sikGrid{grid-template-columns:repeat(4,1fr);gap:3px;margin-top:4px}
+  .teklifBtns{gap:4px;margin-top:6px;grid-template-columns:1fr 1fr}
+  .teklifBtns button{padding:10px;font-size:11px;border-radius:8px}
+  .teklifBtns button:last-child{grid-column:1 / -1}
 }
 </style></head><body><div class='w'><div class='h'><div style='display:flex;gap:6px;align-items:center;min-width:0;flex:1'><img id='fLogo' src='' class='logo-clean' style='display:none'><div id='headerFirmaAdi' style='font-weight:900;font-size:11px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis'></div></div><div style='display:flex;gap:6px;align-items:center;flex-shrink:0'><img id='jLogo' src='./jotun.png' class='logo-clean' onerror="this.style.display='none'"><div style='display:flex;flex-direction:column;align-items:center;gap:1px'><button class='setBtn' onclick='openSet()'>⚙</button><div id='kurTxt' class='kur'>-</div></div></div></div><div class='over' id='over' onclick='closeSet()'></div><div class='setP' id='setP'><h3>AYARLAR</h3>
 <div><span class='kurumsalLabel'>FIRMA ÜNVANI</span><input id='setFirma' class='s'></div>
-<div><span class='kurumsalLabel'>FİRMA LOGO</span><input id='setFL' class='s'><input type='file' id='fLogoFile' accept='image/*' class='s' style='margin-top:4px'><img id='fLogoPreview' class='kasePreview'></div>
+<div><span class='kurumsalLabel'>FİRMA LOGO (URL veya Dosya)</span><input id='setFL' class='s' placeholder='https://...'><input type='file' id='fLogoFile' accept='image/*' class='s' style='margin-top:4px'><img id='fLogoPreview' class='kasePreview'><div style='font-size:9px;color:#666;margin-top:2px'>URL yaz veya dosya seç - ikisi de saklanır (dosya base64)</div></div>
 <div style='border:1px solid #ffcc00;border-radius:8px;padding:8px;margin-top:8px'><span class='kurumsalLabel'>KAŞE / İMZA</span><input id='setKase' class='s'><input type='file' id='kaseFile' accept='image/*' class='s' style='margin-top:4px'><img id='kasePreview' class='kasePreview'><button onclick='clearKase()' style='margin-top:4px;background:#ff4444;color:#fff;border:none;border-radius:4px;padding:4px 8px;font-size:9px'>SİL</button></div>
 <div><span class='kurumsalLabel'>ADRES</span><input id='setAdres' class='s'></div><div style='display:grid;grid-template-columns:1fr 1fr;gap:5px'><div><span class='kurumsalLabel'>MAIL</span><input id='setMail' class='s'></div><div><span class='kurumsalLabel'>WEB</span><input id='setWeb' class='s'></div></div><div><span class='kurumsalLabel'>TEL</span><input id='setTel' class='s'></div><div><span class='kurumsalLabel'>IBAN</span><input id='setBanka' class='s'></div><div><span class='kurumsalLabel'>VEREN</span><input id='setVeren' class='s'></div><div style='display:grid;grid-template-columns:1fr 1fr;gap:5px'><div><span class='kurumsalLabel'>KAR %</span><input id='setKar' class='s' type='number'></div><div><span class='kurumsalLabel'>KDV %</span><input id='setKdv' class='s' type='number'></div></div>
 <div style='background:#f0fff4;border:1px solid #0a7a2f;border-radius:8px;padding:8px;margin-top:8px'>
@@ -95,10 +93,16 @@
 <input id='musteriAdres' placeholder='Müşteri Adres'>
 <input id='tarih' type='date'>
 </div>
-<datalist id='musteriList'></datalist>
-<datalist id='telList'></datalist>
+<datalist id='musteriList'></datalist><datalist id='telList'></datalist>
 <div id='contactInfo' style='font-size:10px;color:#0a7a2f;font-weight:700;margin-top:4px;display:none'></div>
-<div id='teklifList' class='teklifList'></div><div id='teklifToplam' class='teklifToplam' style='display:none'></div><div class='teklifBtns'><button onclick='yazdir()' style='background:#012060;color:#fff'>YAZDIR / PDF</button><button onclick='waGonder()' style='background:#25D366;color:#fff'>WhatsApp</button></div></div>
+<div id='teklifList' class='teklifList'></div><div id='teklifToplam' class='teklifToplam' style='display:none'></div>
+<div class='teklifBtns'>
+<button onclick='yazdir()' style='background:#012060;color:#fff'>🖨️ YAZDIR</button>
+<button onclick='waTextGonder()' style='background:#128C7E;color:#fff'>💬 Yazı</button>
+<button onclick='waPdfGonder()' style='background:#25D366;color:#fff'>📄 PDF Gönder</button>
+</div>
+<div style='font-size:9px;color:#666;margin-top:6px'>📄 PDF Gönder: Telefonda direkt PDF dosyası olarak WhatsApp'a atar (Android Chrome). PC'de PDF indirip elle göndermen gerekir.</div>
+</div>
 
 <div class='c' style='background:#fff;border:1.5px solid #00e676;padding:6px'><div style='display:flex;justify-content:space-between;align-items:center'><b style='font-size:10px;color:#012060'>⭐ SIK - <span id='sikSay'>0</span></b><button onclick='bulutYenile()' style='background:#00e676;color:#012060;border:none;border-radius:4px;padding:3px 8px;font-size:9px;font-weight:900'>🔄</button></div>
 <div id='sikBox' class='sikGrid'></div></div>
@@ -150,58 +154,30 @@ function clearKase(){document.getElementById('setKase').value='';document.getEle
 document.getElementById('fLogoFile')?.addEventListener('change',function(e){let file=e.target.files[0];if(!file)return;let reader=new FileReader();reader.onload=function(ev){let data=ev.target.result;document.getElementById('setFL').value=data;document.getElementById('fLogoPreview').src=data;document.getElementById('fLogoPreview').style.display='block';ayar.firmaLogo=data;localStorage.setItem('jotun_ayarlar',JSON.stringify(ayar));setTimeout(()=>{location.reload();},600);};reader.readAsDataURL(file);});
 document.getElementById('kaseFile')?.addEventListener('change',function(e){let file=e.target.files[0];if(!file)return;let reader=new FileReader();reader.onload=function(ev){let data=ev.target.result;document.getElementById('setKase').value=data;document.getElementById('kasePreview').src=data;document.getElementById('kasePreview').style.display='block';ayar.kaseLogo=data;localStorage.setItem('jotun_ayarlar',JSON.stringify(ayar));setTimeout(()=>{location.reload();},600);};reader.readAsDataURL(file);});
 
-// === KİŞİLERDEN ALMA ===
+// KISILER
 async function pickContact(){
   let infoEl=document.getElementById('contactInfo');
-  // 1. Yeni Contact Picker API (Android Chrome)
   if('contacts' in navigator && 'ContactsManager' in window){
     try{
       const props=['name','tel','address'];
-      const opts={multiple:false};
-      const contacts=await navigator.contacts.select(props,opts);
+      const contacts=await navigator.contacts.select(props,{multiple:false});
       if(contacts.length>0){
         let c=contacts[0];
         if(c.name && c.name[0]) document.getElementById('musteriAd').value=c.name[0];
         if(c.tel && c.tel[0]) document.getElementById('musteriTel').value=c.tel[0];
         if(c.address && c.address[0]) document.getElementById('musteriAdres').value=(c.address[0].city||'')+' '+(c.address[0].street||'');
         saveMusteriToLocal();
-        infoEl.style.display='block';
-        infoEl.innerText='✅ Rehberden alındı: '+(c.name?c.name[0]:'');
-        setTimeout(()=>infoEl.style.display='none',3000);
-        return;
+        infoEl.style.display='block';infoEl.innerText='✅ Rehberden alındı: '+(c.name?c.name[0]:'');setTimeout(()=>infoEl.style.display='none',3000);return;
       }
-    }catch(e){
-      console.log('contacts api error',e);
-      if(e.name==='NotAllowedError' || e.name==='SecurityError'){
-        infoEl.style.display='block';
-        infoEl.innerText='❌ İzin verilmedi - Ayarlardan kişilere izin ver';
-        return;
-      }
-      // devam et fallback'e
-    }
+    }catch(e){console.log(e);}
   }
-  // 2. Fallback: yerel geçmişten seç
   let musteriler=JSON.parse(localStorage.getItem('jotun_musteriler')||'[]');
   if(musteriler.length>0){
     let list=musteriler.map((m,i)=>`${i+1}. ${m.ad} - ${m.tel}`).join('\n');
-    let sec=prompt('Kayıtlı müşteriler:\n'+list+'\n\nNumara gir (1-'+musteriler.length+')');
-    if(sec){
-      let idx=parseInt(sec)-1;
-      if(musteriler[idx]){
-        document.getElementById('musteriAd').value=musteriler[idx].ad;
-        document.getElementById('musteriTel').value=musteriler[idx].tel;
-        document.getElementById('musteriAdres').value=musteriler[idx].adres||'';
-        infoEl.style.display='block';
-        infoEl.innerText='✅ Geçmişten alındı';
-        setTimeout(()=>infoEl.style.display='none',2000);
-        return;
-      }
-    }
+    let sec=prompt('Kayıtlı müşteriler:\n'+list+'\n\nNumara gir');
+    if(sec){let idx=parseInt(sec)-1;if(musteriler[idx]){document.getElementById('musteriAd').value=musteriler[idx].ad;document.getElementById('musteriTel').value=musteriler[idx].tel;document.getElementById('musteriAdres').value=musteriler[idx].adres||'';}}
   }else{
-    // 3. Bilgilendirme
-    infoEl.style.display='block';
-    infoEl.innerHTML='ℹ️ Tarayıcınız kişilere erişimi desteklemiyor.<br>Android Chrome ile https üzerinden açın ve izin verin.<br>Şimdilik elle girin, otomatik kaydedilecek.';
-    setTimeout(()=>infoEl.style.display='none',4000);
+    infoEl.style.display='block';infoEl.innerHTML='ℹ️ Android Chrome https üzerinden aç ve kişilere izin ver. Şimdilik elle gir, otomatik kaydedilecek.';setTimeout(()=>infoEl.style.display='none',4000);
   }
 }
 function saveMusteriToLocal(){
@@ -210,11 +186,9 @@ function saveMusteriToLocal(){
   let adres=document.getElementById('musteriAdres').value.trim();
   if(!ad && !tel) return;
   let list=JSON.parse(localStorage.getItem('jotun_musteriler')||'[]');
-  // aynı tel varsa güncelle
   let idx=list.findIndex(m=>m.tel===tel && tel!=='');
   if(idx!==-1){ list[idx]={ad,tel,adres,date:Date.now()}; }
   else{
-    // ad ile de kontrol
     let idx2=list.findIndex(m=>m.ad.toLowerCase()===ad.toLowerCase() && ad!=='');
     if(idx2!==-1) list[idx2]={ad,tel,adres,date:Date.now()};
     else list.unshift({ad,tel,adres,date:Date.now()});
@@ -227,17 +201,8 @@ function renderMusteriDatalist(){
   let list=JSON.parse(localStorage.getItem('jotun_musteriler')||'[]');
   document.getElementById('musteriList').innerHTML=list.map(m=>`<option value="${m.ad}">`).join('');
   document.getElementById('telList').innerHTML=list.map(m=>`<option value="${m.tel}">`).join('');
-  // ad yazınca tel otomatik dolsun
 }
-document.getElementById('musteriAd')?.addEventListener('change',function(){
-  let ad=this.value.trim().toLowerCase();
-  let list=JSON.parse(localStorage.getItem('jotun_musteriler')||'[]');
-  let f=list.find(m=>m.ad.toLowerCase()===ad);
-  if(f){
-    document.getElementById('musteriTel').value=f.tel;
-    document.getElementById('musteriAdres').value=f.adres||'';
-  }
-});
+document.getElementById('musteriAd')?.addEventListener('change',function(){let ad=this.value.trim().toLowerCase();let list=JSON.parse(localStorage.getItem('jotun_musteriler')||'[]');let f=list.find(m=>m.ad.toLowerCase()===ad);if(f){document.getElementById('musteriTel').value=f.tel;document.getElementById('musteriAdres').value=f.adres||'';}});
 document.getElementById('musteriTel')?.addEventListener('blur',saveMusteriToLocal);
 document.getElementById('musteriAd')?.addEventListener('blur',saveMusteriToLocal);
 
@@ -256,7 +221,76 @@ function teklifeEkle(){if(!son) return alert('Once sec');saveMusteriToLocal();le
 function renderTeklif(){document.getElementById('teklifSayi').innerText=sepet.length;if(sepet.length===0){document.getElementById('teklifList').innerHTML='<div style="font-size:11px;color:#999;padding:6px">Boş</div>';document.getElementById('teklifToplam').style.display='none';return}let g=0;document.getElementById('teklifList').innerHTML=sepet.map((t,i)=>{let k=t.kovaKdv||0;g+=k*t.adet;return `<div class='teklifItem'><div style='width:18px;height:18px;background:${t.hex||'#fff'};border-radius:4px;border:1px solid #999;flex-shrink:0'></div><div style='flex:1'><div class='teklifItemTitle'>${t.urun.substring(0,28)} - ${t.ral}</div><div class='teklifItemSub'>${t.adet}×${t.lt}LT = <b>${fmt(k*t.adet)}</b></div></div><button onclick='sil(${i})' style='background:#ff4444;color:#fff;border:none;border-radius:4px;padding:4px 8px;font-size:10px;font-weight:900'>X</button></div>`}).join('');document.getElementById('teklifToplam').style.display='block';document.getElementById('teklifToplam').innerText=`TOPLAM: ${fmt(g)}`}
 function sil(i){sepet.splice(i,1);localStorage.setItem('teklif_sepet',JSON.stringify(sepet));renderTeklif()}
 function temizle(){if(confirm('Temizle?')){sepet=[];localStorage.setItem('teklif_sepet','[]');renderTeklif()}}
-function waGonder(){let mustTel=document.getElementById('musteriTel').value||'';let must=document.getElementById('musteriAd').value||'Müşteri';if(!mustTel){alert('Tel gir');return}saveMusteriToLocal();let clean=mustTel.replace(/\D/g,'');if(clean.startsWith('0'))clean='90'+clean.substring(1);let toplam=document.getElementById('teklifToplam').innerText||'';let detay=sepet.map(t=>`• ${t.urun} RAL ${t.ral} - ${t.adet} Adet × ${fmt(t.kovaKdv*t.adet)}`).join('\n');let mesaj=`Merhaba ${must},\n\n${ayar.firmaAdi||''} - Teklif:\n${detay}\n\n${toplam}`;window.open(`https://api.whatsapp.com/send?phone=${clean}&text=${encodeURIComponent(mesaj)}`,'_blank');}
+
+function waTextGonder(){let mustTel=document.getElementById('musteriTel').value||'';let must=document.getElementById('musteriAd').value||'Müşteri';if(!mustTel){alert('Tel gir');return}saveMusteriToLocal();let clean=mustTel.replace(/\D/g,'');if(clean.startsWith('0'))clean='90'+clean.substring(1);let toplam=document.getElementById('teklifToplam').innerText||'';let detay=sepet.map(t=>`• ${t.urun} RAL ${t.ral} - ${t.adet} Adet × ${fmt(t.kovaKdv*t.adet)}`).join('\n');let mesaj=`Merhaba ${must},\n\n${ayar.firmaAdi||''} - Teklif:\n${detay}\n\n${toplam}`;window.open(`https://api.whatsapp.com/send?phone=${clean}&text=${encodeURIComponent(mesaj)}`,'_blank');}
+
+// === WHATSAPP PDF OLARAK GÖNDER - jsPDF + Web Share API ===
+async function waPdfGonder(){
+  if(sepet.length===0){alert('Sepet boş');return}
+  saveMusteriToLocal();
+  let must=document.getElementById('musteriAd').value||'Müşteri';
+  let mustTel=document.getElementById('musteriTel').value||'';
+  let mustAdres=document.getElementById('musteriAdres').value||'-';
+  let firma=ayar.firmaAdi||'';
+  let fAdres=ayar.firmaAdres||'';
+  let fBanka=ayar.firmaBanka||'';
+  let veren=ayar.teklifVeren||'';
+  let tarih=document.getElementById('tarih').value?new Date(document.getElementById('tarih').value).toLocaleDateString('tr-TR'):new Date().toLocaleDateString('tr-TR');
+  let kdvO=parseFloat(document.getElementById('setKdv').value)||20;
+  let haric=0,dahil=0;sepet.forEach(t=>{dahil+=t.kovaKdv*t.adet;haric+=t.kovaTl*t.adet});
+
+  const { jsPDF } = window.jspdf;
+  let doc=new jsPDF({orientation:'portrait',unit:'mm',format:'a4'});
+  let y=10;
+  doc.setFontSize(12);doc.setFont('helvetica','bold');
+  doc.text(firma||'TEKLIF',10,y); y+=5;
+  doc.setFontSize(8);doc.setFont('helvetica','normal');
+  doc.text(fAdres,10,y); y+=4;
+  doc.text(`Tarih: ${tarih} | Musteri: ${must} | Tel: ${mustTel}`,10,y); y+=6;
+  doc.setFontSize(10);doc.setFont('helvetica','bold');doc.text('FIYAT TEKLIF FORMU',105,y,{align:'center'}); y+=6;
+  doc.setFontSize(8);
+  doc.setFillColor(1,32,96);doc.setTextColor(255,255,255);
+  doc.rect(10,y,190,7,'F');doc.text('URUN',12,y+5);doc.text('RAL',80,y+5);doc.text('ADET',105,y+5);doc.text('BIRIM',125,y+5);doc.text('TOPLAM',160,y+5);
+  y+=7;doc.setTextColor(0,0,0);doc.setFont('helvetica','normal');
+  sepet.forEach(t=>{
+    if(y>270){doc.addPage();y=10;}
+    doc.text(t.urun.substring(0,35),12,y);
+    doc.text(String(t.ral),80,y);
+    doc.text(`${t.adet}x${t.lt}LT`,105,y);
+    doc.text(fmt(t.ltSatis||0),125,y);
+    doc.text(fmt(t.kovaKdv*t.adet),160,y);
+    y+=5;
+  });
+  y+=3;doc.setFont('helvetica','bold');
+  doc.text(`Ara Toplam: ${fmt(haric)}`,130,y);y+=5;
+  doc.text(`KDV %${kdvO}: ${fmt(dahil-haric)}`,130,y);y+=5;
+  doc.text(`GENEL TOPLAM: ${fmt(dahil)}`,130,y);y+=8;
+  doc.setFont('helvetica','normal');doc.setFontSize(7);
+  doc.text(`BANKA: ${fBanka}`,10,y);y+=5;
+  doc.text(`Veren: ${veren} | Onay: ${must}`,10,y);
+
+  let fileName=`Teklif-${must}-${tarih}.pdf`;
+  let pdfBlob=doc.output('blob');
+
+  // 1. Web Share API ile dosya olarak WhatsApp'a direkt gönder (Android Chrome en iyi)
+  if(navigator.canShare && navigator.canShare({files:[new File([pdfBlob],fileName,{type:'application/pdf'})]})){
+    try{
+      let file=new File([pdfBlob],fileName,{type:'application/pdf'});
+      await navigator.share({title:`Teklif - ${must}`,text:`${firma} - Toplam: ${fmt(dahil)}`,files:[file]});
+      return;
+    }catch(e){console.log('share cancelled',e); return;}
+  }
+  // 2. Fallback: PDF indir + WhatsApp metin aç
+  doc.save(fileName);
+  let clean=mustTel.replace(/\D/g,'');if(clean.startsWith('0'))clean='90'+clean.substring(1);
+  let detay=sepet.map(t=>`• ${t.urun} RAL ${t.ral} ${t.adet} Adet = ${fmt(t.kovaKdv*t.adet)}`).join('\n');
+  let mesaj=`Merhaba ${must},\n\n${firma} Teklif PDF indirildi.\n${detay}\n\nTOPLAM: ${fmt(dahil)}\n\nPDF dosyayi ekten gonderiyorum.`;
+  setTimeout(()=>{
+    if(clean) window.open(`https://api.whatsapp.com/send?phone=${clean}&text=${encodeURIComponent(mesaj)}`,'_blank');
+    alert('PDF indirildi. WhatsApp Web açıksa dosyayı el ile ekleyip gönder.');
+  },500);
+}
+
 function renderSikKullanilan(arr){
   let extra=arr||JSON.parse(localStorage.getItem('jotun_kayitlar_extra')||'[]');
   if(!arr){extra=JSON.parse(localStorage.getItem('jotun_kayitlar_extra')||'[]');}
@@ -307,11 +341,12 @@ function yazdir(){
 @media print{.no-print{display:none !important}}
 </style></head><body><div class='page'><div class='top'><div class='topL'>${logo?`<img src='${logo}' onerror="this.style.display='none'">`:''}<div class='topLInfo'><b>${firma}</b><br>${fAdres}<br>${fMail} | ${fWeb}<br>Tel: ${fTel}</div></div><div class='topR'><img src='${jLogo}' onerror="this.style.display='none'"><div style='font-size:9px;font-weight:900;margin-top:3px'>Tarih: ${tarih}</div></div></div><div class='titleCenter'><b>FİYAT TEKLİF FORMU</b></div><div class='musteriBox'><b>Musteri: ${must}</b> Tel: ${mustTel} Adres: ${mustAdres}</div><table><thead><tr><th>RENK</th><th>ÜRÜN</th><th>MİKTAR</th><th>BİRİM</th><th>TOPLAM</th></tr></thead><tbody>${rows}</tbody></table><div class='totals'><div class='box'><div class='row'><span>Ara Toplam</span><span>${fmt(haric)}</span></div><div class='row'><span>KDV (%${kdvO})</span><span>${fmt(fark)}</span></div><div class='row total'><span>GENEL TOPLAM</span><span>${fmt(dahil)}</span></div></div></div><div class='noteFull'><b>NOT:</b> Fiyatlar ${tarih} tarihli kurlara goredir.</div><div class='contactFull'><b>BANKA:</b> ${fBanka}</div><div class='signRow'><div class='signBox'><b>Veren</b><br>${veren}${kaseHtml}<br>Kaşe / İmza</div><div class='signBox'><b>Onay</b><br>${must}<br><br><br>Kaşe / İmza</div></div>
 <div class='no-print'>
-  <button onclick='window.print()' style='background:#012060;color:#fff'>🖨️ YAZDIR / PDF</button>
-  <button onclick="window.open('${waUrl}','_blank')" style='background:#25D366;color:#fff'>💬 WhatsApp</button>
-  <button onclick='if(navigator.share){navigator.share({title:"Teklif",text:"${fmt(dahil)}"})} ' style='background:#0a7a2f;color:#fff'>📤 Paylaş</button>
+  <button onclick='window.print()' style='background:#012060;color:#fff'>🖨️ YAZDIR / PDF KAYDET</button>
+  <button onclick="window.open('${waUrl}','_blank')" style='background:#25D366;color:#fff'>💬 WhatsApp Yazı</button>
+  <button onclick='if(navigator.share){navigator.share({title:"Teklif",text:"Toplam: ${fmt(dahil)}"})} ' style='background:#0a7a2f;color:#fff'>📤 Paylaş</button>
   <button onclick='window.close()' style='background:#eee;color:#333;border:1px solid #ccc'>KAPAT</button>
 </div>
+<div class='no-print' style='width:100%;text-align:center;font-size:9px;color:#666;margin-top:4px'>WhatsApp Web'de: YAZDIR > PDF Kaydet > WhatsApp'tan dosyayı elle gönder</div>
 </div></body></html>`;
   let w=window.open('','_blank');w.document.write(h);w.document.close();
 }
