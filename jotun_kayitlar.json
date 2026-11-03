@@ -1,5 +1,27 @@
 [
   {
+  "ral_no": "9005",
+  "ral_isim": "JET BLACK",
+  "base_no": "3",
+  "product": "CONSEAL TU BASE 3 (18 LT)",
+  "formul": "SB140 - Jotun Formula",
+  "colorant_cost": "1175.73",
+  "maliyet": "1175.73",
+  "can_size": "18L",
+  "lt": 18
+},
+{
+  "ral_no": "9005",
+  "ral_isim": "JET BLACK",
+  "base_no": "3",
+  "product": "CONSEAL TU BASE 3 (4.5 LT)",
+  "formul": "SB140 - Jotun Formula",
+  "colorant_cost": "293.93",
+  "maliyet": "293.93",
+  "can_size": "4.5L",
+  "lt": 4.5
+},
+  {
   "ral_no": "7016",
   "ral_isim": "ANTHRACITE GREY",
   "base_no": "3",
