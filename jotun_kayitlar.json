@@ -1,4 +1,26 @@
 [
+  {
+  "ral_no": "7001",
+  "ral_isim": "SILVER GREY",
+  "base_no": "2",
+  "product": "CONSEAL TU BASE 2 (18 LT)",
+  "formul": "BL002.9 SB013.6 VL002.85 - Jotun Formula",
+  "colorant_cost": "192.73",
+  "maliyet": "192.73",
+  "can_size": "18L",
+  "lt": 18
+},
+{
+  "ral_no": "7001",
+  "ral_isim": "SILVER GREY",
+  "base_no": "2",
+  "product": "CONSEAL TU BASE 2 (4.5 LT)",
+  "formul": "BL002.9 SB013.6 VL002.85 - Jotun Formula",
+  "colorant_cost": "48.18",
+  "maliyet": "48.18",
+  "can_size": "4.5L",
+  "lt": 4.5
+},
 
 
   {
