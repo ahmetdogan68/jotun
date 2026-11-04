@@ -8,14 +8,14 @@
 .theme-dark{--bg:#070F1F;--card:#111E36;--card-border:#22365E;--text:#E9F1FF;--text2:#9AB0D0;--input-border:#2E4A7A}
 *{box-sizing:border-box;margin:0;padding:0;min-width:0}
 body{font-family:Inter,Arial;background:var(--bg);color:var(--text);overflow-x:hidden}
-.w{max-width:880px;margin:0 auto;background:var(--bg);min-height:100vh;padding:72px 8px 80px 10px;overflow-x:hidden}
+.w{max-width:880px;margin:0 auto;background:var(--bg);min-height:100vh;padding:80px 10px 80px 10px;overflow-x:hidden}
 /* HEADER - JCM GO STYLE */
-.h{background:#011B44;color:#fff;height:64px;display:flex;align-items:center;justify-content:center;position:fixed;top:0;left:0;right:0;width:100%;z-index:1000;border-bottom:none;box-shadow:0 2px 10px rgba(0,0,0,.25);padding:0}
-.h-inner{width:100%;max-width:880px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:0 8px;position:relative;height:100%}
+.h{background:#011B44;color:#fff;height:70px;display:flex;align-items:center;justify-content:center;position:fixed;top:0;left:0;right:0;width:100%;z-index:1000;border-bottom:none;box-shadow:0 2px 10px rgba(0,0,0,.25);padding:0}
+.h-inner{width:100%;max-width:1280px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:0 18px;position:relative;height:100%}
 .h-left{display:flex;align-items:center;gap:8px;flex:0 0 auto;min-width:100px}
 .h-left .jotunLogoBox{background:#FFCC00;display:flex;align-items:center;justify-content:center;padding:4px 8px;border-radius:2px;height:38px}
 .h-left .jotunLogoBox img{height:28px;max-width:130px;object-fit:contain;display:block}
-.h-left img#fLogo{height:56px;max-width:130px;object-fit:contain;background:#fff;border-radius:4px;padding:2px 6px;display:none;margin-left:8px}
+.h-left img#fLogo{height:32px;max-width:130px;object-fit:contain;background:#fff;border-radius:4px;padding:2px 6px;display:none;margin-left:8px}
 .h-left img#fLogo.show{display:block}
 .h-center{position:absolute;left:50%;transform:translateX(-50%);display:flex;align-items:baseline;gap:6px;white-space:nowrap}
 .h-center-title{font-family:'Playfair Display','Times New Roman',serif;font-weight:400;font-size:22px;color:#fff;letter-spacing:.02em;line-height:1}
@@ -23,7 +23,7 @@ body{font-family:Inter,Arial;background:var(--bg);color:var(--text);overflow-x:h
 .h-center-sub{font-weight:400;font-size:12px;color:rgba(255,255,255,.0);display:none}
 .h-right{display:flex;align-items:center;gap:8px;flex:0 0 auto;min-width:100px;justify-content:flex-end}
 .h-right img{height:30px;max-width:110px;object-fit:contain}
-.homeCircle{width:44px;height:44px;background:#FFCC00;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;flex-shrink:0;transition:.15s;border:2px solid rgba(255,255,255,.0)}
+.homeCircle{width:38px;height:38px;background:#C5A000;background: #E6B800; background:#FFCC00;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;flex-shrink:0;transition:.15s;border:2px solid rgba(255,255,255,.0)}
 .homeCircle:hover{transform:scale(1.05);filter:brightness(1.1)}
 .homeCircle svg{width:20px;height:20px;fill:#011B44}
 .miniBlueBox{width:34px;height:34px;background:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;border:1.5px solid #fff;flex-shrink:0;transition:.15s}
@@ -35,7 +35,7 @@ body{font-family:Inter,Arial;background:var(--bg);color:var(--text);overflow-x:h
 .drawer{position:fixed;top:0;right:0;width:100%;max-width:360px;height:100%;background:var(--card);z-index:99999;transform:translateX(100%);transition:transform .32s cubic-bezier(.4,0,.2,1);padding:12px;overflow:auto;border-left:3px solid var(--jotun-blue);box-shadow:-8px 0 24px rgba(0,0,0,.25)}.drawer.on{transform:translateX(0)}
 .drawerHandle{position:fixed;top:72px;right:0;width:34px;height:44px;background:var(--jotun-blue);border-radius:8px 0 0 8px;display:flex;align-items:center;justify-content:center;z-index:99997;cursor:pointer;box-shadow:-2px 2px 10px rgba(0,0,0,.2);border:2px solid #fff;border-right:none;transition:right .32s cubic-bezier(.4,0,.2,1), background .2s}.drawerHandle.on{right:360px;background:var(--jotun-yellow);border-color:var(--jotun-blue)}.drawerHandle svg{width:16px;height:16px;fill:none;stroke:#fff;stroke-width:2.5;transition:transform .3s, stroke .2s}.drawerHandle.on svg{stroke:var(--jotun-blue);transform:rotate(180deg)}
 .drawerHead{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;border-bottom:2px solid var(--jotun-blue);padding-bottom:6px}.drawerHead b{font-weight:900;font-size:12px;color:var(--jotun-blue)}.theme-dark .drawerHead b{color:var(--jotun-yellow)}.drawerClose{background:var(--jotun-blue);color:#fff;border:none;border-radius:50%;width:26px;height:26px;font-weight:900;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:13px}
-.c{background:var(--card);border-radius:6px;padding:8px;margin-top:8px;border:1px solid var(--card-border);overflow:hidden}
+.c{background:var(--card);border-radius:8px;padding:10px;margin-top:10px;border:1px solid var(--card-border);overflow:hidden}
 .c-head{font-size:12px;font-weight:900;color:var(--jotun-blue);letter-spacing:0.04em;text-transform:uppercase;margin-bottom:6px;display:flex;justify-content:space-between;align-items:center}
 .c-head span{font-size:10px;font-weight:700;color:var(--text2);text-transform:none;letter-spacing:0}
 .theme-dark .c-head{color:var(--jotun-yellow)}
@@ -49,9 +49,9 @@ body{font-family:Inter,Arial;background:var(--bg);color:var(--text);overflow-x:h
 .rs{width:32px;height:32px;border-radius:6px;border:1.8px solid #aaa;flex-shrink:0}
 .s{padding:7px 9px;border:1.5px solid var(--card-border);border-radius:6px;width:100%;font-weight:600;font-size:11px;font-family:Inter;background:var(--card);color:var(--text);min-width:0}
 .rb{display:flex;gap:8px;margin-top:6px;align-items:stretch}
-.sw{width:240px;height:52px;border-radius:6px;border:2.5px solid var(--jotun-blue);background:#fff;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:900;flex-shrink:0;color:var(--text);box-shadow:0 2px 6px rgba(0,0,0,.1);transition:.15s}
+.sw{width:260px;height:58px;border-radius:6px;border:2.5px solid var(--jotun-blue);background:#fff;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:900;flex-shrink:0;color:var(--text);box-shadow:0 2px 6px rgba(0,0,0,.1);transition:.15s}
 .sw.hasColor{box-shadow:0 3px 12px rgba(0,0,0,.16), inset 0 0 0 2px rgba(255,255,255,.4)}
-.bil{flex:1;height:52px;border:2px solid var(--input-border);border-radius:6px;background:var(--card);display:flex;flex-direction:column;overflow:hidden}
+.bil{flex:1;height:58px;border:2px solid var(--input-border);border-radius:6px;background:var(--card);display:flex;flex-direction:column;overflow:hidden}
 .bilU{display:flex;flex:1;border-bottom:1.5px solid var(--card-border)}.bilU-ral{flex:0 0 36%;display:flex;align-items:center;justify-content:center;border-right:1.5px solid var(--card-border);min-width:70px}.bilU-pig{flex:1;display:flex;align-items:center;justify-content:center;background:rgba(255,204,0,.14)}.bilA{flex:1;display:flex}
 .ambRow{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:5px;margin-top:5px}.amb{border:2px solid var(--card-border);border-radius:6px;font-weight:800;text-align:center;cursor:pointer;background:var(--card);height:36px;display:flex;align-items:center;justify-content:center;font-size:12px;color:var(--text)}.amb.on{background:var(--jotun-blue);color:#fff;border-color:var(--jotun-blue)}.theme-dark .amb.on{background:var(--jotun-yellow);color:var(--jotun-blue);border-color:var(--jotun-yellow)}
 .btnS{background:var(--jotun-yellow);color:var(--jotun-blue);border:none;border-radius:6px;padding:0 8px;font-weight:900;cursor:pointer;min-width:40px;height:50px;font-size:15px;display:flex;align-items:center;justify-content:center}
@@ -73,15 +73,15 @@ body{font-family:Inter,Arial;background:var(--bg);color:var(--text);overflow-x:h
 .compBox{background:var(--jotun-blue);border:1.5px solid var(--jotun-yellow);border-radius:6px;padding:5px 7px;margin-top:5px;color:#fff;font-size:9px;display:none;font-weight:600}
 .kasePreview{width:26px;height:26px;object-fit:contain;border:1px solid var(--card-border);border-radius:4px;background:#fff;display:none;flex-shrink:0}.logoRow{display:flex;gap:5px;align-items:center;margin-top:3px}.logoRow input{flex:1}.logoRow .fileBtn{font-size:8px;padding:3px 5px;background:var(--jotun-blue);color:#fff;border:none;border-radius:4px;font-weight:800;cursor:pointer;white-space:nowrap}.theme-dark .logoRow .fileBtn{background:var(--jotun-yellow);color:var(--jotun-blue)}.miniPreviewWrap{display:flex;align-items:center;gap:3px;margin-top:3px}.miniPreviewWrap span{font-size:7px;font-weight:700;color:var(--text2)}.themeSelect{display:grid;grid-template-columns:1fr 1fr 1fr;gap:3px;margin-top:3px}.themeOpt{border:2px solid var(--card-border);border-radius:5px;padding:5px;text-align:center;cursor:pointer;font-size:9px;font-weight:800;background:var(--card);color:var(--text)}.themeOpt.on{border-color:var(--jotun-blue);background:var(--jotun-blue);color:#fff}.theme-dark .themeOpt.on{border-color:var(--jotun-yellow);background:var(--jotun-yellow);color:var(--jotun-blue)}.jotunSearch{width:100%;height:38px;border:1.5px solid var(--card-border);border-radius:6px;padding:0 10px;font-size:12px;font-weight:500;background:var(--card);color:var(--text);font-family:Inter;min-width:0}
 .kurumsalLabel{font-size:7px;font-weight:800;color:var(--jotun-blue);margin-top:6px;display:block;letter-spacing:0.05em;text-transform:uppercase}.theme-dark .kurumsalLabel{color:var(--jotun-yellow)}
-@media(max-width:900px){.h{height:70px}.h-center-title{font-size:19px}.h-left .jotunLogoBox{height:32px;padding:3px 6px}.h-left .jotunLogoBox img{height:42px}.sikGrid{grid-template-columns:repeat(5,1fr);gap:4px}.drawerHandle{top:66px}.drawerHandle.on{right:360px}.sw{width:100px !important;height:46px !important}}
+@media(max-width:900px){.h{height:70px}.h-center-title{font-size:19px}.h-left .jotunLogoBox{height:32px;padding:3px 6px}.h-left .jotunLogoBox img{height:24px}.sikGrid{grid-template-columns:repeat(5,1fr);gap:4px}.drawerHandle{top:66px}.drawerHandle.on{right:360px}.sw{width:100px !important;height:46px !important}}
 @media(max-width:700px){.w{padding:68px 5px 70px 5px}.sb input{height:42px !important;font-size:12px !important}.btnS{height:46px !important;min-width:36px !important}.sw{width:68px !important;height:42px !important;font-size:8px !important}.bil{height:46px !important}.bilU-ral{flex:0 0 38% !important}.amb{height:32px !important;font-size:10px !important}.resGrid{padding:6px;gap:4px}.resVal{font-size:13px}.resValBig{font-size:14px}.teklifInputs{grid-template-columns:1fr !important}.sikGrid{grid-template-columns:repeat(3,1fr);gap:4px}.sikCard{height:64px}.sikRal{font-size:18px !important}.sikBody{font-size:9px !important;min-height:16px}.drawer{max-width:86%}.drawerHandle.on{right:86%}.h-left{min-width:50px}.h-right{min-width:50px}.resTopKur{flex-direction:column;gap:6px}.resKurItem{width:100%}}
 </style></head><body><div class='w'>
 
 <div class='h'>
   <div class='h-inner'>
-    <div class='h-left'><img id='fLogo' src='' alt='Firma' style='height:56px;max-width:160px;object-fit:contain;background:#fff;border-radius:4px;padding:2px 6px'><div class='jotunLogoBox' style='display:none'><img src='https://www.jotun.com/globalassets/jotun-logo.svg' alt='JOTUN'></div></div>
+    <div class='h-left'><img id='fLogo' src='' alt='Firma'><div class='jotunLogoBox' style='display:none'><img src='https://www.jotun.com/globalassets/jotun-logo.svg' alt='JOTUN'></div></div>
     <div class='h-center'><div class='h-center-title'>JOTUN <b style='font-weight:300;opacity:.85'>HESAPLAMA</b></div></div>
-    <div class='h-right'><img id='jLogo' src='./jotun.png' alt='JOTUN' onerror="this.src='https://www.jotun.com/globalassets/jotun-logo.svg'" style='height:56px;border-radius:6px'><div class='homeCircle' onclick='window.scrollTo({top:0,behavior:"smooth"})' title='Ana Sayfa' style='margin-left:8px'><svg viewBox="0 0 24 24"><path d="M12 2.5L3 11.5V20.5C3 21.05 3.45 21.5 4 21.5H9.5C10.05 21.5 10.5 21.05 10.5 20.5V15.5C10.5 14.95 10.95 14.5 11.5 14.5H12.5C13.05 14.5 13.5 14.95 13.5 15.5V20.5C13.5 21.05 13.95 21.5 14.5 21.5H20C20.55 21.5 21 21.05 21 20.5V11.5L12 2.5Z"/></svg></div></div>
+    <div class='h-right'><img id='jLogo' src='./jotun.png' alt='JOTUN' onerror="this.src='https://www.jotun.com/globalassets/jotun-logo.svg'" style='height:38px'><div class='homeCircle' onclick='window.scrollTo({top:0,behavior:"smooth"})' title='Ana Sayfa' style='margin-left:8px'><svg viewBox="0 0 24 24"><path d="M12 2.5L3 11.5V20.5C3 21.05 3.45 21.5 4 21.5H9.5C10.05 21.5 10.5 21.05 10.5 20.5V15.5C10.5 14.95 10.95 14.5 11.5 14.5H12.5C13.05 14.5 13.5 14.95 13.5 15.5V20.5C13.5 21.05 13.95 21.5 14.5 21.5H20C20.55 21.5 21 21.05 21 20.5V11.5L12 2.5Z"/></svg></div></div>
   </div>
 </div>
 </div>
