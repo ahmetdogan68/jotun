@@ -104,6 +104,16 @@ body{font-family:Inter,Arial;background:var(--bg);color:var(--text);overflow-x:h
 .resTopKur{flex-direction:column;gap:6px}
 .resKurItem{width:100%}
 }
+
+/* TEK TUS - TEMIZ */
+.teklifBtns{grid-template-columns:1fr !important}
+#islemModal{position:fixed;inset:0;background:rgba(1,27,68,.7);z-index:999999;display:none;align-items:center;justify-content:center;padding:16px}
+#islemModal.show{display:flex}
+.islemBox{background:#fff;border-radius:16px;width:100%;max-width:360px;overflow:hidden;border:2px solid #011B44}
+.islemHead{background:#011B44;color:#fff;padding:14px 16px;display:flex;justify-content:space-between;align-items:center}
+.islemGrid{display:grid;gap:10px;padding:16px}
+.islemGrid button{height:50px;border-radius:10px;border:1px solid #ddd;font-weight:700;font-size:13px;display:flex;align-items:center;gap:10px;padding:0 14px;cursor:pointer}
+
 </style></head><body>
 <div class='sideDeco left'><img src='https://github.com/ahmetdogan68/jotun/blob/main/kenar.jpg?raw=true' alt=''><div class='sideOverlay'></div></div>
 <div class='sideDeco right'><img src='https://github.com/ahmetdogan68/jotun/blob/main/kenar1.jpg?raw=true' alt=''><div class='sideOverlay'></div></div>
@@ -169,7 +179,8 @@ body{font-family:Inter,Arial;background:var(--bg);color:var(--text);overflow-x:h
 <div class='teklifInputs'><input id='musteriAd' placeholder='Müşteri Adı' autocomplete='off'><input id='musteriAdres' placeholder='Müşteri Adres' autocomplete='off'><div style='display:contents'><input id='musteriTel' placeholder='Müşteri Tel - 05xx' inputmode='tel' autocomplete='off'><input id='tarih' type='date'></div></div>
 <div id='contactInfo' style='font-size:9px;color:#0a7a2f;font-weight:800;margin-top:5px;display:none;word-break:break-word;background:rgba(0,200,83,.1);padding:4px 5px;border-radius:4px;border:1px solid #0a7a2f'></div>
 <div id='teklifList' class='teklifList'></div><div id='teklifToplam' class='teklifToplam' style='display:none'></div>
-<div class='teklifBtns'><button onclick='yazdir()' style='background:#012060;color:#fff'>🖨<br>YAZDIR</button><button onclick='waTextGonder()' style='background:#128C7E;color:#fff'>💬<br>YAZI</button><button onclick='waPdfGonder()' style='background:#25D366;color:#fff'>📄<br>PDF</button></div>
+<div class='teklifBtns'><button onclick='openIslemModal()' style='background:#011B44;color:#fff'>🖨 YAZDIR</button></div>
+<div id='islemModal' onclick='if(event.target===this)closeIslemModal()'><div class='islemBox'><div class='islemHead'><b>TEKLİF İŞLEMLERİ</b><button onclick='closeIslemModal()' style='background:rgba(255,255,255,.2);border:none;color:#fff;width:30px;height:30px;border-radius:6px'>✕</button></div><div class='islemGrid'><button onclick='yazdirModal()' style='background:#011B44;color:#fff'>🖨 YAZDIR</button><button onclick='smsGonderModal()' style='background:#25D366;color:#fff'>💬 SMS GÖNDER</button><button onclick='pdfKaydetModal()' style='background:#011B44;color:#fff'>📄 PDF KAYIT ET</button><button onclick='emailGonderModal()' style='background:#fff;color:#011B44;border:1.5px solid #011B44'>✉️ E-MAİL GÖNDER</button><button onclick='closeIslemModal()' style='background:#F1F5F9;color:#333'>✕ KAPAT</button></div></div></div>
 </div>
 <div class='c' style='padding:6px'><div style='display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:3px'><b style='font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:var(--jotun-blue)'>⭐ SIK KULLANILANLAR — <span id='sikSay'>0</span></b><div style='display:flex;gap:3px'><button onclick='bulutYenile()' style='background:#00C853;color:#fff;border:none;border-radius:3px;padding:2px 6px;font-size:7px;font-weight:800'>🔄 YENİLE</button><button onclick='forceClearSik()' style='background:#E53935;color:#fff;border:none;border-radius:3px;padding:2px 6px;font-size:7px;font-weight:800'>🗑 SİL</button></div></div><div id='sikBox' class='sikGrid'></div></div>
 </div>
@@ -177,7 +188,7 @@ body{font-family:Inter,Arial;background:var(--bg);color:var(--text);overflow-x:h
 <script>
 const BULUT_URL = 'https://crudcrud.com/api/772420af1ef84f3f8653d9e074bcdde8';
 const BULUT_RES = 'jotun_sik';
-let urunler=[],ralList=[{'kod': '1000', 'isim': 'Green Beige', 'hex': '#CCC58F'}, {'kod': '1001', 'isim': 'Beige', 'hex': '#D1BC8A'}, {'kod': '1013', 'isim': 'Oyster White', 'hex': '#E9E5CE'}, {'kod': '1015', 'isim': 'Light Ivory', 'hex': '#E6D2B5'}, {'kod': '3000', 'isim': 'Flame Red', 'hex': '#AF2B1E'}, {'kod': '3005', 'isim': 'Wine Red', 'hex': '#5E2129'}, {'kod': '5002', 'isim': 'Ultramarine Blue', 'hex': '#20214F'}, {'kod': '5005', 'isim': 'Signal Blue', 'hex': '#154889'}, {'kod': '5010', 'isim': 'Gentian Blue', 'hex': '#0E294B'}, {'kod': '6005', 'isim': 'Moss Green', 'hex': '#0F4336'}, {'kod': '7000', 'isim': 'Squirrel Grey', 'hex': '#7A8A8B'}, {'kod': '7001', 'isim': 'Silver Grey', 'hex': '#8A9597'}, {'kod': '7004', 'isim': 'Signal Grey', 'hex': '#999A9F'}, {'kod': '7016', 'isim': 'Anthracite Grey', 'hex': '#383E42'}, {'kod': '7021', 'isim': 'Black Grey', 'hex': '#2E3233'}, {'kod': '7024', 'isim': 'Graphite Grey', 'hex': '#474A51'}, {'kod': '7035', 'isim': 'Light Grey', 'hex': '#D7D7D7'}, {'kod': '7037', 'isim': 'Dusty Grey', 'hex': '#7D7F7D'}, {'kod': '7040', 'isim': 'Window Grey', 'hex': '#9DA1A4'}, {'kod': '8000', 'isim': 'Green Brown', 'hex': '#8B6A4F'}, {'kod': '8017', 'isim': 'Chocolate Brown', 'hex': '#45322E'}, {'kod': '9001', 'isim': 'Cream', 'hex': '#FDF4E3'}, {'kod': '9002', 'isim': 'Grey White', 'hex': '#E7EBDA'}, {'kod': '9003', 'isim': 'Signal White', 'hex': '#F4F4F4'}, {'kod': '9005', 'isim': 'Jet Black', 'hex': '#0A0A0A'}, {'kod': '9006', 'isim': 'White Aluminium', 'hex': '#A5A5A5'}, {'kod': '9010', 'isim': 'Pure White', 'hex': '#FFFFFF'}, {'kod': '9016', 'isim': 'Traffic White', 'hex': '#F6F6F6'}],kayitlar=[],secKayit=[],amb=[{ad:'3.6L',lt:3.6},{ad:'4.5L',lt:4.5},{ad:'18L',lt:18},{ad:'20L',lt:20}];
+let urunler=[],ralList=[],kayitlar=[],secKayit=[],amb=[{ad:'3.6L',lt:3.6},{ad:'4.5L',lt:4.5},{ad:'18L',lt:18},{ad:'20L',lt:20}];
 let ayar=JSON.parse(localStorage.getItem('jotun_ayarlar')||'{"kar":25,"kdv":20,"dolar":"49,7891","euro":"54,20","dolarTarih":"","euroTarih":"","firmaAdi":"","firmaLogo":"","firmaAdres":"","firmaMail":"","firmaWeb":"","telefon":"","firmaBanka":"","teklifVeren":"","kaseLogo":"","tema":"light"}');
 let secUrun=null,secAmb=2,secLT=18,secHex='#FFF',son=null,tempRal='',secName='',sepet=JSON.parse(localStorage.getItem('teklif_sepet')||'[]');let sonHesap={};let secCompPair=null;let bulutCache=[];let lastContactTel='';
 function parsePrice(raw){if(raw==null) return 0;let s=String(raw).trim();s=s.replace(/[^0-9,\.\-]/g,'').replace(',', '.');let parts=s.split('.');if(parts.length>2){ s=parts[0]+'.'+parts.slice(1).join(''); }let v=parseFloat(s);return isNaN(v)?0:v;}
@@ -216,7 +227,7 @@ let pr=await tryFetch([
   'https://github.com/ahmetdogan68/jotun/blob/main/products.json?raw=true&v='+Date.now(),
   './products.json?v='+Date.now()
 ]);
-if(false){} else if(true){ let bl=[['JOTUN CONSEAL TOUCH (18LT)', '120'], ['JOTUN FENOMASTIC (18LT)', '85'], ['JOTUN MAJESTIC (18LT)', '150'], ['JOTUN PENGUARD (20LT)', '200']].map(o=>({ad:o[0],fiyat:parseFloat(o[1]),parsed:parseLT(o[0])})); bl.sort((a,b)=>a.ad.toUpperCase().localeCompare(b.ad.toUpperCase(),'tr')); urunler=bl.map(o=>[o.ad,o.fiyat]); } if(pr&&pr.data){let bl=pr.data.map(o=>({ad:(o.ad||'').trim(),fiyat:parsePrice(o.fiyat),parsed:parseLT(o.ad||'') }));bl.sort((a,b)=>a.ad.toUpperCase().localeCompare(b.ad.toUpperCase(),'tr'));urunler=bl.map(o=>[o.ad,o.fiyat]);}let rr=await tryFetch(['https://raw.githubusercontent.com/ahmetdogan68/jotun/main/ral.json?v='+Date.now(),'./ral.json?v='+Date.now()]);if(rr&&rr.data && rr.data.length>0) ralList=rr.data; else if(ralList.length===0) ralList=embeddedRals || []; if(ralList.length===0) ralList=[{kod:'7016',isim:'Anthracite Grey',hex:'#383E42'}];let jr=await tryFetch(['./jotun_kayitlar.json?v='+Date.now()]);if(jr&&jr.data){kayitlar=jr.data;}let cloudData=await bulutGet();let localData=JSON.parse(localStorage.getItem('jotun_kayitlar_extra')||'[]');let merged=cloudData.length>0?cloudData:localData.map((o,i)=>({...o,_id:'local_'+i}));let map=new Map();merged.forEach(x=>{let k=x.ral_no+'_'+x.product; if(!map.has(k)) map.set(k,x)});merged=Array.from(map.values());if(merged.length>0){kayitlar=kayitlar.concat(merged.map(o=>{let { _id, ...rest}=o; return rest}));}if(urunler.length===0){ urunler=[['JOTUN CONSEAL TOUCH (18LT)',120],['JOTUN FENOMASTIC (18LT)',85],['JOTUN MAJESTIC (18LT)',150],['JOTUN PENGUARD (20LT)',200]]; } if(ralList.length===0){ ralList=[{kod:'7016',isim:'Anthracite Grey',hex:'#383E42'},{kod:'9005',isim:'Jet Black',hex:'#0A0A0A'},{kod:'9010',isim:'Pure White',hex:'#FFFFFF'}]; } document.getElementById('canliSay').innerText=urunler.length;document.getElementById('ralSay').innerText=ralList.length||'-';document.getElementById('kayitSay').innerText=kayitlar.length;
+if(pr&&pr.data){let bl=pr.data.map(o=>({ad:(o.ad||'').trim(),fiyat:parsePrice(o.fiyat),parsed:parseLT(o.ad||'') }));bl.sort((a,b)=>a.ad.toUpperCase().localeCompare(b.ad.toUpperCase(),'tr'));urunler=bl.map(o=>[o.ad,o.fiyat]);}let rr=await tryFetch(['https://raw.githubusercontent.com/ahmetdogan68/jotun/main/ral.json?v='+Date.now(),'./ral.json?v='+Date.now()]);if(rr&&rr.data) ralList=rr.data;let jr=await tryFetch(['./jotun_kayitlar.json?v='+Date.now()]);if(jr&&jr.data){kayitlar=jr.data;}let cloudData=await bulutGet();let localData=JSON.parse(localStorage.getItem('jotun_kayitlar_extra')||'[]');let merged=cloudData.length>0?cloudData:localData.map((o,i)=>({...o,_id:'local_'+i}));let map=new Map();merged.forEach(x=>{let k=x.ral_no+'_'+x.product; if(!map.has(k)) map.set(k,x)});merged=Array.from(map.values());if(merged.length>0){kayitlar=kayitlar.concat(merged.map(o=>{let { _id, ...rest}=o; return rest}));}document.getElementById('canliSay').innerText=urunler.length;document.getElementById('ralSay').innerText=ralList.length||'-';document.getElementById('kayitSay').innerText=kayitlar.length;
 document.getElementById('setFirma').value=ayar.firmaAdi||'';document.getElementById('setFL').value=ayar.firmaLogo||'';document.getElementById('setKase').value=ayar.kaseLogo||'';document.getElementById('setAdres').value=ayar.firmaAdres||'';document.getElementById('setMail').value=ayar.firmaMail||'';document.getElementById('setWeb').value=ayar.firmaWeb||'';document.getElementById('setTel').value=ayar.telefon||'';document.getElementById('setBanka').value=ayar.firmaBanka||'';document.getElementById('setVeren').value=ayar.teklifVeren||'';
 if(ayar.firmaLogo){let el=document.getElementById('fLogo'); el.src=ayar.firmaLogo; el.style.display='block'; document.getElementById('fLogoPreview').src=ayar.firmaLogo;document.getElementById('fLogoPreview').style.display='block';document.getElementById('fLogoWrap').style.display='flex';}else{document.getElementById('fLogo').style.display='none';document.getElementById('fLogoWrap').style.display='none';}
 document.getElementById('setKar').value=ayar.kar;document.getElementById('setKdv').value=ayar.kdv;document.getElementById('setDolar').value=ayar.dolar;document.getElementById('setDolarVisible').value=ayar.dolar;document.getElementById('setEuro').value=ayar.euro||'54,20';document.getElementById('setEuroVisible').value=ayar.euro||'54,20';updateKurDisplay();applyTheme();document.getElementById('tarih').valueAsDate=new Date();renderAmb();renderTeklif();renderSikKullanilan(merged);}
@@ -518,15 +529,27 @@ function yazdir(){
     doc.save(fileName);
     setTimeout(()=>{ let detay=sepet.map(t=> '• '+t.urun.substring(0,28)+' RAL '+t.ral+' '+t.adet+' Adet = '+fmtN(t.kovaKdv*t.adet)).join('\\n'); let mesaj='Merhaba '+must+',\\n\\n'+firma+' Teklif PDF indirildi.\\n'+detay+'\\n\\nTOPLAM: '+fmtN(dahil); window.open('https://api.whatsapp.com/send?phone='+clean+'&text='+encodeURIComponent(mesaj),'_blank'); },600);
   });
-  <\/script></div></body></html>`;
-  let w=window.open('','_blank');
-  w.document.write(h);
-  w.document.close();
-}
-loadAll();
-document.addEventListener('click',e=>{if(!e.target.closest('.rb') && !e.target.closest('#ralDrop')){let el=document.getElementById('ralDrop');if(el)el.style.display='none'}if(!e.target.closest('.sb') && !e.target.closest('#urunDrop') && !e.target.closest('#urunInput')){let u=document.getElementById('urunDrop');if(u)u.style.display='none'}});
-window.addEventListener('scroll',()=>{document.getElementById('ralDrop').style.display='none';document.getElementById('urunDrop').style.display='none';},{passive:true});
-if(window.matchMedia){window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change',()=>{if((ayar.tema||'light')==='auto') applyTheme()});}
+  <\/script></div>
+<script>
+function openIslemModal(){ if(sepet.length===0){alert('Sepet boş');return;} document.getElementById('islemModal').classList.add('show'); }
+function closeIslemModal(){ document.getElementById('islemModal').classList.remove('show'); }
+function yazdirModal(){ closeIslemModal(); setTimeout(()=>yazdir(),200); }
+function smsGonderModal(){ closeIslemModal(); setTimeout(()=>{ 
+  let must=document.getElementById('musteriAd').value||'Musteri';
+  let tel=getEffectiveTel(); if(!tel){alert('Tel gir');return;}
+  let detay=sepet.map(t=>`• ${t.urun.substring(0,22)} RAL ${t.ral} ${fmt(t.kovaKdv*t.adet)}`).join('\n');
+  let mesaj=`Merhaba ${must},\n\nTeklif:\n${detay}\n\nTOPLAM: ${fmt(sepet.reduce((s,t)=>s+t.kovaKdv*t.adet,0))}`;
+  window.location.href=`sms:${tel}?&body=${encodeURIComponent(mesaj)}`;
+},200); }
+function pdfKaydetModal(){ closeIslemModal(); setTimeout(()=>{ 
+  if(sepet.length===0){alert('Sepet boş');return}
+  let data=getPdfData(); const { jsPDF }=window.jspdf; let doc=new jsPDF({orientation:'portrait',unit:'mm',format:'a4'}); doc=buildProfessionalPdfDoc(doc,data); doc.save(`Teklif-${data.must}.pdf`);
+},200); }
+function emailGonderModal(){ closeIslemModal(); setTimeout(()=>{ 
+  let data=getPdfData(); let detay=sepet.map(t=>`• ${t.urun} RAL ${t.ral} ${fmt(t.kovaKdv*t.adet)}`).join('\n');
+  let subject=`Teklif - ${data.must} - ${fmt(data.toplamDahil)}`; let body=`Merhaba ${data.must},\n\n${detay}\n\nTOPLAM: ${fmt(data.toplamDahil)}`;
+  window.location.href=`mailto:?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+},200); }
 </script>
-<style>@keyframes spin{0%{transform:rotate(0)}100%{transform:rotate(360deg)}}</style>
+
 </body></html>
