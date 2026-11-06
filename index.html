@@ -295,7 +295,7 @@ body{font-family:Inter,Arial;background:var(--bg);color:var(--text);overflow-x:h
 <div class='teklifInputs'><input id='musteriAd' placeholder='Müşteri Adı' autocomplete='off'><input id='musteriAdres' placeholder='Müşteri Adres' autocomplete='off'><div style='display:contents'><input id='musteriTel' placeholder='Müşteri Tel - 05xx' inputmode='tel' autocomplete='off'><input id='tarih' type='date'></div></div>
 <div id='contactInfo' style='font-size:9px;color:#0a7a2f;font-weight:800;margin-top:5px;display:none;word-break:break-word;background:rgba(0,200,83,.1);padding:4px 5px;border-radius:4px;border:1px solid #0a7a2f'></div>
 <div id='teklifList' class='teklifList'></div><div id='teklifToplam' class='teklifToplam' style='display:none'></div>
-<div class='teklifBtns'><button onclick='yazdir()' style='background:#011B44;color:#fff;border:1px solid #011B44'>🖨<br>YAZDIR</button><button onclick='waTextGonder()' style='background:#fff;color:#011B44;border:1.5px solid #011B44'>💬<br>YAZI</button><button onclick='waPdfGonder()' style='background:#011B44;color:#fff;border:1px solid #011B44'>📄<br>PDF</button><button onclick='emailGonder()' style='background:#fff;color:#011B44;border:1.5px solid #011B44'>📧<br>MAIL</button></div>
+<div class='teklifBtns'><button onclick='yazdir()' style='background:#011B44;color:#fff;border:1px solid #011B44'>🖨<br>YAZDIR</button><button onclick='smsGonder()' style='background:#25D366;color:#fff;border:1px solid #25D366'>📱<br>SMS</button><button onclick='waPdfGonder()' style='background:#011B44;color:#fff;border:1px solid #011B44'>📄<br>PDF</button><button onclick='emailGonder()' style='background:#fff;color:#011B44;border:1.5px solid #011B44'>📧<br>MAIL</button></div>
 </div>
 <div class='c' style='padding:6px'><div style='display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:3px'><b style='font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:var(--jotun-blue)'>⭐ KAYITLI RENKLER — <span id='sikSay'>0</span></b><div style='display:flex;gap:3px'><button onclick='bulutYenile()' style='background:#fff;color:#011B44;border:1px solid #011B44;border-radius:4px;padding:3px 8px;font-size:7px;font-weight:800'>🔄 YENİLE</button><button onclick='forceClearSik()' style='background:#fff;color:#666;border:1px solid #ccc;border-radius:4px;padding:3px 8px;font-size:7px;font-weight:800'>🗑 SİL</button></div></div><div id='sikBox' class='sikGrid'></div></div>
 </div>
@@ -678,7 +678,58 @@ function yazdir(){
     doc.save(fileName);
     setTimeout(()=>{ let detay=sepet.map(t=> '• '+t.urun.substring(0,28)+' RAL '+t.ral+' '+t.adet+' Adet = '+fmtN(t.kovaKdv*t.adet)).join('\\n'); let mesaj='Merhaba '+must+',\\n\\n'+firma+' Teklif PDF indirildi.\\n'+detay+'\\n\\nTOPLAM: '+fmtN(dahil); window.open('https://api.whatsapp.com/send?phone='+clean+'&text='+encodeURIComponent(mesaj),'_blank'); },600);
   });
-  <\/script></div></body></html>`;
+  <\/script></div>
+
+
+
+<script>
+// FINAL - SMS + MAIL aktif
+function smsGonder(){
+  let must=document.getElementById('musteriAd').value||'Musteri';
+  let tel=getEffectiveTel();
+  if(!tel || tel.length<7){ alert('Önce müşteri tel gir (05xx).'); document.getElementById('musteriTel').focus(); return; }
+  let detay=sepet.map(t=>`• ${t.urun.substring(0,24)} RAL ${t.ral} ${t.adet}Ad ${fmt(t.kovaKdv*t.adet)}`).join('\n');
+  let toplam=document.getElementById('teklifToplam').innerText||'';
+  let mesaj=`Merhaba ${must},\n\n${ayar.firmaAdi||'BAYDEMIR'} Teklif:\n${detay}\n\n${toplam}`;
+  window.location.href = `sms:${tel}?&body=${encodeURIComponent(mesaj)}`;
+}
+
+function emailGonder(){
+  if(sepet.length===0){alert('Sepet boş');return}
+  let data=getPdfData();
+  // PDF indir
+  const { jsPDF } = window.jspdf;
+  let doc=new jsPDF({orientation:'portrait',unit:'mm',format:'a4'});
+  doc=buildProfessionalPdfDoc(doc,data);
+  let fileName=`Teklif-${sanitizeTR(data.must)}-${data.tarih}.pdf`;
+  doc.save(fileName);
+  
+  // Mail metni - yazdır ile aynı bilgiler
+  let konu=`Fiyat Teklifi - ${data.must} - ${fmtN(data.toplamDahil)}`;
+  let detay=sepet.map(t=>`• ${t.urun} RAL ${t.ral} - ${t.adet} Adet = ${fmtN(t.kovaKdv*t.adet)}`).join('\n');
+  let body=`Merhaba ${data.must},\n\n${data.firma} fiyat teklifimiz asagidadir:\n\n${detay}\n\nTOPLAM: ${fmtN(data.toplamDahil)}\n\nPDF dosyasi indirildi, lutfen ekleyiniz.\n\nSaygilarimizla,\n${data.firma}\n${data.fAdres}\nTel: ${data.fTel}\n${data.fMail}`;
+  
+  setTimeout(()=>{
+    // Önce Gmail var mı dene, yoksa mailto (Outlook'u açar)
+    let isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+    if(isMobile){
+      // Telefonda Gmail uygulaması veya mail uygulaması açılır
+      window.location.href=`mailto:?subject=${encodeURIComponent(konu)}&body=${encodeURIComponent(body)}`;
+    } else {
+      // Bilgisayarda klasik Outlook direkt açılır
+      window.location.href=`mailto:?subject=${encodeURIComponent(konu)}&body=${encodeURIComponent(body)}`;
+    }
+    setTimeout(()=>{ alert('PDF: '+fileName+' indirildi.\nMail penceresi acildi, PDF\'i surukleyip ekle ve gonder.\n\nHesabin: satinalma / nbs / a.dogan secilebilir.'); },800);
+  },700);
+}
+
+function waTextGonder(){
+  // Eski YAZI butonu artık SMS, ama geriye dönük uyum için WhatsApp açsın
+  smsGonder();
+}
+</script>
+
+</body></html>`;
   let w=window.open('','_blank');
   w.document.write(h);
   w.document.close();
@@ -689,4 +740,55 @@ window.addEventListener('scroll',()=>{document.getElementById('ralDrop').style.d
 if(window.matchMedia){window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change',()=>{if((ayar.tema||'light')==='auto') applyTheme()});}
 </script>
 <style>@keyframes spin{0%{transform:rotate(0)}100%{transform:rotate(360deg)}}</style>
+
+
+
+
+<script>
+// FINAL - SMS + MAIL aktif
+function smsGonder(){
+  let must=document.getElementById('musteriAd').value||'Musteri';
+  let tel=getEffectiveTel();
+  if(!tel || tel.length<7){ alert('Önce müşteri tel gir (05xx).'); document.getElementById('musteriTel').focus(); return; }
+  let detay=sepet.map(t=>`• ${t.urun.substring(0,24)} RAL ${t.ral} ${t.adet}Ad ${fmt(t.kovaKdv*t.adet)}`).join('\n');
+  let toplam=document.getElementById('teklifToplam').innerText||'';
+  let mesaj=`Merhaba ${must},\n\n${ayar.firmaAdi||'BAYDEMIR'} Teklif:\n${detay}\n\n${toplam}`;
+  window.location.href = `sms:${tel}?&body=${encodeURIComponent(mesaj)}`;
+}
+
+function emailGonder(){
+  if(sepet.length===0){alert('Sepet boş');return}
+  let data=getPdfData();
+  // PDF indir
+  const { jsPDF } = window.jspdf;
+  let doc=new jsPDF({orientation:'portrait',unit:'mm',format:'a4'});
+  doc=buildProfessionalPdfDoc(doc,data);
+  let fileName=`Teklif-${sanitizeTR(data.must)}-${data.tarih}.pdf`;
+  doc.save(fileName);
+  
+  // Mail metni - yazdır ile aynı bilgiler
+  let konu=`Fiyat Teklifi - ${data.must} - ${fmtN(data.toplamDahil)}`;
+  let detay=sepet.map(t=>`• ${t.urun} RAL ${t.ral} - ${t.adet} Adet = ${fmtN(t.kovaKdv*t.adet)}`).join('\n');
+  let body=`Merhaba ${data.must},\n\n${data.firma} fiyat teklifimiz asagidadir:\n\n${detay}\n\nTOPLAM: ${fmtN(data.toplamDahil)}\n\nPDF dosyasi indirildi, lutfen ekleyiniz.\n\nSaygilarimizla,\n${data.firma}\n${data.fAdres}\nTel: ${data.fTel}\n${data.fMail}`;
+  
+  setTimeout(()=>{
+    // Önce Gmail var mı dene, yoksa mailto (Outlook'u açar)
+    let isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+    if(isMobile){
+      // Telefonda Gmail uygulaması veya mail uygulaması açılır
+      window.location.href=`mailto:?subject=${encodeURIComponent(konu)}&body=${encodeURIComponent(body)}`;
+    } else {
+      // Bilgisayarda klasik Outlook direkt açılır
+      window.location.href=`mailto:?subject=${encodeURIComponent(konu)}&body=${encodeURIComponent(body)}`;
+    }
+    setTimeout(()=>{ alert('PDF: '+fileName+' indirildi.\nMail penceresi acildi, PDF\'i surukleyip ekle ve gonder.\n\nHesabin: satinalma / nbs / a.dogan secilebilir.'); },800);
+  },700);
+}
+
+function waTextGonder(){
+  // Eski YAZI butonu artık SMS, ama geriye dönük uyum için WhatsApp açsın
+  smsGonder();
+}
+</script>
+
 </body></html>
