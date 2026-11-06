@@ -160,7 +160,19 @@ body{font-family:Inter,Arial;background:var(--bg);color:var(--text);overflow-x:h
 .ri.active div:last-child{background:#E0F2FE !important}
 .ri.active b{color:#011B44 !important}
 
-</style></head><body>
+</style>
+<script>
+function enableRal(clear=false){
+  let i=document.getElementById('ralInput');
+  i.removeAttribute('readonly');
+  i.readOnly = false;
+  i.disabled = false;
+  if(clear){ i.value=''; i.placeholder='RAL ara...'; }
+  i.focus();
+  filterRal();
+  openRal();
+}
+</script></head><body>
 <div class='sideDeco left'><img src='https://github.com/ahmetdogan68/jotun/blob/main/kenar.jpg?raw=true' alt=''><div class='sideOverlay'></div></div>
 <div class='sideDeco right'><img src='https://github.com/ahmetdogan68/jotun/blob/main/kenar1.jpg?raw=true' alt=''><div class='sideOverlay'></div></div>
 <div class='w'>
@@ -186,7 +198,7 @@ body{font-family:Inter,Arial;background:var(--bg);color:var(--text);overflow-x:h
   <div style='margin-top:8px;display:grid;grid-template-columns:1fr 1fr;gap:3px'><button onclick='forceClearSik()' style='background:#E53935;color:#fff;border:none;border-radius:4px;padding:6px;font-weight:800;font-size:9px'>🗑 SIK TEMİZLE</button><button onclick='bulutYenile()' style='background:#0a7a2f;color:#fff;border:none;border-radius:4px;padding:6px;font-weight:800;font-size:9px'>🔄 YENİLE</button></div>
   <button onclick='saveSet();closeDrawer()' style='width:100%;padding:8px;background:var(--jotun-blue);color:#fff;border:none;border-radius:6px;font-weight:800;margin-top:8px;font-size:11px'>KAYDET KAPAT</button>
 </div>
-<div class='c'><div class='c-head'>1 — RAL KARTELASI — <span id='ralSay'>-</span></div><div class='rb'><div class='sw' id='swatch'>BOS</div><div class='bil'><div class='bilU'><div class='bilU-ral'><input id='ralInput' placeholder='RAL 7016' readonly onclick='enableRal()' oninput='filterRal()' style='border:none;width:100%;text-align:center;font-weight:900;font-size:15px;background:transparent;color:var(--text);font-family:Inter'></div><div class='bilU-pig'><input id='pigment' placeholder='0,00' style='border:none;background:transparent;width:100%;text-align:center;font-weight:900;font-size:15px;color:var(--text);font-family:Inter' oninput='calc()'><span style='font-size:9px;font-weight:900;padding-right:5px;color:var(--text)'>TL</span></div></div><div class='bilA'><input id='ralForm' placeholder='FORMÜL / NOT' style='border:none;width:100%;padding-left:8px;font-size:11px;font-weight:600;background:transparent;color:var(--text2);font-family:Inter'></div></div><button class='btnS' onclick='enableRal()'>🔍</button></div></div>
+<div class='c'><div class='c-head'>1 — RAL KARTELASI — <span id='ralSay'>-</span></div><div class='rb'><div class='sw' id='swatch'>BOS</div><div class='bil'><div class='bilU'><div class='bilU-ral'><input id='ralInput' placeholder='RAL 7016' onclick='enableRal()' oninput='filterRal()' style='border:none;width:100%;text-align:center;font-weight:900;font-size:15px;background:transparent;color:var(--text);font-family:Inter'></div><div class='bilU-pig'><input id='pigment' placeholder='0,00' style='border:none;background:transparent;width:100%;text-align:center;font-weight:900;font-size:15px;color:var(--text);font-family:Inter' oninput='calc()'><span style='font-size:9px;font-weight:900;padding-right:5px;color:var(--text)'>TL</span></div></div><div class='bilA'><input id='ralForm' placeholder='FORMÜL / NOT' style='border:none;width:100%;padding-left:8px;font-size:11px;font-weight:600;background:transparent;color:var(--text2);font-family:Inter'></div></div><button class='btnS' onclick='enableRal(true)'>🔍</button></div></div>
 <div class='c'><div class='c-head'>2 — ÜRÜN SEÇİMİ — <span id='canliSay'>0</span> ÜRÜN • <span id='kayitSay'>0</span> KAYIT <small id='cloudInfo' style='background:var(--jotun-yellow);color:var(--jotun-blue);padding:1px 4px;border-radius:8px;font-size:7px'></small></div><div class='sb' style='margin-top:5px'><input id='urunInput' class='jotunSearch' placeholder='Ürün ara - Örn: CONSEAL' readonly onclick='enableUrun()' oninput='filterUrun()'><button class='btnS' onclick='enableUrun()'>🔍</button></div><div id='urunDetay' style='font-size:9px;margin-top:5px;display:none;font-weight:700;background:rgba(1,32,96,.06);padding:3px 6px;border-radius:4px;word-break:break-word;color:var(--text)'></div><div id='compBox' class='compBox'></div></div>
 <div class='c' style='margin-top:8px'><div class='c-head'>3 — AMBALAJ <small id='ambInfo'></small></div><div style='display:flex;gap:8px;align-items:center;margin-top:4px'><div style='flex-shrink:0;width:54px;height:54px;background:#fff;border:1.5px solid var(--card-border);border-radius:8px;display:flex;align-items:center;justify-content:center;padding:4px;box-shadow:0 1px 4px rgba(0,0,0,.08)'><img src='https://jcm.jotun.com/assets/product-default-CRbs1WvP.png' alt='Jotun Kova' style='width:100%;height:100%;object-fit:contain'></div><div class='ambRow' id='ambList' style='flex:1;margin-top:0'></div></div></div>
 <div class='res'>
@@ -475,7 +487,7 @@ function selectRal(k){
   let r=ralList.find(x=>x.kod===k);if(!r)return;
   tempRal=r.kod;secHex=r.hex;secName=r.isim;
   let sw=document.getElementById('swatch');sw.style.background=r.hex;sw.innerText='RAL '+r.kod;sw.style.color=getContrast(r.hex);sw.classList.add('hasColor');sw.style.borderColor=r.hex;sw.style.boxShadow=`0 0 0 3px ${r.hex}44, 0 4px 12px ${r.hex}55`;
-  let inp=document.getElementById('ralInput');inp.value=r.kod;inp.setAttribute('readonly','true');inp.blur();
+  let inp=document.getElementById('ralInput');inp.value=r.kod;/* inp readonly kaldırıldı - hep yazılabilir */
   document.getElementById('ralDrop').style.display='none';
   ralActiveIndex = -1;
   filterUrun();openRal();calc();
@@ -702,7 +714,20 @@ function yazdir(){
     doc.save(fileName);
     setTimeout(()=>{ let detay=sepet.map(t=> '• '+t.urun.substring(0,28)+' RAL '+t.ral+' '+t.adet+' Adet = '+fmtN(t.kovaKdv*t.adet)).join('\\n'); let mesaj='Merhaba '+must+',\\n\\n'+firma+' Teklif PDF indirildi.\\n'+detay+'\\n\\nTOPLAM: '+fmtN(dahil); window.open('https://api.whatsapp.com/send?phone='+clean+'&text='+encodeURIComponent(mesaj),'_blank'); },600);
   });
-  <\/script></div></body></html>`;
+  <\/script></div>
+<script>
+document.addEventListener('DOMContentLoaded', function(){
+  let ri = document.getElementById('ralInput');
+  if(ri){
+    ri.removeAttribute('readonly');
+    ri.readOnly = false;
+    ri.addEventListener('click', function(){ enableRal(false); });
+    ri.addEventListener('focus', function(){ if(ralList.length>0) filterRal(); });
+  }
+});
+</script>
+
+</body></html>`;
   let w=window.open('','_blank');
   w.document.write(h);
   w.document.close();
@@ -764,7 +789,7 @@ function smsGonder(){
 }
 
 function waPdfGonder(){
-  if(sepet.length===0){alert('Sepet boş');return} 
+  if(sepet.length===0){alert('Sepet boş');return}
   let data=getPdfData();
   const { jsPDF } = window.jspdf;
   let doc=new jsPDF({orientation:'portrait',unit:'mm',format:'a4'});
@@ -788,4 +813,17 @@ window.addEventListener('scroll',()=>{document.getElementById('ralDrop').style.d
 if(window.matchMedia){window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change',()=>{if((ayar.tema||'light')==='auto') applyTheme()});}
 </script>
 <style>@keyframes spin{0%{transform:rotate(0)}100%{transform:rotate(360deg)}}</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function(){
+  let ri = document.getElementById('ralInput');
+  if(ri){
+    ri.removeAttribute('readonly');
+    ri.readOnly = false;
+    ri.addEventListener('click', function(){ enableRal(false); });
+    ri.addEventListener('focus', function(){ if(ralList.length>0) filterRal(); });
+  }
+});
+</script>
+
 </body></html>
