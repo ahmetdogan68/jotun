@@ -105,14 +105,22 @@ body{font-family:Inter,Arial;background:var(--bg);color:var(--text);overflow-x:h
 .resKurItem{width:100%}
 }
 
-/* TEK TUS - TEMIZ */
-.teklifBtns{grid-template-columns:1fr !important}
-#islemModal{position:fixed;inset:0;background:rgba(1,27,68,.7);z-index:999999;display:none;align-items:center;justify-content:center;padding:16px}
-#islemModal.show{display:flex}
-.islemBox{background:#fff;border-radius:16px;width:100%;max-width:360px;overflow:hidden;border:2px solid #011B44}
-.islemHead{background:#011B44;color:#fff;padding:14px 16px;display:flex;justify-content:space-between;align-items:center}
-.islemGrid{display:grid;gap:10px;padding:16px}
-.islemGrid button{height:50px;border-radius:10px;border:1px solid #ddd;font-weight:700;font-size:13px;display:flex;align-items:center;gap:10px;padding:0 14px;cursor:pointer}
+/* FINAL CLEAN - RAL altta, yatay bar, yarım, koyu orta, büyük yazı, ayarlar */
+.rb{position:relative !important;display:grid !important;grid-template-columns:1fr 1fr 44px !important;gap:6px !important}
+.sw,.bil{width:100% !important;height:56px !important}
+#ralDrop{position:absolute !important;top:100% !important;left:0 !important;width:100% !important;min-width:100% !important;max-width:100% !important;margin-top:6px !important;max-height:320px !important;border-radius:12px !important;z-index:9999 !important;background:#fff !important;border:2px solid #011B44 !important;box-shadow:0 12px 28px rgba(0,0,0,.18) !important}
+.ri{padding:0 !important;min-height:44px !important;height:44px !important;display:flex !important;gap:0 !important;border-bottom:1px solid #EEF2F7 !important}
+.ri .rs{width:72px !important;height:44px !important;border-radius:0 !important;border:none !important;border-right:1.5px solid #ddd !important;flex-shrink:0 !important}
+.ri div:last-child{flex:1 !important;padding:0 12px !important;display:flex !important;align-items:center !important;gap:8px !important;background:#fff !important}
+.ri b{font-size:15px !important;min-width:48px !important}
+.ri span{font-size:14px !important}
+.ri.active{background:#E0F2FE !important;outline:2px solid #011B44 !important;outline-offset:-2px !important}
+@media(max-width:700px){.rb{grid-template-columns:1fr 1fr 40px !important}.sw,.bil{height:46px !important}}
+@media(min-width:701px){.resVal{font-size:20px !important}.resValBig{font-size:26px !important}.resLabel{font-size:11px !important}}
+.h{background:#0B1E3A !important}.btnS{background:#fff !important;color:#011B44 !important;border:1.5px solid #CBD5E1 !important}
+.res{background:linear-gradient(135deg,#010B24 0%,#011B44 100%) !important}
+.teklifBtns{grid-template-columns:1fr 1fr 1fr !important}
+.drawerHandle{position:fixed !important;top:60px !important;right:0 !important;width:38px !important;height:48px !important;background:#011B44 !important;border-radius:10px 0 0 10px !important;display:flex !important;align-items:center !important;justify-content:center !important;z-index:99997 !important;cursor:pointer !important;box-shadow:-3px 3px 12px rgba(0,0,0,.25) !important;border:2px solid #fff !important;border-right:none !important}
 
 </style></head><body>
 <div class='sideDeco left'><img src='https://github.com/ahmetdogan68/jotun/blob/main/kenar.jpg?raw=true' alt=''><div class='sideOverlay'></div></div>
@@ -140,7 +148,7 @@ body{font-family:Inter,Arial;background:var(--bg);color:var(--text);overflow-x:h
   <div style='margin-top:8px;display:grid;grid-template-columns:1fr 1fr;gap:3px'><button onclick='forceClearSik()' style='background:#E53935;color:#fff;border:none;border-radius:4px;padding:6px;font-weight:800;font-size:9px'>🗑 SIK TEMİZLE</button><button onclick='bulutYenile()' style='background:#0a7a2f;color:#fff;border:none;border-radius:4px;padding:6px;font-weight:800;font-size:9px'>🔄 YENİLE</button></div>
   <button onclick='saveSet();closeDrawer()' style='width:100%;padding:8px;background:var(--jotun-blue);color:#fff;border:none;border-radius:6px;font-weight:800;margin-top:8px;font-size:11px'>KAYDET KAPAT</button>
 </div>
-<div class='c'><div class='c-head'>1 — RAL KARTELASI — <span id='ralSay'>-</span></div><div class='rb'><div class='sw' id='swatch'>BOS</div><div class='bil'><div class='bilU'><div class='bilU-ral'><input id='ralInput' placeholder='RAL 7016' readonly onclick='enableRal()' oninput='filterRal()' style='border:none;width:100%;text-align:center;font-weight:900;font-size:15px;background:transparent;color:var(--text);font-family:Inter'></div><div class='bilU-pig'><input id='pigment' placeholder='0,00' style='border:none;background:transparent;width:100%;text-align:center;font-weight:900;font-size:15px;color:var(--text);font-family:Inter' oninput='calc()'><span style='font-size:9px;font-weight:900;padding-right:5px;color:var(--text)'>TL</span></div></div><div class='bilA'><input id='ralForm' placeholder='FORMÜL / NOT' style='border:none;width:100%;padding-left:8px;font-size:11px;font-weight:600;background:transparent;color:var(--text2);font-family:Inter'></div></div><button class='btnS' onclick='enableRal()'>🔍</button></div></div>
+<div class='c'><div class='c-head'>1 — RAL KARTELASI — <span id='ralSay'>-</span></div><div class='rb'><div class='sw' id='swatch'>BOS</div><div class='bil'><div class='bilU'><div class='bilU-ral'><input id='ralInput' placeholder='RAL 7016' onclick='enableRal()' oninput='filterRal()' style='border:none;width:100%;text-align:center;font-weight:900;font-size:15px;background:transparent;color:var(--text);font-family:Inter'></div><div class='bilU-pig'><input id='pigment' placeholder='0,00' style='border:none;background:transparent;width:100%;text-align:center;font-weight:900;font-size:15px;color:var(--text);font-family:Inter' oninput='calc()'><span style='font-size:9px;font-weight:900;padding-right:5px;color:var(--text)'>TL</span></div></div><div class='bilA'><input id='ralForm' placeholder='FORMÜL / NOT' style='border:none;width:100%;padding-left:8px;font-size:11px;font-weight:600;background:transparent;color:var(--text2);font-family:Inter'></div></div><button class='btnS' onclick='enableRal()'>🔍</button></div></div>
 <div class='c'><div class='c-head'>2 — ÜRÜN SEÇİMİ — <span id='canliSay'>0</span> ÜRÜN • <span id='kayitSay'>0</span> KAYIT <small id='cloudInfo' style='background:var(--jotun-yellow);color:var(--jotun-blue);padding:1px 4px;border-radius:8px;font-size:7px'></small></div><div class='sb' style='margin-top:5px'><input id='urunInput' class='jotunSearch' placeholder='Ürün ara - Örn: CONSEAL' readonly onclick='enableUrun()' oninput='filterUrun()'><button class='btnS' onclick='enableUrun()'>🔍</button></div><div id='urunDetay' style='font-size:9px;margin-top:5px;display:none;font-weight:700;background:rgba(1,32,96,.06);padding:3px 6px;border-radius:4px;word-break:break-word;color:var(--text)'></div><div id='compBox' class='compBox'></div></div>
 <div class='c' style='margin-top:8px'><div class='c-head'>3 — AMBALAJ <small id='ambInfo'></small></div><div style='display:flex;gap:8px;align-items:center;margin-top:4px'><div style='flex-shrink:0;width:54px;height:54px;background:#fff;border:1.5px solid var(--card-border);border-radius:8px;display:flex;align-items:center;justify-content:center;padding:4px;box-shadow:0 1px 4px rgba(0,0,0,.08)'><img src='https://jcm.jotun.com/assets/product-default-CRbs1WvP.png' alt='Jotun Kova' style='width:100%;height:100%;object-fit:contain'></div><div class='ambRow' id='ambList' style='flex:1;margin-top:0'></div></div></div>
 <div class='res'>
@@ -179,8 +187,7 @@ body{font-family:Inter,Arial;background:var(--bg);color:var(--text);overflow-x:h
 <div class='teklifInputs'><input id='musteriAd' placeholder='Müşteri Adı' autocomplete='off'><input id='musteriAdres' placeholder='Müşteri Adres' autocomplete='off'><div style='display:contents'><input id='musteriTel' placeholder='Müşteri Tel - 05xx' inputmode='tel' autocomplete='off'><input id='tarih' type='date'></div></div>
 <div id='contactInfo' style='font-size:9px;color:#0a7a2f;font-weight:800;margin-top:5px;display:none;word-break:break-word;background:rgba(0,200,83,.1);padding:4px 5px;border-radius:4px;border:1px solid #0a7a2f'></div>
 <div id='teklifList' class='teklifList'></div><div id='teklifToplam' class='teklifToplam' style='display:none'></div>
-<div class='teklifBtns'><button onclick='openIslemModal()' style='background:#011B44;color:#fff'>🖨 YAZDIR</button></div>
-<div id='islemModal' onclick='if(event.target===this)closeIslemModal()'><div class='islemBox'><div class='islemHead'><b>TEKLİF İŞLEMLERİ</b><button onclick='closeIslemModal()' style='background:rgba(255,255,255,.2);border:none;color:#fff;width:30px;height:30px;border-radius:6px'>✕</button></div><div class='islemGrid'><button onclick='yazdirModal()' style='background:#011B44;color:#fff'>🖨 YAZDIR</button><button onclick='smsGonderModal()' style='background:#25D366;color:#fff'>💬 SMS GÖNDER</button><button onclick='pdfKaydetModal()' style='background:#011B44;color:#fff'>📄 PDF KAYIT ET</button><button onclick='emailGonderModal()' style='background:#fff;color:#011B44;border:1.5px solid #011B44'>✉️ E-MAİL GÖNDER</button><button onclick='closeIslemModal()' style='background:#F1F5F9;color:#333'>✕ KAPAT</button></div></div></div>
+<div class='teklifBtns'><button onclick='yazdir()' style='background:#011B44;color:#fff'>🖨<br>YAZDIR</button><button onclick='smsGonder()' style='background:#25D366;color:#fff'>📱<br>SMS</button><button onclick='waPdfGonder()' style='background:#011B44;color:#fff'>📄<br>PDF</button></div>
 </div>
 <div class='c' style='padding:6px'><div style='display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:3px'><b style='font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:var(--jotun-blue)'>⭐ SIK KULLANILANLAR — <span id='sikSay'>0</span></b><div style='display:flex;gap:3px'><button onclick='bulutYenile()' style='background:#00C853;color:#fff;border:none;border-radius:3px;padding:2px 6px;font-size:7px;font-weight:800'>🔄 YENİLE</button><button onclick='forceClearSik()' style='background:#E53935;color:#fff;border:none;border-radius:3px;padding:2px 6px;font-size:7px;font-weight:800'>🗑 SİL</button></div></div><div id='sikBox' class='sikGrid'></div></div>
 </div>
@@ -531,25 +538,142 @@ function yazdir(){
   });
   <\/script></div>
 <script>
-function openIslemModal(){ if(sepet.length===0){alert('Sepet boş');return;} document.getElementById('islemModal').classList.add('show'); }
-function closeIslemModal(){ document.getElementById('islemModal').classList.remove('show'); }
-function yazdirModal(){ closeIslemModal(); setTimeout(()=>yazdir(),200); }
-function smsGonderModal(){ closeIslemModal(); setTimeout(()=>{ 
+// OVERRIDE - TEMIZ, RAL klavye + bos + sms
+let ralActiveIndex = -1;
+let ralFiltered = [];
+
+function enableRal(clear=false){
+  let i=document.getElementById('ralInput');
+  if(!i) return;
+  i.removeAttribute('readonly');
+  try{ i.readOnly=false; }catch(e){}
+  if(clear){ i.value=''; i.placeholder='RAL ara...'; }
+  i.focus();
+  filterRal();
+}
+
+function openRal(){
+  let d=document.getElementById('ralDrop');
+  if(d) d.style.display='block';
+}
+
+function filterRal(){
+  let q=document.getElementById('ralInput').value.toUpperCase().trim();
+  let list=ralList.filter(r=>!q||r.kod.includes(q)||r.isim.toUpperCase().includes(q)).slice(0,80);
+  ralFiltered=list;
+  ralActiveIndex=-1;
+  let d=document.getElementById('ralDrop');
+  if(!d) return;
+  if(list.length===0){ d.innerHTML='<div style="padding:12px;text-align:center;color:#999;font-size:12px">RAL bulunamadi</div>'; d.style.display='block'; return; }
+  d.innerHTML=list.map((r,i)=>`<div class='ri' data-idx='${i}' onclick='selectRal("${r.kod}")'><div class='rs' style='background:${r.hex}'></div><div><b>${r.kod}</b><span>${r.isim}</span></div></div>`).join('');
+  d.style.display='block';
+}
+
+function updateRalActive(){
+  document.querySelectorAll('#ralDrop .ri').forEach((el,idx)=>{
+    if(idx===ralActiveIndex) el.classList.add('active'); else el.classList.remove('active');
+  });
+  let a=document.querySelector('#ralDrop .ri.active');
+  if(a) a.scrollIntoView({block:'nearest'});
+}
+
+function selectRal(k){
+  let r=ralList.find(x=>x.kod===k);if(!r)return;
+  tempRal=r.kod;secHex=r.hex;secName=r.isim;
+  let sw=document.getElementById('swatch');if(sw){sw.style.background=r.hex;sw.innerText='RAL '+r.kod;sw.style.color=getContrast(r.hex);sw.classList.add('hasColor');}
+  let inp=document.getElementById('ralInput');if(inp){inp.value=r.kod;}
+  let d=document.getElementById('ralDrop');if(d) d.style.display='none';
+  ralActiveIndex=-1;
+  filterUrun();
+  calc();
+}
+
+function sanitizeTR(s){ if(!s) return ''; return String(s).replace(/İ/g,'I').replace(/ı/g,'i').replace(/Ğ/g,'G').replace(/ğ/g,'g').replace(/Ş/g,'S').replace(/ş/g,'s').replace(/Ö/g,'O').replace(/ö/g,'o').replace(/Ü/g,'U').replace(/ü/g,'u').replace(/Ç/g,'C').replace(/ç/g,'c'); }
+
+function getPdfData(){
   let must=document.getElementById('musteriAd').value||'Musteri';
-  let tel=getEffectiveTel(); if(!tel){alert('Tel gir');return;}
+  let mustTel=getEffectiveTel()||document.getElementById('musteriTel').value||'';
+  let mustAdres=document.getElementById('musteriAdres').value||'-';
+  let firma=ayar.firmaAdi||'BAYDEMIR';
+  let fAdres=ayar.firmaAdres||'';
+  let fMail=ayar.firmaMail||'';
+  let fWeb=ayar.firmaWeb||'';
+  let fTel=ayar.telefon||'';
+  let veren=ayar.teklifVeren||'';
+  let tarih=document.getElementById('tarih').value?new Date(document.getElementById('tarih').value).toLocaleDateString('tr-TR'):new Date().toLocaleDateString('tr-TR');
+  let kdv=parseFloat(document.getElementById('setKdv').value)||20;
+  let haric=0,dahil=0;
+  sepet.forEach(t=>{dahil+=t.kovaKdv*t.adet; haric+=t.kovaTl*t.adet;});
+  return {firma, fAdres, fMail, fWeb, fTel, must, mustTel, mustAdres, tarih, veren, kdv, sepet, toplamHaric:haric, toplamFark:dahil-haric, toplamDahil:dahil};
+}
+
+function buildProfessionalPdfDoc(doc, data){
+  let y=10;
+  doc.setFillColor(1,27,68); doc.rect(0,0,210,18,'F');
+  doc.setTextColor(255,255,255); doc.setFont('helvetica','bold'); doc.setFontSize(13);
+  doc.text(sanitizeTR((data.firma||'TEKLIF')).substring(0,38).toUpperCase(),10,11);
+  doc.setFontSize(7); doc.setFont('helvetica','normal'); doc.text(sanitizeTR((data.fAdres||'')).substring(0,80),10,15);
+  doc.setFont('helvetica','bold'); doc.setFontSize(10); doc.setTextColor(255,204,0); doc.text('JOTUN',195,11,{align:'right'});
+  doc.setTextColor(255,255,255); doc.setFontSize(6); doc.setFont('helvetica','normal'); doc.text('Tarih: '+data.tarih,195,15,{align:'right'});
+  y=22; doc.setTextColor(0,0,0); doc.setFillColor(240,244,250); doc.setDrawColor(1,27,68); doc.rect(10,y,190,10,'FD');
+  doc.setFontSize(8); doc.setFont('helvetica','bold'); doc.text(sanitizeTR('Musteri: '+data.must+'   Tel: '+data.mustTel),12,y+4);
+  doc.setFont('helvetica','normal'); doc.setFontSize(7); doc.text(sanitizeTR('Adres: '+(data.mustAdres||'-')).substring(0,95),12,y+8);
+  y+=14; doc.setFont('helvetica','bold'); doc.setFontSize(10); doc.text('FIYAT TEKLIF FORMU',105,y,{align:'center'}); y+=4;
+  doc.setFillColor(1,27,68); doc.setTextColor(255,255,255); doc.rect(10,y,190,7,'F'); doc.setFontSize(7);
+  doc.text('RENK',12,y+4.5); doc.text('URUN',28,y+4.5); doc.text('RAL',92,y+4.5); doc.text('MIKTAR',110,y+4.5); doc.text('BIRIM',135,y+4.5); doc.text('TOPLAM',175,y+4.5); y+=7;
+  doc.setTextColor(0,0,0); doc.setFont('helvetica','normal'); doc.setFontSize(7.5);
+  data.sepet.forEach(t=>{
+    if(y>265){doc.addPage(); y=12; doc.setFillColor(1,27,68); doc.setTextColor(255,255,255); doc.rect(10,y,190,7,'F'); doc.text('RENK',12,y+4.5); doc.text('URUN',28,y+4.5); doc.text('RAL',92,y+4.5); doc.text('MIKTAR',110,y+4.5); doc.text('BIRIM',135,y+4.5); doc.text('TOPLAM',175,y+4.5); y+=7; doc.setTextColor(0,0,0);}
+    try{let hex=(t.hex||'#888888').replace('#',''); if(hex.length==3) hex=hex.split('').map(c=>c+c).join(''); let r=parseInt(hex.substr(0,2),16), g=parseInt(hex.substr(2,2),16), b=parseInt(hex.substr(4,2),16); doc.setFillColor(r,g,b); doc.setDrawColor(0,0,0); doc.rect(12,y,6,5,'FD');}catch(e){}
+    doc.text(t.urun.substring(0,40),28,y+3.5); doc.text(String(t.ral||''),92,y+3.5); doc.text(t.adet+'x'+t.lt+'LT',110,y+3.5); doc.text(fmt(t.kovaKdv||0),135,y+3.5); doc.setFont('helvetica','bold'); doc.text(fmt(t.kovaKdv*t.adet),175,y+3.5); doc.setFont('helvetica','normal'); y+=7;
+  });
+  y+=2; let boxY=y; doc.setFillColor(255,255,255); doc.setDrawColor(1,27,68); doc.rect(120,boxY,80,20,'FD'); doc.setFontSize(8); doc.text('Ara Toplam:',122,boxY+5); doc.text(fmt(data.toplamHaric),198,boxY+5,{align:'right'}); doc.text('KDV (%'+data.kdv+'): ',122,boxY+10); doc.text(fmt(data.toplamFark),198,boxY+10,{align:'right'}); doc.setFillColor(1,27,68); doc.setTextColor(255,255,255); doc.rect(120,boxY+13,80,7,'F'); doc.setFont('helvetica','bold'); doc.text('GENEL TOPLAM:',122,boxY+17.5); doc.text(fmt(data.toplamDahil),198,boxY+17.5,{align:'right'}); doc.setTextColor(0,0,0); y=boxY+28; doc.setFont('helvetica','normal'); doc.setFontSize(8); doc.text(sanitizeTR('Veren: '+(data.veren||'')),15,y); doc.text(sanitizeTR('Onay: '+data.must),120,y); doc.line(10,y+2,90,y+2); doc.line(120,y+2,200,y+2); doc.setFontSize(6); doc.setTextColor(100,100,100); doc.text('Kase / Imza',40,y+6); doc.text('Kase / Imza',150,y+6); return doc;
+}
+
+function smsGonder(){
+  let must=document.getElementById('musteriAd').value||'Musteri';
+  let tel=getEffectiveTel();
+  if(!tel || tel.length<7){ alert('Önce müşteri tel gir (05xx).'); document.getElementById('musteriTel').focus(); return; }
   let detay=sepet.map(t=>`• ${t.urun.substring(0,22)} RAL ${t.ral} ${fmt(t.kovaKdv*t.adet)}`).join('\n');
-  let mesaj=`Merhaba ${must},\n\nTeklif:\n${detay}\n\nTOPLAM: ${fmt(sepet.reduce((s,t)=>s+t.kovaKdv*t.adet,0))}`;
-  window.location.href=`sms:${tel}?&body=${encodeURIComponent(mesaj)}`;
-},200); }
-function pdfKaydetModal(){ closeIslemModal(); setTimeout(()=>{ 
+  let toplam=document.getElementById('teklifToplam').innerText||'';
+  let mesaj=`Merhaba ${must},\n\n${ayar.firmaAdi||'BAYDEMIR'} Teklif:\n${detay}\n\n${toplam}`;
+  window.location.href = `sms:${tel}?&body=${encodeURIComponent(mesaj)}`;
+}
+
+function waPdfGonder(){
   if(sepet.length===0){alert('Sepet boş');return}
-  let data=getPdfData(); const { jsPDF }=window.jspdf; let doc=new jsPDF({orientation:'portrait',unit:'mm',format:'a4'}); doc=buildProfessionalPdfDoc(doc,data); doc.save(`Teklif-${data.must}.pdf`);
-},200); }
-function emailGonderModal(){ closeIslemModal(); setTimeout(()=>{ 
-  let data=getPdfData(); let detay=sepet.map(t=>`• ${t.urun} RAL ${t.ral} ${fmt(t.kovaKdv*t.adet)}`).join('\n');
-  let subject=`Teklif - ${data.must} - ${fmt(data.toplamDahil)}`; let body=`Merhaba ${data.must},\n\n${detay}\n\nTOPLAM: ${fmt(data.toplamDahil)}`;
-  window.location.href=`mailto:?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-},200); }
+  let data=getPdfData();
+  const { jsPDF } = window.jspdf;
+  let doc=new jsPDF({orientation:'portrait',unit:'mm',format:'a4'});
+  doc=buildProfessionalPdfDoc(doc,data);
+  let fileName=`Teklif-${sanitizeTR(data.must)}-${data.tarih}.pdf`;
+  let pdfBlob=doc.output('blob');
+  let tel=getEffectiveTel();
+  let clean=tel?tel.replace(/\D/g,''):''; if(clean.startsWith('0'))clean='90'+clean.substring(1); if(clean.length===10) clean='90'+clean;
+  if(navigator.canShare && navigator.canShare({files:[new File([pdfBlob],fileName,{type:'application/pdf'})]})){
+    try{ let file=new File([pdfBlob],fileName,{type:'application/pdf'}); navigator.share({title:`Teklif - ${data.must}`,text:`${data.firma} - Toplam: ${fmt(data.toplamDahil)}`,files:[file]}); return; }catch(e){}
+  }
+  doc.save(fileName);
+  if(clean){ let detay=sepet.map(t=>`• ${t.urun.substring(0,26)} RAL ${t.ral} ${fmt(t.kovaKdv*t.adet)}`).join('\n'); let mesaj=`Merhaba ${data.must},\n\n${data.firma} Teklif PDF indirildi.\n${detay}\n\nTOPLAM: ${fmt(data.toplamDahil)}`; setTimeout(()=>{ window.open(`https://api.whatsapp.com/send?phone=${clean}&text=${encodeURIComponent(mesaj)}`,'_blank'); },700); }
+}
+
+function waTextGonder(){ smsGonder(); }
+
+// Klavye desteği
+document.addEventListener('DOMContentLoaded', function(){
+  let ri=document.getElementById('ralInput');
+  if(ri){
+    ri.removeAttribute('readonly');
+    ri.addEventListener('keydown', function(e){
+      let d=document.getElementById('ralDrop');
+      if(!d || d.style.display==='none' || ralFiltered.length===0) return;
+      if(e.key==='ArrowDown'){ e.preventDefault(); ralActiveIndex=Math.min(ralActiveIndex+1, ralFiltered.length-1); updateRalActive(); }
+      else if(e.key==='ArrowUp'){ e.preventDefault(); ralActiveIndex=Math.max(ralActiveIndex-1, 0); updateRalActive(); }
+      else if(e.key==='Enter'){ e.preventDefault(); if(ralActiveIndex>=0 && ralFiltered[ralActiveIndex]) selectRal(ralFiltered[ralActiveIndex].kod); else if(ralFiltered.length>0) selectRal(ralFiltered[0].kod); }
+      else if(e.key==='Escape'){ d.style.display='none'; ralActiveIndex=-1; }
+    });
+  }
+});
 </script>
 
 </body></html>
