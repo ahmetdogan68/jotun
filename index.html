@@ -24,7 +24,12 @@ body{font-family:Inter,Arial;background:var(--bg);color:var(--text);overflow-x:h
 .miniBlueBox svg{width:18px;height:18px;stroke:#011B44;fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
 .drawerOverlay{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,15,40,.45);z-index:99998;opacity:0;pointer-events:none;transition:opacity .3s ease}.drawerOverlay.on{opacity:1;pointer-events:auto}
 .drawer{position:fixed;top:0;right:0;width:100%;max-width:360px;height:100%;background:var(--card);z-index:99999;transform:translateX(100%);transition:transform .32s cubic-bezier(.4,0,.2,1);padding:12px;overflow:auto;border-left:3px solid var(--jotun-blue);box-shadow:-8px 0 24px rgba(0,0,0,.25)}.drawer.on{transform:translateX(0)}
-.drawerHandle{position:fixed;top:64px;right:0;width:34px;height:44px;background:var(--jotun-blue);border-radius:8px 0 0 8px;display:flex;align-items:center;justify-content:center;z-index:99997;cursor:pointer;box-shadow:-2px 2px 10px rgba(0,0,0,.2);border:2px solid #fff;border-right:none}.drawerHandle.on{right:360px;background:var(--jotun-yellow);border-color:var(--jotun-blue)}.drawerHandle svg{width:16px;height:16px;fill:none;stroke:#fff;stroke-width:2.5}
+
+.drawerHandle{position:fixed;top:60px;right:0;width:38px;height:48px;background:#011B44;border-radius:10px 0 0 10px;display:flex;align-items:center;justify-content:center;z-index:99997;cursor:pointer;box-shadow:-3px 3px 12px rgba(0,0,0,.25);border:2px solid #fff;border-right:none}
+.drawerHandle.on{right:360px;background:#FFCC00;border-color:#011B44}
+.drawerHandle svg{width:18px;height:18px}
+@media(max-width:700px){.drawerHandle{width:34px;height:44px;top:52px}.drawerHandle.on{right:86%}}
+
 .drawerHead{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;border-bottom:2px solid var(--jotun-blue);padding-bottom:6px}.drawerHead b{font-weight:900;font-size:12px;color:var(--jotun-blue)}.theme-dark .drawerHead b{color:var(--jotun-yellow)}.drawerClose{background:var(--jotun-blue);color:#fff;border:none;border-radius:50%;width:26px;height:26px;font-weight:900;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:13px}
 .c{background:var(--card);border-radius:6px;padding:6px;margin-top:6px;border:1px solid var(--card-border);overflow:hidden}
 .c-head{font-size:11px;font-weight:900;color:var(--jotun-blue);letter-spacing:0.04em;text-transform:uppercase;margin-bottom:6px;display:flex;justify-content:space-between;align-items:center}
@@ -39,7 +44,7 @@ body{font-family:Inter,Arial;background:var(--bg);color:var(--text);overflow-x:h
 .ri b{font-weight:800;font-size:14px}
 .rs{width:32px;height:32px;border-radius:6px;border:1.8px solid #999;flex-shrink:0}
 .s{padding:7px 9px;border:1.5px solid var(--card-border);border-radius:6px;width:100%;font-weight:600;font-size:11px;font-family:Inter;background:var(--card);color:var(--text);min-width:0}
-.rb{display:flex;gap:6px;margin-top:4px;align-items:stretch}
+.rb{display:grid;grid-template-columns:1fr 1fr 44px;gap:6px;margin-top:4px;align-items:stretch}
 .sw{width:180px;height:56px;border-radius:6px;border:2.5px solid var(--jotun-blue);background:#fff;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:900;flex-shrink:0;color:var(--text);box-shadow:0 2px 6px rgba(0,0,0,.1)}
 .sw.hasColor{box-shadow:0 3px 12px rgba(0,0,0,.16), inset 0 0 0 2px rgba(255,255,255,.4)}
 .bil{flex:1;height:56px;border:2px solid var(--input-border);border-radius:6px;background:var(--card);display:flex;flex-direction:column;overflow:hidden}
@@ -105,16 +110,69 @@ body{font-family:Inter,Arial;background:var(--bg);color:var(--text);overflow-x:h
 .resKurItem{width:100%}
 }
 
-/* TEK TUS - TEMIZ */
-.teklifBtns{grid-template-columns:1fr !important}
-#islemModal{position:fixed;inset:0;background:rgba(1,27,68,.7);z-index:999999;display:none;align-items:center;justify-content:center;padding:16px}
-#islemModal.show{display:flex}
-.islemBox{background:#fff;border-radius:16px;width:100%;max-width:360px;overflow:hidden;border:2px solid #011B44}
-.islemHead{background:#011B44;color:#fff;padding:14px 16px;display:flex;justify-content:space-between;align-items:center}
-.islemGrid{display:grid;gap:10px;padding:16px}
-.islemGrid button{height:50px;border-radius:10px;border:1px solid #ddd;font-weight:700;font-size:13px;display:flex;align-items:center;gap:10px;padding:0 14px;cursor:pointer}
+/* RAL yarım + büyük renk barı - JS uyumlu */
+.sw{width:100% !important;height:56px !important}
+.bil{width:100% !important;height:56px !important}
+#ralDrop{min-width:360px !important;max-width:480px !important;border-radius:14px !important;overflow:hidden !important}
+.ri{padding:0 !important;min-height:52px !important;display:flex !important;gap:0 !important}
+.ri .rs{width:72px !important;height:52px !important;border-radius:0 !important;border:none !important;border-right:1.5px solid #ddd !important;flex-shrink:0 !important}
+.ri div:last-child{flex:1 !important;padding:8px 12px !important;display:flex !important;align-items:center !important;gap:8px !important;background:#fff !important}
+@media(max-width:700px){
+  .rb{grid-template-columns:1fr 1fr 40px !important}
+  .sw{height:46px !important}
+  .bil{height:46px !important}
+  #ralDrop{min-width:92vw !important;max-width:92vw !important;left:4vw !important}
+  .ri .rs{width:64px !important}
+}
+/* Bilgisayar orta hesap büyük */
+@media(min-width:701px){
+  .res{padding:14px !important}
+  .resVal{font-size:20px !important}
+  .resValBig{font-size:26px !important}
+  .resLabel{font-size:11px !important}
+}
+/* Açık kurumsal hafif */
+.h{background:#0B1E3A !important}
+.btnS{background:#FFFFFF !important;color:#011B44 !important;border:1.5px solid #CBD5E1 !important}
+.homeCircle{background:#fff !important;border:1px solid #E2E8F0 !important}
+.homeCircle svg{fill:#011B44 !important}
+.miniBlueBox{background:#fff !important;border:1px solid #E2E8F0 !important}
+.miniBlueBox svg{stroke:#011B44 !important}
+.res{background:linear-gradient(135deg,#010B24 0%,#011B44 50%,#022A6B 100%) !important}
 
-</style></head><body>
+
+.drawerHandle{position:fixed;top:60px;right:0;width:38px;height:48px;background:#011B44;border-radius:10px 0 0 10px;display:flex;align-items:center;justify-content:center;z-index:99997;cursor:pointer;box-shadow:-3px 3px 12px rgba(0,0,0,.25);border:2px solid #fff;border-right:none}
+.drawerHandle.on{right:360px;background:#FFCC00;border-color:#011B44}
+.drawerHandle svg{width:18px;height:18px}
+@media(max-width:700px){.drawerHandle{width:34px;height:44px;top:52px}.drawerHandle.on{right:86%}}
+
+
+/* RAL PENCERESİ - 7016 KUTUSUNUN ALTINDA, YÖN TUŞLARI İLE SEÇİM, YATAY UZUN BAR */
+.rb{position:relative !important}
+#ralDrop{position:absolute !important;top:100% !important;left:0 !important;right:0 !important;width:100% !important;min-width:100% !important;max-width:100% !important;min-height:auto !important;max-height:320px !important;margin-top:6px !important;border-radius:12px !important;border:2px solid #011B44 !important;box-shadow:0 12px 28px rgba(0,0,0,.18) !important;z-index:9999 !important;overflow:auto !important;background:#fff !important}
+.ri{padding:0 !important;min-height:44px !important;height:44px !important;display:grid !important;grid-template-columns:1fr 1.2fr !important;gap:0 !important;align-items:stretch !important;border-bottom:1px solid #EEF2F7 !important;cursor:pointer !important}
+.ri .rs{width:100% !important;height:100% !important;min-height:44px !important;border-radius:0 !important;border:none !important;border-right:1.5px solid #E2E8F0 !important}
+.ri div:last-child{display:flex !important;align-items:center !important;gap:8px !important;padding:0 12px !important;background:#fff !important;flex:1 !important}
+.ri b{font-size:15px !important;font-weight:900 !important;color:#0B1E3A !important;min-width:48px !important}
+.ri span{font-size:14px !important;color:#475569 !important;font-weight:500 !important}
+.ri.active,.ri:hover{background:#F1F5F9 !important}
+.ri.active{outline:2px solid #011B44 !important;outline-offset:-2px !important;background:#E0F2FE !important}
+.ri.active div:last-child{background:#E0F2FE !important}
+.ri.active b{color:#011B44 !important}
+
+</style>
+<script>
+function enableRal(clear=false){
+  let i=document.getElementById('ralInput');
+  i.removeAttribute('readonly');
+  i.readOnly = false;
+  i.disabled = false;
+  if(clear){ i.value=''; i.placeholder='RAL ara...'; }
+  i.focus();
+  filterRal();
+  openRal();
+}
+</script></head><body>
 <div class='sideDeco left'><img src='https://github.com/ahmetdogan68/jotun/blob/main/kenar.jpg?raw=true' alt=''><div class='sideOverlay'></div></div>
 <div class='sideDeco right'><img src='https://github.com/ahmetdogan68/jotun/blob/main/kenar1.jpg?raw=true' alt=''><div class='sideOverlay'></div></div>
 <div class='w'>
@@ -140,7 +198,7 @@ body{font-family:Inter,Arial;background:var(--bg);color:var(--text);overflow-x:h
   <div style='margin-top:8px;display:grid;grid-template-columns:1fr 1fr;gap:3px'><button onclick='forceClearSik()' style='background:#E53935;color:#fff;border:none;border-radius:4px;padding:6px;font-weight:800;font-size:9px'>🗑 SIK TEMİZLE</button><button onclick='bulutYenile()' style='background:#0a7a2f;color:#fff;border:none;border-radius:4px;padding:6px;font-weight:800;font-size:9px'>🔄 YENİLE</button></div>
   <button onclick='saveSet();closeDrawer()' style='width:100%;padding:8px;background:var(--jotun-blue);color:#fff;border:none;border-radius:6px;font-weight:800;margin-top:8px;font-size:11px'>KAYDET KAPAT</button>
 </div>
-<div class='c'><div class='c-head'>1 — RAL KARTELASI — <span id='ralSay'>-</span></div><div class='rb'><div class='sw' id='swatch'>BOS</div><div class='bil'><div class='bilU'><div class='bilU-ral'><input id='ralInput' placeholder='RAL 7016' readonly onclick='enableRal()' oninput='filterRal()' style='border:none;width:100%;text-align:center;font-weight:900;font-size:15px;background:transparent;color:var(--text);font-family:Inter'></div><div class='bilU-pig'><input id='pigment' placeholder='0,00' style='border:none;background:transparent;width:100%;text-align:center;font-weight:900;font-size:15px;color:var(--text);font-family:Inter' oninput='calc()'><span style='font-size:9px;font-weight:900;padding-right:5px;color:var(--text)'>TL</span></div></div><div class='bilA'><input id='ralForm' placeholder='FORMÜL / NOT' style='border:none;width:100%;padding-left:8px;font-size:11px;font-weight:600;background:transparent;color:var(--text2);font-family:Inter'></div></div><button class='btnS' onclick='enableRal()'>🔍</button></div></div>
+<div class='c'><div class='c-head'>1 — RAL KARTELASI — <span id='ralSay'>-</span></div><div class='rb'><div class='sw' id='swatch'>BOS</div><div class='bil'><div class='bilU'><div class='bilU-ral'><input id='ralInput' placeholder='RAL 7016' onclick='enableRal()' oninput='filterRal()' style='border:none;width:100%;text-align:center;font-weight:900;font-size:15px;background:transparent;color:var(--text);font-family:Inter'></div><div class='bilU-pig'><input id='pigment' placeholder='0,00' style='border:none;background:transparent;width:100%;text-align:center;font-weight:900;font-size:15px;color:var(--text);font-family:Inter' oninput='calc()'><span style='font-size:9px;font-weight:900;padding-right:5px;color:var(--text)'>TL</span></div></div><div class='bilA'><input id='ralForm' placeholder='FORMÜL / NOT' style='border:none;width:100%;padding-left:8px;font-size:11px;font-weight:600;background:transparent;color:var(--text2);font-family:Inter'></div></div><button class='btnS' onclick='enableRal(true)'>🔍</button></div></div>
 <div class='c'><div class='c-head'>2 — ÜRÜN SEÇİMİ — <span id='canliSay'>0</span> ÜRÜN • <span id='kayitSay'>0</span> KAYIT <small id='cloudInfo' style='background:var(--jotun-yellow);color:var(--jotun-blue);padding:1px 4px;border-radius:8px;font-size:7px'></small></div><div class='sb' style='margin-top:5px'><input id='urunInput' class='jotunSearch' placeholder='Ürün ara - Örn: CONSEAL' readonly onclick='enableUrun()' oninput='filterUrun()'><button class='btnS' onclick='enableUrun()'>🔍</button></div><div id='urunDetay' style='font-size:9px;margin-top:5px;display:none;font-weight:700;background:rgba(1,32,96,.06);padding:3px 6px;border-radius:4px;word-break:break-word;color:var(--text)'></div><div id='compBox' class='compBox'></div></div>
 <div class='c' style='margin-top:8px'><div class='c-head'>3 — AMBALAJ <small id='ambInfo'></small></div><div style='display:flex;gap:8px;align-items:center;margin-top:4px'><div style='flex-shrink:0;width:54px;height:54px;background:#fff;border:1.5px solid var(--card-border);border-radius:8px;display:flex;align-items:center;justify-content:center;padding:4px;box-shadow:0 1px 4px rgba(0,0,0,.08)'><img src='https://jcm.jotun.com/assets/product-default-CRbs1WvP.png' alt='Jotun Kova' style='width:100%;height:100%;object-fit:contain'></div><div class='ambRow' id='ambList' style='flex:1;margin-top:0'></div></div></div>
 <div class='res'>
@@ -179,8 +237,7 @@ body{font-family:Inter,Arial;background:var(--bg);color:var(--text);overflow-x:h
 <div class='teklifInputs'><input id='musteriAd' placeholder='Müşteri Adı' autocomplete='off'><input id='musteriAdres' placeholder='Müşteri Adres' autocomplete='off'><div style='display:contents'><input id='musteriTel' placeholder='Müşteri Tel - 05xx' inputmode='tel' autocomplete='off'><input id='tarih' type='date'></div></div>
 <div id='contactInfo' style='font-size:9px;color:#0a7a2f;font-weight:800;margin-top:5px;display:none;word-break:break-word;background:rgba(0,200,83,.1);padding:4px 5px;border-radius:4px;border:1px solid #0a7a2f'></div>
 <div id='teklifList' class='teklifList'></div><div id='teklifToplam' class='teklifToplam' style='display:none'></div>
-<div class='teklifBtns'><button onclick='openIslemModal()' style='background:#011B44;color:#fff'>🖨 YAZDIR</button></div>
-<div id='islemModal' onclick='if(event.target===this)closeIslemModal()'><div class='islemBox'><div class='islemHead'><b>TEKLİF İŞLEMLERİ</b><button onclick='closeIslemModal()' style='background:rgba(255,255,255,.2);border:none;color:#fff;width:30px;height:30px;border-radius:6px'>✕</button></div><div class='islemGrid'><button onclick='yazdirModal()' style='background:#011B44;color:#fff'>🖨 YAZDIR</button><button onclick='smsGonderModal()' style='background:#25D366;color:#fff'>💬 SMS GÖNDER</button><button onclick='pdfKaydetModal()' style='background:#011B44;color:#fff'>📄 PDF KAYIT ET</button><button onclick='emailGonderModal()' style='background:#fff;color:#011B44;border:1.5px solid #011B44'>✉️ E-MAİL GÖNDER</button><button onclick='closeIslemModal()' style='background:#F1F5F9;color:#333'>✕ KAPAT</button></div></div></div>
+<div class='teklifBtns'><button onclick='yazdir()' style='background:#011B44;color:#fff;border:1px solid #011B44'>🖨<br>YAZDIR</button><button onclick='smsGonder()' style='background:#25D366;color:#fff;border:1px solid #25D366'>📱<br>SMS</button><button onclick='waPdfGonder()' style='background:#011B44;color:#fff;border:1px solid #011B44'>📄<br>PDF</button></div>
 </div>
 <div class='c' style='padding:6px'><div style='display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:3px'><b style='font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:var(--jotun-blue)'>⭐ SIK KULLANILANLAR — <span id='sikSay'>0</span></b><div style='display:flex;gap:3px'><button onclick='bulutYenile()' style='background:#00C853;color:#fff;border:none;border-radius:3px;padding:2px 6px;font-size:7px;font-weight:800'>🔄 YENİLE</button><button onclick='forceClearSik()' style='background:#E53935;color:#fff;border:none;border-radius:3px;padding:2px 6px;font-size:7px;font-weight:800'>🗑 SİL</button></div></div><div id='sikBox' class='sikGrid'></div></div>
 </div>
@@ -213,7 +270,82 @@ async function tryFetch(urls){for(let u of urls){try{let r=await fetch(u,{cache:
 async function bulutGet(){try{let r=await fetch(BULUT_URL+'/'+BULUT_RES,{cache:'no-store'});if(!r.ok) throw 'no';let j=await r.json();bulutCache=j;document.getElementById('cloudInfo').innerText='☁ '+j.length;document.getElementById('sikSay').innerText=j.length;return j;}catch(e){document.getElementById('cloudInfo').innerText='⚠ yerel';let localData=JSON.parse(localStorage.getItem('jotun_kayitlar_extra')||'[]');bulutCache=localData.map((o,i)=>({...o,_id:'local_'+i}));document.getElementById('sikSay').innerText=localData.length;return localData;}}
 async function bulutPost(obj){try{let r=await fetch(BULUT_URL+'/'+BULUT_RES,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(obj)});return r.ok;}catch(e){return false}}
 async function bulutDelete(id){if(!id) return false;if(String(id).startsWith('local_')) return true;try{let r=await fetch(BULUT_URL+'/'+BULUT_RES+'/'+id,{method:'DELETE'});return r.ok;}catch(e){return false}}
-async function bulutYenile(){let data=await bulutGet();let clean=data.map(o=>{let { _id, ...rest }=o; return rest});localStorage.setItem('jotun_kayitlar_extra',JSON.stringify(clean));await loadAll();}
+async function bulutYenile(){let data=await bulutGet();let clean=data.map(o=>{let { _id, ...rest }=o; return rest});localStorage.setItem('jotun_kayitlar_extra',JSON.stringify(clean));await 
+function sanitizeTR(s){ if(!s) return ''; return String(s).replace(/İ/g,'I').replace(/ı/g,'i').replace(/Ğ/g,'G').replace(/ğ/g,'g').replace(/Ş/g,'S').replace(/ş/g,'s').replace(/Ö/g,'O').replace(/ö/g,'o').replace(/Ü/g,'U').replace(/ü/g,'u').replace(/Ç/g,'C').replace(/ç/g,'c'); }
+
+
+function sanitizeTR(s){ if(!s) return ''; return String(s).replace(/İ/g,'I').replace(/ı/g,'i').replace(/Ğ/g,'G').replace(/ğ/g,'g').replace(/Ş/g,'S').replace(/ş/g,'s').replace(/Ö/g,'O').replace(/ö/g,'o').replace(/Ü/g,'U').replace(/ü/g,'u').replace(/Ç/g,'C').replace(/ç/g,'c'); }
+
+function getPdfData(){
+  let must=document.getElementById('musteriAd').value||'Musteri';
+  let mustTel=getEffectiveTel()||document.getElementById('musteriTel').value||'';
+  let mustAdres=document.getElementById('musteriAdres').value||'-';
+  let firma=ayar.firmaAdi||'BAYDEMIR';
+  let fAdres=ayar.firmaAdres||'';
+  let fMail=ayar.firmaMail||'';
+  let fWeb=ayar.firmaWeb||'';
+  let fTel=ayar.telefon||'';
+  let veren=ayar.teklifVeren||'';
+  let tarih=document.getElementById('tarih').value?new Date(document.getElementById('tarih').value).toLocaleDateString('tr-TR'):new Date().toLocaleDateString('tr-TR');
+  let kdv=parseFloat(document.getElementById('setKdv').value)||20;
+  let haric=0,dahil=0;
+  sepet.forEach(t=>{dahil+=t.kovaKdv*t.adet; haric+=t.kovaTl*t.adet;});
+  return {firma, fAdres, fMail, fWeb, fTel, must, mustTel, mustAdres, tarih, veren, kdv, sepet, toplamHaric:haric, toplamFark:dahil-haric, toplamDahil:dahil};
+}
+
+function buildProfessionalPdfDoc(doc, data){
+  let y=10;
+  doc.setFillColor(1,27,68); doc.rect(0,0,210,18,'F');
+  doc.setTextColor(255,255,255); doc.setFont('helvetica','bold'); doc.setFontSize(13);
+  doc.text(sanitizeTR((data.firma||'TEKLIF')).substring(0,38).toUpperCase(),10,11);
+  doc.setFontSize(7); doc.setFont('helvetica','normal'); doc.text(sanitizeTR((data.fAdres||'')).substring(0,80),10,15);
+  doc.setFont('helvetica','bold'); doc.setFontSize(10); doc.setTextColor(255,204,0); doc.text('JOTUN',195,11,{align:'right'});
+  doc.setTextColor(255,255,255); doc.setFontSize(6); doc.setFont('helvetica','normal'); doc.text('Tarih: '+data.tarih,195,15,{align:'right'});
+  y=22; doc.setTextColor(0,0,0); doc.setFillColor(240,244,250); doc.setDrawColor(1,27,68); doc.rect(10,y,190,10,'FD');
+  doc.setFontSize(8); doc.setFont('helvetica','bold'); doc.text(sanitizeTR('Musteri: '+data.must+'   Tel: '+data.mustTel),12,y+4);
+  doc.setFont('helvetica','normal'); doc.setFontSize(7); doc.text(sanitizeTR('Adres: '+(data.mustAdres||'-')).substring(0,95),12,y+8);
+  y+=14; doc.setFont('helvetica','bold'); doc.setFontSize(10); doc.text('FIYAT TEKLIF FORMU',105,y,{align:'center'}); y+=4;
+  doc.setFillColor(1,27,68); doc.setTextColor(255,255,255); doc.rect(10,y,190,7,'F'); doc.setFontSize(7);
+  doc.text('RENK',12,y+4.5); doc.text('URUN',28,y+4.5); doc.text('RAL',92,y+4.5); doc.text('MIKTAR',110,y+4.5); doc.text('BIRIM',135,y+4.5); doc.text('TOPLAM',175,y+4.5); y+=7;
+  doc.setTextColor(0,0,0); doc.setFont('helvetica','normal'); doc.setFontSize(7.5);
+  data.sepet.forEach(t=>{
+    if(y>265){doc.addPage(); y=12; doc.setFillColor(1,27,68); doc.setTextColor(255,255,255); doc.rect(10,y,190,7,'F'); doc.text('RENK',12,y+4.5); doc.text('URUN',28,y+4.5); doc.text('RAL',92,y+4.5); doc.text('MIKTAR',110,y+4.5); doc.text('BIRIM',135,y+4.5); doc.text('TOPLAM',175,y+4.5); y+=7; doc.setTextColor(0,0,0);}
+    try{let hex=(t.hex||'#888888').replace('#',''); if(hex.length==3) hex=hex.split('').map(c=>c+c).join(''); let r=parseInt(hex.substr(0,2),16), g=parseInt(hex.substr(2,2),16), b=parseInt(hex.substr(4,2),16); doc.setFillColor(r,g,b); doc.setDrawColor(0,0,0); doc.rect(12,y,6,5,'FD');}catch(e){}
+    doc.text(t.urun.substring(0,40),28,y+3.5); doc.text(String(t.ral||''),92,y+3.5); doc.text(t.adet+'x'+t.lt+'LT',110,y+3.5); doc.text(fmt(t.kovaKdv||0),135,y+3.5); doc.setFont('helvetica','bold'); doc.text(fmt(t.kovaKdv*t.adet),175,y+3.5); doc.setFont('helvetica','normal'); y+=7;
+  });
+  y+=2; let boxY=y; doc.setFillColor(255,255,255); doc.setDrawColor(1,27,68); doc.rect(120,boxY,80,20,'FD'); doc.setFontSize(8); doc.text('Ara Toplam:',122,boxY+5); doc.text(fmt(data.toplamHaric),198,boxY+5,{align:'right'}); doc.text('KDV (%'+data.kdv+'): ',122,boxY+10); doc.text(fmt(data.toplamFark),198,boxY+10,{align:'right'}); doc.setFillColor(1,27,68); doc.setTextColor(255,255,255); doc.rect(120,boxY+13,80,7,'F'); doc.setFont('helvetica','bold'); doc.text('GENEL TOPLAM:',122,boxY+17.5); doc.text(fmt(data.toplamDahil),198,boxY+17.5,{align:'right'}); doc.setTextColor(0,0,0); y=boxY+28; doc.setFont('helvetica','normal'); doc.setFontSize(8); doc.text(sanitizeTR('Veren: '+(data.veren||'')),15,y); doc.text(sanitizeTR('Onay: '+data.must),120,y); doc.line(10,y+2,90,y+2); doc.line(120,y+2,200,y+2); doc.setFontSize(6); doc.setTextColor(100,100,100); doc.text('Kase / Imza',40,y+6); doc.text('Kase / Imza',150,y+6); return doc;
+}
+
+function smsGonder(){
+  let must=document.getElementById('musteriAd').value||'Musteri';
+  let tel=getEffectiveTel();
+  if(!tel || tel.length<7){ alert('Önce müşteri tel gir (05xx).'); document.getElementById('musteriTel').focus(); return; }
+  let detay=sepet.map(t=>`• ${t.urun.substring(0,22)} RAL ${t.ral} ${fmt(t.kovaKdv*t.adet)}`).join('\n');
+  let toplam=document.getElementById('teklifToplam').innerText||'';
+  let mesaj=`Merhaba ${must},\n\n${ayar.firmaAdi||'BAYDEMIR'} Teklif:\n${detay}\n\n${toplam}`;
+  window.location.href = `sms:${tel}?&body=${encodeURIComponent(mesaj)}`;
+}
+
+function waPdfGonder(){
+  if(sepet.length===0){alert('Sepet boş');return}
+  let data=getPdfData();
+  const { jsPDF } = window.jspdf;
+  let doc=new jsPDF({orientation:'portrait',unit:'mm',format:'a4'});
+  doc=buildProfessionalPdfDoc(doc,data);
+  let fileName=`Teklif-${sanitizeTR(data.must)}-${data.tarih}.pdf`;
+  let pdfBlob=doc.output('blob');
+  let tel=getEffectiveTel();
+  let clean=tel?tel.replace(/\D/g,''):''; if(clean.startsWith('0'))clean='90'+clean.substring(1); if(clean.length===10) clean='90'+clean;
+  if(navigator.canShare && navigator.canShare({files:[new File([pdfBlob],fileName,{type:'application/pdf'})]})){
+    try{ let file=new File([pdfBlob],fileName,{type:'application/pdf'}); navigator.share({title:`Teklif - ${data.must}`,text:`${data.firma} - Toplam: ${fmt(data.toplamDahil)}`,files:[file]}).then(()=>{}); return; }catch(e){}
+  }
+  doc.save(fileName);
+  if(clean){ let detay=sepet.map(t=>`• ${t.urun.substring(0,26)} RAL ${t.ral} ${fmt(t.kovaKdv*t.adet)}`).join('\n'); let mesaj=`Merhaba ${data.must},\n\n${data.firma} Teklif PDF indirildi.\n${detay}\n\nTOPLAM: ${fmt(data.toplamDahil)}`; setTimeout(()=>{ window.open(`https://api.whatsapp.com/send?phone=${clean}&text=${encodeURIComponent(mesaj)}`,'_blank'); },700); }
+}
+
+function waTextGonder(){ smsGonder(); }
+
+loadAll();}
 function forceClearSik(){if(!confirm('TÜM sık kullanılanlar silinsin mi?')) return;localStorage.setItem('jotun_kayitlar_extra','[]');bulutCache=[];kayitlar=kayitlar.filter(k=> false);(async()=>{try{let all=await fetch(BULUT_URL+'/'+BULUT_RES,{cache:'no-store'}).then(r=>r.json());for(let o of all){ await bulutDelete(o._id); }}catch(e){}document.getElementById('sikBox').innerHTML='<div style="font-size:11px;color:var(--text2);padding:8px">Temizlendi</div>';document.getElementById('sikSay').innerText='0';document.getElementById('cloudInfo').innerText='0';location.reload();})();}
 function toggleDrawer(){let d=document.getElementById('drawer');let isOn=d.classList.contains('on');if(isOn){closeDrawer()}else{openDrawer()}}
 function openDrawer(){document.getElementById('drawer').classList.add('on');document.getElementById('drawerOverlay').classList.add('on');document.getElementById('drawerHandle').classList.add('on');document.body.style.overflow='hidden'}
@@ -289,35 +421,7 @@ document.getElementById('fLogoFile')?.addEventListener('change',function(e){let 
 document.getElementById('kaseFile')?.addEventListener('change',function(e){let file=e.target.files[0];if(!file)return;let reader=new FileReader();reader.onload=function(ev){let data=ev.target.result;document.getElementById('setKase').value=data;document.getElementById('kasePreview').src=data;document.getElementById('kasePreview').style.display='block';document.getElementById('kaseWrap').style.display='flex';ayar.kaseLogo=data;localStorage.setItem('jotun_ayarlar',JSON.stringify(ayar));};reader.readAsDataURL(file);});
 async function pickContact(){let infoEl=document.getElementById('contactInfo'); infoEl.style.display='block'; infoEl.innerText='📇 Rehber açılıyor...';if('contacts' in navigator && 'ContactsManager' in window){try{ const props=['name','tel','address']; const contacts=await navigator.contacts.select(props,{multiple:false});if(contacts.length>0){ let c=contacts[0]; let ad=c.name && c.name[0] ? c.name[0] : ''; let tel=c.tel && c.tel[0] ? c.tel[0] : ''; let adres=c.address && c.address[0] ? ((c.address[0].city||'')+' '+(c.address[0].street||'')).trim() : '';if(ad) document.getElementById('musteriAd').value=ad; if(tel){ document.getElementById('musteriTel').value=tel; lastContactTel=tel; } if(adres) document.getElementById('musteriAdres').value=adres;infoEl.innerText=`✅ ${ad} - ${tel}`; setTimeout(()=>{ infoEl.style.display='none'; },3000); return; }}catch(e){ infoEl.innerText='❌ İptal: '+e.message; return; }}infoEl.innerText='ℹ Android Chrome + HTTPS gerekli.';setTimeout(()=>{ infoEl.style.display='none'; },3000);}
 function getEffectiveTel(){ let tel=document.getElementById('musteriTel').value.trim(); if(tel && tel.length>=7) return tel; if(lastContactTel && lastContactTel.length>=7) return lastContactTel; return ''; }
-function placeDrop(inputEl, dropEl){let r=inputEl.getBoundingClientRect();dropEl.style.top=(r.bottom+6)+'px';dropEl.style.left=r.left+'px';dropEl.style.width=Math.min(window.innerWidth-16, Math.max(r.width, 320))+'px';if(r.bottom+360>window.innerHeight){dropEl.style.top=(r.top-390)+'px';}}
-function enableUrun(){let i=document.getElementById('urunInput');i.removeAttribute('readonly');i.focus();openUrun()}function enableRal(){let i=document.getElementById('ralInput');i.removeAttribute('readonly');i.focus();openRal()}
-function openUrun(){let inp=document.getElementById('urunInput');let d=document.getElementById('urunDrop');placeDrop(inp,d);d.style.display='block';filterUrun()}
-function openRal(){let rb=document.querySelector('.rb');let d=document.getElementById('ralDrop');placeDrop(rb,d);d.style.display='block';filterRal()}
-function filterUrun(){
-  let q=document.getElementById('urunInput').value.toUpperCase().trim();
-  let d=document.getElementById('urunDrop');
-  let h=[];
-  if(tempRal && kayitlar.length>0){
-    let f=kayitlar.filter(x=>String(x.ral_no).trim()===String(tempRal).trim());
-    let m=new Map();f.forEach(x=>{let k=(x.product||'').trim().toUpperCase()+'_'+String(x.ral_no).trim();if(!m.has(k))m.set(k,x)});
-    secKayit=Array.from(m.values());
-    secKayit.forEach((k,i)=>{
-      let livePrice=findExactPrice(k.product);
-      let ff='';
-      if(livePrice!==null && livePrice>0) ff=`$${livePrice} (GÜNCEL)`;
-      else {
-        let fam=urunler.filter(u=>norm(u[0])===norm(k.product) && u[1]>0);
-        if(fam.length>0) ff=`$${fam[0][1]} (GÜNCEL)`;
-        else ff=`$0 - ESKİ KAYIT`;
-      }
-      let ralHexForProd = getRalHex(k.ral_no) || secHex || '#888';
-      h.push(`<div class='it it-k' onclick='selectKayit(${i})'><div style='display:flex;align-items:center;gap:8px;flex:1'><div style='width:24px;height:24px;border-radius:4px;background:${ralHexForProd};border:1.5px solid #999;flex-shrink:0'></div><div style='flex:1'><b>${k.product}</b> <small>${ff} - RAL ${k.ral_no}</small></div></div><div style='background:#0a7a2f;color:#fff;padding:3px 6px;border-radius:4px;font-size:8px;font-weight:800'>SEÇ</div></div>`);
-    });
-  }
-  let list=urunler.map((r,i)=>({r,i})).filter(o=>!q||o.r[0].toUpperCase().includes(q)).slice(0,200);
-  h.push(...list.map(o=>`<div class='it' onclick='selectUrun(${o.i})'><span style='flex:1'>${o.r[0]}</span><b>$${o.r[1]}</b></div>`));
-  d.innerHTML=h.join('');placeDrop(document.getElementById('urunInput'), d);d.style.display='block';
-}
+
 function selectKayit(i){
   let k=secKayit[i];if(!k)return;
   let kLT=parseLT(k.product);
@@ -342,8 +446,85 @@ function selectKayit(i){
 }
 function selectUrun(i, keepAmb=false){secUrun=i; let u=urunler[i];if(!keepAmb){let pLT=parseLT(u[0]);if(pLT>0){ secLT=pLT; let idxAmb=amb.findIndex(a=>Math.abs(a.lt - pLT)<0.15); if(idxAmb!==-1) secAmb=idxAmb; }}let inp=document.getElementById('urunInput'); inp.value=u[0]; inp.setAttribute('readonly','true'); document.getElementById('urunDrop').style.display='none'; document.getElementById('urunDetay').style.display='block';let pair=findCompPair(u[0]); secCompPair=pair; let setLT=getSetLT(u[0]); let myLT=parseLT(u[0])||setLT;document.getElementById('urunDetay').innerHTML=`✓ ${u[0]} • $${u[1]} ${pair?`<span style="background:#ffcc00;color:#012060;padding:1px 4px;border-radius:3px;font-size:9px">+ ${pair.ad} (${pair.lt}LT) $${pair.fiyat}</span>`:''}`;if(pair){ document.getElementById('compBox').style.display='block'; document.getElementById('compBox').innerHTML=`<b>SET ${setLT}LT:</b> ${myLT}LT + ${pair.lt}LT`; document.getElementById('ambInfo').innerText=`${setLT}LT SET`; }else{ document.getElementById('compBox').style.display='none'; document.getElementById('ambInfo').innerText=`${secLT}LT`; }renderAmb();calc();inp.blur()}
 function renderAmb(){ document.getElementById('ambList').innerHTML=amb.map((a,i)=>{let c='amb';if(i===secAmb) c+=' on';return `<div class='${c}' onclick='secAmb=${i};secLT=${a.lt};renderAmb();calc();'>${a.ad}</div>`}).join('');}
-function filterRal(){let q=document.getElementById('ralInput').value.toUpperCase().trim();let list=ralList.filter(r=>!q||r.kod.includes(q)||r.isim.toUpperCase().includes(q)).slice(0,60);let d=document.getElementById('ralDrop');d.innerHTML=list.map(r=>`<div class='ri' onclick='selectRal("${r.kod}")'><div class='rs' style='background:${r.hex}'></div><div><b>${r.kod}</b> <span style="font-size:12px;color:var(--text2)">${r.isim}</span></div></div>`).join('');placeDrop(document.querySelector('.rb'), d);d.style.display='block';}
-function selectRal(k){let r=ralList.find(x=>x.kod===k);if(!r)return;tempRal=r.kod;secHex=r.hex;secName=r.isim;let sw=document.getElementById('swatch');sw.style.background=r.hex;sw.innerText='RAL '+r.kod;sw.style.color=getContrast(r.hex);sw.classList.add('hasColor');sw.style.borderColor=r.hex;sw.style.boxShadow=`0 0 0 3px ${r.hex}44, 0 4px 12px ${r.hex}55`;let inp=document.getElementById('ralInput');inp.value=r.kod;inp.setAttribute('readonly','true');inp.blur();document.getElementById('ralDrop').style.display='none';filterUrun();openRal();calc();}
+
+let ralActiveIndex = -1;
+let ralFiltered = [];
+
+function placeRalDrop(){
+  let rb = document.querySelector('.rb');
+  let drop = document.getElementById('ralDrop');
+  if(!rb || !drop) return;
+  // CSS ile zaten altında, ama genişliği ayarla
+  drop.style.width = rb.offsetWidth + 'px';
+}
+
+function filterRal(){
+  let q=document.getElementById('ralInput').value.toUpperCase().trim();
+  let list=ralList.filter(r=>!q||r.kod.includes(q)||r.isim.toUpperCase().includes(q)).slice(0,60);
+  ralFiltered = list;
+  ralActiveIndex = -1;
+  let d=document.getElementById('ralDrop');
+  if(list.length===0){ d.style.display='none'; return; }
+  d.innerHTML=list.map((r,i)=>`<div class='ri' data-idx='${i}' onclick='selectRal("${r.kod}")'><div class='rs' style='background:${r.hex}'></div><div><b>${r.kod}</b><span>${r.isim}</span></div></div>`).join('');
+  placeRalDrop();
+  d.style.display='block';
+  // Scroll to top
+  d.scrollTop = 0;
+}
+
+function updateRalActive(){
+  let items = document.querySelectorAll('#ralDrop .ri');
+  items.forEach((el,idx)=>{
+    if(idx===ralActiveIndex) el.classList.add('active');
+    else el.classList.remove('active');
+  });
+  if(ralActiveIndex>=0 && items[ralActiveIndex]){
+    items[ralActiveIndex].scrollIntoView({block:'nearest'});
+  }
+}
+
+function selectRal(k){
+  let r=ralList.find(x=>x.kod===k);if(!r)return;
+  tempRal=r.kod;secHex=r.hex;secName=r.isim;
+  let sw=document.getElementById('swatch');sw.style.background=r.hex;sw.innerText='RAL '+r.kod;sw.style.color=getContrast(r.hex);sw.classList.add('hasColor');sw.style.borderColor=r.hex;sw.style.boxShadow=`0 0 0 3px ${r.hex}44, 0 4px 12px ${r.hex}55`;
+  let inp=document.getElementById('ralInput');inp.value=r.kod;/* inp readonly kaldırıldı - hep yazılabilir */
+  document.getElementById('ralDrop').style.display='none';
+  ralActiveIndex = -1;
+  filterUrun();openRal();calc();
+}
+
+// Klavye desteği
+document.getElementById('ralInput').addEventListener('keydown', function(e){
+  let d=document.getElementById('ralDrop');
+  if(d.style.display==='none' || ralFiltered.length===0) return;
+  
+  if(e.key==='ArrowDown'){
+    e.preventDefault();
+    ralActiveIndex = Math.min(ralActiveIndex+1, ralFiltered.length-1);
+    updateRalActive();
+  } else if(e.key==='ArrowUp'){
+    e.preventDefault();
+    ralActiveIndex = Math.max(ralActiveIndex-1, 0);
+    updateRalActive();
+  } else if(e.key==='Enter'){
+    e.preventDefault();
+    if(ralActiveIndex>=0 && ralFiltered[ralActiveIndex]){
+      selectRal(ralFiltered[ralActiveIndex].kod);
+    } else if(ralFiltered.length>0){
+      selectRal(ralFiltered[0].kod);
+    }
+  } else if(e.key==='Escape'){
+    d.style.display='none';
+    ralActiveIndex=-1;
+  }
+});
+
+// RAL input focus olduğunda aç
+document.getElementById('ralInput').addEventListener('focus', function(){
+  if(ralList.length>0) filterRal();
+});
+
+
 function calc(){if(secUrun===null) return; let u=urunler[secUrun]; let fiyatD=parsePrice(u[1]); let kLT=parseFloat(secLT)||18; let kur=parseFloat((document.getElementById('setDolar').value||'49,7891').replace(',','.'))||49.7891; let kar=parseFloat(document.getElementById('setKar').value)||25; let kdv=parseFloat(document.getElementById('setKdv').value)||20; let pigTL=parseFloat((document.getElementById('pigment').value||'0').toString().replace(',','.'))||0;let urunLT=fiyatD*kur; let toplamLT=urunLT+pigTL/18; let ltSatis=toplamLT*(1+kar/100); let setLT=getSetLT(u[0]); let aLT=parseLT(u[0])||trueLTFromSet(u[0]); let bLT=secCompPair ? secCompPair.lt : 0; let isCompMode = secCompPair ? true : false; let toplamSetLT = isCompMode ? setLT : kLT; let kovaS=ltSatis*toplamSetLT; let kovaK=kovaS*(1+kdv/100);if(!secCompPair) secCompPair=findCompPair(u[0]);son={urun:u[0],ral:tempRal,hex:secHex,isim:secName,lt:kLT,gercekLT:aLT,toplamSetLT:toplamSetLT,setLT:setLT,isCompMode:isCompMode,compBLT:bLT,kovaTl:kovaS,kovaKdv:kovaK,ltSatis:ltSatis,form:document.getElementById('ralForm').value, pair: secCompPair ? {...secCompPair, lt: secCompPair.lt, setLT:setLT} : null};sonHesap={kur:kur,kar:kar,kdv:kdv,pigment:pigTL,urunDolar:fiyatD,urunTL:urunLT,toplamLT:toplamLT,ltSatis:ltSatis,toplamSetLT:toplamSetLT,setLT:setLT};document.getElementById('maliyet').innerText=fmt(toplamLT); document.getElementById('ltSatis').innerText=fmt(ltSatis); document.getElementById('kovaLabel').innerText=isCompMode?`SET (${toplamSetLT}LT)`:`KOVA (${kLT}LT)`; document.getElementById('kova').innerText=fmt(kovaS); document.getElementById('kovaKdv').innerText=fmt(kovaK);let detayBox=document.getElementById('hesapDetay');detayBox.style.display='block'; let compDetay=son.pair?`<br><b>SET ${setLT}LT:</b> A ${aLT}LT=${fmt(ltSatis*aLT*(1+kdv/100))} | B ${bLT}LT=${fmt(ltSatis*bLT*(1+kdv/100))}`:''; detayBox.innerHTML=`${u[0]} $${fiyatD} × ${kur.toFixed(2)} = ${fmt(urunLT)} | ${fmt(ltSatis)} ×${toplamSetLT}LT=${fmt(kovaS)}${compDetay}`;}
 function teklifeEkle(){if(!son) return alert('Once sec');let adetStr=prompt('Kaç adet?','1');if(!adetStr)return;let adet=parseInt(adetStr)||1;let kdv=parseFloat(document.getElementById('setKdv').value)||20;let ltSatis=son.ltSatis;let setLT=son.setLT||18;if(!son.pair){sepet.push({...son,adet:adet,hesap:{...sonHesap}});}else{let aLT=parseLT(son.urun)||trueLTFromSet(son.urun);let bLT=son.pair.lt;let aKovaTl=ltSatis*aLT;let aKovaKdv=aKovaTl*(1+kdv/100);let bKovaTl=ltSatis*bLT;let bKovaKdv=bKovaTl*(1+kdv/100);sepet.push({urun:son.urun, ral:son.ral, hex:son.hex, isim:son.isim, lt: aLT, ltSatis: ltSatis, kovaTl: aKovaTl, kovaKdv: aKovaKdv, form: son.form, adet:adet, hesap:{...sonHesap}, isCompA:true, setLT:setLT});sepet.push({urun:son.pair.ad, ral:son.ral, hex:son.hex, isim:son.isim+' - B', lt: bLT, ltSatis: ltSatis, kovaTl: bKovaTl, kovaKdv: bKovaKdv, form:'EŞ', adet:adet, hesap:{...sonHesap}, isCompB:true, setLT:setLT});}localStorage.setItem('teklif_sepet',JSON.stringify(sepet));renderTeklif();}
 function renderTeklif(){document.getElementById('teklifSayi').innerText=sepet.length;if(sepet.length===0){document.getElementById('teklifList').innerHTML='<div style="font-size:10px;color:var(--text2);padding:6px">Henüz ürün eklenmedi</div>';document.getElementById('teklifToplam').style.display='none';return}let g=0;document.getElementById('teklifList').innerHTML=sepet.map((t,i)=>{let k=t.kovaKdv||0;g+=k*t.adet;return `<div class='teklifItem'><div style='width:16px;height:16px;background:${t.hex||'#fff'};border-radius:3px;border:1px solid #999;flex-shrink:0'></div><div style='flex:1;min-width:0'><div class='teklifItemTitle'>${t.urun.substring(0,30)} - ${t.ral}</div><div class='teklifItemSub'>${t.adet}×${t.lt}LT = <b>${fmt(k*t.adet)}</b></div></div><button onclick='sil(${i})' style='background:#E53935;color:#fff;border:none;border-radius:4px;padding:3px 6px;font-size:9px;font-weight:800;flex-shrink:0'>X</button></div>`}).join('');document.getElementById('teklifToplam').style.display='block';document.getElementById('teklifToplam').innerText=`TOPLAM: ${fmt(g)}`}
@@ -352,8 +533,11 @@ function temizle(){if(confirm('Temizle?')){sepet=[];localStorage.setItem('teklif
 function waTextGonder(){ let must=document.getElementById('musteriAd').value||'Müşteri'; let tel=getEffectiveTel(); if(!tel || tel.length<7){ alert('Önce 📇 KİŞİLER den müşteri seç veya tel yaz.'); document.getElementById('musteriTel').focus(); return; } let clean=tel.replace(/\D/g,''); if(clean.startsWith('0'))clean='90'+clean.substring(1); if(clean.length===10) clean='90'+clean; let toplam=document.getElementById('teklifToplam').innerText||''; let detay=sepet.map(t=>`• ${t.urun.substring(0,28)} RAL ${t.ral} - ${t.adet} Adet = ${fmt(t.kovaKdv*t.adet)}`).join('\n'); let mesaj=`Merhaba ${must},\n\n${ayar.firmaAdi||''} - Teklif:\n${detay}\n\n${toplam}`; window.open(`https://api.whatsapp.com/send?phone=${clean}&text=${encodeURIComponent(mesaj)}`,'_blank'); }
 
 // === ORTAK PROFESYONEL PDF OLUŞTURUCU ===
+
+function sanitizeTR(s){ if(!s) return ''; return String(s).replace(/İ/g,'I').replace(/ı/g,'i').replace(/Ğ/g,'G').replace(/ğ/g,'g').replace(/Ş/g,'S').replace(/ş/g,'s').replace(/Ö/g,'O').replace(/ö/g,'o').replace(/Ü/g,'U').replace(/ü/g,'u').replace(/Ç/g,'C').replace(/ç/g,'c'); }
+
 function getPdfData(){
-  let must=document.getElementById('musteriAd').value||'Müşteri';
+  let must=document.getElementById('musteriAd').value||'Musteri';
   let mustTel=getEffectiveTel()||document.getElementById('musteriTel').value||'';
   let mustAdres=document.getElementById('musteriAdres').value||'-';
   let firma=ayar.firmaAdi||'BAYDEMIR';
@@ -368,6 +552,7 @@ function getPdfData(){
   sepet.forEach(t=>{dahil+=t.kovaKdv*t.adet; haric+=t.kovaTl*t.adet;});
   return {firma, fAdres, fMail, fWeb, fTel, must, mustTel, mustAdres, tarih, veren, kdv, sepet, toplamHaric:haric, toplamFark:dahil-haric, toplamDahil:dahil};
 }
+
 function buildProfessionalPdfDoc(doc, data){
   const pageW=210;
   let y=10;
@@ -531,25 +716,114 @@ function yazdir(){
   });
   <\/script></div>
 <script>
-function openIslemModal(){ if(sepet.length===0){alert('Sepet boş');return;} document.getElementById('islemModal').classList.add('show'); }
-function closeIslemModal(){ document.getElementById('islemModal').classList.remove('show'); }
-function yazdirModal(){ closeIslemModal(); setTimeout(()=>yazdir(),200); }
-function smsGonderModal(){ closeIslemModal(); setTimeout(()=>{ 
+document.addEventListener('DOMContentLoaded', function(){
+  let ri = document.getElementById('ralInput');
+  if(ri){
+    ri.removeAttribute('readonly');
+    ri.readOnly = false;
+    ri.addEventListener('click', function(){ enableRal(false); });
+    ri.addEventListener('focus', function(){ if(ralList.length>0) filterRal(); });
+  }
+});
+</script>
+
+</body></html>`;
+  let w=window.open('','_blank');
+  w.document.write(h);
+  w.document.close();
+}
+
+function sanitizeTR(s){ if(!s) return ''; return String(s).replace(/İ/g,'I').replace(/ı/g,'i').replace(/Ğ/g,'G').replace(/ğ/g,'g').replace(/Ş/g,'S').replace(/ş/g,'s').replace(/Ö/g,'O').replace(/ö/g,'o').replace(/Ü/g,'U').replace(/ü/g,'u').replace(/Ç/g,'C').replace(/ç/g,'c'); }
+
+
+function sanitizeTR(s){ if(!s) return ''; return String(s).replace(/İ/g,'I').replace(/ı/g,'i').replace(/Ğ/g,'G').replace(/ğ/g,'g').replace(/Ş/g,'S').replace(/ş/g,'s').replace(/Ö/g,'O').replace(/ö/g,'o').replace(/Ü/g,'U').replace(/ü/g,'u').replace(/Ç/g,'C').replace(/ç/g,'c'); }
+
+function getPdfData(){
   let must=document.getElementById('musteriAd').value||'Musteri';
-  let tel=getEffectiveTel(); if(!tel){alert('Tel gir');return;}
+  let mustTel=getEffectiveTel()||document.getElementById('musteriTel').value||'';
+  let mustAdres=document.getElementById('musteriAdres').value||'-';
+  let firma=ayar.firmaAdi||'BAYDEMIR';
+  let fAdres=ayar.firmaAdres||'';
+  let fMail=ayar.firmaMail||'';
+  let fWeb=ayar.firmaWeb||'';
+  let fTel=ayar.telefon||'';
+  let veren=ayar.teklifVeren||'';
+  let tarih=document.getElementById('tarih').value?new Date(document.getElementById('tarih').value).toLocaleDateString('tr-TR'):new Date().toLocaleDateString('tr-TR');
+  let kdv=parseFloat(document.getElementById('setKdv').value)||20;
+  let haric=0,dahil=0;
+  sepet.forEach(t=>{dahil+=t.kovaKdv*t.adet; haric+=t.kovaTl*t.adet;});
+  return {firma, fAdres, fMail, fWeb, fTel, must, mustTel, mustAdres, tarih, veren, kdv, sepet, toplamHaric:haric, toplamFark:dahil-haric, toplamDahil:dahil};
+}
+
+function buildProfessionalPdfDoc(doc, data){
+  let y=10;
+  doc.setFillColor(1,27,68); doc.rect(0,0,210,18,'F');
+  doc.setTextColor(255,255,255); doc.setFont('helvetica','bold'); doc.setFontSize(13);
+  doc.text(sanitizeTR((data.firma||'TEKLIF')).substring(0,38).toUpperCase(),10,11);
+  doc.setFontSize(7); doc.setFont('helvetica','normal'); doc.text(sanitizeTR((data.fAdres||'')).substring(0,80),10,15);
+  doc.setFont('helvetica','bold'); doc.setFontSize(10); doc.setTextColor(255,204,0); doc.text('JOTUN',195,11,{align:'right'});
+  doc.setTextColor(255,255,255); doc.setFontSize(6); doc.setFont('helvetica','normal'); doc.text('Tarih: '+data.tarih,195,15,{align:'right'});
+  y=22; doc.setTextColor(0,0,0); doc.setFillColor(240,244,250); doc.setDrawColor(1,27,68); doc.rect(10,y,190,10,'FD');
+  doc.setFontSize(8); doc.setFont('helvetica','bold'); doc.text(sanitizeTR('Musteri: '+data.must+'   Tel: '+data.mustTel),12,y+4);
+  doc.setFont('helvetica','normal'); doc.setFontSize(7); doc.text(sanitizeTR('Adres: '+(data.mustAdres||'-')).substring(0,95),12,y+8);
+  y+=14; doc.setFont('helvetica','bold'); doc.setFontSize(10); doc.text('FIYAT TEKLIF FORMU',105,y,{align:'center'}); y+=4;
+  doc.setFillColor(1,27,68); doc.setTextColor(255,255,255); doc.rect(10,y,190,7,'F'); doc.setFontSize(7);
+  doc.text('RENK',12,y+4.5); doc.text('URUN',28,y+4.5); doc.text('RAL',92,y+4.5); doc.text('MIKTAR',110,y+4.5); doc.text('BIRIM',135,y+4.5); doc.text('TOPLAM',175,y+4.5); y+=7;
+  doc.setTextColor(0,0,0); doc.setFont('helvetica','normal'); doc.setFontSize(7.5);
+  data.sepet.forEach(t=>{
+    if(y>265){doc.addPage(); y=12; doc.setFillColor(1,27,68); doc.setTextColor(255,255,255); doc.rect(10,y,190,7,'F'); doc.text('RENK',12,y+4.5); doc.text('URUN',28,y+4.5); doc.text('RAL',92,y+4.5); doc.text('MIKTAR',110,y+4.5); doc.text('BIRIM',135,y+4.5); doc.text('TOPLAM',175,y+4.5); y+=7; doc.setTextColor(0,0,0);}
+    try{let hex=(t.hex||'#888888').replace('#',''); if(hex.length==3) hex=hex.split('').map(c=>c+c).join(''); let r=parseInt(hex.substr(0,2),16), g=parseInt(hex.substr(2,2),16), b=parseInt(hex.substr(4,2),16); doc.setFillColor(r,g,b); doc.setDrawColor(0,0,0); doc.rect(12,y,6,5,'FD');}catch(e){}
+    doc.text(t.urun.substring(0,40),28,y+3.5); doc.text(String(t.ral||''),92,y+3.5); doc.text(t.adet+'x'+t.lt+'LT',110,y+3.5); doc.text(fmt(t.kovaKdv||0),135,y+3.5); doc.setFont('helvetica','bold'); doc.text(fmt(t.kovaKdv*t.adet),175,y+3.5); doc.setFont('helvetica','normal'); y+=7;
+  });
+  y+=2; let boxY=y; doc.setFillColor(255,255,255); doc.setDrawColor(1,27,68); doc.rect(120,boxY,80,20,'FD'); doc.setFontSize(8); doc.text('Ara Toplam:',122,boxY+5); doc.text(fmt(data.toplamHaric),198,boxY+5,{align:'right'}); doc.text('KDV (%'+data.kdv+'): ',122,boxY+10); doc.text(fmt(data.toplamFark),198,boxY+10,{align:'right'}); doc.setFillColor(1,27,68); doc.setTextColor(255,255,255); doc.rect(120,boxY+13,80,7,'F'); doc.setFont('helvetica','bold'); doc.text('GENEL TOPLAM:',122,boxY+17.5); doc.text(fmt(data.toplamDahil),198,boxY+17.5,{align:'right'}); doc.setTextColor(0,0,0); y=boxY+28; doc.setFont('helvetica','normal'); doc.setFontSize(8); doc.text(sanitizeTR('Veren: '+(data.veren||'')),15,y); doc.text(sanitizeTR('Onay: '+data.must),120,y); doc.line(10,y+2,90,y+2); doc.line(120,y+2,200,y+2); doc.setFontSize(6); doc.setTextColor(100,100,100); doc.text('Kase / Imza',40,y+6); doc.text('Kase / Imza',150,y+6); return doc;
+}
+
+function smsGonder(){
+  let must=document.getElementById('musteriAd').value||'Musteri';
+  let tel=getEffectiveTel();
+  if(!tel || tel.length<7){ alert('Önce müşteri tel gir (05xx).'); document.getElementById('musteriTel').focus(); return; }
   let detay=sepet.map(t=>`• ${t.urun.substring(0,22)} RAL ${t.ral} ${fmt(t.kovaKdv*t.adet)}`).join('\n');
-  let mesaj=`Merhaba ${must},\n\nTeklif:\n${detay}\n\nTOPLAM: ${fmt(sepet.reduce((s,t)=>s+t.kovaKdv*t.adet,0))}`;
-  window.location.href=`sms:${tel}?&body=${encodeURIComponent(mesaj)}`;
-},200); }
-function pdfKaydetModal(){ closeIslemModal(); setTimeout(()=>{ 
+  let toplam=document.getElementById('teklifToplam').innerText||'';
+  let mesaj=`Merhaba ${must},\n\n${ayar.firmaAdi||'BAYDEMIR'} Teklif:\n${detay}\n\n${toplam}`;
+  window.location.href = `sms:${tel}?&body=${encodeURIComponent(mesaj)}`;
+}
+
+function waPdfGonder(){
   if(sepet.length===0){alert('Sepet boş');return}
-  let data=getPdfData(); const { jsPDF }=window.jspdf; let doc=new jsPDF({orientation:'portrait',unit:'mm',format:'a4'}); doc=buildProfessionalPdfDoc(doc,data); doc.save(`Teklif-${data.must}.pdf`);
-},200); }
-function emailGonderModal(){ closeIslemModal(); setTimeout(()=>{ 
-  let data=getPdfData(); let detay=sepet.map(t=>`• ${t.urun} RAL ${t.ral} ${fmt(t.kovaKdv*t.adet)}`).join('\n');
-  let subject=`Teklif - ${data.must} - ${fmt(data.toplamDahil)}`; let body=`Merhaba ${data.must},\n\n${detay}\n\nTOPLAM: ${fmt(data.toplamDahil)}`;
-  window.location.href=`mailto:?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-},200); }
+  let data=getPdfData();
+  const { jsPDF } = window.jspdf;
+  let doc=new jsPDF({orientation:'portrait',unit:'mm',format:'a4'});
+  doc=buildProfessionalPdfDoc(doc,data);
+  let fileName=`Teklif-${sanitizeTR(data.must)}-${data.tarih}.pdf`;
+  let pdfBlob=doc.output('blob');
+  let tel=getEffectiveTel();
+  let clean=tel?tel.replace(/\D/g,''):''; if(clean.startsWith('0'))clean='90'+clean.substring(1); if(clean.length===10) clean='90'+clean;
+  if(navigator.canShare && navigator.canShare({files:[new File([pdfBlob],fileName,{type:'application/pdf'})]})){
+    try{ let file=new File([pdfBlob],fileName,{type:'application/pdf'}); navigator.share({title:`Teklif - ${data.must}`,text:`${data.firma} - Toplam: ${fmt(data.toplamDahil)}`,files:[file]}).then(()=>{}); return; }catch(e){}
+  }
+  doc.save(fileName);
+  if(clean){ let detay=sepet.map(t=>`• ${t.urun.substring(0,26)} RAL ${t.ral} ${fmt(t.kovaKdv*t.adet)}`).join('\n'); let mesaj=`Merhaba ${data.must},\n\n${data.firma} Teklif PDF indirildi.\n${detay}\n\nTOPLAM: ${fmt(data.toplamDahil)}`; setTimeout(()=>{ window.open(`https://api.whatsapp.com/send?phone=${clean}&text=${encodeURIComponent(mesaj)}`,'_blank'); },700); }
+}
+
+function waTextGonder(){ smsGonder(); }
+
+loadAll();
+document.addEventListener('click',e=>{if(!e.target.closest('.rb') && !e.target.closest('#ralDrop')){let el=document.getElementById('ralDrop');if(el)el.style.display='none'}if(!e.target.closest('.sb') && !e.target.closest('#urunDrop') && !e.target.closest('#urunInput')){let u=document.getElementById('urunDrop');if(u)u.style.display='none'}});
+window.addEventListener('scroll',()=>{document.getElementById('ralDrop').style.display='none';document.getElementById('urunDrop').style.display='none';},{passive:true});
+if(window.matchMedia){window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change',()=>{if((ayar.tema||'light')==='auto') applyTheme()});}
+</script>
+<style>@keyframes spin{0%{transform:rotate(0)}100%{transform:rotate(360deg)}}</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function(){
+  let ri = document.getElementById('ralInput');
+  if(ri){
+    ri.removeAttribute('readonly');
+    ri.readOnly = false;
+    ri.addEventListener('click', function(){ enableRal(false); });
+    ri.addEventListener('focus', function(){ if(ralList.length>0) filterRal(); });
+  }
+});
 </script>
 
 </body></html>
