@@ -572,7 +572,7 @@ if(window.matchMedia){window.matchMedia('(prefers-color-scheme: dark)').addEvent
     if(e.key==='ArrowUp'){e.preventDefault(); ralMove(-1);}
     if(e.key==='Escape'){document.getElementById('ralDrop').style.display='none';}
   });
-  window.addEventListener('resize',function(){let d=document.getElementById('ralDrop'); if(d&&d.style.display==='block') placeRalDrop();});
+  window.addEventListener('resize',function(){let d=document.getElementById('ralDrop'); if(d&&d.style.display==='block') placeRalDrop();}); 
 })();
 </script>
 
