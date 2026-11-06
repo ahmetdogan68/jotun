@@ -467,6 +467,12 @@ function temizle(){if(confirm('Temizle?')){sepet=[];localStorage.setItem('teklif
 function waTextGonder(){ let must=document.getElementById('musteriAd').value||'Müşteri'; let tel=getEffectiveTel(); if(!tel || tel.length<7){ alert('Önce 📇 KİŞİLER den müşteri seç veya tel yaz.'); document.getElementById('musteriTel').focus(); return; } let clean=tel.replace(/\D/g,''); if(clean.startsWith('0'))clean='90'+clean.substring(1); if(clean.length===10) clean='90'+clean; let toplam=document.getElementById('teklifToplam').innerText||''; let detay=sepet.map(t=>`• ${t.urun.substring(0,28)} RAL ${t.ral} - ${t.adet} Adet = ${fmt(t.kovaKdv*t.adet)}`).join('\n'); let mesaj=`Merhaba ${must},\n\n${ayar.firmaAdi||''} - Teklif:\n${detay}\n\n${toplam}`; window.open(`https://api.whatsapp.com/send?phone=${clean}&text=${encodeURIComponent(mesaj)}`,'_blank'); }
 
 // === ORTAK PROFESYONEL PDF OLUŞTURUCU ===
+
+function sanitizeTR(s){
+  if(!s) return '';
+  return String(s).replace(/İ/g,'I').replace(/ı/g,'i').replace(/Ğ/g,'G').replace(/ğ/g,'g').replace(/Ş/g,'S').replace(/ş/g,'s').replace(/Ö/g,'O').replace(/ö/g,'o').replace(/Ü/g,'U').replace(/ü/g,'u').replace(/Ç/g,'C').replace(/ç/g,'c');
+}
+
 function getPdfData(){
   let must=document.getElementById('musteriAd').value||'Müşteri';
   let mustTel=getEffectiveTel()||document.getElementById('musteriTel').value||'';
@@ -490,9 +496,9 @@ function buildProfessionalPdfDoc(doc, data){
   doc.rect(0,0,210,18,'F');
   doc.setTextColor(255,255,255);
   doc.setFont('helvetica','bold'); doc.setFontSize(13);
-  doc.text((data.firma||'TEKLIF').substring(0,38).toUpperCase(),10,11);
+  doc.text(sanitizeTR((data.firma||'TEKLIF')).substring(0,38).toUpperCase(),10,11);
   doc.setFontSize(7); doc.setFont('helvetica','normal');
-  doc.text((data.fAdres||'').substring(0,80),10,15);
+  doc.text(sanitizeTR((data.fAdres||'')).substring(0,80),10,15);
   doc.setFont('helvetica','bold'); doc.setFontSize(10);
   doc.setTextColor(255,204,0);
   doc.text('JOTUN',195,11,{align:'right'});
@@ -503,9 +509,9 @@ function buildProfessionalPdfDoc(doc, data){
   doc.setFillColor(240,244,250); doc.setDrawColor(1,27,68);
   doc.rect(10,y,190,10,'FD');
   doc.setFontSize(8); doc.setFont('helvetica','bold');
-  doc.text('Musteri: '+data.must+'   Tel: '+data.mustTel,12,y+4);
+  doc.text(sanitizeTR('Musteri: '+data.must+'   Tel: '+data.mustTel),12,y+4);
   doc.setFont('helvetica','normal'); doc.setFontSize(7);
-  doc.text('Adres: '+(data.mustAdres||'-').substring(0,95),12,y+8);
+  doc.text(sanitizeTR('Adres: '+(data.mustAdres||'-')).substring(0,95),12,y+8);
   y+=14;
   doc.setFont('helvetica','bold'); doc.setFontSize(10);
   doc.text('FIYAT TEKLIF FORMU',105,y,{align:'center'});
@@ -535,7 +541,7 @@ function buildProfessionalPdfDoc(doc, data){
   doc.setFont('helvetica','bold'); doc.text('GENEL TOPLAM:',122,boxY+17.5); doc.text(fmtN(data.toplamDahil),198,boxY+17.5,{align:'right'});
   doc.setTextColor(0,0,0); y=boxY+28;
   doc.setFont('helvetica','normal'); doc.setFontSize(8);
-  doc.text('Veren: '+(data.veren||''),15,y); doc.text('Onay: '+data.must,120,y);
+  doc.text(sanitizeTR('Veren: '+(data.veren||'')),15,y); doc.text(sanitizeTR('Onay: '+data.must),120,y);
   doc.line(10,y+2,90,y+2); doc.line(120,y+2,200,y+2);
   doc.setFontSize(6); doc.setTextColor(100,100,100); doc.text('Kase / Imza',40,y+6); doc.text('Kase / Imza',150,y+6);
   return doc;
@@ -562,7 +568,7 @@ async function waPdfGonder(){
 }
 
 
-function emailGonder(){
+function emailGonder_OLD(){
   if(sepet.length===0){alert('Sepet boş');return}
   let data=getPdfData();
   const { jsPDF } = window.jspdf;
@@ -650,12 +656,12 @@ function yazdir(){
   <\/style></head><body><div class='page'><div class='top'><div class='topL'>${logo?`<img src='${logo}' onerror="this.style.display='none'">`:''}<div class='topLInfo'><b>${firma}</b><br>${fAdres}<br>${fMail} | ${fWeb}<br>Tel: ${fTel}</div></div><div class='topR'><img src='${jLogo}'><div style='font-size:10px;font-weight:900;margin-top:4px'>Tarih: ${tarih}</div></div></div><div class='titleCenter'>FİYAT TEKLİF FORMU</div><div class='musteriBox'><b>Musteri: ${must}</b> — Tel: ${mustTel}<br>Adres: ${mustAdres}</div><table><thead><tr><th>RENK</th><th>ÜRÜN</th><th>MİKTAR</th><th>BİRİM</th><th>TOPLAM</th></tr></thead><tbody>${rows}</tbody></table><div class='totals'><div class='box'><div class='row'><span>Ara Toplam</span><span>${fmtN(haric)}</span></div><div class='row'><span>KDV (%${kdv})</span><span>${fmtN(dahil-haric)}</span></div><div class='row total'><span>GENEL TOPLAM</span><span>${fmtN(dahil)}</span></div></div></div><div class='signRow'><div class='signBox'><b>Veren</b><br>${veren}${kaseHtml}<br>Kaşe / İmza</div><div class='signBox'><b>Onay</b><br>${must}<br><br><br>Kaşe / İmza</div></div>
   <div class='no-print'><button onclick='window.print()' style='background:#012060;color:#fff'>🖨 YAZDIR / PDF</button><button id='waPdfBtn2' style='background:#25D366;color:#fff'>📄 WhatsApp PDF (Aynı Format)</button><button id='waYaziBtn2' style='background:#128C7E;color:#fff'>💬 WhatsApp Yazı</button><button onclick='window.close()' style='background:#eee;color:#333;border:1px solid #ccc'>KAPAT</button></div></div>
   <script>
-  let sepet=JSON.parse(decodeURIComponent('${sepetJson}')); 
+  let sepet=JSON.parse(decodeURIComponent('${sepetJson}'));
   let must='${must}'; let mustTel='${mustTel}'; let firma='${firma}'; let fAdres='${fAdres}'; let veren='${veren}'; let tarih='${tarih}'; let dahil=${dahil}; let haric=${haric}; let kdv=${kdv};
   function fmtN(n){return new Intl.NumberFormat('tr-TR',{minimumFractionDigits:2,maximumFractionDigits:2}).format(n)+' TL'}
   function getPdfData2(){let h=0,d=0; sepet.forEach(t=>{d+=t.kovaKdv*t.adet; h+=t.kovaTl*t.adet;}); return {firma:firma,fAdres:fAdres,must:must,mustTel:mustTel,mustAdres:'${mustAdres}',tarih:tarih,veren:veren,kdv:kdv,sepet:sepet,toplamHaric:h,toplamFark:d-h,toplamDahil:d};}
   function buildProfessionalPdfDoc2(doc,data){
-    let y=10; doc.setFillColor(1,27,68); doc.rect(0,0,210,18,'F'); doc.setTextColor(255,255,255); doc.setFont('helvetica','bold'); doc.setFontSize(13); doc.text((data.firma||'TEKLIF').substring(0,38).toUpperCase(),10,11); doc.setFontSize(7); doc.setFont('helvetica','normal'); doc.text((data.fAdres||'').substring(0,80),10,15); doc.setFont('helvetica','bold'); doc.setFontSize(10); doc.setTextColor(255,204,0); doc.text('JOTUN',195,11,{align:'right'}); doc.setTextColor(255,255,255); doc.setFontSize(6); doc.setFont('helvetica','normal'); doc.text('Tarih: '+data.tarih,195,15,{align:'right'}); y=22; doc.setTextColor(0,0,0); doc.setFillColor(240,244,250); doc.setDrawColor(1,27,68); doc.rect(10,y,190,10,'FD'); doc.setFontSize(8); doc.setFont('helvetica','bold'); doc.text('Musteri: '+data.must+'   Tel: '+data.mustTel,12,y+4); doc.setFont('helvetica','normal'); doc.setFontSize(7); doc.text('Adres: '+(data.mustAdres||'-').substring(0,95),12,y+8); y+=14; doc.setFont('helvetica','bold'); doc.setFontSize(10); doc.text('FIYAT TEKLIF FORMU',105,y,{align:'center'}); y+=4; doc.setFillColor(1,27,68); doc.setTextColor(255,255,255); doc.rect(10,y,190,7,'F'); doc.setFontSize(7); doc.text('RENK',12,y+4.5); doc.text('URUN',28,y+4.5); doc.text('RAL',92,y+4.5); doc.text('MIKTAR',110,y+4.5); doc.text('BIRIM',135,y+4.5); doc.text('TOPLAM',175,y+4.5); y+=7; doc.setTextColor(0,0,0); doc.setFont('helvetica','normal'); doc.setFontSize(7.5); data.sepet.forEach(t=>{ if(y>265){doc.addPage(); y=12; doc.setFillColor(1,27,68); doc.setTextColor(255,255,255); doc.rect(10,y,190,7,'F'); doc.text('RENK',12,y+4.5); doc.text('URUN',28,y+4.5); doc.text('RAL',92,y+4.5); doc.text('MIKTAR',110,y+4.5); doc.text('BIRIM',135,y+4.5); doc.text('TOPLAM',175,y+4.5); y+=7; doc.setTextColor(0,0,0);} try{let hex=(t.hex||'#888888').replace('#',''); if(hex.length==3) hex=hex.split('').map(c=>c+c).join(''); let r=parseInt(hex.substr(0,2),16), g=parseInt(hex.substr(2,2),16), b=parseInt(hex.substr(4,2),16); doc.setFillColor(r,g,b); doc.setDrawColor(0,0,0); doc.rect(12,y,6,5,'FD');}catch(e){} doc.text(t.urun.substring(0,40),28,y+3.5); doc.text(String(t.ral||''),92,y+3.5); doc.text(t.adet+'x'+t.lt+'LT',110,y+3.5); doc.text(fmtN(t.kovaKdv||0),135,y+3.5); doc.setFont('helvetica','bold'); doc.text(fmtN(t.kovaKdv*t.adet),175,y+3.5); doc.setFont('helvetica','normal'); y+=7; doc.setDrawColor(220,220,220); doc.line(10,y-1,200,y-1); }); y+=2; let boxY=y; doc.setFillColor(255,255,255); doc.setDrawColor(1,27,68); doc.rect(120,boxY,80,20,'FD'); doc.setFontSize(8); doc.text('Ara Toplam:',122,boxY+5); doc.text(fmtN(data.toplamHaric),198,boxY+5,{align:'right'}); doc.text('KDV (%'+data.kdv+'): ',122,boxY+10); doc.text(fmtN(data.toplamFark),198,boxY+10,{align:'right'}); doc.setFillColor(1,27,68); doc.setTextColor(255,255,255); doc.rect(120,boxY+13,80,7,'F'); doc.setFont('helvetica','bold'); doc.text('GENEL TOPLAM:',122,boxY+17.5); doc.text(fmtN(data.toplamDahil),198,boxY+17.5,{align:'right'}); doc.setTextColor(0,0,0); y=boxY+28; doc.setFont('helvetica','normal'); doc.setFontSize(8); doc.text('Veren: '+(data.veren||''),15,y); doc.text('Onay: '+data.must,120,y); doc.line(10,y+2,90,y+2); doc.line(120,y+2,200,y+2); doc.setFontSize(6); doc.setTextColor(100,100,100); doc.text('Kase / Imza',40,y+6); doc.text('Kase / Imza',150,y+6); return doc;
+    let y=10; doc.setFillColor(1,27,68); doc.rect(0,0,210,18,'F'); doc.setTextColor(255,255,255); doc.setFont('helvetica','bold'); doc.setFontSize(13); doc.text(sanitizeTR((data.firma||'TEKLIF')).substring(0,38).toUpperCase(),10,11); doc.setFontSize(7); doc.setFont('helvetica','normal'); doc.text(sanitizeTR((data.fAdres||'')).substring(0,80),10,15); doc.setFont('helvetica','bold'); doc.setFontSize(10); doc.setTextColor(255,204,0); doc.text('JOTUN',195,11,{align:'right'}); doc.setTextColor(255,255,255); doc.setFontSize(6); doc.setFont('helvetica','normal'); doc.text('Tarih: '+data.tarih,195,15,{align:'right'}); y=22; doc.setTextColor(0,0,0); doc.setFillColor(240,244,250); doc.setDrawColor(1,27,68); doc.rect(10,y,190,10,'FD'); doc.setFontSize(8); doc.setFont('helvetica','bold'); doc.text(sanitizeTR('Musteri: '+data.must+'   Tel: '+data.mustTel),12,y+4); doc.setFont('helvetica','normal'); doc.setFontSize(7); doc.text(sanitizeTR('Adres: '+(data.mustAdres||'-')).substring(0,95),12,y+8); y+=14; doc.setFont('helvetica','bold'); doc.setFontSize(10); doc.text('FIYAT TEKLIF FORMU',105,y,{align:'center'}); y+=4; doc.setFillColor(1,27,68); doc.setTextColor(255,255,255); doc.rect(10,y,190,7,'F'); doc.setFontSize(7); doc.text('RENK',12,y+4.5); doc.text('URUN',28,y+4.5); doc.text('RAL',92,y+4.5); doc.text('MIKTAR',110,y+4.5); doc.text('BIRIM',135,y+4.5); doc.text('TOPLAM',175,y+4.5); y+=7; doc.setTextColor(0,0,0); doc.setFont('helvetica','normal'); doc.setFontSize(7.5); data.sepet.forEach(t=>{ if(y>265){doc.addPage(); y=12; doc.setFillColor(1,27,68); doc.setTextColor(255,255,255); doc.rect(10,y,190,7,'F'); doc.text('RENK',12,y+4.5); doc.text('URUN',28,y+4.5); doc.text('RAL',92,y+4.5); doc.text('MIKTAR',110,y+4.5); doc.text('BIRIM',135,y+4.5); doc.text('TOPLAM',175,y+4.5); y+=7; doc.setTextColor(0,0,0);} try{let hex=(t.hex||'#888888').replace('#',''); if(hex.length==3) hex=hex.split('').map(c=>c+c).join(''); let r=parseInt(hex.substr(0,2),16), g=parseInt(hex.substr(2,2),16), b=parseInt(hex.substr(4,2),16); doc.setFillColor(r,g,b); doc.setDrawColor(0,0,0); doc.rect(12,y,6,5,'FD');}catch(e){} doc.text(t.urun.substring(0,40),28,y+3.5); doc.text(String(t.ral||''),92,y+3.5); doc.text(t.adet+'x'+t.lt+'LT',110,y+3.5); doc.text(fmtN(t.kovaKdv||0),135,y+3.5); doc.setFont('helvetica','bold'); doc.text(fmtN(t.kovaKdv*t.adet),175,y+3.5); doc.setFont('helvetica','normal'); y+=7; doc.setDrawColor(220,220,220); doc.line(10,y-1,200,y-1); }); y+=2; let boxY=y; doc.setFillColor(255,255,255); doc.setDrawColor(1,27,68); doc.rect(120,boxY,80,20,'FD'); doc.setFontSize(8); doc.text('Ara Toplam:',122,boxY+5); doc.text(fmtN(data.toplamHaric),198,boxY+5,{align:'right'}); doc.text('KDV (%'+data.kdv+'): ',122,boxY+10); doc.text(fmtN(data.toplamFark),198,boxY+10,{align:'right'}); doc.setFillColor(1,27,68); doc.setTextColor(255,255,255); doc.rect(120,boxY+13,80,7,'F'); doc.setFont('helvetica','bold'); doc.text('GENEL TOPLAM:',122,boxY+17.5); doc.text(fmtN(data.toplamDahil),198,boxY+17.5,{align:'right'}); doc.setTextColor(0,0,0); y=boxY+28; doc.setFont('helvetica','normal'); doc.setFontSize(8); doc.text('Veren: '+(data.veren||''),15,y); doc.text('Onay: '+data.must,120,y); doc.line(10,y+2,90,y+2); doc.line(120,y+2,200,y+2); doc.setFontSize(6); doc.setTextColor(100,100,100); doc.text('Kase / Imza',40,y+6); doc.text('Kase / Imza',150,y+6); return doc;
   }
   document.getElementById('waYaziBtn2').addEventListener('click', function(){let detay=sepet.map(t=> '• '+t.urun.substring(0,28)+' RAL '+t.ral+' '+t.adet+' Adet = '+fmtN(t.kovaKdv*t.adet)).join('\\n');let mesaj='Merhaba '+must+',\\n\\n'+firma+' - Teklif:\\n'+detay+'\\n\\nTOPLAM: '+fmtN(dahil);let clean=mustTel.replace(/\\D/g,''); if(clean.startsWith('0')) clean='90'+clean.substring(1); if(clean.length==10) clean='90'+clean;window.open('https://api.whatsapp.com/send?phone='+clean+'&text='+encodeURIComponent(mesaj),'_blank');});
   document.getElementById('waPdfBtn2').addEventListener('click', async function(){
