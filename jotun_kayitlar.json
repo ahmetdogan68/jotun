@@ -3,6 +3,18 @@
   "ral_no": "9002",
   "ral_isim": "GREY WHITE",
   "base_no": "1",
+  "product": "PILOT QD TOPCOAT BASE 1 (18 LT)",
+  "formul": "SB002.4 YX004 - Jotun Formül",
+  "colorant_cost": "50.71",
+  "maliyet": "50.71",
+  "can_size": "18L",
+  "lt": 18
+},
+
+  {
+  "ral_no": "9002",
+  "ral_isim": "GREY WHITE",
+  "base_no": "1",
   "product": "OPTIPRO UNIVERSAL TOPCOAT BASE 1 (18 LT)",
   "formul": "SB003 YX007.6 - Jotun Formül",
   "colorant_cost": "83.24",
