@@ -1,245 +1,154 @@
-<!DOCTYPE html><html lang='tr'><head><meta charset='UTF-8'><meta name='viewport' content='width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no'>
-<title>Jotun Renk Hesaplama - Pigment Kilitli</title>
-<link rel="icon" type="image/png" href="https://jcm.jotun.com/favicon.png">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-<style>
-:root{--jotun-blue:#011B44;--jotun-yellow:#FFCC00;--bg:#E9ECF0;--card:#FFF;--card-border:#D6DAE2;--text:#0B1E3A;--text2:#5A6A85;--input-border:#012060}
-.theme-dark{--bg:#070F1F;--card:#111E36;--card-border:#22365E;--text:#E9F1FF;--text2:#9AB0D0;--input-border:#2E4A7A}
-*{box-sizing:border-box;margin:0;padding:0;min-width:0}
-body{font-family:Inter,Arial;background:var(--bg);color:var(--text);overflow-x:hidden}
-.w{max-width:760px;margin:0 auto;background:var(--bg);min-height:auto;padding:56px 8px 20px 8px;overflow-x:hidden}
-.h{background:#011B44;color:#fff;height:56px;display:flex;align-items:center;justify-content:center;position:fixed;top:0;left:0;right:0;width:100%;z-index:1000;box-shadow:0 2px 10px rgba(0,0,0,.25)}
-.h-inner{width:100%;max-width:760px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:0 8px;height:100%}
-.h-center{position:absolute;left:50%;transform:translateX(-50%);white-space:nowrap}
-.h-center-title{font-family:'Playfair Display',serif;font-size:18px;color:#fff}
-.c{background:var(--card);border-radius:6px;padding:6px;margin-top:6px;border:1px solid var(--card-border)}
-.c-head{font-size:11px;font-weight:900;color:var(--jotun-blue);letter-spacing:.04em;text-transform:uppercase;margin-bottom:6px;display:flex;justify-content:space-between}
-.sb{display:flex;gap:6px;align-items:center}.sb input{flex:1;padding:0 12px;border:2px solid var(--input-border);border-radius:6px;font-weight:700;height:48px;font-size:14px;background:var(--card);color:var(--text)}
-.drop{position:fixed;background:var(--card);border-radius:10px;max-height:420px;overflow:auto;z-index:999999;display:none;box-shadow:0 12px 30px rgba(0,0,0,.3);border:2px solid var(--jotun-blue);min-width:320px;max-width:520px}
-.it{padding:10px 12px;border-bottom:1px solid var(--card-border);display:flex;justify-content:space-between;font-size:12px;cursor:pointer;min-height:42px;align-items:center;gap:8px}
-.it-k{background:rgba(255,204,0,.14)}
-#ralDrop{position:fixed;background:var(--card);border-radius:10px;max-height:260px;overflow:auto;z-index:999999;display:none;box-shadow:0 15px 40px rgba(0,0,0,.35);border:2px solid var(--jotun-blue);min-width:280px;max-width:340px}
-.ri{padding:8px 12px;display:flex;gap:10px;align-items:center;border-bottom:1px solid var(--card-border);cursor:pointer;font-size:14px}
-.rs{width:32px;height:32px;border-radius:6px;border:1.8px solid #999;flex-shrink:0}
-.rb{display:grid !important;grid-template-columns:1fr 1fr 44px !important;gap:6px !important;align-items:stretch !important}
-.sw{width:100% !important;height:56px !important;font-size:13px !important;font-weight:900 !important;border-radius:10px !important;display:flex !important;align-items:center !important;justify-content:center !important;background:#fff;border:2.5px solid #011B44}
-.bil{height:56px !important;border-radius:10px !important;border:2px solid var(--input-border);display:flex;flex-direction:column;overflow:hidden;background:var(--card)}
-.bilU{display:flex;flex:1;border-bottom:1.5px solid var(--card-border)}.bilU-ral{flex:1;display:flex;align-items:center;justify-content:center;border-right:1.5px solid var(--card-border)}.bilU-pig{flex:1;display:flex;align-items:center;justify-content:center;background:rgba(255,204,0,.14)}.bilA{flex:1;display:flex;align-items:center;justify-content:center}
-.bil input{border:none;width:100%;text-align:center;font-weight:900;font-size:15px;background:transparent;color:var(--text);font-family:Inter}
-.btnS{background:var(--jotun-yellow);color:var(--jotun-blue);border:none;border-radius:6px;padding:0 8px;font-weight:900;cursor:pointer;min-width:40px;height:50px;font-size:15px;display:flex;align-items:center;justify-content:center}
-.res{background:var(--jotun-blue);color:#fff;border-radius:6px;padding:6px;margin-top:6px}
-.resGrid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;background:rgba(0,0,0,.22);border-radius:6px;padding:8px}
-.resLabel{font-size:7.5px;color:#8AA0C5;font-weight:800;letter-spacing:.06em;text-transform:uppercase}.resVal{font-weight:800;font-size:15px;margin-top:2px}.resValBig{font-weight:900;font-size:16px}
-.hesapDetay{background:var(--card);border:1px dashed var(--jotun-yellow);border-radius:6px;padding:5px 7px;margin-top:6px;font-size:9px;color:var(--text);line-height:1.4;font-weight:600}
-.actionBtns{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:8px}.actionBtns button{padding:9px;border-radius:6px;font-weight:800;font-size:11px;cursor:pointer;text-transform:uppercase;border:none}
-.teklifCard{background:var(--card);border-radius:6px;padding:8px;margin-top:8px;border:1px solid var(--card-border)}
-.sikGrid{display:grid;grid-template-columns:repeat(10,1fr);gap:4px;margin-top:6px}.sikCard{background:var(--card);border-radius:5px;overflow:hidden;border:1.5px solid var(--card-border);cursor:pointer;position:relative;height:56px;display:flex;flex-direction:column}.sikTop{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center}.sikRal{font-weight:900;font-size:14px}.sikBody{background:#0B1E3A;color:#fff;padding:2px;font-size:7px;font-weight:900;text-align:center}
-.kilitBadge{font-size:8px;font-weight:900;background:#00C853;color:#fff;padding:2px 6px;border-radius:10px;white-space:nowrap}
-.kilitBadge.acik{background:#FF9800}
-.pigWrap{position:relative;display:flex;align-items:center;justify-content:center;width:100%}
-@media(max-width:700px){.sikGrid{grid-template-columns:repeat(3,1fr)} .rb{grid-template-columns:1fr 1fr 40px !important} .sw{height:46px !important} .bil{height:46px !important}}
-</style></head><body>
-<div class='w'>
-<div class='h'><div class='h-inner'><div style='font-weight:900;color:#fff'>BAYDEMİR</div><div class='h-center'><div class='h-center-title'>JOTUN <b>HESAPLAMA</b> <span style='font-size:10px;background:#FFCC00;color:#011B44;padding:2px 6px;border-radius:10px;font-weight:900'>PİGMENT KİLİTLİ v2</span></div></div><div>⭐</div></div></div>
-
-<!-- 1 RAL -->
-<div class='c'><div class='c-head'>1 — RAL KARTELASI — <span id='ralSay'>-</span> <span id='pigmentDurum' class='kilitBadge acik'>PİGMENT AÇIK - İLK KAYITTA KİLİTLENECEK</span></div>
-<div class='rb'><div class='sw' id='swatch'>BOS</div><div class='bil'><div class='bilU'><div class='bilU-ral'><input id='ralInput' placeholder='RAL 7016' readonly onclick='enableRal()' oninput='filterRal()'></div><div class='bilU-pig'><div class='pigWrap'><input id='pigment' placeholder='0,00' oninput='calc()'><span style='font-size:16px;font-weight:900;padding-right:6px'>₺</span></div></div></div><div class='bilA'><input id='ralForm' placeholder='FORMÜL / NOT' style='font-size:11px;font-weight:600;color:#5A6A85'></div></div><button class='btnS' onclick='enableRal()'>🔍</button></div>
-<div id='pigmentAciklama' style='font-size:9px;font-weight:700;color:#5A6A85;margin-top:4px'>💡 Pigment maliyeti ilk kayıtta yazılır, bir daha değişmez. Baz fiyatı her zaman güncel tablodan alınır.</div></div>
-
-<!-- 2 URUN -->
-<div class='c'><div class='c-head'>2 — ÜRÜN SEÇİMİ — <span id='canliSay'>0</span> ÜRÜN • <span id='kayitSay'>0</span> KAYIT <small id='cloudInfo' style='background:#FFCC00;color:#011B44;padding:1px 4px;border-radius:8px;font-size:7px'></small></div>
-<div class='sb' style='margin-top:5px'><input id='urunInput' placeholder='Ürün ara - Örn: CONSEAL' readonly onclick='enableUrun()' oninput='filterUrun()'><button class='btnS' onclick='enableUrun()'>🔍</button></div>
-<div id='urunDetay' style='font-size:9px;margin-top:5px;display:none;font-weight:700;background:rgba(1,32,96,.06);padding:3px 6px;border-radius:4px'></div>
-<div id='fiyatUyarisi' style='display:none;font-size:9px;font-weight:800;color:#E53935;background:#FFEBEE;padding:5px 7px;border-radius:5px;margin-top:5px'></div>
-</div>
-
-<!-- 3 AMBALAJ -->
-<div class='c'><div class='c-head'>3 — AMBALAJ <small id='ambInfo'></small></div><div id='ambList' style='display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:5px;margin-top:5px'></div></div>
-
-<!-- SONUC -->
-<div class='res'>
-<div style='display:flex;gap:8px;margin-bottom:8px'><div style='flex:1;background:rgba(0,0,0,.18);border-radius:6px;padding:6px 8px'><div style='font-size:7.5px;color:#8AA0C5;font-weight:900'>💵 DOLAR</div><div id='kurBuyuk' style='font-weight:900'>49,7891</div></div><div style='flex:1;background:rgba(0,0,0,.18);border-radius:6px;padding:6px 8px'><div style='font-size:7.5px;color:#8AA0C5;font-weight:900'>💶 EURO</div><div style='font-weight:900;color:#FFCC00'>54,20</div></div><div><input id='setDolarVisible' value='49,7891' style='width:68px;padding:5px;border-radius:5px;text-align:center;font-weight:800;background:rgba(255,255,255,.08);color:#fff;border:1px solid rgba(255,255,255,.2)' oninput='document.getElementById("setDolar").value=this.value;calc()'><input id='setDolar' value='49,7891' style='display:none'><input id='setKar' value='25' style='display:none'><input id='setKdv' value='20' style='display:none'><input id='setEuro' value='54,20' style='display:none'></div></div>
-<div class='resGrid'><div><div class='resLabel'>LT MALİYET</div><div id='maliyet' class='resVal'>-</div></div><div><div class='resLabel'>LT SATIŞ</div><div id='ltSatis' class='resVal' style='color:#FFCC00'>-</div></div><div><div class='resLabel' id='kovaLabel'>KOVA</div><div id='kova' class='resValBig'>-</div><div id='kovaKdv' style='color:#FFCC00;font-size:10px;font-weight:800'>-</div></div></div>
-<div id='hesapDetay' class='hesapDetay' style='display:none'></div>
-<div class='actionBtns'><button onclick='teklifeEkle()' style='background:#fff;color:#011B44'>EKLE ✓</button><button onclick='kaydet()' style='background:#00C853;color:#fff'>☁ SIK'A KAYDET (PİGMENTİ KİLİTLE)</button></div>
-</div>
-
-<div class='teklifCard'><b style='font-size:11px'>TEKLİF (<span id='teklifSayi'>0</span>)</b><div style='display:grid;grid-template-columns:1fr 1fr;gap:5px;margin-top:6px'><input id='musteriAd' placeholder='Müşteri Adı' style='padding:7px;border:1.5px solid #D6DAE2;border-radius:6px'><input id='musteriAdres' placeholder='Müşteri Adres' style='padding:7px;border:1.5px solid #D6DAE2;border-radius:6px'><input id='musteriTel' placeholder='Müşteri Tel' style='padding:7px;border:1.5px solid #D6DAE2;border-radius:6px'><input id='tarih' type='date' style='padding:7px;border:1.5px solid #D6DAE2;border-radius:6px'></div><div id='teklifList' style='margin-top:6px'></div><div id='teklifToplam' style='display:none;background:#011B44;color:#fff;border-radius:6px;padding:8px;margin-top:6px;font-size:12px;font-weight:800'></div></div>
-<div class='c'><b style='font-size:11px'>⭐ SIK KULLANILANLAR — <span id='sikSay'>0</span></b> <button onclick='bulutYenile()' style='background:#00C853;color:#fff;border:none;border-radius:3px;padding:2px 6px;font-size:7px;font-weight:800'>🔄 YENİLE</button><div id='sikBox' class='sikGrid'></div></div>
-</div>
-<div id='ralDrop'></div><div class='drop' id='urunDrop'></div>
+<!-- ===== PIGMENT KILIDI + FIYAT ALT SATIRDAN YAMASI - MEVCUT DOSYANA DOKUNMA, SADECE BUNU EN ALTA </body>'den ÖNCE YAPIŞTIR ===== -->
 <script>
-const BULUT_URL='https://crudcrud.com/api/772420af1ef84f3f8653d9e074bcdde8';
-const BULUT_RES='jotun_sik';
-let urunler=[],ralList=[],kayitlar=[],secKayit=[],amb=[{ad:'3.6L',lt:3.6},{ad:'4.5L',lt:4.5},{ad:'18L',lt:18},{ad:'20L',lt:20}];
-let ayar=JSON.parse(localStorage.getItem('jotun_ayarlar')||'{"kar":25,"kdv":20,"dolar":"49,7891","euro":"54,20"}');
-let secUrun=null,secAmb=2,secLT=18,secHex='#FFF',son=null,tempRal='',secName='',sepet=JSON.parse(localStorage.getItem('teklif_sepet')||'[]');let sonHesap={};let secCompPair=null;let bulutCache=[];
+(function(){
+  // 1) PIGMENT KILIDI - localStorage'da RAL -> pigment, bir kere yazilir degismez
+  function kilitOku(){ try{ return JSON.parse(localStorage.getItem('jotun_pigment_kilit')||'{}') }catch(e){ return {} } }
+  function kilitYaz(o){ localStorage.setItem('jotun_pigment_kilit', JSON.stringify(o)) }
+  function kilitVar(ral){ let m=kilitOku(); return m[String(ral||'').trim()]||null }
 
-// ===== YENİ: PİGMENT KİLİDİ =====
-// Anahtar: RAL kodu -> {pigment: 56.23, tarih: '...', ilkUrun: '...'}
-// Bir kere yazılır, bir daha değişmez. Baz fiyatı ise her seferinde products.json'dan güncel alınır.
-function pigmentKilitOku(){try{return JSON.parse(localStorage.getItem('jotun_pigment_kilit')||'{}')}catch(e){return {}}}
-function pigmentKilitYaz(obj){localStorage.setItem('jotun_pigment_kilit',JSON.stringify(obj))}
-function pigmentKilitVarMi(ral){let m=pigmentKilitOku(); return m[String(ral||'').trim()]||null}
-function pigmentKilitKoy(ral,pigment){
-  if(!ral||!pigment) return false;
-  let m=pigmentKilitOku(); let k=String(ral).trim();
-  if(m[k]) return false; // zaten kilitli, değiştirme
-  m[k]={pigment:parseFloat(String(pigment).replace('.','').replace(',','.'))||0, tarih:new Date().toISOString(), ilkKayit:true};
-  pigmentKilitYaz(m); return true;
-}
-function pigmentKilitGoster(){
-  let el=document.getElementById('pigmentDurum'); let acik=document.getElementById('pigmentAciklama'); let pig=document.getElementById('pigment');
-  let kilit=pigmentKilitVarMi(tempRal);
-  if(kilit && tempRal){
-    el.innerText='🔒 PİGMENT KİLİTLİ - '+tempRal+' = '+new Intl.NumberFormat('tr-TR',{minimumFractionDigits:2,maximumFractionDigits:2}).format(kilit.pigment)+' TL (DEĞİŞMEZ)';
-    el.className='kilitBadge'; el.style.background='#00C853';
-    pig.setAttribute('readonly','true'); pig.style.background='rgba(0,200,83,.08)';
-    if(acik) acik.innerHTML='🔒 Bu RAL\'ın pigmenti ilk kayıtta kilitlendi. Yılbaşında zam gelse bile pigment değişmez, sadece baz fiyatı güncellenir.';
-  } else {
-    el.innerText=tempRal ? 'PİGMENT AÇIK - İLK KAYITTA KİLİTLENECEK' : 'PİGMENT AÇIK';
-    el.className='kilitBadge acik';
-    pig.removeAttribute('readonly'); pig.style.background='transparent';
-    if(acik) acik.innerHTML='💡 Pigment maliyeti ilk kayıtta yazılır, bir daha değişmez. Baz fiyatı her zaman güncel tablodan alınır.';
-  }
-}
-function pigmentiKilittenDoldur(ral){
-  // Önce kilit tablosu, yoksa eski kayıtlardaki ilk pigment (geriye dönük uyum)
-  let kilit=pigmentKilitVarMi(ral);
-  if(kilit){ document.getElementById('pigment').value=new Intl.NumberFormat('tr-TR',{minimumFractionDigits:2,maximumFractionDigits:2}).format(kilit.pigment); pigmentKilitGoster(); calc(); return true; }
-  let eski=kayitlar.find(x=>String(x.ral_no).trim()===String(ral).trim() && x.colorant_cost);
-  if(eski){ let v=parseFloat(String(eski.colorant_cost).replace('.','').replace(',','.'))||0; if(v>0){ pigmentKilitKoy(ral,v); document.getElementById('pigment').value=new Intl.NumberFormat('tr-TR',{minimumFractionDigits:2,maximumFractionDigits:2}).format(v); pigmentKilitGoster(); calc(); return true; } }
-  // Kilit yoksa boş bırak, kullanıcı ilk kez yazacak
-  document.getElementById('pigment').value=''; pigmentKilitGoster(); return false;
-}
+  // Eski kayitlardaki pigmenti bir kerelik kilide tasi
+  try{
+    let m=kilitOku(); let deg=false;
+    (kayitlar||[]).forEach(function(k){ let rk=String(k.ral_no||'').trim(); if(rk && k.colorant_cost && !m[rk]){ let v=parseFloat(String(k.colorant_cost).replace(/\./g,'').replace(',','.'))||0; if(v>0){ m[rk]={pigment:v, tarih:new Date().toISOString()}; deg=true; } } });
+    if(deg) kilitYaz(m);
+  }catch(e){}
 
-function parsePrice(raw){if(raw==null) return 0;let s=String(raw).trim();s=s.replace(/[^0-9,\.\-]/g,'').replace(',','.');let parts=s.split('.');if(parts.length>2){s=parts[0]+'.'+parts.slice(1).join('');}let v=parseFloat(s);return isNaN(v)?0:v;}
-function parseLT(ad){if(!ad) return 0;let m=ad.match(/\(\s*([\d.,]+)\s*LT\s*\)/i);if(m){let v=parseFloat(m[1].replace(',','.'));return isNaN(v)?0:v;}return 0;}
-function fmt(n){return new Intl.NumberFormat('tr-TR',{minimumFractionDigits:2,maximumFractionDigits:2}).format(n)+' TL'}
-function baseNo(a){let m=(a||'').toUpperCase().match(/BASE\s*(\d+)/);return m?m[1]:null}
-function isCompA(s){return /COMP\.?\s*A/i.test(s||'')}
-function isCompB(s){return /COMP\.?\s*B/i.test(s||'')}
-function isComp(s){return isCompA(s)||isCompB(s)}
-function is20LT(ad){return /\(20\s*LT\)/i.test(ad||'')}
-function getSetLT(ad){return is20LT(ad)?20:18}
-function norm(s){let u=(s||'').toUpperCase();u=u.replace(/\(.*LT.*?\)/gi,'');u=u.replace(/BASE\s*\d+/gi,'');u=u.replace(/COMP\.?\s*[AB]/gi,'');u=u.replace(/[^A-Z0-9 ]/g,' ');u=u.replace(/\s+/g,' ').trim();return u;}
-// YENİ: Fiyat HER ZAMAN güncel products.json'dan. Eski kayıttaki fiyat asla kullanılmaz.
-function findExactPrice(productName){
-  let up=productName.trim().toUpperCase();
-  let ex=urunler.find(u=>u[0].trim().toUpperCase()===up);
-  if(ex && ex[1]>0) return ex[1];
-  let n=norm(productName); let lt=parseLT(productName);
-  let candidates=urunler.filter(u=>norm(u[0])===n && u[1]>0);
-  if(candidates.length>0){ if(lt>0){let same=candidates.find(u=>Math.abs(parseLT(u[0])-lt)<0.1); if(same) return same[1];} return candidates[0][1]; }
-  return null; // 0 döndürmüyoruz, YOK diyoruz
-}
-function findCompPair(name){let up=name.toUpperCase().trim();let n=norm(name);if(!n) return null;let myLT=parseLT(name);let setLT=getSetLT(name);let all=urunler.map((u,i)=>({ad:u[0],fiyat:u[1],parsed:parseLT(u[0]),i,setLT:getSetLT(u[0])}));let sameFamily=all.filter(o=>{if(o.ad.toUpperCase().trim()===up) return false;return norm(o.ad)===n});let wantB=isCompA(name);let wantA=isCompB(name);let isBase=!isComp(name);let cands=sameFamily;if(wantB) cands=cands.filter(o=>isCompB(o.ad));else if(wantA) cands=cands.filter(o=>isCompA(o.ad));else if(isBase) cands=cands.filter(o=>isCompB(o.ad));if(cands.length===0) return null;cands.sort((a,b)=>Math.abs((myLT+a.parsed)-setLT)-Math.abs((myLT+b.parsed)-setLT));let best=cands[0];return {ad:best.ad,lt:best.parsed||18,fiyat:best.fiyat,i:best.i,parsed:best.parsed,setLT:best.setLT};}
-function trueLTFromSet(ad){let p=parseLT(ad);if(p>0) return p;let setLT=getSetLT(ad);if(isCompB(ad)) return 2.0;return setLT;}
-function getRalHex(kod){if(!kod) return '#777';let r=ralList.find(x=>String(x.kod).trim()===String(kod).trim());return r?r.hex:'#777';}
-function getContrast(hex){try{let c=hex.replace('#','');if(c.length===3) c=c.split('').map(x=>x+x).join('');let r=parseInt(c.substr(0,2),16), g=parseInt(c.substr(2,2),16), b=parseInt(c.substr(4,2),16);let l=(0.299*r+0.587*g+0.114*b)/255;return l>0.6?'#111':'#fff';}catch(e){return '#fff'}}
-async function tryFetch(urls){for(let u of urls){try{let r=await fetch(u,{cache:'no-store'});if(r.ok){let t=await r.text();t=t.replace(/"fiyat"\s*:\s*(\d+),(\d+)/g,'"fiyat": $1.$2');let j=JSON.parse(t);if(j&&j.length>0)return {data:j};}}catch(e){}}return null}
-async function bulutGet(){try{let r=await fetch(BULUT_URL+'/'+BULUT_RES,{cache:'no-store'});if(!r.ok) throw 'no';let j=await r.json();bulutCache=j;document.getElementById('cloudInfo').innerText='☁ '+j.length;document.getElementById('sikSay').innerText=j.length;return j;}catch(e){document.getElementById('cloudInfo').innerText='⚠ yerel';let localData=JSON.parse(localStorage.getItem('jotun_kayitlar_extra')||'[]');bulutCache=localData.map((o,i)=>({...o,_id:'local_'+i}));document.getElementById('sikSay').innerText=localData.length;return localData;}}
-async function bulutPost(obj){try{let r=await fetch(BULUT_URL+'/'+BULUT_RES,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(obj)});return r.ok;}catch(e){return false}}
-async function bulutDelete(id){if(!id) return false;if(String(id).startsWith('local_')) return true;try{let r=await fetch(BULUT_URL+'/'+BULUT_RES+'/'+id,{method:'DELETE'});return r.ok;}catch(e){return false}}
-async function bulutYenile(){let data=await bulutGet();let clean=data.map(o=>{let {_id,...rest}=o;return rest});localStorage.setItem('jotun_kayitlar_extra',JSON.stringify(clean));await loadAll();}
-async function loadAll(){
-let pr=await tryFetch(['https://raw.githubusercontent.com/ahmetdogan68/jotun/main/products.json?v='+Date.now(),'./products.json?v='+Date.now()]);
-if(pr&&pr.data){let bl=pr.data.map(o=>({ad:(o.ad||'').trim(),fiyat:parsePrice(o.fiyat)}));bl.sort((a,b)=>a.ad.toUpperCase().localeCompare(b.ad.toUpperCase(),'tr'));urunler=bl.map(o=>[o.ad,o.fiyat]);}
-let rr=await tryFetch(['https://raw.githubusercontent.com/ahmetdogan68/jotun/main/ral.json?v='+Date.now(),'./ral.json?v='+Date.now()]);if(rr&&rr.data) ralList=rr.data;
-let jr=await tryFetch(['./jotun_kayitlar.json?v='+Date.now()]);if(jr&&jr.data){kayitlar=jr.data;}
-let cloudData=await bulutGet();let localData=JSON.parse(localStorage.getItem('jotun_kayitlar_extra')||'[]');let merged=cloudData.length>0?cloudData:localData.map((o,i)=>({...o,_id:'local_'+i}));let map=new Map();merged.forEach(x=>{let k=x.ral_no+'_'+x.product;if(!map.has(k))map.set(k,x)});merged=Array.from(map.values());
-if(merged.length>0){kayitlar=kayitlar.concat(merged.map(o=>{let {_id,...rest}=o;return rest}));}
-// Eski kayıtlardaki pigmentleri kilit tablosuna taşı (bir kerelik göç)
-let kilit=pigmentKilitOku(); let degisti=false;
-kayitlar.forEach(k=>{let rk=String(k.ral_no||'').trim(); if(rk && k.colorant_cost && !kilit[rk]){let v=parseFloat(String(k.colorant_cost).replace('.','').replace(',','.'))||0; if(v>0){kilit[rk]={pigment:v,tarih:new Date().toISOString(),ilkKayit:true}; degisti=true;}}});
-if(degisti) pigmentKilitYaz(kilit);
-document.getElementById('canliSay').innerText=urunler.length;document.getElementById('ralSay').innerText=ralList.length||'-';document.getElementById('kayitSay').innerText=kayitlar.length;
-document.getElementById('setDolar').value=ayar.dolar;document.getElementById('setDolarVisible').value=ayar.dolar;document.getElementById('setKar').value=ayar.kar;document.getElementById('setKdv').value=ayar.kdv;document.getElementById('tarih').valueAsDate=new Date();renderAmb();renderTeklif();renderSikKullanilan(merged);pigmentKilitGoster();
-}
-function placeDrop(inputEl,dropEl){let r=inputEl.getBoundingClientRect();dropEl.style.top=(r.bottom+6)+'px';dropEl.style.left=r.left+'px';dropEl.style.width=Math.min(window.innerWidth-16,Math.max(r.width,320))+'px';}
-function enableUrun(){let i=document.getElementById('urunInput');i.removeAttribute('readonly');i.focus();openUrun()}function enableRal(){let i=document.getElementById('ralInput');i.removeAttribute('readonly');i.focus();openRal()}
-function openUrun(){let inp=document.getElementById('urunInput');let d=document.getElementById('urunDrop');placeDrop(inp,d);d.style.display='block';filterUrun()}
-function openRal(){let d=document.getElementById('ralDrop');d.style.display='block';filterRal();placeRalDrop();}
-function filterUrun(){
-  let q=document.getElementById('urunInput').value.toUpperCase().trim();let d=document.getElementById('urunDrop');let h=[];
-  if(tempRal && kayitlar.length>0){
-    let f=kayitlar.filter(x=>String(x.ral_no).trim()===String(tempRal).trim());let m=new Map();f.forEach(x=>{let k=(x.product||'').trim().toUpperCase()+'_'+String(x.ral_no).trim();if(!m.has(k))m.set(k,x)});secKayit=Array.from(m.values());
-    secKayit.forEach((k,i)=>{
-      let livePrice=findExactPrice(k.product);
-      // YENİ: ESKİ KAYIT $0 yok. Her zaman GÜNCEL fiyat.
-      let ff='';
-      if(livePrice!==null && livePrice>0) ff=`$${livePrice} (GÜNCEL)`;
-      else ff=`⚠ GÜNCEL FİYAT YOK - products.json'a ekle`;
-      let hex=getRalHex(k.ral_no)||'#888';
-      let pig=pigmentKilitVarMi(k.ral_no); let pigTxt=pig?` • Pigment ${new Intl.NumberFormat('tr-TR',{minimumFractionDigits:2,maximumFractionDigits:2}).format(pig.pigment)}₺ KİLİTLİ`:'';
-      h.push(`<div class='it it-k' onclick='selectKayit(${i})'><div style='display:flex;align-items:center;gap:8px;flex:1'><div style='width:24px;height:24px;border-radius:4px;background:${hex};border:1.5px solid #999'></div><div style='flex:1'><b>${k.product}</b> <small>${ff} - RAL ${k.ral_no}${pigTxt}</small></div></div><div style='background:#0a7a2f;color:#fff;padding:3px 6px;border-radius:4px;font-size:8px;font-weight:800'>SEÇ</div></div>`);
-    });
+  // 2) ORIJINAL FONKSIYONLARI SAKLA
+  var _origSelectRal = window.selectRal;
+  var _origSelectKayit = window.selectKayit;
+  var _origSelectSik = window.selectSik;
+  var _origKaydet = window.kaydet;
+  var _origCalc = window.calc;
+  var _origFilterUrun = window.filterUrun;
+
+  // 3) FIYAT: ALT SATIRDA YAZAN YERDEN AL
+  // Senin resimdeki alt satir = #urunDetay icindeki "$7" veya dropdown'daki "$7"
+  // Biz fiyati urunler listesinden degil, secilen satirdaki gercek yazidan okuyoruz
+  function altSatirdanFiyatOku(){
+    // a) urunDetay'daki $... yazisi
+    var d=document.getElementById('urunDetay');
+    if(d && d.innerText){
+      var m=d.innerText.match(/\$\s*([\d.,]+)/);
+      if(m) return parseFloat(m[1].replace(',','.'))||0;
+    }
+    // b) urunInput'un yanindaki secili satir
+    return 0;
   }
-  let list=urunler.map((r,i)=>({r,i})).filter(o=>!q||o.r[0].toUpperCase().includes(q)).slice(0,200);
-  h.push(...list.map(o=>`<div class='it' onclick='selectUrun(${o.i})'><span style='flex:1'>${o.r[0]}</span><b>$${o.r[1]} (GÜNCEL)</b></div>`));
-  d.innerHTML=h.join('');placeDrop(document.getElementById('urunInput'),d);d.style.display='block';
-}
-function selectKayit(i){
-  let k=secKayit[i];if(!k)return;
-  let kLT=parseLT(k.product);if(kLT>0){secLT=kLT;let idxAmb=amb.findIndex(a=>Math.abs(a.lt-kLT)<0.15);if(idxAmb!==-1)secAmb=idxAmb;}
-  let livePrice=findExactPrice(k.product);
-  let idxExact=urunler.findIndex(u=>u[0].trim().toUpperCase()===(k.product||'').trim().toUpperCase());
-  if(idxExact!==-1){selectUrun(idxExact,true);}else{
-    if(livePrice===null){document.getElementById('fiyatUyarisi').style.display='block';document.getElementById('fiyatUyarisi').innerText='⚠ Bu ürün products.json\'da yok, fiyat bulunamadı. Önce products.json\'a güncel fiyatını ekle.';return;}
-    urunler.push([k.product,livePrice]);selectUrun(urunler.length-1,true);
-  }
-  // Pigment: kayıttaki değil, KİLİT tablosundaki
-  pigmentiKilittenDoldur(k.ral_no);
-  // Eğer kilit yoksa kayıttaki pigmenti ilk kilit olarak al
-  if(!pigmentKilitVarMi(k.ral_no) && k.colorant_cost){pigmentKilitKoy(k.ral_no,k.colorant_cost);pigmentiKilittenDoldur(k.ral_no);}
-  document.getElementById('ralForm').value=k.formul||'';calc();
-}
-function selectUrun(i,keepAmb=false){secUrun=i;let u=urunler[i];if(!keepAmb){let pLT=parseLT(u[0]);if(pLT>0){secLT=pLT;let idxAmb=amb.findIndex(a=>Math.abs(a.lt-pLT)<0.15);if(idxAmb!==-1)secAmb=idxAmb;}}let inp=document.getElementById('urunInput');inp.value=u[0];inp.setAttribute('readonly','true');document.getElementById('urunDrop').style.display='none';document.getElementById('urunDetay').style.display='block';let pair=findCompPair(u[0]);secCompPair=pair;let setLT=getSetLT(u[0]);let myLT=parseLT(u[0])||setLT;document.getElementById('urunDetay').innerHTML=`✓ ${u[0]} • $${u[1]} (GÜNCEL FİYAT - products.json) ${pair?`<span style="background:#ffcc00;padding:1px 4px;border-radius:3px">+ ${pair.ad} (${pair.lt}LT) $${pair.fiyat}</span>`:''}`;document.getElementById('fiyatUyarisi').style.display='none';renderAmb();calc();inp.blur()}
-function renderAmb(){document.getElementById('ambList').innerHTML=amb.map((a,i)=>{let on=i===secAmb?'background:#011B44;color:#fff':'';return `<div onclick='secAmb=${i};secLT=${a.lt};renderAmb();calc();' style='border:2px solid #D6DAE2;border-radius:6px;font-weight:800;text-align:center;cursor:pointer;height:36px;display:flex;align-items:center;justify-content:center;font-size:12px;${on}'>${a.ad}</div>`}).join('');}
-let ralActive=-1;let ralCurrentList=[];
-function placeRalDrop(){let box=document.querySelector('.bil');let d=document.getElementById('ralDrop');if(!box||!d)return;let r=box.getBoundingClientRect();d.style.top=(r.bottom+4)+'px';let w=d.offsetWidth||340;let left=r.left;if(left+w>window.innerWidth-8)left=window.innerWidth-w-8;if(left<8)left=8;d.style.left=left+'px';}
-function filterRal(){let q=document.getElementById('ralInput').value.toUpperCase().trim();ralCurrentList=ralList.filter(r=>!q||r.kod.includes(q)||r.isim.toUpperCase().includes(q)).slice(0,60);ralActive=-1;let d=document.getElementById('ralDrop');d.innerHTML=ralCurrentList.map((r,i)=>`<div class='ri' onclick='selectRal("${r.kod}")'><div class='rs' style='background:${r.hex}'></div><div><b>${r.kod}</b> ${r.isim}</div></div>`).join('');d.style.display='block';placeRalDrop();}
-function selectRal(k){let r=ralList.find(x=>x.kod===k);if(!r)return;tempRal=r.kod;secHex=r.hex;secName=r.isim;let sw=document.getElementById('swatch');sw.style.background=r.hex;sw.innerText='RAL '+r.kod;sw.style.color=getContrast(r.hex);let inp=document.getElementById('ralInput');inp.value=r.kod;inp.setAttribute('readonly','true');inp.blur();document.getElementById('ralDrop').style.display='none';pigmentiKilittenDoldur(r.kod);filterUrun();calc();}
-function calc(){
-  if(secUrun===null) return;
-  let u=urunler[secUrun];
-  // YENİ: Fiyatı kayıttan değil, her seferinde güncelden al
-  let live=findExactPrice(u[0]); if(live!==null && live>0) u[1]=live;
-  let fiyatD=parsePrice(u[1]);let kLT=parseFloat(secLT)||18;let kur=parseFloat((document.getElementById('setDolar').value||'49,7891').replace(',','.'))||49.7891;let kar=parseFloat(document.getElementById('setKar').value)||25;let kdv=parseFloat(document.getElementById('setKdv').value)||20;
-  let pigTL=(function(v){let s=String(v||'0').trim().replace(/[^0-9,\.\-]/g,'');if(s.indexOf(',')>=0){s=s.replace(/\./g,'').replace(',','.');}let n=parseFloat(s);return isNaN(n)?0:n;})(document.getElementById('pigment').value)||0;
-  let urunLT=fiyatD*kur;let toplamLT=urunLT+pigTL/18;let ltSatis=toplamLT*(1+kar/100);let setLT=getSetLT(u[0]);let aLT=parseLT(u[0])||trueLTFromSet(u[0]);let bLT=secCompPair?secCompPair.lt:0;let isCompMode=secCompPair?true:false;let toplamSetLT=isCompMode?setLT:kLT;let kovaS=ltSatis*toplamSetLT;let kovaK=kovaS*(1+kdv/100);
-  son={urun:u[0],ral:tempRal,hex:secHex,isim:secName,lt:kLT,gercekLT:aLT,toplamSetLT:toplamSetLT,setLT:setLT,isCompMode:isCompMode,compBLT:bLT,kovaTl:kovaS,kovaKdv:kovaK,ltSatis:ltSatis,form:document.getElementById('ralForm').value,pair:secCompPair?{...secCompPair,lt:secCompPair.lt,setLT:setLT}:null};
-  sonHesap={kur:kur,kar:kar,kdv:kdv,pigment:pigTL,urunDolar:fiyatD,urunTL:urunLT,toplamLT:toplamLT,ltSatis:ltSatis,toplamSetLT:toplamSetLT,setLT:setLT};
-  document.getElementById('maliyet').innerText=fmt(toplamLT);document.getElementById('ltSatis').innerText=fmt(ltSatis);document.getElementById('kovaLabel').innerText=isCompMode?`SET (${toplamSetLT}LT)`:`KOVA (${kLT}LT)`;document.getElementById('kova').innerText=fmt(kovaS);document.getElementById('kovaKdv').innerText=fmt(kovaK);
-  let detayBox=document.getElementById('hesapDetay');detayBox.style.display='block';detayBox.innerHTML=`${u[0]} $${fiyatD} (GÜNCEL) × ${kur.toFixed(2)} = ${fmt(urunLT)} + Pigment ${fmt(pigTL/18)}/LT (KİLİTLİ) = ${fmt(toplamLT)} | ${fmt(ltSatis)} ×${toplamSetLT}LT=${fmt(kovaS)}`;
-}
-function teklifeEkle(){if(!son) return alert('Once sec');let adetStr=prompt('Kaç adet?','1');if(!adetStr)return;let adet=parseInt(adetStr)||1;let kdv=parseFloat(document.getElementById('setKdv').value)||20;let ltSatis=son.ltSatis;let setLT=son.setLT||18;if(!son.pair){sepet.push({...son,adet:adet,hesap:{...sonHesap}});}else{let aLT=parseLT(son.urun)||trueLTFromSet(son.urun);let bLT=son.pair.lt;sepet.push({urun:son.urun,ral:son.ral,hex:son.hex,isim:son.isim,lt:aLT,ltSatis:ltSatis,kovaTl:ltSatis*aLT,kovaKdv:ltSatis*aLT*(1+kdv/100),form:son.form,adet:adet,hesap:{...sonHesap},isCompA:true,setLT:setLT});sepet.push({urun:son.pair.ad,ral:son.ral,hex:son.hex,isim:son.isim+' - B',lt:bLT,ltSatis:ltSatis,kovaTl:ltSatis*bLT,kovaKdv:ltSatis*bLT*(1+kdv/100),form:'EŞ',adet:adet,hesap:{...sonHesap},isCompB:true,setLT:setLT});}localStorage.setItem('teklif_sepet',JSON.stringify(sepet));renderTeklif();}
-function renderTeklif(){document.getElementById('teklifSayi').innerText=sepet.length;if(sepet.length===0){document.getElementById('teklifList').innerHTML='<div style="font-size:10px;color:#5A6A85;padding:6px">Henüz ürün eklenmedi</div>';document.getElementById('teklifToplam').style.display='none';return}let g=0,haric=0;document.getElementById('teklifList').innerHTML=sepet.map((t,i)=>{let k=t.kovaKdv||0;let kh=t.kovaTl||0;g+=k*t.adet;haric+=kh*t.adet;return `<div style='border:1px solid #D6DAE2;border-radius:6px;padding:6px;margin-bottom:3px;display:flex;justify-content:space-between'><div><b style='font-size:10px'>${t.urun.substring(0,38)}</b><div style='font-size:9px'>RAL ${t.ral} - ${t.adet} adet</div></div><b>${fmt(k*t.adet)}</b></div>`}).join('');document.getElementById('teklifToplam').style.display='block';document.getElementById('teklifToplam').innerHTML=`ARA TOPLAM: ${fmt(haric)} | GENEL: ${fmt(g)}`;}
-function renderSikKullanilan(arr){let extra=arr||JSON.parse(localStorage.getItem('jotun_kayitlar_extra')||'[]');let box=document.getElementById('sikBox');document.getElementById('sikSay').innerText=extra.length;if(extra.length===0){box.innerHTML='<div style="font-size:10px;padding:6px">Henüz kayıt yok</div>';return;}box.innerHTML=extra.slice(0,160).map((k,i)=>{let hex=getRalHex(k.ral_no);let txt=getContrast(hex);let live=findExactPrice(k.product);let badge=live?`$${live} GÜNCEL`:'⚠ FİYAT YOK';let pig=pigmentKilitVarMi(k.ral_no);let pigB=pig?`<div style='font-size:7px'>Pig ${pig.pigment}₺ 🔒</div>`:'';return `<div class='sikCard' onclick='selectSik(${i})'><div class='sikTop' style='background:${hex};color:${txt}'><div class='sikRal'>${k.ral_no}</div><div style='font-size:7px;font-weight:800'>${badge}</div>${pigB}</div><div class='sikBody'>${(k.product||'').split('(')[0].substring(0,10)}</div></div>`}).join('');}
-function selectSik(i){let extra=bulutCache.length>0?bulutCache:JSON.parse(localStorage.getItem('jotun_kayitlar_extra')||'[]');let k=extra[i];if(!k)return;tempRal=k.ral_no;document.getElementById('ralInput').value=k.ral_no;let r=ralList.find(x=>x.kod===k.ral_no);if(r){secHex=r.hex;secName=r.isim;let sw=document.getElementById('swatch');sw.style.background=r.hex;sw.innerText='RAL '+r.kod;sw.style.color=getContrast(r.hex);}let live=findExactPrice(k.product);let idx=urunler.findIndex(u=>u[0].trim().toUpperCase()===(k.product||'').trim().toUpperCase());if(idx!==-1){selectUrun(idx);}else{if(live===null){alert('Bu ürün products.json\'da yok. Önce güncel fiyatını ekle.');return;}urunler.push([k.product,live]);selectUrun(urunler.length-1);}pigmentiKilittenDoldur(k.ral_no);if(!pigmentKilitVarMi(k.ral_no) && k.colorant_cost){pigmentKilitKoy(k.ral_no,k.colorant_cost);pigmentiKilittenDoldur(k.ral_no);}document.getElementById('ralForm').value=k.formul||'';calc();window.scrollTo(0,0);}
-async function kaydet(){
-  if(!son) return alert('Once sec');
-  let pigVal=document.getElementById('pigment').value||'0';
-  let pigNum=parseFloat(String(pigVal).replace(/\./g,'').replace(',','.'))||0;
-  if(pigNum<=0) { if(!confirm('Pigment 0 görünüyor, yine de kaydetmek istiyor musun? Pigment 0 olarak kilitlenecek.')) return; }
-  // YENİ: Önce pigmenti kilitle (sadece ilk sefer)
-  let kilitli=pigmentKilitVarMi(son.ral||tempRal);
-  if(!kilitli){ pigmentKilitKoy(son.ral||tempRal, pigVal); alert('🔒 Pigment kilitlendi: RAL '+(son.ral||tempRal)+' = '+pigVal+' ₺ - Artık değişmez. Baz fiyatı her zaman güncelden alınacak.'); }
-  else { pigVal=new Intl.NumberFormat('tr-TR',{minimumFractionDigits:2,maximumFractionDigits:2}).format(kilitli.pigment); }
-  // Kayda FİYAT yazmıyoruz. Sadece RAL + Ürün + Pigment (kilitli) + Formül
-  let k={ral_no:son.ral||tempRal,ral_isim:son.isim,product:son.urun,base_no:baseNo(son.urun)||'1',lt:son.lt,can_size:son.lt+'L',colorant_cost:pigVal,formul:document.getElementById('ralForm').value||'',maliyet:pigVal, fiyat_kaynak:'GUNCEL products.json - kayda fiyat yazilmadi', pigment_kilitli:true};
-  let existing=bulutCache.find(x=>String(x.ral_no)===String(k.ral_no)&&x.product===k.product);
-  if(existing && existing._id && !String(existing._id).startsWith('local_')){try{await bulutDelete(existing._id);}catch(e){}}
-  let ok=await bulutPost(k);let extra=JSON.parse(localStorage.getItem('jotun_kayitlar_extra')||'[]');extra=extra.filter(x=>!(String(x.ral_no)===String(k.ral_no)&&x.product===k.product));extra.push(k);localStorage.setItem('jotun_kayitlar_extra',JSON.stringify(extra));if(ok){await bulutYenile();}else{renderSikKullanilan(extra);}pigmentKilitGoster();
-}
-loadAll();
-document.addEventListener('click',e=>{if(!e.target.closest('.rb') && !e.target.closest('#ralDrop')){let el=document.getElementById('ralDrop');if(el)el.style.display='none'}if(!e.target.closest('.sb') && !e.target.closest('#urunDrop')){let u=document.getElementById('urunDrop');if(u)u.style.display='none'}});
+  // calc icinde kullanilacak global: son secilen urunun gercek fiyati
+  window.__secilenFiyat = 0;
+
+  // 4) RAL SECILINCE -> pigmenti kilitten doldur, kilitliyse kutuyu kilitle
+  window.selectRal = function(k){
+    _origSelectRal(k);
+    setTimeout(function(){
+      var kilit=kilitVar(k);
+      var pig=document.getElementById('pigment');
+      var durum=document.getElementById('pigmentDurum');
+      if(kilit && pig){
+        pig.value=new Intl.NumberFormat('tr-TR',{minimumFractionDigits:2,maximumFractionDigits:2}).format(kilit.pigment);
+        pig.setAttribute('readonly','true');
+        pig.style.background='rgba(0,200,83,.08)';
+      } else if(pig){
+        // kilit yoksa bos birak, kullanici ilk kez yazacak - ama eski kayittaki pigment varsa onu koy
+        if(!pig.value || pig.value==='0,00' || pig.value==='0'){
+          var eski=(kayitlar||[]).find(function(x){ return String(x.ral_no).trim()===String(k).trim() && x.colorant_cost });
+          if(eski) pig.value=eski.colorant_cost;
+        }
+        pig.removeAttribute('readonly');
+        pig.style.background='transparent';
+      }
+      if(window.calc) window.calc();
+    },50);
+  };
+
+  // 5) URUN SECILINCE -> fiyati ALT SATIRDAN al, urunler listesine de yaz ki calc dogru alsin
+  // selectUrun orijinali zaten urunDetay'a "$fiyat" yaziyor, biz calc'i yamaliyoruz
+  window.calc = function(){
+    if(secUrun!==null && typeof urunler!=='undefined' && urunler[secUrun]){
+      // Alt satirdaki fiyati oku
+      var alt=altSatirdanFiyatOku();
+      if(alt>0){
+        urunler[secUrun][1]=alt;
+        window.__secilenFiyat=alt;
+      } else if(window.__secilenFiyat>0){
+        urunler[secUrun][1]=window.__secilenFiyat;
+      }
+      // Eger hala 0 ise: dropdown'daki secili satirdaki fiyati dene
+      if(!urunler[secUrun][1] || urunler[secUrun][1]==0){
+        // findExactPrice ile products.json'dan dene, yoksa 0 birakma - kullaniciya goster
+        var live=null;
+        try{ live=findExactPrice(urunler[secUrun][0]); }catch(e){}
+        if(live && live>0) urunler[secUrun][1]=live;
+      }
+    }
+    // Pigment kilitliyse, input'taki pigmenti kilitli degerle ez (degistirilemesin)
+    var kilit=tempRal ? kilitVar(tempRal) : null;
+    if(kilit){
+      var pig=document.getElementById('pigment');
+      if(pig) pig.value=new Intl.NumberFormat('tr-TR',{minimumFractionDigits:2,maximumFractionDigits:2}).format(kilit.pigment);
+    }
+    return _origCalc();
+  };
+
+  // 6) KAYDET -> pigmenti ilk seferde kilitle, kayda FIYAT yazma
+  window.kaydet = async function(){
+    if(!son) return alert('Once sec');
+    var pigVal=document.getElementById('pigment').value||'0';
+    var pigNum=parseFloat(String(pigVal).replace(/\./g,'').replace(',','.'))||0;
+    var ralKod=son.ral||tempRal;
+    var kilit=kilitVar(ralKod);
+    if(!kilit){
+      if(pigNum<=0){ if(!confirm('Pigment 0 görünüyor, 0 olarak kilitlensin mi?')) return; }
+      var m=kilitOku(); m[String(ralKod).trim()]={pigment:pigNum, tarih:new Date().toISOString()}; kilitYaz(m);
+      alert('🔒 Pigment kilitlendi: RAL '+ralKod+' = '+pigVal+' TL - Artik degismez. Baz fiyati her zaman guncelden alinacak.');
+    } else {
+      // Kilitliyse kayda kilitli pigmenti yaz
+      document.getElementById('pigment').value=new Intl.NumberFormat('tr-TR',{minimumFractionDigits:2,maximumFractionDigits:2}).format(kilit.pigment);
+    }
+    return _origKaydet();
+  };
+
+  // 7) URUN LISTESINDE $0 - ESKI KAYIT GOSTERME
+  window.filterUrun = function(){
+    _origFilterUrun();
+    // Dropdown icindeki "$0 - ESKI KAYIT" yazilarini duzelt
+    setTimeout(function(){
+      document.querySelectorAll('#urunDrop .it').forEach(function(el){
+        var t=el.innerText||'';
+        if(t.includes('$0 - ESKI KAYIT') || t.includes('$0 - ESKİ KAYIT')){
+          // Bu satirin urun adini bul, guncel fiyati bul
+          var urunAd=(el.querySelector('b')||{}).innerText||'';
+          var live=null;
+          try{ live=findExactPrice(urunAd); }catch(e){}
+          // Alt satirdaki fiyati da dene
+          if(!live || live<=0){
+            var m=t.match(/\$\s*([\d.,]+)/);
+            if(m) live=parseFloat(m[1].replace(',','.'))||0;
+          }
+          if(live && live>0){
+            el.innerHTML=el.innerHTML.replace(/\$0 - ESKİ KAYIT/g,'$'+live+' (GÜNCEL)').replace(/\$0 - ESKI KAYIT/g,'$'+live+' (GÜNCEL)');
+          } else {
+            el.innerHTML=el.innerHTML.replace(/\$0 - ESKİ KAYIT/g,'⚠ FİYAT ALT SATIRDAN ALINACAK').replace(/\$0 - ESKI KAYIT/g,'⚠ FİYAT ALT SATIRDAN ALINACAK');
+          }
+        }
+      });
+    },30);
+  };
+
+  // 8) SIK secilince de pigment kilitten gelsin
+  window.selectSik = function(i){
+    _origSelectSik(i);
+    setTimeout(function(){
+      var k=(bulutCache.length>0?bulutCache:JSON.parse(localStorage.getItem('jotun_kayitlar_extra')||'[]'))[i];
+      if(k){
+        var kilit=kilitVar(k.ral_no);
+        if(kilit){ document.getElementById('pigment').value=new Intl.NumberFormat('tr-TR',{minimumFractionDigits:2,maximumFractionDigits:2}).format(kilit.pigment); }
+        if(window.calc) window.calc();
+      }
+    },80);
+  };
+
+  console.log('✅ Yama yüklendi: pigment kilidi + fiyat alt satirdan');
+})();
 </script>
-<script>
-(function(){let p=document.getElementById('pigment');if(!p)return;function parseTR(v){let s=String(v||'').replace(/[^0-9,\.\-]/g,'');if(s.indexOf(',')>=0)s=s.replace(/\./g,'').replace(',','.');let n=parseFloat(s);return isNaN(n)?0:n;}
-p.addEventListener('blur',function(){let v=parseTR(p.value);if(v>0)p.value=new Intl.NumberFormat('tr-TR',{minimumFractionDigits:2,maximumFractionDigits:2}).format(v);});
-p.addEventListener('focus',function(){if(p.hasAttribute('readonly')){alert('🔒 Pigment kilitli, değişmez. Değiştirmek için ayarlardan kilidi açman lazım.');p.blur();return;}let v=parseTR(p.value);if(v>0)p.value=String(v).replace('.',',');p.select();});})();
-</script>
-</body></html>
+<!-- ===== YAMA BITIS ===== -->
