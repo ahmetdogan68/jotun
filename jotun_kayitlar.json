@@ -3,6 +3,18 @@
   "ral_no": "9002",
   "ral_isim": "GREY WHITE",
   "base_no": "1",
+  "product": "OPTIPRO UNIVERSAL TOPCOAT BASE 1 (18 LT)",
+  "formul": "SB003 YX007.6 - Jotun Formül",
+  "colorant_cost": "83.24",
+  "maliyet": "83.24",
+  "can_size": "18L",
+  "lt": 18
+},
+
+  {
+  "ral_no": "9002",
+  "ral_isim": "GREY WHITE",
+  "base_no": "1",
   "product": "FUTURA CLASSIC BASE 1 (18 LT)",
   "formul": "SB002.7 YX004 - Jotun Formül",
   "colorant_cost": "53.23",
