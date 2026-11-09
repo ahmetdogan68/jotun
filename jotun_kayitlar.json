@@ -1,5 +1,27 @@
 [
   {
+  "ral_no": "9002",
+  "ral_isim": "GREY WHITE",
+  "base_no": "1",
+  "product": "CONSEAL TU BASE 1 (18 LT)",
+  "formul": "SB002.7 YX004 - Jotun Formül",
+  "colorant_cost": "53.23",
+  "maliyet": "53.23",
+  "can_size": "18L",
+  "lt": 18
+},
+{
+  "ral_no": "9002",
+  "ral_isim": "GREY WHITE",
+  "base_no": "1",
+  "product": "CONSEAL TU BASE 1 (4.5 LT)",
+  "formul": "SB002.7 YX004 - Jotun Formül",
+  "colorant_cost": "13.31",
+  "maliyet": "13.31",
+  "can_size": "4.5L",
+  "lt": 4.5
+},
+  {
   "ral_no": "7016",
   "ral_isim": "ANTHRACITE GREY",
   "base_no": "3",
