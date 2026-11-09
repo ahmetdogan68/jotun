@@ -126,7 +126,7 @@
             if(m) live=parseFloat(m[1].replace(',','.'))||0;
           }
           if(live && live>0){
-            el.innerHTML=el.innerHTML.replace(/\$0 - ESKİ KAYIT/g,'$'+live+' (GÜNCEL)').replace(/\$0 - ESKI KAYIT/g,'$'+live+' (GÜNCEL)');
+            el.innerHTML=el.innerHTML.replace(/\$0 - ESKİ KAYIT/g,'$'+live+' (GÜNCEL)').replace(/\$0 - ESKI KAYIT/g,'$'+live+' (GÜNCEL)'); 
           } else {
             el.innerHTML=el.innerHTML.replace(/\$0 - ESKİ KAYIT/g,'⚠ FİYAT ALT SATIRDAN ALINACAK').replace(/\$0 - ESKI KAYIT/g,'⚠ FİYAT ALT SATIRDAN ALINACAK');
           }
