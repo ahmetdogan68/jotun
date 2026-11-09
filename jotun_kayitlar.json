@@ -3,6 +3,18 @@
   "ral_no": "1013",
   "ral_isim": "PERLWEISS",
   "base_no": "1",
+  "product": "OPTIPRO UNIVERSAL TOPCOAT BASE 1 (18 LT)",
+  "formul": "WB012.5 YX012.1 PX000.3 - Jotun Formül",
+  "colorant_cost": "171.64",
+  "maliyet": "171.64",
+  "can_size": "18L",
+  "lt": 18
+},
+
+  {
+  "ral_no": "1013",
+  "ral_isim": "PERLWEISS",
+  "base_no": "1",
   "product": "FUTURA CLASSIC BASE 1 (18 LT)",
   "formul": "SB001 YX008.4 PX000.2 - Jotun Formül",
   "colorant_cost": "74.68",
