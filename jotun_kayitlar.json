@@ -1,5 +1,27 @@
 [
   {
+  "ral_no": "1013",
+  "ral_isim": "PERLWEISS",
+  "base_no": "1",
+  "product": "FUTURA CLASSIC BASE 1 (18 LT)",
+  "formul": "SB001 YX008.4 PX000.2 - Jotun Formül",
+  "colorant_cost": "74.68",
+  "maliyet": "74.68",
+  "can_size": "18L",
+  "lt": 18
+},
+{
+  "ral_no": "1013",
+  "ral_isim": "PERLWEISS",
+  "base_no": "1",
+  "product": "FUTURA CLASSIC BASE 1 (4.5 LT)",
+  "formul": "SB001 YX008.4 PX000.2 - Jotun Formül",
+  "colorant_cost": "18.67",
+  "maliyet": "18.67",
+  "can_size": "4.5L",
+  "lt": 4.5
+},
+  {
   "ral_no": "9002",
   "ral_isim": "GREY WHITE",
   "base_no": "1",
