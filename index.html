@@ -72,152 +72,70 @@ body{font-family:Inter,Arial;background:var(--bg);color:var(--text);overflow-x:h
 .sideDeco .sideOverlay{position:absolute;inset:0;background:linear-gradient(to right, rgba(0,0,0,.15), rgba(0,0,0,0));}
 .sideDeco.right .sideOverlay{background:linear-gradient(to left, rgba(0,0,0,.15), rgba(0,0,0,0));}
 @media (min-width:1100px){.sideDeco{display:block}.w{position:relative;z-index:2}}
-/* === TELEFON FIX - ÜST BAR VE GENEL === */
 @media(max-width:700px){
-.h{height:48px}
-.h-inner{padding:0 8px}
-.h-left img#fLogo{height:24px !important;max-width:75px !important}
-.h-right img#jLogo{height:20px !important;max-width:62px !important}
-.h-center-title{font-size:11px !important;letter-spacing:0.01em}
-.h-center{left:50%}
-.homeCircle{width:26px;height:26px}
-.homeCircle svg{width:13px;height:13px}
-.w{padding:52px 4px 20px 4px}
-.sb input{height:42px !important;font-size:12px !important}
-.btnS{height:42px !important;min-width:36px !important;font-size:13px}
-.sw{width:64px !important;height:42px !important;font-size:9px !important}
-.bil{height:42px !important}
-.bilU-ral{flex:0 0 38% !important}
-.amb{height:32px !important;font-size:11px !important}
-.resGrid{padding:6px;gap:4px}
-.resVal{font-size:13px}
-.resValBig{font-size:14px}
-.teklifInputs{grid-template-columns:1fr !important}
-.sikGrid{grid-template-columns:repeat(3,1fr);gap:4px}
-.sikCard{height:64px}
-.sikRal{font-size:18px !important}
-.sikBody{font-size:9px !important;min-height:16px}
-.drawer{max-width:86%}
-.drawerHandle.on{right:86%}
-.h-left{min-width:40px}
-.h-right{min-width:40px}
-.resTopKur{flex-direction:column;gap:6px}
-.resKurItem{width:100%}
+.h{height:48px}.h-inner{padding:0 8px}.h-left img#fLogo{height:24px !important;max-width:75px !important}.h-right img#jLogo{height:20px !important;max-width:62px !important}.h-center-title{font-size:11px !important;letter-spacing:0.01em}.h-center{left:50%}.homeCircle{width:26px;height:26px}.homeCircle svg{width:13px;height:13px}.w{padding:52px 4px 20px 4px}.sb input{height:42px !important;font-size:12px !important}.btnS{height:42px !important;min-width:36px !important;font-size:13px}.sw{width:64px !important;height:42px !important;font-size:9px !important}.bil{height:42px !important}.bilU-ral{flex:0 0 38% !important}.amb{height:32px !important;font-size:11px !important}.resGrid{padding:6px;gap:4px}.resVal{font-size:13px}.resValBig{font-size:14px}.teklifInputs{grid-template-columns:1fr !important}.sikGrid{grid-template-columns:repeat(3,1fr);gap:4px}.sikCard{height:64px}.sikRal{font-size:18px !important}.sikBody{font-size:9px !important;min-height:16px}.drawer{max-width:86%}.drawerHandle.on{right:86%}.h-left{min-width:40px}.h-right{min-width:40px}.resTopKur{flex-direction:column;gap:6px}.resKurItem{width:100%}
 }
-
-/* RAL aktif satir - boyutlara dokunulmadı */
 .ri.active{background:#DCE8FF !important;outline:2px solid #011B44 !important;outline-offset:-2px}
 .ri.active div:last-child{background:#DCE8FF !important}
-
-/* RAL alani ortali - renk yeri + yazilacak yer */
 .sw{display:flex !important;align-items:center !important;justify-content:center !important;text-align:center !important}
 .bilU-ral{display:flex !important;align-items:center !important;justify-content:center !important}
-#ralInput{text-align:center !important}
-.bilU-pig{display:flex !important;align-items:center !important;justify-content:center !important}
-#pigment{text-align:center !important}
-.bilA input{text-align:center !important}
-
-/* SENIN RESMINDEKI RAL ÖLÇÜSÜ - aynen */
+#ralInput{text-align:center !important}.bilU-pig{display:flex !important;align-items:center !important;justify-content:center !important}#pigment{text-align:center !important}.bilA input{text-align:center !important}
 .rb{display:grid !important;grid-template-columns:1fr 1fr 44px !important;gap:6px !important;align-items:stretch !important}
-.sw{width:100% !important;height:56px !important;font-size:13px !important;font-weight:900 !important;border-radius:10px !important;display:flex !important;align-items:center !important;justify-content:center !important;text-align:center !important}
-.bil{height:56px !important;border-radius:10px !important}
-.bilU{height:50% !important}
-.bilU-ral{flex:1 !important;display:flex !important;align-items:center !important;justify-content:center !important}
-#ralInput{text-align:center !important;font-size:15px !important;font-weight:900 !important}
-.bilU-pig{display:flex !important;align-items:center !important;justify-content:center !important}
-#pigment{text-align:center !important;font-size:15px !important;font-weight:900 !important}
-.bilA{height:50% !important;display:flex !important;align-items:center !important;justify-content:center !important}
-.bilA input{text-align:center !important}
-@media(max-width:700px){
-  .rb{grid-template-columns:1fr 1fr 40px !important}
-  .sw{height:46px !important;font-size:11px !important}
-  .bil{height:46px !important}
-}
-
-/* TEKLIF - boya / RAL / urun / adet / litre / LT fiyat / kova fiyat / toplam */
+.sw{width:100% !important;height:56px !important;font-size:13px !important;font-weight:900 !important;border-radius:10px !important}
+.bil{height:56px !important;border-radius:10px !important}.bilU{height:50% !important}.bilU-ral{flex:1 !important}
+#ralInput{font-size:15px !important;font-weight:900 !important}#pigment{font-size:15px !important;font-weight:900 !important}.bilA{height:50% !important}
+@media(max-width:700px){.rb{grid-template-columns:1fr 1fr 40px !important}.sw{height:46px !important;font-size:11px !important}.bil{height:46px !important}}
 .teklifItem{flex-direction:column !important;align-items:stretch !important;gap:4px !important;padding:7px 8px !important}
 .teklifItemTop{display:flex !important;gap:6px !important;align-items:center !important}
 .teklifItemDetay{display:grid !important;grid-template-columns:0.6fr 0.8fr 1.1fr 1.1fr 1.2fr !important;gap:4px !important;background:#F1F5F9 !important;border-radius:5px !important;padding:5px 6px !important}
-.teklifItemDetay div{text-align:center !important}
-.teklifItemDetay .tdLab{font-size:7px !important;font-weight:800 !important;color:#64748B !important;letter-spacing:.04em !important}
-.teklifItemDetay .tdVal{font-size:10px !important;font-weight:900 !important;color:#0B1E3A !important;margin-top:1px !important}
-.teklifItemDetay .tdVal.toplam{color:#011B44 !important;font-size:11px !important}
+.teklifItemDetay div{text-align:center !important}.teklifItemDetay .tdLab{font-size:7px !important;font-weight:800 !important;color:#64748B !important;letter-spacing:.04em !important}.teklifItemDetay .tdVal{font-size:10px !important;font-weight:900 !important;color:#0B1E3A !important;margin-top:1px !important}.teklifItemDetay .tdVal.toplam{color:#011B44 !important;font-size:11px !important}
 .teklifToplam{display:block !important;padding:0 !important;overflow:hidden !important}
 .teklifToplamRow{display:flex !important;justify-content:space-between !important;padding:6px 10px !important;font-size:11px !important;font-weight:800 !important}
 .teklifToplamRow.genel{background:#FFCC00 !important;color:#011B44 !important;font-size:13px !important;font-weight:900 !important}
 </style></head><body>
+
 <div class='sideDeco left'><img src='https://github.com/ahmetdogan68/jotun/blob/main/kenar.jpg?raw=true' alt=''><div class='sideOverlay'></div></div>
 <div class='sideDeco right'><img src='https://github.com/ahmetdogan68/jotun/blob/main/kenar1.jpg?raw=true' alt=''><div class='sideOverlay'></div></div>
 <div class='w'>
-<div class='h'>
-  <div class='h-inner'>
-    <div class='h-left'><img id='fLogo' src='' alt='Firma'></div>
-    <div class='h-center'><div class='h-center-title'>JOTUN <b>HESAPLAMA</b></div></div>
-    <div class='h-right'>
-      <img id='jLogo' src='https://www.jotun.com/globalassets-b2b/.com/jotun-logo.svg' alt='JOTUN'>
-      <div class='homeCircle' onclick='window.scrollTo({top:0,behavior:"smooth"})' title='Ana Sayfa'><svg viewBox="0 0 24 24"><path d="M12 2.5L3 11.5V20.5C3 21.05 3.45 21.5 4 21.5H9.5C10.05 21.5 10.5 21.05 10.5 20.5V15.5C10.5 14.95 10.95 14.5 11.5 14.5H12.5C13.05 14.5 13.5 14.95 13.5 15.5V20.5C13.5 21.05 13.95 21.5 14.5 21.5H20C20.55 21.5 21 21.05 21 20.5V11.5L12 2.5Z"/></svg></div>
-    </div>
-  </div>
-</div>
+<div class='h'><div class='h-inner'><div class='h-left'><img id='fLogo' src='' alt='Firma'></div><div class='h-center'><div class='h-center-title'>JOTUN <b>HESAPLAMA</b></div></div><div class='h-right'><img id='jLogo' src='https://www.jotun.com/globalassets-b2b/.com/jotun-logo.svg' alt='JOTUN'><div class='homeCircle' onclick='window.scrollTo({top:0,behavior:"smooth"})' title='Ana Sayfa'><svg viewBox="0 0 24 24"><path d="M12 2.5L3 11.5V20.5C3 21.05 3.45 21.5 4 21.5H9.5C10.05 21.5 10.5 21.05 10.5 20.5V15.5C10.5 14.95 10.95 14.5 11.5 14.5H12.5C13.05 14.5 13.5 14.95 13.5 15.5V20.5C13.5 21.05 13.95 21.5 14.5 21.5H20C20.55 21.5 21 21.05 21 20.5V11.5L12 2.5Z"/></svg></div></div></div></div>
 <div class='drawerHandle' id='drawerHandle' onclick='toggleDrawer()' title='Ayarlar'><svg viewBox="0 0 24 24"><path d="M11 5l-7 7 7 7"/><path d="M4 12h16"/></svg></div>
 <div class='drawerOverlay' id='drawerOverlay' onclick='closeDrawer()'></div>
 <div class='drawer' id='drawer'>
-  <div class='drawerHead'><b>⚙️ AYARLAR</b><button class='drawerClose' onclick='closeDrawer()'>✕</button></div>
-  <div style='border:1.5px solid var(--jotun-yellow);border-radius:6px;padding:6px;background:rgba(255,204,0,.06)'><span class='kurumsalLabel' style='margin-top:0'>TEMA</span><div class='themeSelect'><div class='themeOpt' id='themeLight' onclick='setTheme("light")'>☀️ AÇIK</div><div class='themeOpt' id='themeDark' onclick='setTheme("dark")'>🌙 KOYU</div><div class='themeOpt' id='themeAuto' onclick='setTheme("auto")'>🔄 OTO</div></div></div>
+  <div class='drawerHead'><b>AYARLAR</b><button class='drawerClose' onclick='closeDrawer()'>X</button></div>
+  <div style='border:1.5px solid var(--jotun-yellow);border-radius:6px;padding:6px;background:rgba(255,204,0,.06)'><span class='kurumsalLabel' style='margin-top:0'>TEMA</span><div class='themeSelect'><div class='themeOpt' id='themeLight' onclick='setTheme("light")'>ACIK</div><div class='themeOpt' id='themeDark' onclick='setTheme("dark")'>KOYU</div><div class='themeOpt' id='themeAuto' onclick='setTheme("auto")'>OTO</div></div></div>
   <div><span class='kurumsalLabel'>FIRMA</span><input id='setFirma' class='s'></div>
-  <div style='border:1px solid var(--card-border);border-radius:6px;padding:5px;margin-top:5px'><span class='kurumsalLabel' style='margin-top:0'>LOGO (32px)</span><div class='logoRow'><input id='setFL' class='s' placeholder='https://...'><button class='fileBtn' onclick="document.getElementById('fLogoFile').click()">📁</button></div><input type='file' id='fLogoFile' accept='image/*' style='display:none'><div class='miniPreviewWrap' id='fLogoWrap' style='display:none'><img id='fLogoPreview' class='kasePreview'><span>Logo</span><button onclick='clearFLogo()' style='margin-left:auto;background:#E53935;color:#fff;border:none;border-radius:3px;padding:2px 4px;font-size:7px;font-weight:800'>SİL</button></div></div>
-  <div style='border:1px solid var(--jotun-yellow);border-radius:6px;padding:5px;margin-top:5px;background:rgba(255,204,0,.06)'><span class='kurumsalLabel' style='margin-top:0'>KAŞE / İMZA</span><div class='logoRow'><input id='setKase' class='s' placeholder='https://...'><button class='fileBtn' onclick="document.getElementById('kaseFile').click()">📁</button></div><input type='file' id='kaseFile' accept='image/*' style='display:none'><div class='miniPreviewWrap' id='kaseWrap' style='display:none'><img id='kasePreview' class='kasePreview'><span>Kaşe</span><button onclick='clearKase()' style='margin-left:auto;background:#E53935;color:#fff;border:none;border-radius:3px;padding:2px 4px;font-size:7px;font-weight:800'>SİL</button></div></div>
+  <div style='border:1px solid var(--card-border);border-radius:6px;padding:5px;margin-top:5px'><span class='kurumsalLabel' style='margin-top:0'>LOGO (32px)</span><div class='logoRow'><input id='setFL' class='s' placeholder='https://...'><button class='fileBtn' onclick="document.getElementById('fLogoFile').click()">DOSYA</button></div><input type='file' id='fLogoFile' accept='image/*' style='display:none'><div class='miniPreviewWrap' id='fLogoWrap' style='display:none'><img id='fLogoPreview' class='kasePreview'><span>Logo</span><button onclick='clearFLogo()' style='margin-left:auto;background:#E53935;color:#fff;border:none;border-radius:3px;padding:2px 4px;font-size:7px;font-weight:800'>SIL</button></div></div>
+  <div style='border:1px solid var(--jotun-yellow);border-radius:6px;padding:5px;margin-top:5px;background:rgba(255,204,0,.06)'><span class='kurumsalLabel' style='margin-top:0'>KASE / IMZA</span><div class='logoRow'><input id='setKase' class='s' placeholder='https://...'><button class='fileBtn' onclick="document.getElementById('kaseFile').click()">DOSYA</button></div><input type='file' id='kaseFile' accept='image/*' style='display:none'><div class='miniPreviewWrap' id='kaseWrap' style='display:none'><img id='kasePreview' class='kasePreview'><span>Kase</span><button onclick='clearKase()' style='margin-left:auto;background:#E53935;color:#fff;border:none;border-radius:3px;padding:2px 4px;font-size:7px;font-weight:800'>SIL</button></div></div>
   <div><span class='kurumsalLabel'>ADRES</span><input id='setAdres' class='s'></div><div style='display:grid;grid-template-columns:1fr 1fr;gap:3px'><div><span class='kurumsalLabel'>MAIL</span><input id='setMail' class='s'></div><div><span class='kurumsalLabel'>WEB</span><input id='setWeb' class='s'></div></div><div><span class='kurumsalLabel'>TEL</span><input id='setTel' class='s'></div><div><span class='kurumsalLabel'>IBAN</span><input id='setBanka' class='s'></div><div><span class='kurumsalLabel'>VEREN</span><input id='setVeren' class='s'></div><div style='display:grid;grid-template-columns:1fr 1fr;gap:3px'><div><span class='kurumsalLabel'>KAR %</span><input id='setKar' class='s' type='number'></div><div><span class='kurumsalLabel'>KDV %</span><input id='setKdv' class='s' type='number'></div></div>
-  <div style='margin-top:8px;display:grid;grid-template-columns:1fr 1fr;gap:3px'><button onclick='forceClearSik()' style='background:#E53935;color:#fff;border:none;border-radius:4px;padding:6px;font-weight:800;font-size:9px'>🗑 SIK TEMİZLE</button><button onclick='bulutYenile()' style='background:#0a7a2f;color:#fff;border:none;border-radius:4px;padding:6px;font-weight:800;font-size:9px'>🔄 YENİLE</button></div>
+  <div style='margin-top:8px;display:grid;grid-template-columns:1fr 1fr;gap:3px'><button onclick='forceClearSik()' style='background:#E53935;color:#fff;border:none;border-radius:4px;padding:6px;font-weight:800;font-size:9px'>SIK TEMIZLE</button><button onclick='bulutYenile()' style='background:#0a7a2f;color:#fff;border:none;border-radius:4px;padding:6px;font-weight:800;font-size:9px'>YENILE</button></div>
   <button onclick='saveSet();closeDrawer()' style='width:100%;padding:8px;background:var(--jotun-blue);color:#fff;border:none;border-radius:6px;font-weight:800;margin-top:8px;font-size:11px'>KAYDET KAPAT</button>
 </div>
-<div class='c'><div class='c-head'>1 — RAL KARTELASI — <span id='ralSay'>-</span></div><div class='rb'><div class='sw' id='swatch'>BOS</div><div class='bil'><div class='bilU'><div class='bilU-ral'><input id='ralInput' placeholder='RAL 7016' readonly onclick='enableRal()' oninput='filterRal()' style='border:none;width:100%;text-align:center;font-weight:900;font-size:15px;background:transparent;color:var(--text);font-family:Inter'></div><div class='bilU-pig'><input id='pigment' placeholder='0,00' style='border:none;background:transparent;width:100%;text-align:center;font-weight:900;font-size:15px;color:var(--text);font-family:Inter' oninput='calc()'><span style='font-size:16px;font-weight:900;padding-right:6px;color:var(--text)'>₺</span></div></div><div class='bilA'><input id='ralForm' placeholder='FORMÜL / NOT' style='border:none;width:100%;padding-left:8px;font-size:11px;font-weight:600;background:transparent;color:var(--text2);font-family:Inter'></div></div><button class='btnS' onclick='enableRal()'>🔍</button></div></div>
-<div class='c'><div class='c-head'>2 — ÜRÜN SEÇİMİ — <span id='canliSay'>0</span> ÜRÜN • <span id='kayitSay'>0</span> KAYIT <small id='cloudInfo' style='background:var(--jotun-yellow);color:var(--jotun-blue);padding:1px 4px;border-radius:8px;font-size:7px'></small></div><div class='sb' style='margin-top:5px'><input id='urunInput' class='jotunSearch' placeholder='Ürün ara - Örn: CONSEAL' readonly onclick='enableUrun()' oninput='filterUrun()'><button class='btnS' onclick='enableUrun()'>🔍</button></div><div id='urunDetay' style='font-size:9px;margin-top:5px;display:none;font-weight:700;background:rgba(1,32,96,.06);padding:3px 6px;border-radius:4px;word-break:break-word;color:var(--text)'></div><div id='compBox' class='compBox'></div></div>
-<div class='c' style='margin-top:8px'><div class='c-head'>3 — AMBALAJ <small id='ambInfo'></small></div><div style='display:flex;gap:8px;align-items:center;margin-top:4px'><div style='flex-shrink:0;width:54px;height:54px;background:#fff;border:1.5px solid var(--card-border);border-radius:8px;display:flex;align-items:center;justify-content:center;padding:4px;box-shadow:0 1px 4px rgba(0,0,0,.08)'><img src='https://jcm.jotun.com/assets/product-default-CRbs1WvP.png' alt='Jotun Kova' style='width:100%;height:100%;object-fit:contain'></div><div class='ambRow' id='ambList' style='flex:1;margin-top:0'></div></div></div>
+<div class='c'><div class='c-head'>1 - RAL KARTELASI - <span id='ralSay'>-</span></div><div class='rb'><div class='sw' id='swatch'>BOS</div><div class='bil'><div class='bilU'><div class='bilU-ral'><input id='ralInput' placeholder='RAL 7016' readonly onclick='enableRal()' oninput='filterRal()' style='border:none;width:100%;text-align:center;font-weight:900;font-size:15px;background:transparent;color:var(--text);font-family:Inter'></div><div class='bilU-pig'><input id='pigment' placeholder='0,00' style='border:none;background:transparent;width:100%;text-align:center;font-weight:900;font-size:15px;color:var(--text);font-family:Inter' oninput='calc()'><span style='font-size:16px;font-weight:900;padding-right:6px;color:var(--text)'>TL</span></div></div><div class='bilA'><input id='ralForm' placeholder='FORMUL / NOT' style='border:none;width:100%;padding-left:8px;font-size:11px;font-weight:600;background:transparent;color:var(--text2);font-family:Inter'></div></div><button class='btnS' onclick='enableRal()'>ARA</button></div></div>
+<div class='c'><div class='c-head'>2 - URUN SECIMI - <span id='canliSay'>0</span> URUN - <span id='kayitSay'>0</span> KAYIT <small id='cloudInfo' style='background:var(--jotun-yellow);color:var(--jotun-blue);padding:1px 4px;border-radius:8px;font-size:7px'></small></div><div class='sb' style='margin-top:5px'><input id='urunInput' class='jotunSearch' placeholder='Urun ara - Orn: CONSEAL' readonly onclick='enableUrun()' oninput='filterUrun()'><button class='btnS' onclick='enableUrun()'>ARA</button></div><div id='urunDetay' style='font-size:9px;margin-top:5px;display:none;font-weight:700;background:rgba(1,32,96,.06);padding:3px 6px;border-radius:4px;word-break:break-word;color:var(--text)'></div><div id='compBox' class='compBox'></div></div>
+<div class='c' style='margin-top:8px'><div class='c-head'>3 - AMBALAJ <small id='ambInfo'></small></div><div style='display:flex;gap:8px;align-items:center;margin-top:4px'><div style='flex-shrink:0;width:54px;height:54px;background:#fff;border:1.5px solid var(--card-border);border-radius:8px;display:flex;align-items:center;justify-content:center;padding:4px;box-shadow:0 1px 4px rgba(0,0,0,.08)'><img src='https://jcm.jotun.com/assets/product-default-CRbs1WvP.png' alt='Jotun Kova' style='width:100%;height:100%;object-fit:contain'></div><div class='ambRow' id='ambList' style='flex:1;margin-top:0'></div></div></div>
 <div class='res'>
   <div class='resTopKur'>
-    <div class='resKurItem'>
-      <div style='flex:1'>
-        <div class='resKurLabel'>💵 DOLAR KURU</div>
-        <div class='resKurVal' id='kurBuyuk'>49,7891</div>
-        <div class='resKurDate' id='kurTarihTxt'>-</div>
-      </div>
-      <input id='setDolarVisible' class='resKurInput' placeholder='49,78' oninput='document.getElementById("setDolar").value=this.value;kurGuncelleLocal()'>
-      <input id='setDolar' style='display:none'>
-    </div>
-    <div class='resKurItem'>
-      <div style='flex:1'>
-        <div class='resKurLabel'>💶 EURO KURU</div>
-        <div class='resKurVal euro' id='euroBuyuk'>54,20</div>
-        <div class='resKurDate' id='euroTarihTxt'>-</div>
-      </div>
-      <input id='setEuroVisible' class='resKurInput' placeholder='54,20' oninput='document.getElementById("setEuro").value=this.value;kurGuncelleLocalEuro()'>
-      <input id='setEuro' style='display:none'>
-    </div>
-    <div style='display:flex;flex-direction:column;gap:4px;align-items:center'>
-      <div class='miniBlueBox' onclick='fetchKurlar()' title='Kurları güncelle' id='kurBtn'>
-        <svg viewBox="0 0 24 24"><path d="M21 12a9 9 0 1 1-2.64-6.36"/><path d="M21 3v6h-6"/><path d="M8 12a4 4 0 0 1 4-4h8"/></svg>
-      </div>
-      <span class='resTopDolarStatus' id='kurStatus' style='display:none'>GÜNCEL</span>
-    </div>
+    <div class='resKurItem'><div style='flex:1'><div class='resKurLabel'>DOLAR KURU</div><div class='resKurVal' id='kurBuyuk'>49,7891</div><div class='resKurDate' id='kurTarihTxt'>-</div></div><input id='setDolarVisible' class='resKurInput' placeholder='49,78' oninput='document.getElementById("setDolar").value=this.value;kurGuncelleLocal()'><input id='setDolar' style='display:none'></div>
+    <div class='resKurItem'><div style='flex:1'><div class='resKurLabel'>EURO KURU</div><div class='resKurVal euro' id='euroBuyuk'>54,20</div><div class='resKurDate' id='euroTarihTxt'>-</div></div><input id='setEuroVisible' class='resKurInput' placeholder='54,20' oninput='document.getElementById("setEuro").value=this.value;kurGuncelleLocalEuro()'><input id='setEuro' style='display:none'></div>
+    <div style='display:flex;flex-direction:column;gap:4px;align-items:center'><div class='miniBlueBox' onclick='fetchKurlar()' title='Kurlari guncelle' id='kurBtn'><svg viewBox="0 0 24 24"><path d="M21 12a9 9 0 1 1-2.64-6.36"/><path d="M21 3v6h-6"/><path d="M8 12a4 4 0 0 1 4-4h8"/></svg></div><span class='resTopDolarStatus' id='kurStatus' style='display:none'>GUNCEL</span></div>
   </div>
-  <div class='resGrid'><div><div class='resLabel'>LT MALİYET</div><div id='maliyet' class='resVal'>-</div></div><div><div class='resLabel'>LT SATIŞ</div><div id='ltSatis' class='resVal' style='color:var(--jotun-yellow)'>-</div></div><div><div class='resLabel' id='kovaLabel'>KOVA</div><div id='kova' class='resValBig'>-</div><div id='kovaKdv' class='resValKdv'>-</div></div></div>
+  <div class='resGrid'><div><div class='resLabel'>LT MALIYET</div><div id='maliyet' class='resVal'>-</div></div><div><div class='resLabel'>LT SATIS</div><div id='ltSatis' class='resVal' style='color:var(--jotun-yellow)'>-</div></div><div><div class='resLabel' id='kovaLabel'>KOVA</div><div id='kova' class='resValBig'>-</div><div id='kovaKdv' class='resValKdv'>-</div></div></div>
   <div id='hesapDetay' class='hesapDetay' style='display:none'></div>
-  <div class='actionBtns'><button onclick='teklifeEkle()' style='background:var(--card);border:2px solid var(--jotun-yellow);color:var(--jotun-blue)'>EKLE ✓</button><button onclick='kaydet()' style='background:#00C853;color:#fff;border:none'>☁️ SIK'A KAYDET</button></div>
+  <div class='actionBtns'><button onclick='teklifeEkle()' style='background:var(--card);border:2px solid var(--jotun-yellow);color:var(--jotun-blue)'>EKLE</button><button onclick='kaydet()' style='background:#00C853;color:#fff;border:none'>SIK A KAYDET</button></div>
 </div>
 <div class='teklifCard'>
-<div style='display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:3px'><b style='font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:var(--text)'>TEKLİF (<span id='teklifSayi'>0</span>)</b><div style='display:flex;gap:3px'><button onclick='pickContact()' style='background:#0a7a2f;color:#fff;border:none;border-radius:4px;padding:5px 8px;font-size:9px;font-weight:800;white-space:nowrap'>📇 KİŞİLER</button><button onclick='temizle()' style='background:#E53935;color:#fff;border:none;border-radius:4px;padding:5px 6px;font-size:8px;font-weight:800'>TEMİZLE</button></div></div>
-<div class='teklifInputs'><input id='musteriAd' placeholder='Müşteri Adı' autocomplete='off'><input id='musteriAdres' placeholder='Müşteri Adres' autocomplete='off'><div style='display:contents'><input id='musteriTel' placeholder='Müşteri Tel - 05xx' inputmode='tel' autocomplete='off'><input id='tarih' type='date'></div></div>
+<div style='display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:3px'><b style='font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:var(--text)'>TEKLIF (<span id='teklifSayi'>0</span>)</b><div style='display:flex;gap:3px'><button onclick='pickContact()' style='background:#0a7a2f;color:#fff;border:none;border-radius:4px;padding:5px 8px;font-size:9px;font-weight:800;white-space:nowrap'>KISILER</button><button onclick='temizle()' style='background:#E53935;color:#fff;border:none;border-radius:4px;padding:5px 6px;font-size:8px;font-weight:800'>TEMIZLE</button></div></div>
+<div class='teklifInputs'><input id='musteriAd' placeholder='Musteri Adi' autocomplete='off'><input id='musteriAdres' placeholder='Musteri Adres' autocomplete='off'><div style='display:contents'><input id='musteriTel' placeholder='Musteri Tel - 05xx' inputmode='tel' autocomplete='off'><input id='tarih' type='date'></div></div>
 <div id='contactInfo' style='font-size:9px;color:#0a7a2f;font-weight:800;margin-top:5px;display:none;word-break:break-word;background:rgba(0,200,83,.1);padding:4px 5px;border-radius:4px;border:1px solid #0a7a2f'></div>
 <div id='teklifList' class='teklifList'></div><div id='teklifToplam' class='teklifToplam' style='display:none'></div>
-<div class='teklifBtns'><button onclick='yazdir()' style='background:#012060;color:#fff'>🖨<br>YAZDIR</button><button onclick='waTextGonder()' style='background:#128C7E;color:#fff'>💬<br>YAZI</button><button onclick='waPdfGonder()' style='background:#25D366;color:#fff'>📄<br>PDF</button></div>
+<div class='teklifBtns'><button onclick='yazdir()' style='background:#012060;color:#fff'>YAZDIR</button><button onclick='waTextGonder()' style='background:#128C7E;color:#fff'>YAZI</button><button onclick='waPdfGonder()' style='background:#25D366;color:#fff'>PDF</button></div>
 </div>
-<div class='c' style='padding:6px'><div style='display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:3px'><b style='font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:var(--jotun-blue)'>⭐ SIK KULLANILANLAR — <span id='sikSay'>0</span></b><div style='display:flex;gap:3px'><button onclick='bulutYenile()' style='background:#00C853;color:#fff;border:none;border-radius:3px;padding:2px 6px;font-size:7px;font-weight:800'>🔄 YENİLE</button><button onclick='forceClearSik()' style='background:#E53935;color:#fff;border:none;border-radius:3px;padding:2px 6px;font-size:7px;font-weight:800'>🗑 SİL</button></div></div><div id='sikBox' class='sikGrid'></div></div>
+<div class='c' style='padding:6px'><div style='display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:3px'><b style='font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:var(--jotun-blue)'>SIK KULLANILANLAR - <span id='sikSay'>0</span></b><div style='display:flex;gap:3px'><button onclick='bulutYenile()' style='background:#00C853;color:#fff;border:none;border-radius:3px;padding:2px 6px;font-size:7px;font-weight:800'>YENILE</button><button onclick='forceClearSik()' style='background:#E53935;color:#fff;border:none;border-radius:3px;padding:2px 6px;font-size:7px;font-weight:800'>SIL</button></div></div><div id='sikBox' class='sikGrid'></div></div>
 </div>
 <div id='ralDrop'></div><div class='drop' id='urunDrop'></div>
 <script>
-const BULUT_URL = 'https://crudcrud.com/api/772420af1ef84f3f8653d9e074bcdde8';
-const BULUT_RES = 'jotun_sik';
+const BULUT_URL='https://crudcrud.com/api/772420af1ef84f3f8653d9e074bcdde8';
+const BULUT_RES='jotun_sik';
 let urunler=[],ralList=[],kayitlar=[],secKayit=[],amb=[{ad:'3.6L',lt:3.6},{ad:'4.5L',lt:4.5},{ad:'18L',lt:18},{ad:'20L',lt:20}];
 let ayar=JSON.parse(localStorage.getItem('jotun_ayarlar')||'{"kar":25,"kdv":20,"dolar":"49,7891","euro":"54,20","dolarTarih":"","euroTarih":"","firmaAdi":"","firmaLogo":"","firmaAdres":"","firmaMail":"","firmaWeb":"","telefon":"","firmaBanka":"","teklifVeren":"","kaseLogo":"","tema":"light"}');
 let secUrun=null,secAmb=2,secLT=18,secHex='#FFF',son=null,tempRal='',secName='',sepet=JSON.parse(localStorage.getItem('teklif_sepet')||'[]');let sonHesap={};let secCompPair=null;let bulutCache=[];let lastContactTel='';
@@ -233,91 +151,41 @@ function isCompB(s){return /COMP\.?\s*B/i.test(s||'')}
 function isComp(s){return isCompA(s)||isCompB(s)}
 function is20LT(ad){return /\(20\s*LT\)/i.test(ad||'') || ad.toUpperCase().includes('20 LT');}
 function getSetLT(ad){return is20LT(ad) ? 20 : 18;}
-function norm(s){let u=(s||'').toUpperCase();u=u.replace(/\(.*LT.*?\)/gi,'');u=u.replace(/BASE\s*\d+/gi,'');u=u.replace(/COMP\.?\s*[AB]/gi,'');u=u.replace(/[^A-Z0-9 ]/g,' ');u=u.replace(/\s+/g,' ').trim();return u;}
-function findExactPrice(productName){let up=productName.trim().toUpperCase();let ex=urunler.find(u=>u[0].trim().toUpperCase()===up);if(ex && ex[1]>0) return ex[1];if(ex && ex[1]===0){let n=norm(productName);let priced=urunler.filter(u=>norm(u[0])===n && u[1]>0);if(priced.length>0) return priced[0][1];}let lt=parseLT(productName);let n=norm(productName);let candidates=urunler.filter(u=>norm(u[0])===n && u[1]>0);if(candidates.length===0) candidates=urunler.filter(u=>norm(u[0])===n);if(candidates.length>0){if(lt>0){ let sameLT=candidates.find(u=>Math.abs(parseLT(u[0])-lt)<0.1 && u[1]>0); if(sameLT) return sameLT[1]; }let nonZero=candidates.find(u=>u[1]>0);return nonZero?nonZero[1]:candidates[0][1];}return null;}
-function findCompPair(name){let up=name.toUpperCase().trim();let n=norm(name);if(!n) return null;let myLT=parseLT(name);let setLT=getSetLT(name);let all=urunler.map((u,i)=>({ad:u[0],fiyat:u[1],parsed:parseLT(u[0]),i,setLT:getSetLT(u[0])}));let sameFamily=all.filter(o=>{if(o.ad.toUpperCase().trim()===up) return false;let nn=norm(o.ad);return nn===n || (n.length>4 && nn.includes(n.split(' ').slice(0,2).join(' ')));});let wantB=isCompA(name);let wantA=isCompB(name);let isBase=!isComp(name);let cands=sameFamily;if(wantB) cands=cands.filter(o=>isCompB(o.ad));else if(wantA) cands=cands.filter(o=>isCompA(o.ad));else if(isBase) cands=cands.filter(o=>isCompB(o.ad));if(cands.length===0) return null;cands.forEach(o=>{o.score=0;if(o.setLT!==setLT) o.score+=100;if(myLT>0 && o.parsed>0){let toplam=myLT+o.parsed;let fark=Math.abs(toplam-setLT);o.score+=fark*10;if(setLT===18){if(o.parsed>=1.8 && o.parsed<=2.2) o.score-=5;if(o.parsed<=0.6) o.score+=8;}if(setLT===20){if(o.parsed>=1.8 && o.parsed<=2.5) o.score-=5;}if(setLT===18 && myLT<5){if(o.parsed>=0.4 && o.parsed<=0.6) o.score-=5;}}if(norm(o.ad)===n) o.score-=1;});cands.sort((a,b)=>a.score-b.score);let best=cands[0];if(!best) return null;return {ad:best.ad, lt:best.parsed||trueLTFromSet(best.ad), fiyat:best.fiyat, i:best.i, parsed:best.parsed, setLT:best.setLT};}
+// DUZELTME 1: norm BASE numarasini silmiyor
+function norm(s){let u=(s||'').toUpperCase();u=u.replace(/\(.*LT.*?\)/gi,'');u=u.replace(/COMP\.?\s*[AB]/gi,'');u=u.replace(/[^A-Z0-9 ]/g,' ');u=u.replace(/\s+/g,' ').trim();return u;}
+// DUZELTME 2: baska BASE'in fiyatini alma
+function findExactPrice(productName){let up=productName.trim().toUpperCase();let ex=urunler.find(u=>u[0].trim().toUpperCase()===up);if(ex && ex[1]>0) return ex[1];let lt=parseLT(productName);let n=norm(productName);let same=urunler.filter(u=>norm(u[0])===n && u[1]>0);if(same.length){if(lt>0){let sameLT=same.find(u=>Math.abs(parseLT(u[0])-lt)<0.1);if(sameLT) return sameLT[1];}return same[0][1];}return null;}
+// DUZELTME 3: ayni BASE'in B'si
+function findCompPair(name){let up=name.toUpperCase().trim();let n=norm(name);if(!n) return null;let setLT=getSetLT(name);let myLT=parseLT(name);let all=urunler.map((u,i)=>({ad:u[0],fiyat:u[1],parsed:parseLT(u[0]),i,setLT:getSetLT(u[0])}));let sameFamily=all.filter(o=>o.ad.toUpperCase().trim()!==up && norm(o.ad)===n);if(!sameFamily.length) return null;let wantB=isCompA(name),wantA=isCompB(name),isBase=!isComp(name);let cands=sameFamily;if(wantB) cands=cands.filter(o=>isCompB(o.ad));else if(wantA) cands=cands.filter(o=>isCompA(o.ad));else if(isBase) cands=cands.filter(o=>isCompB(o.ad));if(!cands.length) return null;cands.forEach(o=>{o.score=0;if(o.setLT!==setLT) o.score+=100;if(myLT>0 && o.parsed>0){o.score+=Math.abs((myLT+o.parsed)-setLT)*10;if(setLT===18 && o.parsed>=1.4 && o.parsed<=2.2) o.score-=5;if(setLT===20 && o.parsed>=1.8 && o.parsed<=2.5) o.score-=5;}});cands.sort((a,b)=>a.score-b.score);let best=cands[0];if(!best) return null;return {ad:best.ad, lt:best.parsed||trueLTFromSet(best.ad), fiyat:best.fiyat, i:best.i, parsed:best.parsed, setLT:best.setLT};}
 function trueLTFromSet(ad){let p=parseLT(ad);if(p>0) return p;let setLT=getSetLT(ad);if(isCompB(ad)) return 2.0;if(isCompA(ad) || !isComp(ad)){let up=(ad||'').toUpperCase();if(up.includes('FUTURA CLASSIC')){ return setLT===20?18.0:16.2; }return setLT;}return setLT;}
 function getRalHex(kod){if(!kod) return '#777';let r=ralList.find(x=>String(x.kod).trim()===String(kod).trim());return r?r.hex:'#777';}
 function getContrast(hex){try{let c=hex.replace('#','');if(c.length===3) c=c.split('').map(x=>x+x).join('');let r=parseInt(c.substr(0,2),16), g=parseInt(c.substr(2,2),16), b=parseInt(c.substr(4,2),16);let l=(0.299*r+0.587*g+0.114*b)/255;return l>0.6?'#111':'#fff';}catch(e){return '#fff'}}
 async function tryFetch(urls){for(let u of urls){try{let r=await fetch(u,{cache:'no-store'});if(r.ok){let t=await r.text();t=t.replace(/"fiyat"\s*:\s*(\d+),(\d+)/g,'"fiyat": $1.$2');let j=JSON.parse(t);if(j&&j.length>0)return {data:j};}}catch(e){}}return null}
-async function bulutGet(){try{let r=await fetch(BULUT_URL+'/'+BULUT_RES,{cache:'no-store'});if(!r.ok) throw 'no';let j=await r.json();bulutCache=j;document.getElementById('cloudInfo').innerText='☁️ '+j.length;document.getElementById('sikSay').innerText=j.length;return j;}catch(e){document.getElementById('cloudInfo').innerText='⚠️ yerel';let localData=JSON.parse(localStorage.getItem('jotun_kayitlar_extra')||'[]');bulutCache=localData.map((o,i)=>({...o,_id:'local_'+i}));document.getElementById('sikSay').innerText=localData.length;return localData;}}
+async function bulutGet(){try{let r=await fetch(BULUT_URL+'/'+BULUT_RES,{cache:'no-store'});if(!r.ok) throw 'no';let j=await r.json();bulutCache=j;document.getElementById('cloudInfo').innerText='BULUT '+j.length;document.getElementById('sikSay').innerText=j.length;return j;}catch(e){document.getElementById('cloudInfo').innerText='yerel';let localData=JSON.parse(localStorage.getItem('jotun_kayitlar_extra')||'[]');bulutCache=localData.map((o,i)=>({...o,_id:'local_'+i}));document.getElementById('sikSay').innerText=localData.length;return localData;}}
 async function bulutPost(obj){try{let r=await fetch(BULUT_URL+'/'+BULUT_RES,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(obj)});return r.ok;}catch(e){return false}}
 async function bulutDelete(id){if(!id) return false;if(String(id).startsWith('local_')) return true;try{let r=await fetch(BULUT_URL+'/'+BULUT_RES+'/'+id,{method:'DELETE'});return r.ok;}catch(e){return false}}
 async function bulutYenile(){let data=await bulutGet();let clean=data.map(o=>{let { _id, ...rest }=o; return rest});localStorage.setItem('jotun_kayitlar_extra',JSON.stringify(clean));await loadAll();}
-function forceClearSik(){if(!confirm('TÜM sık kullanılanlar silinsin mi?')) return;localStorage.setItem('jotun_kayitlar_extra','[]');bulutCache=[];kayitlar=kayitlar.filter(k=> false);(async()=>{try{let all=await fetch(BULUT_URL+'/'+BULUT_RES,{cache:'no-store'}).then(r=>r.json());for(let o of all){ await bulutDelete(o._id); }}catch(e){}document.getElementById('sikBox').innerHTML='<div style="font-size:11px;color:var(--text2);padding:8px">Temizlendi</div>';document.getElementById('sikSay').innerText='0';document.getElementById('cloudInfo').innerText='0';location.reload();})();}
+function forceClearSik(){if(!confirm('TUM sik kullanilanlar silinsin mi?')) return;localStorage.setItem('jotun_kayitlar_extra','[]');bulutCache=[];kayitlar=kayitlar.filter(k=> false);(async()=>{try{let all=await fetch(BULUT_URL+'/'+BULUT_RES,{cache:'no-store'}).then(r=>r.json());for(let o of all){ await bulutDelete(o._id); }}catch(e){}location.reload();})();}
 function toggleDrawer(){let d=document.getElementById('drawer');let isOn=d.classList.contains('on');if(isOn){closeDrawer()}else{openDrawer()}}
 function openDrawer(){document.getElementById('drawer').classList.add('on');document.getElementById('drawerOverlay').classList.add('on');document.getElementById('drawerHandle').classList.add('on');document.body.style.overflow='hidden'}
 function closeDrawer(){document.getElementById('drawer').classList.remove('on');document.getElementById('drawerOverlay').classList.remove('on');document.getElementById('drawerHandle').classList.remove('on');document.body.style.overflow=''}
 function saveSet(){saveF();ayar.kar=parseFloat(document.getElementById('setKar').value)||25;ayar.kdv=parseFloat(document.getElementById('setKdv').value)||20;ayar.dolar=document.getElementById('setDolar').value;ayar.euro=document.getElementById('setEuro').value;localStorage.setItem('jotun_ayarlar',JSON.stringify(ayar));updateKurDisplay();applyTheme();closeDrawer();calc();}
-function kurGuncelleLocal(){let v=document.getElementById('setDolarVisible').value;document.getElementById('setDolar').value=v;let buyuk=document.getElementById('kurBuyuk'); if(buyuk) buyuk.innerText=v||'-'; calc(); let status=document.getElementById('kurStatus'); if(status){status.innerText='MANUEL'; status.style.display='inline-block'; status.style.background='rgba(255,204,0,.15)'; status.style.color='#FFCC00'; status.style.borderColor='rgba(255,204,0,.3)';}}
+function kurGuncelleLocal(){let v=document.getElementById('setDolarVisible').value;document.getElementById('setDolar').value=v;let buyuk=document.getElementById('kurBuyuk'); if(buyuk) buyuk.innerText=v||'-'; calc(); let status=document.getElementById('kurStatus'); if(status){status.innerText='MANUEL'; status.style.display='inline-block';}}
 function kurGuncelleLocalEuro(){let v=document.getElementById('setEuroVisible').value;document.getElementById('setEuro').value=v;let buyuk=document.getElementById('euroBuyuk'); if(buyuk) buyuk.innerText=v||'-';}
 async function loadAll(){
-let pr=await tryFetch([
-  'https://raw.githubusercontent.com/ahmetdogan68/jotun/main/products.json?v='+Date.now(),
-  'https://github.com/ahmetdogan68/jotun/blob/main/products.json?raw=true&v='+Date.now(),
-  './products.json?v='+Date.now()
-]);
+let pr=await tryFetch(['https://raw.githubusercontent.com/ahmetdogan68/jotun/main/products.json?v='+Date.now(),'https://github.com/ahmetdogan68/jotun/blob/main/products.json?raw=true&v='+Date.now(),'./products.json?v='+Date.now()]);
 if(pr&&pr.data){let bl=pr.data.map(o=>({ad:(o.ad||'').trim(),fiyat:parsePrice(o.fiyat),parsed:parseLT(o.ad||'') }));bl.sort((a,b)=>a.ad.toUpperCase().localeCompare(b.ad.toUpperCase(),'tr'));urunler=bl.map(o=>[o.ad,o.fiyat]);}let rr=await tryFetch(['https://raw.githubusercontent.com/ahmetdogan68/jotun/main/ral.json?v='+Date.now(),'./ral.json?v='+Date.now()]);if(rr&&rr.data) ralList=rr.data;let jr=await tryFetch(['./jotun_kayitlar.json?v='+Date.now()]);if(jr&&jr.data){kayitlar=jr.data;}let cloudData=await bulutGet();let localData=JSON.parse(localStorage.getItem('jotun_kayitlar_extra')||'[]');let merged=cloudData.length>0?cloudData:localData.map((o,i)=>({...o,_id:'local_'+i}));let map=new Map();merged.forEach(x=>{let k=x.ral_no+'_'+x.product; if(!map.has(k)) map.set(k,x)});merged=Array.from(map.values());if(merged.length>0){kayitlar=kayitlar.concat(merged.map(o=>{let { _id, ...rest}=o; return rest}));}document.getElementById('canliSay').innerText=urunler.length;document.getElementById('ralSay').innerText=ralList.length||'-';document.getElementById('kayitSay').innerText=kayitlar.length;
 document.getElementById('setFirma').value=ayar.firmaAdi||'';document.getElementById('setFL').value=ayar.firmaLogo||'';document.getElementById('setKase').value=ayar.kaseLogo||'';document.getElementById('setAdres').value=ayar.firmaAdres||'';document.getElementById('setMail').value=ayar.firmaMail||'';document.getElementById('setWeb').value=ayar.firmaWeb||'';document.getElementById('setTel').value=ayar.telefon||'';document.getElementById('setBanka').value=ayar.firmaBanka||'';document.getElementById('setVeren').value=ayar.teklifVeren||'';
 if(ayar.firmaLogo){let el=document.getElementById('fLogo'); el.src=ayar.firmaLogo; el.style.display='block'; document.getElementById('fLogoPreview').src=ayar.firmaLogo;document.getElementById('fLogoPreview').style.display='block';document.getElementById('fLogoWrap').style.display='flex';}else{document.getElementById('fLogo').style.display='none';document.getElementById('fLogoWrap').style.display='none';}
 document.getElementById('setKar').value=ayar.kar;document.getElementById('setKdv').value=ayar.kdv;document.getElementById('setDolar').value=ayar.dolar;document.getElementById('setDolarVisible').value=ayar.dolar;document.getElementById('setEuro').value=ayar.euro||'54,20';document.getElementById('setEuroVisible').value=ayar.euro||'54,20';updateKurDisplay();applyTheme();document.getElementById('tarih').valueAsDate=new Date();renderAmb();renderTeklif();renderSikKullanilan(merged);}
-function updateKurDisplay(){
-  let kurVal=ayar.dolar||'49,7891';
-  let euroVal=ayar.euro||'54,20';
-  let buyuk=document.getElementById('kurBuyuk'); if(buyuk) buyuk.innerText=kurVal;
-  let euroB=document.getElementById('euroBuyuk'); if(euroB) euroB.innerText=euroVal;
-  let inp=document.getElementById('setDolar'); if(inp) inp.value=kurVal;
-  let inpV=document.getElementById('setDolarVisible'); if(inpV) inpV.value=kurVal;
-  let inpE=document.getElementById('setEuro'); if(inpE) inpE.value=euroVal;
-  let inpEV=document.getElementById('setEuroVisible'); if(inpEV) inpEV.value=euroVal;
-  let t='';if(ayar.dolarTarih){try{let d=new Date(ayar.dolarTarih);t=`${d.toLocaleDateString('tr-TR')} ${d.toLocaleTimeString('tr-TR')}`}catch(e){t=ayar.dolarTarih;}}else{t='Manuel kur';}
-  let tarihEl=document.getElementById('kurTarihTxt'); if(tarihEl) tarihEl.innerText=t;
-  let euroT=document.getElementById('euroTarihTxt'); if(euroT) euroT.innerText=ayar.euroTarih?new Date(ayar.euroTarih).toLocaleTimeString('tr-TR'):'Manuel';
-  let status=document.getElementById('kurStatus'); if(status && ayar.dolarTarih){ status.innerText='GÜNCEL ✓'; status.style.display='inline-block'; status.style.background='rgba(0,255,136,.15)'; status.style.color='#00FF88'; status.style.borderColor='#00FF88'; }
-}
+function updateKurDisplay(){let kurVal=ayar.dolar||'49,7891';let euroVal=ayar.euro||'54,20';let buyuk=document.getElementById('kurBuyuk'); if(buyuk) buyuk.innerText=kurVal;let euroB=document.getElementById('euroBuyuk'); if(euroB) euroB.innerText=euroVal;let inp=document.getElementById('setDolar'); if(inp) inp.value=kurVal;let inpV=document.getElementById('setDolarVisible'); if(inpV) inpV.value=kurVal;let inpE=document.getElementById('setEuro'); if(inpE) inpE.value=euroVal;let inpEV=document.getElementById('setEuroVisible'); if(inpEV) inpEV.value=euroVal;let t='';if(ayar.dolarTarih){try{let d=new Date(ayar.dolarTarih);t=d.toLocaleDateString('tr-TR')+' '+d.toLocaleTimeString('tr-TR')}catch(e){t=ayar.dolarTarih;}}else{t='Manuel kur';}let tarihEl=document.getElementById('kurTarihTxt'); if(tarihEl) tarihEl.innerText=t;let euroT=document.getElementById('euroTarihTxt'); if(euroT) euroT.innerText=ayar.euroTarih?new Date(ayar.euroTarih).toLocaleTimeString('tr-TR'):'Manuel';}
 function saveF(){ayar.firmaAdi=document.getElementById('setFirma').value.trim();ayar.firmaLogo=document.getElementById('setFL').value.trim();ayar.kaseLogo=document.getElementById('setKase').value.trim();ayar.firmaAdres=document.getElementById('setAdres').value;ayar.firmaMail=document.getElementById('setMail').value;ayar.firmaWeb=document.getElementById('setWeb').value;ayar.telefon=document.getElementById('setTel').value;ayar.firmaBanka=document.getElementById('setBanka').value;ayar.teklifVeren=document.getElementById('setVeren').value;localStorage.setItem('jotun_ayarlar',JSON.stringify(ayar));let el=document.getElementById('fLogo'); if(ayar.firmaLogo){ el.src=ayar.firmaLogo; el.style.display='block'; }else{ el.style.display='none'; }}
-async function fetchKurlar(){
-  let btn=document.getElementById('kurBtn');
-  let orig=btn.innerHTML;
-  btn.innerHTML='<svg viewBox="0 0 24 24" style="animation:spin 1s linear infinite"><path d="M21 12a9 9 0 1 1-9-9c2.52 0 4.93 1 6.74 2.74" stroke="#011B44" fill="none" stroke-width="2.5" stroke-linecap="round"/></svg>';
-  let statusEl=document.getElementById('kurStatus'); if(statusEl){ statusEl.innerText='ÇEKİLİYOR...'; statusEl.style.display='inline-block'; statusEl.style.background='rgba(255,204,0,.15)'; statusEl.style.color='#FFCC00'; }
-  try{
-    let r=await fetch('https://open.er-api.com/v6/latest/USD',{cache:'no-store'});
-    if(r.ok){
-      let j=await r.json(); 
-      let tryK=j.rates.TRY;
-      let eurK=j.rates.EUR;
-      if(tryK){
-        let s=tryK.toFixed(4).replace('.',',');
-        document.getElementById('setDolar').value=s;
-        document.getElementById('setDolarVisible').value=s;
-        let b=document.getElementById('kurBuyuk'); if(b) b.innerText=s;
-        ayar.dolar=s; ayar.dolarTarih=new Date().toISOString();
-      }
-      if(eurK && tryK){
-        let euroTry = tryK / eurK;
-        let sE=euroTry.toFixed(4).replace('.',',');
-        document.getElementById('setEuro').value=sE;
-        document.getElementById('setEuroVisible').value=sE;
-        let eb=document.getElementById('euroBuyuk'); if(eb) eb.innerText=sE;
-        ayar.euro=sE; ayar.euroTarih=new Date().toISOString();
-      }
-      localStorage.setItem('jotun_ayarlar',JSON.stringify(ayar));
-      updateKurDisplay();calc();
-      btn.innerHTML='<svg viewBox="0 0 24 24"><path d="M5 12l5 5l10-10" stroke="#011B44" fill="none" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg>';
-      if(statusEl){ statusEl.innerText='GÜNCEL ✓ '+new Date().toLocaleTimeString('tr-TR'); statusEl.style.background='rgba(0,255,136,.2)'; statusEl.style.color='#00FF88'; statusEl.style.borderColor='#00FF88'; }
-      setTimeout(()=>{btn.innerHTML=orig;},2000);
-      return;
-    }
-  }catch(e){ if(statusEl){ statusEl.innerText='HATA'; statusEl.style.background='rgba(229,57,53,.15)'; statusEl.style.color='#ff6b6b'; } }
-  btn.innerHTML='<svg viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12" stroke="#011B44" fill="none" stroke-width="2.5" stroke-linecap="round"/></svg>';
-  setTimeout(()=>{btn.innerHTML=orig; if(statusEl) statusEl.style.display='none';},2000);
-}
+async function fetchKurlar(){try{let r=await fetch('https://open.er-api.com/v6/latest/USD',{cache:'no-store'});if(r.ok){let j=await r.json();let tryK=j.rates.TRY;let eurK=j.rates.EUR;if(tryK){let s=tryK.toFixed(4).replace('.',',');document.getElementById('setDolar').value=s;document.getElementById('setDolarVisible').value=s;let b=document.getElementById('kurBuyuk'); if(b) b.innerText=s;ayar.dolar=s; ayar.dolarTarih=new Date().toISOString();}if(eurK && tryK){let euroTry = tryK / eurK;let sE=euroTry.toFixed(4).replace('.',',');document.getElementById('setEuro').value=sE;document.getElementById('setEuroVisible').value=sE;let eb=document.getElementById('euroBuyuk'); if(eb) eb.innerText=sE;ayar.euro=sE; ayar.euroTarih=new Date().toISOString();}localStorage.setItem('jotun_ayarlar',JSON.stringify(ayar));updateKurDisplay();calc();}}catch(e){}}
 function clearFLogo(){document.getElementById('setFL').value='';document.getElementById('fLogoPreview').style.display='none';document.getElementById('fLogoWrap').style.display='none';document.getElementById('fLogoFile').value='';ayar.firmaLogo='';localStorage.setItem('jotun_ayarlar',JSON.stringify(ayar));document.getElementById('fLogo').style.display='none';}
 function clearKase(){document.getElementById('setKase').value='';document.getElementById('kasePreview').style.display='none';document.getElementById('kaseWrap').style.display='none';document.getElementById('kaseFile').value='';ayar.kaseLogo='';localStorage.setItem('jotun_ayarlar',JSON.stringify(ayar));}
 document.getElementById('fLogoFile')?.addEventListener('change',function(e){let file=e.target.files[0];if(!file)return;let reader=new FileReader();reader.onload=function(ev){let data=ev.target.result;document.getElementById('setFL').value=data;document.getElementById('fLogoPreview').src=data;document.getElementById('fLogoPreview').style.display='block';document.getElementById('fLogoWrap').style.display='flex';ayar.firmaLogo=data;localStorage.setItem('jotun_ayarlar',JSON.stringify(ayar));let el=document.getElementById('fLogo'); el.src=data; el.style.display='block';};reader.readAsDataURL(file);});
 document.getElementById('kaseFile')?.addEventListener('change',function(e){let file=e.target.files[0];if(!file)return;let reader=new FileReader();reader.onload=function(ev){let data=ev.target.result;document.getElementById('setKase').value=data;document.getElementById('kasePreview').src=data;document.getElementById('kasePreview').style.display='block';document.getElementById('kaseWrap').style.display='flex';ayar.kaseLogo=data;localStorage.setItem('jotun_ayarlar',JSON.stringify(ayar));};reader.readAsDataURL(file);});
-async function pickContact(){let infoEl=document.getElementById('contactInfo'); infoEl.style.display='block'; infoEl.innerText='📇 Rehber açılıyor...';if('contacts' in navigator && 'ContactsManager' in window){try{ const props=['name','tel','address']; const contacts=await navigator.contacts.select(props,{multiple:false});if(contacts.length>0){ let c=contacts[0]; let ad=c.name && c.name[0] ? c.name[0] : ''; let tel=c.tel && c.tel[0] ? c.tel[0] : ''; let adres=c.address && c.address[0] ? ((c.address[0].city||'')+' '+(c.address[0].street||'')).trim() : '';if(ad) document.getElementById('musteriAd').value=ad; if(tel){ document.getElementById('musteriTel').value=tel; lastContactTel=tel; } if(adres) document.getElementById('musteriAdres').value=adres;infoEl.innerText=`✅ ${ad} - ${tel}`; setTimeout(()=>{ infoEl.style.display='none'; },3000); return; }}catch(e){ infoEl.innerText='❌ İptal: '+e.message; return; }}infoEl.innerText='ℹ️ Android Chrome + HTTPS gerekli.';setTimeout(()=>{ infoEl.style.display='none'; },3000);}
+async function pickContact(){let infoEl=document.getElementById('contactInfo'); infoEl.style.display='block'; infoEl.innerText='Rehber aciliyor...';if('contacts' in navigator && 'ContactsManager' in window){try{ const props=['name','tel','address']; const contacts=await navigator.contacts.select(props,{multiple:false});if(contacts.length>0){ let c=contacts[0]; let ad=c.name && c.name[0] ? c.name[0] : ''; let tel=c.tel && c.tel[0] ? c.tel[0] : ''; let adres=c.address && c.address[0] ? ((c.address[0].city||'')+' '+(c.address[0].street||'')).trim() : '';if(ad) document.getElementById('musteriAd').value=ad; if(tel){ document.getElementById('musteriTel').value=tel; lastContactTel=tel; } if(adres) document.getElementById('musteriAdres').value=adres;infoEl.innerText=ad+' - '+tel; setTimeout(()=>{ infoEl.style.display='none'; },3000); return; }}catch(e){ infoEl.innerText='Iptal: '+e.message; return; }}infoEl.innerText='Android Chrome + HTTPS gerekli.';setTimeout(()=>{ infoEl.style.display='none'; },3000);}
 function getEffectiveTel(){ let tel=document.getElementById('musteriTel').value.trim(); if(tel && tel.length>=7) return tel; if(lastContactTel && lastContactTel.length>=7) return lastContactTel; return ''; }
 function placeDrop(inputEl, dropEl){let r=inputEl.getBoundingClientRect();dropEl.style.top=(r.bottom+6)+'px';dropEl.style.left=r.left+'px';dropEl.style.width=Math.min(window.innerWidth-16, Math.max(r.width, 320))+'px';if(r.bottom+360>window.innerHeight){dropEl.style.top=(r.top-390)+'px';}}
 function enableUrun(){let i=document.getElementById('urunInput');i.removeAttribute('readonly');i.focus();openUrun()}function enableRal(){let i=document.getElementById('ralInput');i.removeAttribute('readonly');i.focus();openRal()}
@@ -334,271 +202,56 @@ function filterUrun(){
     secKayit.forEach((k,i)=>{
       let livePrice=findExactPrice(k.product);
       let ff='';
-      if(livePrice!==null && livePrice>0) ff=`$${livePrice} (GÜNCEL)`;
-      else {
-        let fam=urunler.filter(u=>norm(u[0])===norm(k.product) && u[1]>0);
-        if(fam.length>0) ff=`$${fam[0][1]} (GÜNCEL)`;
-        else ff=`$0 - ESKİ KAYIT`;
-      }
+      if(livePrice!==null && livePrice>0) ff='$'+livePrice+' (GUNCEL)';
+      else {let fam=urunler.filter(u=>norm(u[0])===norm(k.product) && u[1]>0);if(fam.length>0) ff='$'+fam[0][1]+' (GUNCEL)';else ff='$0 - ESKI KAYIT';}
       let ralHexForProd = getRalHex(k.ral_no) || secHex || '#888';
-      h.push(`<div class='it it-k' onclick='selectKayit(${i})'><div style='display:flex;align-items:center;gap:8px;flex:1'><div style='width:24px;height:24px;border-radius:4px;background:${ralHexForProd};border:1.5px solid #999;flex-shrink:0'></div><div style='flex:1'><b>${k.product}</b> <small>${ff} - RAL ${k.ral_no}</small></div></div><div style='background:#0a7a2f;color:#fff;padding:3px 6px;border-radius:4px;font-size:8px;font-weight:800'>SEÇ</div></div>`);
+      h.push(`<div class='it it-k' onclick='selectKayit(${i})'><div style='display:flex;align-items:center;gap:8px;flex:1'><div style='width:24px;height:24px;border-radius:4px;background:${ralHexForProd};border:1.5px solid #999;flex-shrink:0'></div><div style='flex:1'><b>${k.product}</b> <small>${ff} - RAL ${k.ral_no}</small></div></div><div style='background:#0a7a2f;color:#fff;padding:3px 6px;border-radius:4px;font-size:8px;font-weight:800'>SEC</div></div>`);
     });
   }
   let list=urunler.map((r,i)=>({r,i})).filter(o=>!q||o.r[0].toUpperCase().includes(q)).slice(0,200);
   h.push(...list.map(o=>`<div class='it' onclick='selectUrun(${o.i})'><span style='flex:1'>${o.r[0]}</span><b>$${o.r[1]}</b></div>`));
   d.innerHTML=h.join('');placeDrop(document.getElementById('urunInput'), d);d.style.display='block';
 }
-function selectKayit(i){
-  let k=secKayit[i];if(!k)return;
-  let kLT=parseLT(k.product);
-  if(kLT>0){secLT=kLT;let idxAmb=amb.findIndex(a=>Math.abs(a.lt - kLT)<0.15);if(idxAmb!==-1) secAmb=idxAmb;}
-  let livePrice=findExactPrice(k.product);
-  let idxExact=urunler.findIndex(u=>u[0].trim().toUpperCase()===(k.product||'').trim().toUpperCase());
-  if(idxExact!==-1){
-    if(livePrice!==null && livePrice>0) urunler[idxExact][1]=livePrice;
-    selectUrun(idxExact,true);
-  }else{
-    if(livePrice===null || livePrice===0){
-      let fam=urunler.filter(u=>norm(u[0])===norm(k.product) && u[1]>0);
-      if(fam.length>0) livePrice=fam[0][1];
-    }
-    if(livePrice===null) livePrice=0;
-    urunler.push([k.product,livePrice]);
-    selectUrun(urunler.length-1,true);
-  }
-  document.getElementById('pigment').value=k.colorant_cost||'';
-  document.getElementById('ralForm').value=k.formul||'';
-  calc();
-}
-function selectUrun(i, keepAmb=false){secUrun=i; let u=urunler[i];if(!keepAmb){let pLT=parseLT(u[0]);if(pLT>0){ secLT=pLT; let idxAmb=amb.findIndex(a=>Math.abs(a.lt - pLT)<0.15); if(idxAmb!==-1) secAmb=idxAmb; }}let inp=document.getElementById('urunInput'); inp.value=u[0]; inp.setAttribute('readonly','true'); document.getElementById('urunDrop').style.display='none'; document.getElementById('urunDetay').style.display='block';let pair=findCompPair(u[0]); secCompPair=pair; let setLT=getSetLT(u[0]); let myLT=parseLT(u[0])||setLT;document.getElementById('urunDetay').innerHTML=`✓ ${u[0]} • $${u[1]} ${pair?`<span style="background:#ffcc00;color:#012060;padding:1px 4px;border-radius:3px;font-size:9px">+ ${pair.ad} (${pair.lt}LT) $${pair.fiyat}</span>`:''}`;if(pair){ document.getElementById('compBox').style.display='block'; document.getElementById('compBox').innerHTML=`<b>SET ${setLT}LT:</b> ${myLT}LT + ${pair.lt}LT`; document.getElementById('ambInfo').innerText=`${setLT}LT SET`; }else{ document.getElementById('compBox').style.display='none'; document.getElementById('ambInfo').innerText=`${secLT}LT`; }renderAmb();calc();inp.blur()}
+function selectKayit(i){let k=secKayit[i];if(!k)return;let kLT=parseLT(k.product);if(kLT>0){secLT=kLT;let idxAmb=amb.findIndex(a=>Math.abs(a.lt - kLT)<0.15);if(idxAmb!==-1) secAmb=idxAmb;}let livePrice=findExactPrice(k.product);let idxExact=urunler.findIndex(u=>u[0].trim().toUpperCase()===(k.product||'').trim().toUpperCase());if(idxExact!==-1){if(livePrice!==null && livePrice>0) urunler[idxExact][1]=livePrice;selectUrun(idxExact,true);}else{if(livePrice===null || livePrice===0){let fam=urunler.filter(u=>norm(u[0])===norm(k.product) && u[1]>0);if(fam.length>0) livePrice=fam[0][1];}if(livePrice===null) livePrice=0;urunler.push([k.product,livePrice]);selectUrun(urunler.length-1,true);}document.getElementById('pigment').value=k.colorant_cost||'';document.getElementById('ralForm').value=k.formul||'';calc();}
+function selectUrun(i, keepAmb=false){secUrun=i; let u=urunler[i];if(!keepAmb){let pLT=parseLT(u[0]);if(pLT>0){ secLT=pLT; let idxAmb=amb.findIndex(a=>Math.abs(a.lt - pLT)<0.15); if(idxAmb!==-1) secAmb=idxAmb; }}let inp=document.getElementById('urunInput'); inp.value=u[0]; inp.setAttribute('readonly','true'); document.getElementById('urunDrop').style.display='none'; document.getElementById('urunDetay').style.display='block';let pair=findCompPair(u[0]); secCompPair=pair; let setLT=getSetLT(u[0]); let myLT=parseLT(u[0])||setLT;document.getElementById('urunDetay').innerHTML=`${u[0]} - $${u[1]} ${pair?`<span style="background:#ffcc00;color:#012060;padding:1px 4px;border-radius:3px;font-size:9px">+ ${pair.ad} (${pair.lt}LT) $${pair.fiyat}</span>`:''}`;if(pair){ document.getElementById('compBox').style.display='block'; document.getElementById('compBox').innerHTML=`<b>SET ${setLT}LT:</b> ${myLT}LT + ${pair.lt}LT`; document.getElementById('ambInfo').innerText=`${setLT}LT SET`; }else{ document.getElementById('compBox').style.display='none'; document.getElementById('ambInfo').innerText=`${secLT}LT`; }renderAmb();calc();inp.blur()}
 function renderAmb(){ document.getElementById('ambList').innerHTML=amb.map((a,i)=>{let c='amb';if(i===secAmb) c+=' on';return `<div class='${c}' onclick='secAmb=${i};secLT=${a.lt};renderAmb();calc();'>${a.ad}</div>`}).join('');}
 let ralActive=-1;let ralCurrentList=[];
-function placeRalDrop(){let box=document.querySelector('.bil');let d=document.getElementById('ralDrop');if(!box||!d)return;let r=box.getBoundingClientRect();d.style.position='fixed';d.style.top=(r.bottom+4)+'px';/* 7016 kutusunun tam alti - .bil kutusuna hizali, genislik CSS'deki gibi aynen kaliyor */let w=d.offsetWidth||340;let left=r.left;if(left+w>window.innerWidth-8) left=window.innerWidth-w-8;if(left<8)left=8;d.style.left=left+'px';}
+function placeRalDrop(){let box=document.querySelector('.bil');let d=document.getElementById('ralDrop');if(!box||!d)return;let r=box.getBoundingClientRect();d.style.position='fixed';d.style.top=(r.bottom+4)+'px';let w=d.offsetWidth||340;let left=r.left;if(left+w>window.innerWidth-8) left=window.innerWidth-w-8;if(left<8)left=8;d.style.left=left+'px';}
 function filterRal(){let q=document.getElementById('ralInput').value.toUpperCase().trim();ralCurrentList=ralList.filter(r=>!q||r.kod.includes(q)||r.isim.toUpperCase().includes(q)).slice(0,60);ralActive=-1;let d=document.getElementById('ralDrop');d.innerHTML=ralCurrentList.map((r,i)=>`<div class='ri' data-i='${i}' onclick='selectRal("${r.kod}")'><div class='rs' style='background:${r.hex}'></div><div><b>${r.kod}</b> <span style="font-size:12px;color:var(--text2)">${r.isim}</span></div></div>`).join('');d.style.display='block';placeRalDrop();}
 function ralMove(dir){if(!ralCurrentList.length)return;ralActive+=dir;if(ralActive<0)ralActive=ralCurrentList.length-1;if(ralActive>=ralCurrentList.length)ralActive=0;document.querySelectorAll('#ralDrop .ri').forEach((el,i)=>{el.classList.toggle('active',i===ralActive);if(i===ralActive)el.scrollIntoView({block:'nearest'});});}
 function ralEnter(){if(document.getElementById('ralDrop').style.display==='block'&&ralCurrentList.length>0){let idx=ralActive>=0?ralActive:0;selectRal(ralCurrentList[idx].kod);return true;}return false;}
-function selectRal(k){let r=ralList.find(x=>x.kod===k);if(!r)return;tempRal=r.kod;secHex=r.hex;secName=r.isim;let sw=document.getElementById('swatch');sw.style.background=r.hex;sw.innerText='RAL '+r.kod;sw.style.color=getContrast(r.hex);sw.classList.add('hasColor');sw.style.borderColor=r.hex;sw.style.boxShadow=`0 0 0 3px ${r.hex}44, 0 4px 12px ${r.hex}55`;let inp=document.getElementById('ralInput');inp.value=r.kod;inp.setAttribute('readonly','true');inp.blur();document.getElementById('ralDrop').style.display='none';filterUrun();calc();}
-function calc(){if(secUrun===null) return; let u=urunler[secUrun]; let fiyatD=parsePrice(u[1]); let kLT=parseFloat(secLT)||18; let kur=parseFloat((document.getElementById('setDolar').value||'49,7891').replace(',','.'))||49.7891; let kar=parseFloat(document.getElementById('setKar').value)||25; let kdv=parseFloat(document.getElementById('setKdv').value)||20; let pigTL=(function(v){let s=String(v||'0').trim().replace(/[^0-9,\.\-]/g,'');if(s.indexOf(',')>=0){s=s.replace(/\./g,'').replace(',','.');}let n=parseFloat(s);return isNaN(n)?0:n;})(document.getElementById('pigment').value)||0; try{let pe=document.getElementById('pigment'); if(pe && document.activeElement!==pe && pigTL>0){pe.value=new Intl.NumberFormat('tr-TR',{minimumFractionDigits:2,maximumFractionDigits:2}).format(pigTL);}}catch(e){}let urunLT=fiyatD*kur; let toplamLT=urunLT+pigTL/18; let ltSatis=toplamLT*(1+kar/100); let setLT=getSetLT(u[0]); let aLT=parseLT(u[0])||trueLTFromSet(u[0]); let bLT=secCompPair ? secCompPair.lt : 0; let isCompMode = secCompPair ? true : false; let toplamSetLT = isCompMode ? setLT : kLT; let kovaS=ltSatis*toplamSetLT; let kovaK=kovaS*(1+kdv/100);if(!secCompPair) secCompPair=findCompPair(u[0]);son={urun:u[0],ral:tempRal,hex:secHex,isim:secName,lt:kLT,gercekLT:aLT,toplamSetLT:toplamSetLT,setLT:setLT,isCompMode:isCompMode,compBLT:bLT,kovaTl:kovaS,kovaKdv:kovaK,ltSatis:ltSatis,form:document.getElementById('ralForm').value, pair: secCompPair ? {...secCompPair, lt: secCompPair.lt, setLT:setLT} : null};sonHesap={kur:kur,kar:kar,kdv:kdv,pigment:pigTL,urunDolar:fiyatD,urunTL:urunLT,toplamLT:toplamLT,ltSatis:ltSatis,toplamSetLT:toplamSetLT,setLT:setLT};document.getElementById('maliyet').innerText=fmt(toplamLT); document.getElementById('ltSatis').innerText=fmt(ltSatis); document.getElementById('kovaLabel').innerText=isCompMode?`SET (${toplamSetLT}LT)`:`KOVA (${kLT}LT)`; document.getElementById('kova').innerText=fmt(kovaS); document.getElementById('kovaKdv').innerText=fmt(kovaK);let detayBox=document.getElementById('hesapDetay');detayBox.style.display='block'; let compDetay=son.pair?`<br><b>SET ${setLT}LT:</b> A ${aLT}LT=${fmt(ltSatis*aLT*(1+kdv/100))} | B ${bLT}LT=${fmt(ltSatis*bLT*(1+kdv/100))}`:''; detayBox.innerHTML=`${u[0]} $${fiyatD} × ${kur.toFixed(2)} = ${fmt(urunLT)} | ${fmt(ltSatis)} ×${toplamSetLT}LT=${fmt(kovaS)}${compDetay}`;}
-function teklifeEkle(){if(!son) return alert('Once sec');let adetStr=prompt('Kaç adet?','1');if(!adetStr)return;let adet=parseInt(adetStr)||1;let kdv=parseFloat(document.getElementById('setKdv').value)||20;let ltSatis=son.ltSatis;let setLT=son.setLT||18;if(!son.pair){sepet.push({...son,adet:adet,hesap:{...sonHesap}});}else{let aLT=parseLT(son.urun)||trueLTFromSet(son.urun);let bLT=son.pair.lt;let aKovaTl=ltSatis*aLT;let aKovaKdv=aKovaTl*(1+kdv/100);let bKovaTl=ltSatis*bLT;let bKovaKdv=bKovaTl*(1+kdv/100);sepet.push({urun:son.urun, ral:son.ral, hex:son.hex, isim:son.isim, lt: aLT, ltSatis: ltSatis, kovaTl: aKovaTl, kovaKdv: aKovaKdv, form: son.form, adet:adet, hesap:{...sonHesap}, isCompA:true, setLT:setLT});sepet.push({urun:son.pair.ad, ral:son.ral, hex:son.hex, isim:son.isim+' - B', lt: bLT, ltSatis: ltSatis, kovaTl: bKovaTl, kovaKdv: bKovaKdv, form:'EŞ', adet:adet, hesap:{...sonHesap}, isCompB:true, setLT:setLT});}localStorage.setItem('teklif_sepet',JSON.stringify(sepet));renderTeklif();}
-function renderTeklif(){document.getElementById('teklifSayi').innerText=sepet.length;if(sepet.length===0){document.getElementById('teklifList').innerHTML='<div style="font-size:10px;color:var(--text2);padding:6px">Henüz ürün eklenmedi</div>';document.getElementById('teklifToplam').style.display='none';return}let g=0,haric=0;document.getElementById('teklifList').innerHTML=sepet.map((t,i)=>{let k=t.kovaKdv||0;let kh=t.kovaTl||0;g+=k*t.adet;haric+=kh*t.adet;let toplamLt=(t.adet*(t.lt||0));let ltFiyat=t.ltSatis||(t.hesap?t.hesap.ltSatis:0);return `<div class='teklifItem'><div class='teklifItemTop'><div style='width:18px;height:18px;background:${t.hex||'#fff'};border-radius:4px;border:1px solid #999;flex-shrink:0'></div><div style='flex:1;min-width:0'><div class='teklifItemTitle'>${t.urun.substring(0,38)}</div><div class='teklifItemSub'>RAL ${t.ral} ${t.isim||''}</div></div><button onclick='sil(${i})' style='background:#E53935;color:#fff;border:none;border-radius:4px;padding:4px 7px;font-size:9px;font-weight:800;flex-shrink:0'>X</button></div><div class='teklifItemDetay'><div><div class='tdLab'>ADET</div><div class='tdVal'>${t.adet}</div></div><div><div class='tdLab'>LİTRE</div><div class='tdVal'>${toplamLt} LT</div></div><div><div class='tdLab'>LT BİRİM</div><div class='tdVal'>${fmt(ltFiyat)}</div></div><div><div class='tdLab'>KOVA BİRİM</div><div class='tdVal'>${fmt(k)}</div></div><div><div class='tdLab'>TOPLAM</div><div class='tdVal toplam'>${fmt(k*t.adet)}</div></div></div></div>`}).join('');let kdvOran=parseFloat(document.getElementById('setKdv').value)||20;let kdvTutar=g-haric;document.getElementById('teklifToplam').style.display='block';document.getElementById('teklifToplam').innerHTML=`<div class='teklifToplamRow'><span>ARA TOPLAM (KDV Hariç)</span><span>${fmt(haric)}</span></div><div class='teklifToplamRow'><span>KDV (%${kdvOran})</span><span>${fmt(kdvTutar)}</span></div><div class='teklifToplamRow genel'><span>GENEL TOPLAM</span><span>${fmt(g)}</span></div>`}
+function selectRal(k){let r=ralList.find(x=>x.kod===k);if(!r)return;tempRal=r.kod;secHex=r.hex;secName=r.isim;let sw=document.getElementById('swatch');sw.style.background=r.hex;sw.innerText='RAL '+r.kod;sw.style.color=getContrast(r.hex);sw.classList.add('hasColor');sw.style.borderColor=r.hex;let inp=document.getElementById('ralInput');inp.value=r.kod;inp.setAttribute('readonly','true');inp.blur();document.getElementById('ralDrop').style.display='none';filterUrun();calc();}
+// DUZELTME 4: calc litre fiyati agirlikli ortalama
+function calc(){if(secUrun===null) return; let u=urunler[secUrun]; let fiyatD=parsePrice(u[1]); let kLT=parseFloat(secLT)||18; let kur=parseFloat((document.getElementById('setDolar').value||'49,7891').replace(',','.'))||49.7891; let kar=parseFloat(document.getElementById('setKar').value)||25; let kdv=parseFloat(document.getElementById('setKdv').value)||20; let pigTL=(function(v){let s=String(v||'0').trim().replace(/[^0-9,\.\-]/g,'');if(s.indexOf(',')>=0){s=s.replace(/\./g,'').replace(',','.');}let n=parseFloat(s);return isNaN(n)?0:n;})(document.getElementById('pigment').value)||0; let setLT=getSetLT(u[0]); let aLT=parseLT(u[0])||trueLTFromSet(u[0]); if(!secCompPair) secCompPair=findCompPair(u[0]); let bLT=secCompPair ? secCompPair.lt : 0; let bFiyat=secCompPair ? parsePrice(secCompPair.fiyat) : 0; let isCompMode=secCompPair ? true : false; let ortFiyatD=fiyatD; if(isCompMode && bLT>0 && setLT>0){ ortFiyatD=(fiyatD*aLT + bFiyat*bLT)/setLT; } let urunLT=ortFiyatD*kur; let toplamLT=urunLT+pigTL/18; let ltSatis=toplamLT*(1+kar/100); let toplamSetLT=isCompMode ? setLT : kLT; let kovaS=ltSatis*toplamSetLT; let kovaK=kovaS*(1+kdv/100); son={urun:u[0],ral:tempRal,hex:secHex,isim:secName,lt:kLT,gercekLT:aLT,toplamSetLT:toplamSetLT,setLT:setLT,isCompMode:isCompMode,compBLT:bLT,kovaTl:kovaS,kovaKdv:kovaK,ltSatis:ltSatis,form:document.getElementById('ralForm').value, pair: secCompPair ? {...secCompPair, lt: secCompPair.lt, setLT:setLT} : null}; sonHesap={kur:kur,kar:kar,kdv:kdv,pigment:pigTL,urunDolar:ortFiyatD,urunTL:urunLT,toplamLT:toplamLT,ltSatis:ltSatis,toplamSetLT:toplamSetLT,setLT:setLT}; document.getElementById('maliyet').innerText=fmt(toplamLT); document.getElementById('ltSatis').innerText=fmt(ltSatis); document.getElementById('kovaLabel').innerText=isCompMode?`SET (${toplamSetLT}LT)`:`KOVA (${kLT}LT)`; document.getElementById('kova').innerText=fmt(kovaS); document.getElementById('kovaKdv').innerText=fmt(kovaK); let detayBox=document.getElementById('hesapDetay'); detayBox.style.display='block'; let compDetay=son.pair?`<br><b>SET ${setLT}LT:</b> A ${aLT}LT $${fiyatD} | B ${bLT}LT $${bFiyat} | Ort $${ortFiyatD.toFixed(2)}`:`<br>Tek urun $${fiyatD}/LT`; detayBox.innerHTML=`${u[0]} Ort $${ortFiyatD.toFixed(2)} x ${kur.toFixed(2)} = ${fmt(urunLT)} | ${fmt(ltSatis)} x ${toplamSetLT}LT = ${fmt(kovaS)}${compDetay}`;}
+function teklifeEkle(){if(!son) return alert('Once sec');let adetStr=prompt('Kac adet?','1');if(!adetStr)return;let adet=parseInt(adetStr)||1;let kdv=parseFloat(document.getElementById('setKdv').value)||20;let ltSatis=son.ltSatis;let setLT=son.setLT||18;if(!son.pair){sepet.push({...son,adet:adet,hesap:{...sonHesap}});}else{let aLT=parseLT(son.urun)||trueLTFromSet(son.urun);let bLT=son.pair.lt;let aKovaTl=ltSatis*aLT;let aKovaKdv=aKovaTl*(1+kdv/100);let bKovaTl=ltSatis*bLT;let bKovaKdv=bKovaTl*(1+kdv/100);sepet.push({urun:son.urun, ral:son.ral, hex:son.hex, isim:son.isim, lt: aLT, ltSatis: ltSatis, kovaTl: aKovaTl, kovaKdv: aKovaKdv, form: son.form, adet:adet, hesap:{...sonHesap}, isCompA:true, setLT:setLT});sepet.push({urun:son.pair.ad, ral:son.ral, hex:son.hex, isim:son.isim+' - B', lt: bLT, ltSatis: ltSatis, kovaTl: bKovaTl, kovaKdv: bKovaKdv, form:'ES', adet:adet, hesap:{...sonHesap}, isCompB:true, setLT:setLT});}localStorage.setItem('teklif_sepet',JSON.stringify(sepet));renderTeklif();}
+function renderTeklif(){document.getElementById('teklifSayi').innerText=sepet.length;if(sepet.length===0){document.getElementById('teklifList').innerHTML='<div style="font-size:10px;color:var(--text2);padding:6px">Henuz urun eklenmedi</div>';document.getElementById('teklifToplam').style.display='none';return}let g=0,haric=0;document.getElementById('teklifList').innerHTML=sepet.map((t,i)=>{let k=t.kovaKdv||0;let kh=t.kovaTl||0;g+=k*t.adet;haric+=kh*t.adet;let toplamLt=(t.adet*(t.lt||0));let ltFiyat=t.ltSatis||(t.hesap?t.hesap.ltSatis:0);return `<div class='teklifItem'><div class='teklifItemTop'><div style='width:18px;height:18px;background:${t.hex||'#fff'};border-radius:4px;border:1px solid #999;flex-shrink:0'></div><div style='flex:1;min-width:0'><div class='teklifItemTitle'>${t.urun.substring(0,38)}</div><div class='teklifItemSub'>RAL ${t.ral} ${t.isim||''}</div></div><button onclick='sil(${i})' style='background:#E53935;color:#fff;border:none;border-radius:4px;padding:4px 7px;font-size:9px;font-weight:800;flex-shrink:0'>X</button></div><div class='teklifItemDetay'><div><div class='tdLab'>ADET</div><div class='tdVal'>${t.adet}</div></div><div><div class='tdLab'>LITRE</div><div class='tdVal'>${toplamLt} LT</div></div><div><div class='tdLab'>LT BIRIM</div><div class='tdVal'>${fmt(ltFiyat)}</div></div><div><div class='tdLab'>KOVA BIRIM</div><div class='tdVal'>${fmt(k)}</div></div><div><div class='tdLab'>TOPLAM</div><div class='tdVal toplam'>${fmt(k*t.adet)}</div></div></div></div>`}).join('');let kdvOran=parseFloat(document.getElementById('setKdv').value)||20;let kdvTutar=g-haric;document.getElementById('teklifToplam').style.display='block';document.getElementById('teklifToplam').innerHTML=`<div class='teklifToplamRow'><span>ARA TOPLAM (KDV Haric)</span><span>${fmt(haric)}</span></div><div class='teklifToplamRow'><span>KDV (%${kdvOran})</span><span>${fmt(kdvTutar)}</span></div><div class='teklifToplamRow genel'><span>GENEL TOPLAM</span><span>${fmt(g)}</span></div>`}
 function sil(i){sepet.splice(i,1);localStorage.setItem('teklif_sepet',JSON.stringify(sepet));renderTeklif()}
 function temizle(){if(confirm('Temizle?')){sepet=[];localStorage.setItem('teklif_sepet','[]');renderTeklif()}}
-function waTextGonder(){ let must=document.getElementById('musteriAd').value||'Müşteri'; let tel=getEffectiveTel(); if(!tel || tel.length<7){ alert('Önce 📇 KİŞİLER den müşteri seç veya tel yaz.'); document.getElementById('musteriTel').focus(); return; } let clean=tel.replace(/\D/g,''); if(clean.startsWith('0'))clean='90'+clean.substring(1); if(clean.length===10) clean='90'+clean; let toplam=document.getElementById('teklifToplam').innerText||''; let detay=sepet.map(t=>`• ${t.urun.substring(0,28)} RAL ${t.ral} - ${t.adet} Adet = ${fmt(t.kovaKdv*t.adet)}`).join('\n'); let mesaj=`Merhaba ${must},\n\n${ayar.firmaAdi||''} - Teklif:\n${detay}\n\n${toplam}`; window.open(`https://api.whatsapp.com/send?phone=${clean}&text=${encodeURIComponent(mesaj)}`,'_blank'); }
-
-// === ORTAK PROFESYONEL PDF OLUŞTURUCU ===
-function getPdfData(){
-  let must=document.getElementById('musteriAd').value||'Müşteri';
-  let mustTel=getEffectiveTel()||document.getElementById('musteriTel').value||'';
-  let mustAdres=document.getElementById('musteriAdres').value||'-';
-  let firma=ayar.firmaAdi||'BAYDEMIR';
-  let fAdres=ayar.firmaAdres||'';
-  let fMail=ayar.firmaMail||'';
-  let fWeb=ayar.firmaWeb||'';
-  let fTel=ayar.telefon||'';
-  let veren=ayar.teklifVeren||'';
-  let tarih=document.getElementById('tarih').value?new Date(document.getElementById('tarih').value).toLocaleDateString('tr-TR'):new Date().toLocaleDateString('tr-TR');
-  let kdv=parseFloat(document.getElementById('setKdv').value)||20;
-  let haric=0,dahil=0;
-  sepet.forEach(t=>{dahil+=t.kovaKdv*t.adet; haric+=t.kovaTl*t.adet;});
-  return {firma, fAdres, fMail, fWeb, fTel, must, mustTel, mustAdres, tarih, veren, kdv, sepet, toplamHaric:haric, toplamFark:dahil-haric, toplamDahil:dahil};
-}
-function buildProfessionalPdfDoc(doc, data){
-  const pageW=210;
-  let y=10;
-  doc.setFillColor(1,27,68);
-  doc.rect(0,0,210,18,'F');
-  doc.setTextColor(255,255,255);
-  doc.setFont('helvetica','bold'); doc.setFontSize(13);
-  doc.text((data.firma||'TEKLIF').substring(0,38).toUpperCase(),10,11);
-  doc.setFontSize(7); doc.setFont('helvetica','normal');
-  doc.text((data.fAdres||'').substring(0,80),10,15);
-  doc.setFont('helvetica','bold'); doc.setFontSize(10);
-  doc.setTextColor(255,204,0);
-  doc.text('JOTUN',195,11,{align:'right'});
-  doc.setTextColor(255,255,255); doc.setFontSize(6); doc.setFont('helvetica','normal');
-  doc.text('Tarih: '+data.tarih,195,15,{align:'right'});
-  y=22;
-  doc.setTextColor(0,0,0);
-  doc.setFillColor(240,244,250); doc.setDrawColor(1,27,68);
-  doc.rect(10,y,190,10,'FD');
-  doc.setFontSize(8); doc.setFont('helvetica','bold');
-  doc.text('Musteri: '+data.must+'   Tel: '+data.mustTel,12,y+4);
-  doc.setFont('helvetica','normal'); doc.setFontSize(7);
-  doc.text('Adres: '+(data.mustAdres||'-').substring(0,95),12,y+8);
-  y+=14;
-  doc.setFont('helvetica','bold'); doc.setFontSize(10);
-  doc.text('FIYAT TEKLIF FORMU',105,y,{align:'center'});
-  y+=4;
-  doc.setFillColor(1,27,68); doc.setTextColor(255,255,255);
-  doc.rect(10,y,190,7,'F');
-  doc.setFontSize(7);
-  doc.text('RENK',12,y+4.5); doc.text('URUN',28,y+4.5); doc.text('RAL',92,y+4.5); doc.text('MIKTAR',110,y+4.5); doc.text('BIRIM',135,y+4.5); doc.text('TOPLAM',175,y+4.5);
-  y+=7;
-  doc.setTextColor(0,0,0); doc.setFont('helvetica','normal'); doc.setFontSize(7.5);
-  data.sepet.forEach(t=>{
-    if(y>265){doc.addPage(); y=12; doc.setFillColor(1,27,68); doc.setTextColor(255,255,255); doc.rect(10,y,190,7,'F'); doc.text('RENK',12,y+4.5); doc.text('URUN',28,y+4.5); doc.text('RAL',92,y+4.5); doc.text('MIKTAR',110,y+4.5); doc.text('BIRIM',135,y+4.5); doc.text('TOPLAM',175,y+4.5); y+=7; doc.setTextColor(0,0,0);}
-    try{let hex=(t.hex||'#888888').replace('#',''); if(hex.length==3) hex=hex.split('').map(c=>c+c).join(''); let r=parseInt(hex.substr(0,2),16), g=parseInt(hex.substr(2,2),16), b=parseInt(hex.substr(4,2),16); doc.setFillColor(r,g,b); doc.setDrawColor(0,0,0); doc.rect(12,y,6,5,'FD');}catch(e){}
-    doc.text(t.urun.substring(0,40),28,y+3.5);
-    doc.text(String(t.ral||''),92,y+3.5);
-    doc.text(t.adet+'x'+t.lt+'LT',110,y+3.5);
-    doc.text(fmtN(t.kovaKdv||0),135,y+3.5);
-    doc.setFont('helvetica','bold'); doc.text(fmtN(t.kovaKdv*t.adet),175,y+3.5); doc.setFont('helvetica','normal');
-    y+=7; doc.setDrawColor(220,220,220); doc.line(10,y-1,200,y-1);
-  });
-  y+=2;
-  let boxY=y;
-  doc.setFillColor(255,255,255); doc.setDrawColor(1,27,68); doc.rect(120,boxY,80,20,'FD');
-  doc.setFontSize(8); doc.text('Ara Toplam:',122,boxY+5); doc.text(fmtN(data.toplamHaric),198,boxY+5,{align:'right'});
-  doc.text('KDV (%'+data.kdv+'): ',122,boxY+10); doc.text(fmtN(data.toplamFark),198,boxY+10,{align:'right'});
-  doc.setFillColor(1,27,68); doc.setTextColor(255,255,255); doc.rect(120,boxY+13,80,7,'F');
-  doc.setFont('helvetica','bold'); doc.text('GENEL TOPLAM:',122,boxY+17.5); doc.text(fmtN(data.toplamDahil),198,boxY+17.5,{align:'right'});
-  doc.setTextColor(0,0,0); y=boxY+28;
-  doc.setFont('helvetica','normal'); doc.setFontSize(8);
-  doc.text('Veren: '+(data.veren||''),15,y); doc.text('Onay: '+data.must,120,y);
-  doc.line(10,y+2,90,y+2); doc.line(120,y+2,200,y+2);
-  doc.setFontSize(6); doc.setTextColor(100,100,100); doc.text('Kase / Imza',40,y+6); doc.text('Kase / Imza',150,y+6);
-  return doc;
-}
-async function waPdfGonder(){
-  if(sepet.length===0){alert('Sepet boş');return}
-  let tel=getEffectiveTel();
-  if(!tel || tel.length<7){ alert('Önce 📇 KİŞİLER den müşteri seç veya tel yaz.'); document.getElementById('musteriTel').focus(); return; }
-  let data=getPdfData();
-  const { jsPDF } = window.jspdf;
-  let doc=new jsPDF({orientation:'portrait',unit:'mm',format:'a4'});
-  doc=buildProfessionalPdfDoc(doc,data);
-  let fileName=`Teklif-${data.must}-${data.tarih}.pdf`;
-  let pdfBlob=doc.output('blob');
-  let clean=tel.replace(/\D/g,''); if(clean.startsWith('0'))clean='90'+clean.substring(1); if(clean.length===10) clean='90'+clean;
-  // Native share if possible
-  if(navigator.canShare && navigator.canShare({files:[new File([pdfBlob],fileName,{type:'application/pdf'})]})){
-    try{ let file=new File([pdfBlob],fileName,{type:'application/pdf'}); await navigator.share({title:`Teklif - ${data.must}`,text:`${data.firma} - Toplam: ${fmtN(data.toplamDahil)}`,files:[file]}); return; }catch(e){ if(e.name==='AbortError') return; }
-  }
-  doc.save(fileName);
-  let detay=sepet.map(t=>`• ${t.urun.substring(0,28)} RAL ${t.ral} ${t.adet} Adet = ${fmtN(t.kovaKdv*t.adet)}`).join('\n');
-  let mesaj=`Merhaba ${data.must},\n\n${data.firma} Teklif PDF indirildi.\n${detay}\n\nTOPLAM: ${fmtN(data.toplamDahil)}`;
-  setTimeout(()=>{ window.open(`https://api.whatsapp.com/send?phone=${clean}&text=${encodeURIComponent(mesaj)}`,'_blank'); },600);
-}
-
-function renderSikKullanilan(arr){let extra=arr||JSON.parse(localStorage.getItem('jotun_kayitlar_extra')||'[]');let box=document.getElementById('sikBox'); let sayEl=document.getElementById('sikSay');if(sayEl) sayEl.innerText=extra.length;if(extra.length===0){box.innerHTML='<div style="font-size:10px;color:var(--text2);padding:6px">Henüz kayıt yok</div>';return;}let list=extra.slice(0,160);let html=list.map((k,i)=>{
-  let hex=getRalHex(k.ral_no); let txtColor=getContrast(hex);
-  let livePrice=findExactPrice(k.product);
-  let priceBadge = livePrice?`$${livePrice}`:'$?';
-  let shortProd=(k.product||'').split('(')[0].substring(0,10).trim();
-  return `<div class='sikCard' onclick='selectSik(${i})'><button class='sikDel' onclick='event.stopPropagation();delSik(${i})' title='Sil'>✕</button><div class='sikTop' style='background:${hex};color:${txtColor}'><div class='sikRal' style='color:${txtColor}'>${k.ral_no}</div><div style='font-size:7px;font-weight:800'>${priceBadge}</div></div><div class='sikBody' title='${k.product||''}'>${shortProd}</div></div>`;
-}).join('');box.innerHTML=html;}
-function selectSik(i){
-  let extra=bulutCache.length>0?bulutCache:JSON.parse(localStorage.getItem('jotun_kayitlar_extra')||'[]');
-  let k=extra[i];if(!k)return;
-  tempRal=k.ral_no;document.getElementById('ralInput').value=k.ral_no;
-  let r=ralList.find(x=>x.kod===k.ral_no);
-  if(r){secHex=r.hex;secName=r.isim;let sw=document.getElementById('swatch');sw.style.background=r.hex;sw.innerText='RAL '+r.kod;sw.style.color=getContrast(r.hex);sw.classList.add('hasColor');sw.style.borderColor=r.hex;sw.style.boxShadow=`0 0 0 3px ${r.hex}44, 0 4px 12px ${r.hex}55`;}
-  let livePrice=findExactPrice(k.product);
-  let idx=urunler.findIndex(u=>u[0].trim().toUpperCase()===(k.product||'').trim().toUpperCase());
-  if(idx!==-1){
-    if(livePrice!==null && livePrice>0) urunler[idx][1]=livePrice;
-    selectUrun(idx);
-  }else{
-    if(livePrice===null || livePrice===0){
-      let fam=urunler.filter(u=>norm(u[0])===norm(k.product) && u[1]>0);
-      if(fam.length>0) livePrice=fam[0][1];
-    }
-    urunler.push([k.product,livePrice||0]);
-    selectUrun(urunler.length-1);
-  }
-  document.getElementById('pigment').value=k.colorant_cost||'';
-  document.getElementById('ralForm').value=k.formul||'';
-  calc();window.scrollTo(0,0);
-}
-async function delSik(i){if(!confirm('Silinsin mi?')) return;let extra = JSON.parse(localStorage.getItem('jotun_kayitlar_extra')||'[]');let target = bulutCache[i];let targetKey = target ? (target.ral_no+'_'+target.product) : null;if(targetKey){ extra = extra.filter(x => (x.ral_no+'_'+x.product) !== targetKey); } else { extra.splice(i,1); }localStorage.setItem('jotun_kayitlar_extra', JSON.stringify(extra));if(target && target._id && !String(target._id).startsWith('local_')){ try{ await bulutDelete(target._id); }catch(e){} }bulutCache.splice(i,1);kayitlar = kayitlar.filter(x => targetKey ? (x.ral_no+'_'+x.product) !== targetKey : true);renderSikKullanilan(extra);document.getElementById('cloudInfo').innerText = '✂️ '+extra.length+' (yerel)';document.getElementById('kayitSay').innerText = kayitlar.length;}
-async function kaydet(){if(!son)return alert('Once sec');let k={ral_no:son.ral||tempRal,ral_isim:son.isim,product:son.urun,base_no:baseNo(son.urun)||'1',lt:son.lt,can_size:son.lt+'L',colorant_cost:document.getElementById('pigment').value||'0',formul:document.getElementById('ralForm').value||'',maliyet:document.getElementById('pigment').value||'0'};let existing=bulutCache.find(x=>String(x.ral_no)===String(k.ral_no)&&x.product===k.product);if(existing && existing._id && !String(existing._id).startsWith('local_')){ try{ await bulutDelete(existing._id); }catch(e){} }let ok=await bulutPost(k);let extra=JSON.parse(localStorage.getItem('jotun_kayitlar_extra')||'[]');extra=extra.filter(x=>!(String(x.ral_no)===String(k.ral_no)&&x.product===k.product));extra.push(k);localStorage.setItem('jotun_kayitlar_extra',JSON.stringify(extra));if(ok){await bulutYenile();}else{renderSikKullanilan(extra);}}
-function yazdir(){
-  if(sepet.length===0){alert('Bos');return}
-  let data=getPdfData();
-  let haric=data.toplamHaric, dahil=data.toplamDahil;
-  let kdv=data.kdv;
-  let must=data.must, mustTel=data.mustTel, mustAdres=data.mustAdres;
-  let firma=data.firma, fAdres=data.fAdres, fMail=data.fMail, fWeb=data.fWeb, fTel=data.fTel, veren=data.veren, tarih=data.tarih;
-  let logo=ayar.firmaLogo||'';
-  let jLogo='https://www.jotun.com/globalassets-b2b/.com/jotun-logo.svg';
-  let kase=ayar.kaseLogo||'';
-  let rows=data.sepet.map(t=>`<tr><td style='text-align:center'><div style='width:22px;height:22px;background:${t.hex};border:1px solid #000;border-radius:3px;margin:0 auto'></div><div style='font-size:7px;font-weight:900'>RAL ${t.ral}</div></td><td><div style='font-weight:800;font-size:11px'>${t.urun}</div><div style='font-size:9px;color:#333'>${t.isim||''} - ${t.form||''}</div></td><td style='text-align:center'>${t.adet}×${t.lt}LT</td><td style='text-align:right;font-weight:900'>${fmtN(t.kovaKdv||0)}</td><td style='text-align:right;font-weight:900'>${fmtN(t.kovaKdv*t.adet)}</td></tr>`).join('');
+function waTextGonder(){ let must=document.getElementById('musteriAd').value||'Musteri'; let tel=getEffectiveTel(); if(!tel || tel.length<7){ alert('Once KISILER den musteri sec veya tel yaz.'); document.getElementById('musteriTel').focus(); return; } let clean=tel.replace(/\D/g,''); if(clean.startsWith('0'))clean='90'+clean.substring(1); if(clean.length===10) clean='90'+clean; let toplam=document.getElementById('teklifToplam').innerText||''; let detay=sepet.map(t=>`- ${t.urun.substring(0,28)} RAL ${t.ral} - ${t.adet} Adet = ${fmt(t.kovaKdv*t.adet)}`).join('\n'); let mesaj=`Merhaba ${must},\n\n${ayar.firmaAdi||''} - Teklif:\n${detay}\n\n${toplam}`; window.open(`https://api.whatsapp.com/send?phone=${clean}&text=${encodeURIComponent(mesaj)}`,'_blank'); }
+function getPdfData(){let must=document.getElementById('musteriAd').value||'Musteri';let mustTel=getEffectiveTel()||document.getElementById('musteriTel').value||'';let mustAdres=document.getElementById('musteriAdres').value||'-';let firma=ayar.firmaAdi||'BAYDEMIR';let fAdres=ayar.firmaAdres||'';let fMail=ayar.firmaMail||'';let fWeb=ayar.firmaWeb||'';let fTel=ayar.telefon||'';let veren=ayar.teklifVeren||'';let tarih=document.getElementById('tarih').value?new Date(document.getElementById('tarih').value).toLocaleDateString('tr-TR'):new Date().toLocaleDateString('tr-TR');let kdv=parseFloat(document.getElementById('setKdv').value)||20;let haric=0,dahil=0;sepet.forEach(t=>{dahil+=t.kovaKdv*t.adet; haric+=t.kovaTl*t.adet;});return {firma, fAdres, fMail, fWeb, fTel, must, mustTel, mustAdres, tarih, veren, kdv, sepet, toplamHaric:haric, toplamFark:dahil-haric, toplamDahil:dahil};}
+// DUZELTME 5: TEK FORM - yazdir ve whatsapp ayni HTML'i kullaniyor
+function buildTeklifFormHTML(){
+  let data=getPdfData();let haric=data.toplamHaric, dahil=data.toplamDahil, kdv=data.kdv, must=data.must, mustTel=data.mustTel, mustAdres=data.mustAdres, firma=data.firma, fAdres=data.fAdres, fMail=data.fMail, fWeb=data.fWeb, fTel=data.fTel, veren=data.veren, tarih=data.tarih;
+  let logo=ayar.firmaLogo||'';let jLogo='https://www.jotun.com/globalassets-b2b/.com/jotun-logo.svg';let kase=ayar.kaseLogo||'';
+  let rows=data.sepet.map(t=>`<tr><td style='text-align:center'><div style='width:22px;height:22px;background:${t.hex};border:1px solid #000;border-radius:3px;margin:0 auto'></div><div style='font-size:7px;font-weight:900'>RAL ${t.ral}</div></td><td><div style='font-weight:800;font-size:11px'>${t.urun}</div><div style='font-size:9px;color:#333'>${t.isim||''} - ${t.form||''}</div></td><td style='text-align:center'>${t.adet}x${t.lt}LT</td><td style='text-align:right;font-weight:900'>${fmtN(t.kovaKdv||0)}</td><td style='text-align:right;font-weight:900'>${fmtN(t.kovaKdv*t.adet)}</td></tr>`).join('');
   let kaseHtml=kase?`<div style='text-align:center;margin-top:6px'><img src='${kase}' style='max-width:130px;max-height:90px;object-fit:contain'></div>`:'';
   let sepetJson=encodeURIComponent(JSON.stringify(data.sepet));
-  let h=`<!DOCTYPE html><html lang='tr'><head><meta charset='UTF-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>Teklif - ${must}</title><link rel="icon" type="image/png" href="https://jcm.jotun.com/favicon.png"><script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"><\/script><style>
-  *{box-sizing:border-box}body{font-family:Inter,Arial;margin:0;padding:0;color:#111;background:#f2f4f8}
-  .page{width:100%;max-width:800px;margin:0 auto;background:#fff;padding:12px;box-shadow:0 2px 12px rgba(0,0,0,.1)}
-  .top{display:flex;justify-content:space-between;gap:8px}
-  .topL{width:60%}.topL img{height:32px;max-width:180px;object-fit:contain}.topLInfo{font-size:10px;margin-top:4px;line-height:1.3}
-  .topR{width:35%;text-align:right}.topR img{height:26px}.titleCenter{text-align:center;margin:10px 0 6px 0;border-top:2px solid #012060;border-bottom:2px solid #012060;padding:6px 0;font-weight:900}
-  .musteriBox{border:1px solid #012060;border-radius:6px;padding:8px 10px;font-size:11px;background:#f0f4fa}
-  table{width:100%;border-collapse:collapse;margin-top:10px}th{background:#012060;color:#fff;padding:6px 4px;font-size:10px}td{padding:6px 4px;border-bottom:1px solid #ddd;font-size:10px}
-  .totals{margin-top:10px;display:flex;justify-content:flex-end}.box{width:300px;border:1px solid #012060;border-radius:6px;overflow:hidden}.row{display:flex;justify-content:space-between;padding:6px 8px;border-bottom:1px solid #eee;font-size:11px}.row.total{background:#012060;color:#fff;font-weight:900}
-  .signRow{margin-top:14px;display:grid;grid-template-columns:1fr 1fr;gap:16px}.signBox{border-top:1.5px solid #000;padding-top:6px;text-align:center;font-size:10px;min-height:110px}
-  .no-print{display:flex;gap:8px;justify-content:center;margin-top:16px;flex-wrap:wrap;position:sticky;bottom:0;background:#fff;padding:10px;border-top:1px solid #ddd}.no-print button{padding:12px 18px;border:none;border-radius:8px;font-weight:900;cursor:pointer;font-size:12px;flex:1;max-width:200px}
-  @media print{body{background:#fff}.page{box-shadow:none;max-width:100%;padding:6mm}.no-print{display:none !important} @page{size:A4 portrait;margin:8mm}}
-  @media(max-width:600px){.page{padding:8px}.top{flex-direction:column}.topL,.topR{width:100%;text-align:left}.topR{text-align:left}.box{width:100%}table{font-size:9px}th,td{padding:4px 3px}}
-  <\/style></head><body><div class='page'><div class='top'><div class='topL'>${logo?`<img src='${logo}' onerror="this.style.display='none'">`:''}<div class='topLInfo'><b>${firma}</b><br>${fAdres}<br>${fMail} | ${fWeb}<br>Tel: ${fTel}</div></div><div class='topR'><img src='${jLogo}'><div style='font-size:10px;font-weight:900;margin-top:4px'>Tarih: ${tarih}</div></div></div><div class='titleCenter'>FİYAT TEKLİF FORMU</div><div class='musteriBox'><b>Musteri: ${must}</b> — Tel: ${mustTel}<br>Adres: ${mustAdres}</div><table><thead><tr><th>RENK</th><th>ÜRÜN</th><th>MİKTAR</th><th>BİRİM</th><th>TOPLAM</th></tr></thead><tbody>${rows}</tbody></table><div class='totals'><div class='box'><div class='row'><span>Ara Toplam</span><span>${fmtN(haric)}</span></div><div class='row'><span>KDV (%${kdv})</span><span>${fmtN(dahil-haric)}</span></div><div class='row total'><span>GENEL TOPLAM</span><span>${fmtN(dahil)}</span></div></div></div><div class='signRow'><div class='signBox'><b>Veren</b><br>${veren}${kaseHtml}<br>Kaşe / İmza</div><div class='signBox'><b>Onay</b><br>${must}<br><br><br>Kaşe / İmza</div></div>
-  <div class='no-print'><button onclick='window.print()' style='background:#012060;color:#fff'>🖨 YAZDIR / PDF</button><button id='waPdfBtn2' style='background:#25D366;color:#fff'>📄 WhatsApp PDF (Aynı Format)</button><button id='waYaziBtn2' style='background:#128C7E;color:#fff'>💬 WhatsApp Yazı</button><button onclick='window.close()' style='background:#eee;color:#333;border:1px solid #ccc'>KAPAT</button></div></div>
-  <script>
-  let sepet=JSON.parse(decodeURIComponent('${sepetJson}'));
-  let must='${must}'; let mustTel='${mustTel}'; let firma='${firma}'; let fAdres='${fAdres}'; let veren='${veren}'; let tarih='${tarih}'; let dahil=${dahil}; let haric=${haric}; let kdv=${kdv};
-  function fmtN(n){return new Intl.NumberFormat('tr-TR',{minimumFractionDigits:2,maximumFractionDigits:2}).format(n)+' TL'}
-  function getPdfData2(){let h=0,d=0; sepet.forEach(t=>{d+=t.kovaKdv*t.adet; h+=t.kovaTl*t.adet;}); return {firma:firma,fAdres:fAdres,must:must,mustTel:mustTel,mustAdres:'${mustAdres}',tarih:tarih,veren:veren,kdv:kdv,sepet:sepet,toplamHaric:h,toplamFark:d-h,toplamDahil:d};}
-  function buildProfessionalPdfDoc2(doc,data){
-    let y=10; doc.setFillColor(1,27,68); doc.rect(0,0,210,18,'F'); doc.setTextColor(255,255,255); doc.setFont('helvetica','bold'); doc.setFontSize(13); doc.text((data.firma||'TEKLIF').substring(0,38).toUpperCase(),10,11); doc.setFontSize(7); doc.setFont('helvetica','normal'); doc.text((data.fAdres||'').substring(0,80),10,15); doc.setFont('helvetica','bold'); doc.setFontSize(10); doc.setTextColor(255,204,0); doc.text('JOTUN',195,11,{align:'right'}); doc.setTextColor(255,255,255); doc.setFontSize(6); doc.setFont('helvetica','normal'); doc.text('Tarih: '+data.tarih,195,15,{align:'right'}); y=22; doc.setTextColor(0,0,0); doc.setFillColor(240,244,250); doc.setDrawColor(1,27,68); doc.rect(10,y,190,10,'FD'); doc.setFontSize(8); doc.setFont('helvetica','bold'); doc.text('Musteri: '+data.must+'   Tel: '+data.mustTel,12,y+4); doc.setFont('helvetica','normal'); doc.setFontSize(7); doc.text('Adres: '+(data.mustAdres||'-').substring(0,95),12,y+8); y+=14; doc.setFont('helvetica','bold'); doc.setFontSize(10); doc.text('FIYAT TEKLIF FORMU',105,y,{align:'center'}); y+=4; doc.setFillColor(1,27,68); doc.setTextColor(255,255,255); doc.rect(10,y,190,7,'F'); doc.setFontSize(7); doc.text('RENK',12,y+4.5); doc.text('URUN',28,y+4.5); doc.text('RAL',92,y+4.5); doc.text('MIKTAR',110,y+4.5); doc.text('BIRIM',135,y+4.5); doc.text('TOPLAM',175,y+4.5); y+=7; doc.setTextColor(0,0,0); doc.setFont('helvetica','normal'); doc.setFontSize(7.5); data.sepet.forEach(t=>{ if(y>265){doc.addPage(); y=12; doc.setFillColor(1,27,68); doc.setTextColor(255,255,255); doc.rect(10,y,190,7,'F'); doc.text('RENK',12,y+4.5); doc.text('URUN',28,y+4.5); doc.text('RAL',92,y+4.5); doc.text('MIKTAR',110,y+4.5); doc.text('BIRIM',135,y+4.5); doc.text('TOPLAM',175,y+4.5); y+=7; doc.setTextColor(0,0,0);} try{let hex=(t.hex||'#888888').replace('#',''); if(hex.length==3) hex=hex.split('').map(c=>c+c).join(''); let r=parseInt(hex.substr(0,2),16), g=parseInt(hex.substr(2,2),16), b=parseInt(hex.substr(4,2),16); doc.setFillColor(r,g,b); doc.setDrawColor(0,0,0); doc.rect(12,y,6,5,'FD');}catch(e){} doc.text(t.urun.substring(0,40),28,y+3.5); doc.text(String(t.ral||''),92,y+3.5); doc.text(t.adet+'x'+t.lt+'LT',110,y+3.5); doc.text(fmtN(t.kovaKdv||0),135,y+3.5); doc.setFont('helvetica','bold'); doc.text(fmtN(t.kovaKdv*t.adet),175,y+3.5); doc.setFont('helvetica','normal'); y+=7; doc.setDrawColor(220,220,220); doc.line(10,y-1,200,y-1); }); y+=2; let boxY=y; doc.setFillColor(255,255,255); doc.setDrawColor(1,27,68); doc.rect(120,boxY,80,20,'FD'); doc.setFontSize(8); doc.text('Ara Toplam:',122,boxY+5); doc.text(fmtN(data.toplamHaric),198,boxY+5,{align:'right'}); doc.text('KDV (%'+data.kdv+'): ',122,boxY+10); doc.text(fmtN(data.toplamFark),198,boxY+10,{align:'right'}); doc.setFillColor(1,27,68); doc.setTextColor(255,255,255); doc.rect(120,boxY+13,80,7,'F'); doc.setFont('helvetica','bold'); doc.text('GENEL TOPLAM:',122,boxY+17.5); doc.text(fmtN(data.toplamDahil),198,boxY+17.5,{align:'right'}); doc.setTextColor(0,0,0); y=boxY+28; doc.setFont('helvetica','normal'); doc.setFontSize(8); doc.text('Veren: '+(data.veren||''),15,y); doc.text('Onay: '+data.must,120,y); doc.line(10,y+2,90,y+2); doc.line(120,y+2,200,y+2); doc.setFontSize(6); doc.setTextColor(100,100,100); doc.text('Kase / Imza',40,y+6); doc.text('Kase / Imza',150,y+6); return doc;
-  }
-  document.getElementById('waYaziBtn2').addEventListener('click', function(){let detay=sepet.map(t=> '• '+t.urun.substring(0,28)+' RAL '+t.ral+' '+t.adet+' Adet = '+fmtN(t.kovaKdv*t.adet)).join('\\n');let mesaj='Merhaba '+must+',\\n\\n'+firma+' - Teklif:\\n'+detay+'\\n\\nTOPLAM: '+fmtN(dahil);let clean=mustTel.replace(/\\D/g,''); if(clean.startsWith('0')) clean='90'+clean.substring(1); if(clean.length==10) clean='90'+clean;window.open('https://api.whatsapp.com/send?phone='+clean+'&text='+encodeURIComponent(mesaj),'_blank');});
-  document.getElementById('waPdfBtn2').addEventListener('click', async function(){
-    const { jsPDF } = window.jspdf;
-    let doc=new jsPDF({orientation:'portrait',unit:'mm',format:'a4'});
-    let d=getPdfData2();
-    doc=buildProfessionalPdfDoc2(doc,d);
-    let fileName='Teklif-'+must+'-'+tarih+'.pdf';
-    let pdfBlob=doc.output('blob');
-    let clean=mustTel.replace(/\\D/g,''); if(clean.startsWith('0')) clean='90'+clean.substring(1); if(clean.length==10) clean='90'+clean;
-    if(navigator.canShare && navigator.canShare({files:[new File([pdfBlob],fileName,{type:'application/pdf'})]})){
-      try{ let file=new File([pdfBlob],fileName,{type:'application/pdf'}); await navigator.share({title:'Teklif - '+must,text:firma+' - Toplam: '+fmtN(dahil),files:[file]}); return; }catch(e){ return; }
-    }
-    doc.save(fileName);
-    setTimeout(()=>{ let detay=sepet.map(t=> '• '+t.urun.substring(0,28)+' RAL '+t.ral+' '+t.adet+' Adet = '+fmtN(t.kovaKdv*t.adet)).join('\\n'); let mesaj='Merhaba '+must+',\\n\\n'+firma+' Teklif PDF indirildi.\\n'+detay+'\\n\\nTOPLAM: '+fmtN(dahil); window.open('https://api.whatsapp.com/send?phone='+clean+'&text='+encodeURIComponent(mesaj),'_blank'); },600);
-  });
-  <\/script></div></body></html>`;
-  let w=window.open('','_blank');
-  w.document.write(h);
-  w.document.close();
+  return `<!DOCTYPE html><html lang='tr'><head><meta charset='UTF-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>Teklif - ${must}</title><script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"><\/script><style>*{box-sizing:border-box}body{font-family:Inter,Arial;margin:0;padding:0;color:#111;background:#f2f4f8}.page{width:100%;max-width:800px;margin:0 auto;background:#fff;padding:12px;box-shadow:0 2px 12px rgba(0,0,0,.1)}.top{display:flex;justify-content:space-between;gap:8px}.topL{width:60%}.topL img{height:32px;max-width:180px;object-fit:contain}.topLInfo{font-size:10px;margin-top:4px;line-height:1.3}.topR{width:35%;text-align:right}.topR img{height:26px}.titleCenter{text-align:center;margin:10px 0 6px 0;border-top:2px solid #012060;border-bottom:2px solid #012060;padding:6px 0;font-weight:900}.musteriBox{border:1px solid #012060;border-radius:6px;padding:8px 10px;font-size:11px;background:#f0f4fa}table{width:100%;border-collapse:collapse;margin-top:10px}th{background:#012060;color:#fff;padding:6px 4px;font-size:10px}td{padding:6px 4px;border-bottom:1px solid #ddd;font-size:10px}.totals{margin-top:10px;display:flex;justify-content:flex-end}.box{width:300px;border:1px solid #012060;border-radius:6px;overflow:hidden}.row{display:flex;justify-content:space-between;padding:6px 8px;border-bottom:1px solid #eee;font-size:11px}.row.total{background:#012060;color:#fff;font-weight:900}.signRow{margin-top:14px;display:grid;grid-template-columns:1fr 1fr;gap:16px}.signBox{border-top:1.5px solid #000;padding-top:6px;text-align:center;font-size:10px;min-height:110px}.no-print{display:flex;gap:8px;justify-content:center;margin-top:16px;flex-wrap:wrap;position:sticky;bottom:0;background:#fff;padding:10px;border-top:1px solid #ddd}.no-print button{padding:12px 18px;border:none;border-radius:8px;font-weight:900;cursor:pointer;font-size:12px;flex:1;max-width:200px}@media print{body{background:#fff}.page{box-shadow:none;max-width:100%;padding:6mm}.no-print{display:none !important} @page{size:A4 portrait;margin:8mm}}<\/style></head><body><div class='page' id='teklifSayfa'><div class='top'><div class='topL'>${logo?`<img src='${logo}' onerror="this.style.display='none'">`:''}<div class='topLInfo'><b>${firma}</b><br>${fAdres}<br>${fMail} | ${fWeb}<br>Tel: ${fTel}</div></div><div class='topR'><img src='${jLogo}'><div style='font-size:10px;font-weight:900;margin-top:4px'>Tarih: ${tarih}</div></div></div><div class='titleCenter'>FIYAT TEKLIF FORMU</div><div class='musteriBox'><b>Musteri: ${must}</b> - Tel: ${mustTel}<br>Adres: ${mustAdres}</div><table><thead><tr><th>RENK</th><th>URUN</th><th>MIKTAR</th><th>BIRIM</th><th>TOPLAM</th></tr></thead><tbody>${rows}</tbody></table><div class='totals'><div class='box'><div class='row'><span>Ara Toplam</span><span>${fmtN(haric)}</span></div><div class='row'><span>KDV (%${kdv})</span><span>${fmtN(dahil-haric)}</span></div><div class='row total'><span>GENEL TOPLAM</span><span>${fmtN(dahil)}</span></div></div></div><div class='signRow'><div class='signBox'><b>Veren</b><br>${veren}${kaseHtml}<br>Kase / Imza</div><div class='signBox'><b>Onay</b><br>${must}<br><br><br>Kase / Imza</div></div><div class='no-print'><button onclick='window.print()' style='background:#012060;color:#fff'>YAZDIR / PDF</button><button id='waPdfBtn2' style='background:#25D366;color:#fff'>WhatsApp PDF (Ayni Form)</button><button id='waYaziBtn2' style='background:#128C7E;color:#fff'>WhatsApp Yazi</button><button onclick='window.close()' style='background:#eee;color:#333;border:1px solid #ccc'>KAPAT</button></div></div><script>let sepet=JSON.parse(decodeURIComponent('${sepetJson}'));let must='${must}';let mustTel='${mustTel}';let firma='${firma}';let tarih='${tarih}';let dahil=${dahil};function fmtN2(n){return new Intl.NumberFormat('tr-TR',{minimumFractionDigits:2,maximumFractionDigits:2}).format(n)+' TL'}document.getElementById('waYaziBtn2').addEventListener('click', function(){let detay=sepet.map(t=> '• '+t.urun.substring(0,28)+' RAL '+t.ral+' '+t.adet+' Adet = '+fmtN2(t.kovaKdv*t.adet)).join('\\n');let mesaj='Merhaba '+must+',\\n\\n'+firma+' - Teklif:\\n'+detay+'\\n\\nTOPLAM: '+fmtN2(dahil);let clean=mustTel.replace(/\\D/g,''); if(clean.startsWith('0')) clean='90'+clean.substring(1); if(clean.length==10) clean='90'+clean;window.open('https://api.whatsapp.com/send?phone='+clean+'&text='+encodeURIComponent(mesaj),'_blank');});document.getElementById('waPdfBtn2').addEventListener('click', async function(){const { jsPDF } = window.jspdf;let doc=new jsPDF({orientation:'portrait',unit:'mm',format:'a4'});let el=document.getElementById('teklifSayfa');let btns=document.querySelector('.no-print'); if(btns) btns.style.display='none';await doc.html(el,{callback: async function(doc){let fileName='Teklif-'+must+'-'+tarih+'.pdf';let pdfBlob=doc.output('blob');let clean=mustTel.replace(/\\D/g,''); if(clean.startsWith('0')) clean='90'+clean.substring(1); if(clean.length==10) clean='90'+clean;if(btns) btns.style.display='flex';if(navigator.canShare && navigator.canShare({files:[new File([pdfBlob],fileName,{type:'application/pdf'})]})){try{let file=new File([pdfBlob],fileName,{type:'application/pdf'}); await navigator.share({title:'Teklif - '+must,text:firma+' - Toplam: '+fmtN2(dahil),files:[file]}); return;}catch(e){ if(e.name==='AbortError') return; }}doc.save(fileName);}, x:5, y:5, width:200, windowWidth:800});});<\/script></div></body></html>`;
 }
+function yazdir(){if(sepet.length===0){alert('Bos');return}let h=buildTeklifFormHTML();let w=window.open('','_blank');w.document.write(h);w.document.close();}
+async function waPdfGonder(){if(sepet.length===0){alert('Sepet bos');return}let tel=getEffectiveTel();if(!tel || tel.length<7){ alert('Once KISILER den musteri sec veya tel yaz.'); document.getElementById('musteriTel').focus(); return; }yazdir();}
+function renderSikKullanilan(arr){let extra=arr||JSON.parse(localStorage.getItem('jotun_kayitlar_extra')||'[]');let box=document.getElementById('sikBox'); let sayEl=document.getElementById('sikSay');if(sayEl) sayEl.innerText=extra.length;if(extra.length===0){box.innerHTML='<div style="font-size:10px;color:var(--text2);padding:6px">Henuz kayit yok</div>';return;}let list=extra.slice(0,160);let html=list.map((k,i)=>{let hex=getRalHex(k.ral_no); let txtColor=getContrast(hex);let livePrice=findExactPrice(k.product);let priceBadge = livePrice?('$'+livePrice):'$?';let shortProd=(k.product||'').split('(')[0].substring(0,10).trim();return `<div class='sikCard' onclick='selectSik(${i})'><button class='sikDel' onclick='event.stopPropagation();delSik(${i})' title='Sil'>X</button><div class='sikTop' style='background:${hex};color:${txtColor}'><div class='sikRal' style='color:${txtColor}'>${k.ral_no}</div><div style='font-size:7px;font-weight:800'>${priceBadge}</div></div><div class='sikBody' title='${k.product||''}'>${shortProd}</div></div>`;}).join('');box.innerHTML=html;}
+function selectSik(i){let extra=bulutCache.length>0?bulutCache:JSON.parse(localStorage.getItem('jotun_kayitlar_extra')||'[]');let k=extra[i];if(!k)return;tempRal=k.ral_no;document.getElementById('ralInput').value=k.ral_no;let r=ralList.find(x=>x.kod===k.ral_no);if(r){secHex=r.hex;secName=r.isim;let sw=document.getElementById('swatch');sw.style.background=r.hex;sw.innerText='RAL '+r.kod;sw.style.color=getContrast(r.hex);sw.classList.add('hasColor');sw.style.borderColor=r.hex;}let livePrice=findExactPrice(k.product);let idx=urunler.findIndex(u=>u[0].trim().toUpperCase()===(k.product||'').trim().toUpperCase());if(idx!==-1){if(livePrice!==null && livePrice>0) urunler[idx][1]=livePrice;selectUrun(idx);}else{if(livePrice===null || livePrice===0){let fam=urunler.filter(u=>norm(u[0])===norm(k.product) && u[1]>0);if(fam.length>0) livePrice=fam[0][1];}urunler.push([k.product,livePrice||0]);selectUrun(urunler.length-1);}document.getElementById('pigment').value=k.colorant_cost||'';document.getElementById('ralForm').value=k.formul||'';calc();window.scrollTo(0,0);}
+async function delSik(i){if(!confirm('Silinsin mi?')) return;let extra = JSON.parse(localStorage.getItem('jotun_kayitlar_extra')||'[]');let target = bulutCache[i];let targetKey = target ? (target.ral_no+'_'+target.product) : null;if(targetKey){ extra = extra.filter(x => (x.ral_no+'_'+x.product) !== targetKey); } else { extra.splice(i,1); }localStorage.setItem('jotun_kayitlar_extra', JSON.stringify(extra));if(target && target._id && !String(target._id).startsWith('local_')){ try{ await bulutDelete(target._id); }catch(e){} }bulutCache.splice(i,1);kayitlar = kayitlar.filter(x => targetKey ? (x.ral_no+'_'+x.product) !== targetKey : true);renderSikKullanilan(extra);}
+async function kaydet(){if(!son)return alert('Once sec');let k={ral_no:son.ral||tempRal,ral_isim:son.isim,product:son.urun,base_no:baseNo(son.urun)||'1',lt:son.lt,can_size:son.lt+'L',colorant_cost:document.getElementById('pigment').value||'0',formul:document.getElementById('ralForm').value||'',maliyet:document.getElementById('pigment').value||'0'};let existing=bulutCache.find(x=>String(x.ral_no)===String(k.ral_no)&&x.product===k.product);if(existing && existing._id && !String(existing._id).startsWith('local_')){ try{ await bulutDelete(existing._id); }catch(e){} }let ok=await bulutPost(k);let extra=JSON.parse(localStorage.getItem('jotun_kayitlar_extra')||'[]');extra=extra.filter(x=>!(String(x.ral_no)===String(k.ral_no)&&x.product===k.product));extra.push(k);localStorage.setItem('jotun_kayitlar_extra',JSON.stringify(extra));if(ok){await bulutYenile();}else{renderSikKullanilan(extra);}}
 loadAll();
 document.addEventListener('click',e=>{if(!e.target.closest('.rb') && !e.target.closest('#ralDrop')){let el=document.getElementById('ralDrop');if(el)el.style.display='none'}if(!e.target.closest('.sb') && !e.target.closest('#urunDrop') && !e.target.closest('#urunInput')){let u=document.getElementById('urunDrop');if(u)u.style.display='none'}});
 window.addEventListener('scroll',()=>{document.getElementById('ralDrop').style.display='none';document.getElementById('urunDrop').style.display='none';},{passive:true});
-if(window.matchMedia){window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change',()=>{if((ayar.tema||'light')==='auto') applyTheme()});}
 </script>
-<style>@keyframes spin{0%{transform:rotate(0)}100%{transform:rotate(360deg)}}</style>
-
 <script>
-(function(){
-  let inp=document.getElementById('ralInput'); if(!inp) return;
-  inp.addEventListener('keydown',function(e){
-    if(e.key==='Enter'){e.preventDefault(); if(ralEnter()) return;}
-    if(e.key==='ArrowDown'){e.preventDefault(); ralMove(1);}
-    if(e.key==='ArrowUp'){e.preventDefault(); ralMove(-1);}
-    if(e.key==='Escape'){document.getElementById('ralDrop').style.display='none';}
-  });
-  window.addEventListener('resize',function(){let d=document.getElementById('ralDrop'); if(d&&d.style.display==='block') placeRalDrop();});
-})();
+(function(){let inp=document.getElementById('ralInput'); if(!inp) return; inp.addEventListener('keydown',function(e){if(e.key==='Enter'){e.preventDefault(); if(ralEnter()) return;}if(e.key==='ArrowDown'){e.preventDefault(); ralMove(1);}if(e.key==='ArrowUp'){e.preventDefault(); ralMove(-1);}if(e.key==='Escape'){document.getElementById('ralDrop').style.display='none';}});})();
 </script>
-
-
 <script>
-(function(){
-  let p=document.getElementById('pigment'); if(!p) return;
-  function parseTR(v){let s=String(v||'').replace(/[^0-9,\.\-]/g,''); if(s.indexOf(',')>=0) s=s.replace(/\./g,'').replace(',','.'); let n=parseFloat(s); return isNaN(n)?0:n;}
-  p.addEventListener('blur',function(){let v=parseTR(p.value); if(v>0) p.value=new Intl.NumberFormat('tr-TR',{minimumFractionDigits:2,maximumFractionDigits:2}).format(v); else if(p.value.trim()==='') p.value='';});
-  // Kayittan gelen pigment de formatli gelsin
-  setTimeout(function(){let v=parseTR(p.value); if(v>0) p.value=new Intl.NumberFormat('tr-TR',{minimumFractionDigits:2,maximumFractionDigits:2}).format(v);},500);
-  p.addEventListener('focus',function(){let v=parseTR(p.value); if(v>0) p.value=String(v).replace('.',','); p.select();});
-})();
+(function(){let p=document.getElementById('pigment'); if(!p) return; function parseTR(v){let s=String(v||'').replace(/[^0-9,\.\-]/g,''); if(s.indexOf(',')>=0) s=s.replace(/\./g,'').replace(',','.'); let n=parseFloat(s); return isNaN(n)?0:n;} p.addEventListener('blur',function(){let v=parseTR(p.value); if(v>0) p.value=new Intl.NumberFormat('tr-TR',{minimumFractionDigits:2,maximumFractionDigits:2}).format(v); else if(p.value.trim()==='') p.value='';}); p.addEventListener('focus',function(){let v=parseTR(p.value); if(v>0) p.value=String(v).replace('.',','); p.select();});})();
 </script>
-
 </body></html>
- içine koy deneyelim
