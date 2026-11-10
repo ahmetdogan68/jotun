@@ -67,6 +67,8 @@
   {"ad": "JOTAMASTIC 80 COMP.A GREY (18 LT)", "fiyat": 0, "lt": 18, "kategori": "Epoxy Sonkat"},
   {"ad": "JOTAMASTIC 80 COMP.A RED (18 LT)", "fiyat": 0, "lt": 18, "kategori": "Epoxy Sonkat"},
   {"ad": "JOTAMASTIC 80 COMP.B (3 LT)", "fiyat": 0, "lt": 3, "kategori": "Epoxy Sonkat"},
+  {"ad": "JOTAMASTIC 85 COMP.A (18 LT)", "fiyat": 7.00, "lt": 18, "kategori": "Epoxy Sonkat"},
+  {"ad": "JOTAMASTIC 85 COMP.B (3 LT)", "fiyat": 0, "lt": 3, "kategori": "Epoxy Sonkat"},
   {"ad": "JOTAMASTIC 87 COMP.B (2.7 LT)", "fiyat": 0, "lt": 2.7, "kategori": "Epoxy Sonkat"},
   {"ad": "JOTAMASTIC 87 STD038 GRE A (16 LT)", "fiyat": 0, "lt": 16, "kategori": "Epoxy Sonkat"},
   {"ad": "JOTAMASTIC 87 WG COMP. B (4 LT)", "fiyat": 0, "lt": 4, "kategori": "Epoxy Sonkat"},
@@ -206,11 +208,11 @@
   {"ad": "TANKGUARD PLUS WHITE COMP.A (16 LT)", "fiyat": 0, "lt": 16, "kategori": "Tank Astarı"},
   {"ad": "TANKGUARD SPECIAL ULTRA COMP B (4 LT)", "fiyat": 0, "lt": 4, "kategori": "Tank Astarı"},
   {"ad": "TANKGUARD SPECIAL ULTRA LIGHT GREY COMP A (18 LT)", "fiyat": 0, "lt": 18, "kategori": "Tank Astarı"},
-  {"ad": "TANKGUARD STORAGE COMP.A (18 LT)", "fiyat": 0, "lt": 18, "kategori": "Tank Astarı"},
+  {"ad": "TANKGUARD STORAGE COMP.A (18 LT)", "fiyat": 10.00, "lt": 18, "kategori": "Tank Astarı"},
   {"ad": "TANKGUARD STORAGE COMP.B (4 LT)", "fiyat": 0, "lt": 4, "kategori": "Tank Astarı"},
   {"ad": "TANKGUARD STORAGE LIGHT GREY COMP.A (18 LT)", "fiyat": 0, "lt": 18, "kategori": "Tank Astarı"},
   {"ad": "BARRIER 65 COMP.A (7,2 LT)", "fiyat": 0, "lt": 7.2, "kategori": "Çinko Astar"},
   {"ad": "BARRIER 65 COMP.B (7,2 LT)", "fiyat": 0, "lt": 7.2, "kategori": "Çinko Astar"},
-  {"ad": "BARRIER 80 COMP.A (8 LT)", "fiyat": 0, "lt": 8, "kategori": "Çinko Astar"},
+  {"ad": "BARRIER 80 COMP.A (8 LT)", "fiyat": 20.00, "lt": 8, "kategori": "Çinko Astar"},
   {"ad": "BARRIER 80 COMP.B (8 LT)", "fiyat": 0, "lt": 8, "kategori": "Çinko Astar"}
 ]
