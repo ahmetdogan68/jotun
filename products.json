@@ -213,6 +213,6 @@
   {"ad": "TANKGUARD STORAGE LIGHT GREY COMP.A (18 LT)", "fiyat": 0, "lt": 18, "kategori": "Tank Astarı"},
   {"ad": "BARRIER 65 COMP.A (7,2 LT)", "fiyat": 0, "lt": 7.2, "kategori": "Çinko Astar"},
   {"ad": "BARRIER 65 COMP.B (7,2 LT)", "fiyat": 0, "lt": 7.2, "kategori": "Çinko Astar"},
-  {"ad": "BARRIER 80 COMP.A (8 LT)", "fiyat": 20.00, "lt": 8, "kategori": "Çinko Astar"},
-  {"ad": "BARRIER 80 COMP.B (8 LT)", "fiyat": 0, "lt": 8, "kategori": "Çinko Astar"}
+  {"ad": "BARRIER 80 COMP.A (10 LT)", "fiyat": 20.00, "lt": 8, "kategori": "Çinko Astar"},
+  {"ad": "BARRIER 80 COMP.B (3 LT)", "fiyat": 0, "lt": 8, "kategori": "Çinko Astar"}
 ]
