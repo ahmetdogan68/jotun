@@ -1,26 +1,5 @@
 [
-  {
-  "ral_no": "3020",
-  "ral_isim": "TRAFFIC RED",
-  "base_no": "3",
-  "product": "HARDTOP XP BASE 3 (18 LT)",
-  "formul": "RD164.8 AP119.3 RX003.8 - Jotun Formül",
-  "colorant_cost": "4176.63",
-  "maliyet": "4176.63",
-  "can_size": "18L",
-  "lt": 18
-},
-{
-  "ral_no": "3020",
-  "ral_isim": "TRAFFIC RED",
-  "base_no": "3",
-  "product": "HARDTOP XP BASE 3 (4.5 LT)",
-  "formul": "RD164.8 AP119.3 RX003.8 - Jotun Formül",
-  "colorant_cost": "1044.16",
-  "maliyet": "1044.16",
-  "can_size": "4.5L",
-  "lt": 4.5
-},
+
 
   {
   "ral_no": "9010",
@@ -34,52 +13,7 @@
   "lt": 18
 },
 
-  {
-  "ral_no": "9010",
-  "ral_isim": "REINWEISS",
-  "base_no": "1",
-  "product": "OPTIPRO UNIVERSAL TOPCOAT BASE 1 (18 LT)",
-  "formul": "WB002.2 YX001.7 - Jotun Formül",
-  "colorant_cost": "26.37",
-  "maliyet": "26.37",
-  "can_size": "18L",
-  "lt": 18
-},
 
-  {
-  "ral_no": "1013",
-  "ral_isim": "PERLWEISS",
-  "base_no": "1",
-  "product": "OPTIPRO UNIVERSAL TOPCOAT BASE 1 (18 LT)",
-  "formul": "WB012.5 YX012.1 PX000.3 - Jotun Formül",
-  "colorant_cost": "171.64",
-  "maliyet": "171.64",
-  "can_size": "18L",
-  "lt": 18
-},
-
-  {
-  "ral_no": "1013",
-  "ral_isim": "PERLWEISS",
-  "base_no": "1",
-  "product": "FUTURA CLASSIC BASE 1 (18 LT)",
-  "formul": "SB001 YX008.4 PX000.2 - Jotun Formül",
-  "colorant_cost": "74.68",
-  "maliyet": "74.68",
-  "can_size": "18L",
-  "lt": 18
-},
-{
-  "ral_no": "1013",
-  "ral_isim": "PERLWEISS",
-  "base_no": "1",
-  "product": "FUTURA CLASSIC BASE 1 (4.5 LT)",
-  "formul": "SB001 YX008.4 PX000.2 - Jotun Formül",
-  "colorant_cost": "18.67",
-  "maliyet": "18.67",
-  "can_size": "4.5L",
-  "lt": 4.5
-},
   {
   "ral_no": "9002",
   "ral_isim": "GREY WHITE",
@@ -92,40 +26,7 @@
   "lt": 18
 },
 
-  {
-  "ral_no": "9002",
-  "ral_isim": "GREY WHITE",
-  "base_no": "1",
-  "product": "OPTIPRO UNIVERSAL TOPCOAT BASE 1 (18 LT)",
-  "formul": "SB003 YX007.6 - Jotun Formül",
-  "colorant_cost": "83.24",
-  "maliyet": "83.24",
-  "can_size": "18L",
-  "lt": 18
-},
 
-  {
-  "ral_no": "9002",
-  "ral_isim": "GREY WHITE",
-  "base_no": "1",
-  "product": "FUTURA CLASSIC BASE 1 (18 LT)",
-  "formul": "SB002.7 YX004 - Jotun Formül",
-  "colorant_cost": "53.23",
-  "maliyet": "53.23",
-  "can_size": "18L",
-  "lt": 18
-},
-{
-  "ral_no": "9002",
-  "ral_isim": "GREY WHITE",
-  "base_no": "1",
-  "product": "FUTURA CLASSIC BASE 1 (4.5 LT)",
-  "formul": "SB002.7 YX004 - Jotun Formül",
-  "colorant_cost": "13.31",
-  "maliyet": "13.31",
-  "can_size": "4.5L",
-  "lt": 4.5
-},
   {
   "ral_no": "9002",
   "ral_isim": "GREY WHITE",
@@ -160,30 +61,6 @@
   "lt": 18
 },
 
-
-
-  {
-  "ral_no": "7016",
-  "ral_isim": "ANTHRACITE GREY",
-  "base_no": "3",
-  "product": "FUTURA CLASSIC BASE 3 (18 LT)",
-  "formul": "BL006.4 RX000.7 SB054.1 WT057.5 - Jotun Formül",
-  "colorant_cost": "1038.84",
-  "maliyet": "1038.84",
-  "can_size": "18L",
-  "lt": 18
-},
-{
-  "ral_no": "7016",
-  "ral_isim": "ANTHRACITE GREY",
-  "base_no": "3",
-  "product": "FUTURA CLASSIC BASE 3 (4.5 LT)",
-  "formul": "BL006.4 RX000.7 SB054.1 WT057.5 - Jotun Formül",
-  "colorant_cost": "259.71",
-  "maliyet": "259.71",
-  "can_size": "4.5L",
-  "lt": 4.5
-},
   {
   "ral_no": "7001",
   "ral_isim": "SILVER GREY",
@@ -307,17 +184,7 @@
   "can_size": "18L",
   "lt": 18
 },
-{
-  "ral_no": "9010",
-  "ral_isim": "PURE WHITE",
-  "base_no": "1",
-  "product": "FUTURA CLASSIC BASE 1 (4.5 LT)",
-  "formul": "WB001.9 YX001.1 - Jotun Formula",
-  "colorant_cost": "4.99",
-  "maliyet": "4.99",
-  "can_size": "4.5L",
-  "lt": 4.5
-},
+
   {
   "ral_no": "9016",
   "ral_isim": "TRAFFIC WHITE",
