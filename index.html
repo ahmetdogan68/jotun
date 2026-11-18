@@ -93,7 +93,7 @@ body{font-family:Inter,Arial;background:var(--bg);color:var(--text);overflow-x:h
 </div>
 <div id='ralDrop'></div><div class='drop' id='urunDrop'></div>
 <script>
-/* DUZELTME: Kayitlar SADECE jotun_kayitlar.json dan gelir. Bulut (crudcrud) ve telefon hafizasi (localStorage jotun_kayitlar_extra) artik kayit getirmiyor. */
+/* DUZELTME: Kayitlar SADECE jotun_kayitlar.json dan gelir. Bulut ve telefon hafizasi (localStorage jotun_kayitlar_extra) artik kayit getirmiyor. */
 let urunler=[],ralList=[],kayitlar=[],secKayit=[],amb=[{ad:'3.6L',lt:3.6},{ad:'4.5L',lt:4.5},{ad:'18L',lt:18},{ad:'20L',lt:20}];
 let ayar=JSON.parse(localStorage.getItem('jotun_ayarlar')||'{"kar":25,"kdv":20,"dolar":"49,7891","euro":"54,20","dolarTarih":"","euroTarih":"","firmaAdi":"","firmaLogo":"","firmaAdres":"","firmaMail":"","firmaWeb":"","telefon":"","firmaBanka":"","teklifVeren":"","kaseLogo":"","tema":"light"}');
 let secUrun=null,secAmb=2,secLT=18,secHex='#FFF',son=null,tempRal='',secName='',sepet=JSON.parse(localStorage.getItem('teklif_sepet')||'[]');let sonHesap={};let secCompPair=null;let bulutCache=[];let lastContactTel='';
