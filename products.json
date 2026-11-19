@@ -13,6 +13,8 @@
 {"ad": "Conseal T/U, Base 6 (18 LT)", "kategori": "Akrilik", "lt": 18, "kati_madde": 49, "karisim": "---", "inceltici": "7", "fiyat": 7.0},
 {"ad": "Conseal T/U, Base 6 (4.5 LT)", "kategori": "Akrilik", "lt": 4.5, "kati_madde": 49, "karisim": "---", "inceltici": "7", "fiyat": 8.0},
 {"ad": "Conseal T/U, RAL 9002 (20 LT)", "kategori": "Akrilik", "lt": 20, "kati_madde": 49, "karisim": "---", "inceltici": "7", "fiyat": 6.0},
+{"ad": "Pilot QD Primer, Red / Grey (5 LT)", "kategori": "Alkid", "lt": 5.0, "kati_madde": 56, "karisim": "---", "inceltici": "7", "fiyat": 4.20},
+{"ad": "Pilot QD Primer, Red / Grey (20 LT)", "kategori": "Alkid", "lt": 20.0, "kati_madde": 56, "karisim": "---", "inceltici": "7", "fiyat": 3.50},
 {"ad": "Pilot QD Topcoat, Base 1 (18 LT)", "kategori": "Alkid", "lt": 18, "kati_madde": 44, "karisim": "---", "inceltici": "7", "fiyat": 5.2},
 {"ad": "Pilot QD Topcoat, Base 2 (18 LT)", "kategori": "Alkid", "lt": 18, "kati_madde": 44, "karisim": "---", "inceltici": "7", "fiyat": 5.0},
 {"ad": "Pilot QD Topcoat, Base 3 (18 LT)", "kategori": "Alkid", "lt": 18, "kati_madde": 44, "karisim": "---", "inceltici": "7", "fiyat": 4.8},
@@ -81,8 +83,7 @@
 {"ad": "SeaMate M, Dark Red / Light Red (20 LT)", "kategori": "Anti-Fouling", "lt": 20.0, "kati_madde": 58, "karisim": "---", "inceltici": "7", "fiyat": 90.0},
 {"ad": "SeaMate NB, Dark Red / Light Red (20 LT)", "kategori": "Anti-Fouling", "lt": 20.0, "kati_madde": 58, "karisim": "---", "inceltici": "7", "fiyat": 97.2},
 {"ad": "SeaQuest Endura, Red (18.45 LT)", "kategori": "Anti-Fouling", "lt": 18.45, "kati_madde": 75, "karisim": "17 --- 0,7 --- 0,75", "inceltici": "7", "fiyat": 180.0},
-{"ad": "Pilot QD Primer, Red / Grey (5 LT)", "kategori": "Alkid", "lt": 5.0, "kati_madde": 56, "karisim": "---", "inceltici": "7", "fiyat": 16.0},
-{"ad": "Pilot QD Primer, Red / Grey (20 LT)", "kategori": "Alkid", "lt": 20.0, "kati_madde": 56, "karisim": "---", "inceltici": "7", "fiyat": 14.0},
+
 {"ad": "Alkydprimer, Red / Grey (20 LT)", "kategori": "Alkid", "lt": 20.0, "kati_madde": 52, "karisim": "---", "inceltici": "2", "fiyat": 15.1},
 {"ad": "Pilot II, Base 1 (2.7 LT)", "kategori": "Alkid", "lt": 2.7, "kati_madde": 48, "karisim": "---", "inceltici": "2", "fiyat": 20.5},
 {"ad": "Pilot II, Base 1 (4.5 LT)", "kategori": "Alkid", "lt": 4.5, "kati_madde": 48, "karisim": "---", "inceltici": "2", "fiyat": 18.2},
