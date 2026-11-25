@@ -1,4 +1,25 @@
-[
+[{
+  "ral_no": "6018",
+  "ral_isim": "YELLOW GREEN",
+  "base_no": "3",
+  "product": "CONSEAL TU BASE 3 (18 LT)",
+  "formul": "GR080.8 SB001.1 WT070.7 YS101 YX033.7 - Jotun Formül",
+  "colorant_cost": "4616.56",
+  "maliyet": "4616.56",
+  "can_size": "18L",
+  "lt": 18
+},
+{
+  "ral_no": "6018",
+  "ral_isim": "YELLOW GREEN",
+  "base_no": "3",
+  "product": "CONSEAL TU BASE 3 (4.5 LT)",
+  "formul": "GR080.8 SB001.1 WT070.7 YS101 YX033.7 - Jotun Formül",
+  "colorant_cost": "1154.14",
+  "maliyet": "1154.14",
+  "can_size": "4.5L",
+  "lt": 4.5
+},
   {
   "ral_no": "9005",
   "ral_isim": "JET BLACK",
