@@ -1,5 +1,19 @@
-[{
-  "ral_no": "6018",
+[
+  {
+  "ral_no": "7031",
+  "ral_isim": "BLUE GREY",
+  "base_no": "3",
+  "product": "PILOT QD TOPCOAT BASE 3 (18 LT)",
+  "formul": "BL005.4 SB022.9 WT107.1 - Jotun Formül",
+  "colorant_cost": "1190.75",
+  "maliyet": "1190.75",
+  "can_size": "18L",
+  "lt": 18
+},
+
+  
+  {
+    "ral_no": "6018",
   "ral_isim": "YELLOW GREEN",
   "base_no": "3",
   "product": "CONSEAL TU BASE 3 (18 LT)",
