@@ -1,4 +1,26 @@
 [ 
+{
+  "ral_no": "1023",
+  "ral_isim": "TRAFFIC YELLOW",
+  "base_no": "5",
+  "product": "HARDTOP AX BASE 5 (18 LT)",
+  "formul": "WB002.2 AP016 YX010 - Jotun Formül",
+  "colorant_cost": "344.67",
+  "maliyet": "344.67",
+  "can_size": "18L",
+  "lt": 18
+},
+{
+  "ral_no": "1023",
+  "ral_isim": "TRAFFIC YELLOW",
+  "base_no": "5",
+  "product": "HARDTOP AX BASE 5 (4.5 LT)",
+  "formul": "WB002.2 AP016 YX010 - Jotun Formül",
+  "colorant_cost": "86.17",
+  "maliyet": "86.17",
+  "can_size": "4.5L",
+  "lt": 4.5
+},
  {
   "ral_no": "7035",
   "ral_isim": "LIGHT GREY",
