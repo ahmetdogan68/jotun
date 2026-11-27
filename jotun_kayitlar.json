@@ -1,5 +1,27 @@
 [ 
   {
+  "ral_no": "6037",
+  "ral_isim": "PURE GREEN",
+  "base_no": "3",
+  "product": "HARDTOP AX BASE 3 (18 LT)",
+  "formul": "GB075.8 WT043.9 YS165.7 - Jotun Formül",
+  "colorant_cost": "5272.96",
+  "maliyet": "5272.96",
+  "can_size": "18L",
+  "lt": 18
+},
+{
+  "ral_no": "6037",
+  "ral_isim": "PURE GREEN",
+  "base_no": "3",
+  "product": "HARDTOP AX BASE 3 (4.5 LT)",
+  "formul": "GB075.8 WT043.9 YS165.7 - Jotun Formül",
+  "colorant_cost": "1318.24",
+  "maliyet": "1318.24",
+  "can_size": "4.5L",
+  "lt": 4.5
+},
+  {
   "ral_no": "1023",
   "ral_isim": "TRAFFIC YELLOW",
   "base_no": "5",
